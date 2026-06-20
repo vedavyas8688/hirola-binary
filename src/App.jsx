@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Amenities from "./pages/Amenities";
-import UnitPlans from "./pages/UnitPlans";
+import { UnitPlans } from "./pages/UnitPlans";
 import Gallery from "./pages/Gallery";
 import ProjectStatus from "./pages/ProjectStatus";
 import Location from "./pages/Location";
