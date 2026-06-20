@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import PageBanner from '../components/PageBanner'
+import PageBanner from '../components/Pagebanner'
 import ContactSection from '../components/Contactsection'
 import ContactUs from '../components/Contactus'
 import Footer from '../components/Fotter'

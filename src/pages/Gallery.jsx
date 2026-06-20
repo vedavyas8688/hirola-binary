@@ -1,11 +1,11 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import PageBanner from "../components/PageBanner";
+import PageBanner from "../components/Pagebanner";
 import GallerySec1 from "../components/GallerySec1";
 import GallerySec2 from "../components/GallerySec2";
 import ContactUs from "../components/Contactus";
 import Footer from "../components/Fotter";
-import banner3 from "../assets/images/banner3.jpg";
+import banner from "../assets/images/banner3.jpg";
 
 
 const Gallery = () => {

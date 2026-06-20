@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import PageBanner from "../components/PageBanner";
+import PageBanner from "../components/Pagebanner";
 import LocSection1 from "../components/LocSection1";
 import AddressSection from "../components/AddressSection";
 import ContactUs from "../components/Contactus";

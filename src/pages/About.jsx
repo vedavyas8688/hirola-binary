@@ -4,7 +4,7 @@ import ContactUs from "../components/Contactus";
 import FaqSection2 from "../components/Faqsection2";
 import Footer from "../components/Fotter";
 import Navbar from "../components/Navbar";
-import PageBanner from "../components/PageBanner";
+import PageBanner from "../components/Pagebanner";
 import banner3 from "../assets/images/banner3.jpg";
 
 export default function About() {

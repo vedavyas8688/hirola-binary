@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import PageBanner from "../components/PageBanner";
+import PageBanner from "../components/Pagebanner";
 import AmenitiesGallery from "../components/Amenitiesgallery";
 import AmenitiesList from "../components/Amenitieslist";
 import BrochureSection from "../components/Brochuresection";

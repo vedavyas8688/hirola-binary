@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import PageBanner from "../components/PageBanner";
+import PageBanner from "../components/Pagebanner";
 import DesignPhilosophySection from "../components/Designphilosophysection";
 import FloorPlanSection from "../components/FloorPlanSection";
 import PricingSection from "../components/Pricingsection";

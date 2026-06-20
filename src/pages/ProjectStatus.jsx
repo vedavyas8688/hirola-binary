@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import PageBanner from "../components/PageBanner";
+import PageBanner from "../components/Pagebanner";
 import TimelineProgressSection from "../components/TimelineProgressSection";
 import ContactUs from "../components/Contactus";
 import Footer from "../components/Fotter";
