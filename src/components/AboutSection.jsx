@@ -1,4 +1,5 @@
 import { aboutImages, aboutContent } from "../data/siteData";
+import Reveal from "../components/Reveal";
 
 export default function AboutSection() {
   return (
@@ -15,7 +16,7 @@ export default function AboutSection() {
         <div className="grid gap-8 xl:gap-16 lg:grid-cols-2 items-center">
 
           {/* ── Left: Three staggered image panels ── */}
-          <div className="relative order-2 lg:order-1">
+          <Reveal variant="left" className="relative order-2 lg:order-1">
             <div className="flex gap-4 md:gap-6 justify-center items-end">
 
               {/* Panel 1 — left */}
@@ -52,10 +53,14 @@ export default function AboutSection() {
               />
 
             </div>
-          </div>
+          </Reveal>
 
           {/* ── Right: Text content ── */}
-          <div className="space-y-5 animate-fade-in order-1 lg:order-2 lg:pl-0">
+          <Reveal
+            variant="right"
+            delay={150}
+            className="space-y-5 order-1 lg:order-2 lg:pl-0"
+          >
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal leading-relaxed">
               <span className="text-luxury-gold">{aboutContent.titleGold}</span>
               <br />
@@ -67,7 +72,7 @@ export default function AboutSection() {
             <p className="font-sans text-base md:text-lg text-muted-sage leading-relaxed">
               {aboutContent.description}
             </p>
-          </div>
+          </Reveal>
 
         </div>
       </div>
