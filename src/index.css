@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+/* ============================================================
+   DESIGN TOKENS — Single source of truth
+   All colors, gradients, fonts come from here.
+   To change any color across the entire app, edit only here.
+   ============================================================ */
+
+@theme {
+  /* ── Greens ── */
+  --color-luxury-green:      hsl(160 60% 12%);   /* #0C3125 — primary brand */
+  --color-luxury-green-dark: hsl(160 70% 8%);    /* #062319 */
+  --color-primary-green:     hsl(160 70% 15%);   /* #0B412F — buttons/sections */
+  --color-foreground-green:  hsl(160 70% 10%);   /* #082B1F — text/foreground */
+  --color-muted-sage:        hsl(160 30% 40%);   /* #478570 — muted text */
+
+  /* ── Golds ── */
+  --color-luxury-gold:       hsl(42 55% 65%);    /* #D7B975 — main accent */
+  --color-bright-gold:       hsl(45 80% 55%);    /* #E8BA30 — bright accent */
+
+  /* ── Creams / Neutrals ── */
+  --color-bg-cream:          hsl(45 50% 96%);    /* #FAF7F0 — page background */
+  --color-luxury-cream:      hsl(45 60% 88%);    /* #F3EACE — secondary */
+  --color-muted-panel:       hsl(45 40% 90%);    /* #F0EBDB */
+  --color-cream-text:        hsl(45 60% 95%);    /* #FAF6EB — text on green */
+  --color-card-white:        #ffffff;
+  --color-border:            hsl(45 30% 85%);    /* #E0D8C7 — borders/inputs */
+
+  /* ── Gradients (used via CSS vars in inline styles) ── */
+  /* Gold:  linear-gradient(135deg, #E8BA30, #ECC96A) */
+  /* Green: linear-gradient(180deg, #0B412F, #082B1F) */
+
+  /* ── Typography ── */
+  --font-serif: "Playfair Display", serif;   /* headings h1–h6 */
+  --font-sans:  "Poppins", sans-serif;       /* body text, p */
+  --font-base:  "Montserrat", sans-serif;    /* base UI / html */
+
+  /* ── Legacy aliases kept for backward compat ── */
+  --color-luxury-greenDark:  hsl(160 70% 8%);
+  --radius-pill: 9999px;
+}
+
+/* ── CSS custom properties (for use in inline styles / non-Tailwind places) ── */
+:root {
+  /* Greens */
+  --clr-green:          #0C3125;
+  --clr-green-dark:     #062319;
+  --clr-primary-green:  #0B412F;
+  --clr-fg-green:       #082B1F;
+  --clr-sage:           #478570;
+
+  /* Golds */
+  --clr-gold:           #D7B975;
+  --clr-gold-bright:    #E8BA30;
+
+  /* Creams */
+  --clr-bg-cream:       #FAF7F0;
+  --clr-cream:          #F3EACE;
+  --clr-panel:          #F0EBDB;
+  --clr-cream-text:     #FAF6EB;
+  --clr-white:          #ffffff;
+  --clr-border:         #E0D8C7;
+
+  /* Gradients */
+  --grad-gold:  linear-gradient(135deg, #E8BA30, #ECC96A);
+  --grad-green: linear-gradient(180deg, #0B412F, #082B1F);
+}
+
+.section-primary-bg {
+  background: #082B1F;
+}
+
+/* ── Base styles ── */
+html {
+  font-family: var(--font-base), "Montserrat", sans-serif;
+  background-color: var(--clr-bg-cream);
+  color: var(--clr-fg-green);
+}
+
+body {
+  font-family: var(--font-sans), "Poppins", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6,
+.font-serif {
+  font-family: var(--font-serif), "Playfair Display", serif;
+}
+
+.font-sans {
+  font-family: var(--font-sans), "Poppins", sans-serif;
+}
