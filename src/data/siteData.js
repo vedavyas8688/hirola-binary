@@ -94,22 +94,23 @@ export const unitPlans = [
   },
 ];
 
+ 
 import thirteen from "../assets/images/13.jpg";
 import fourteen from "../assets/images/14.jpg";
 import fifteen from "../assets/images/15.jpg";
 
 export const galleryCategories = [
   {
-    label: "",
+    label: "Interiors",
     image:thirteen ,
   },
   {
-    label: "",
+    label: "Exteriors",
     image:
        fourteen,
   },
   {
-    label: "",
+    label: "Amenities",
     image:
        fifteen,
   },

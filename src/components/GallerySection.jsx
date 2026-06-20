@@ -41,10 +41,10 @@ export default function GallerySection() {
                 <div className="relative">
                   {/* Number + label */}
                   <div className="flex items-end gap-2 mb-2 select-none">
-                    <span className="font-serif text-7xl leading-none text-luxury-green/20">
+                    <span className="font-serif text-7xl leading-none text-luxury-gold/20">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="font-sans text-sm text-luxury-green pb-1">
+                    <span className="font-sans text-xs uppercase tracking-[0.22em] text-luxury-gold pb-1.5">
                       {item.label}
                     </span>
                   </div>
@@ -89,10 +89,10 @@ export default function GallerySection() {
             >
               {/* Number + label */}
               <div className="flex items-end gap-2 mb-3 select-none">
-                <span className="font-serif text-8xl leading-none text-luxury-green/20">
+                <span className="font-serif text-8xl leading-none text-luxury-gold/20">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="font-sans text-base text-luxury-green pb-2">
+                <span className="font-sans text-sm uppercase tracking-[0.25em] text-luxury-gold pb-2.5">
                   {item.label}
                 </span>
               </div>
