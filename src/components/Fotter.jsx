@@ -21,15 +21,29 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-luxury-green-dark text-white">
+    <footer className="relative overflow-hidden bg-luxury-green-dark text-white">
+
+      {/* Top gold hairline */}
       <div
         className="h-[2px] w-full"
-        style={{ background: "linear-gradient(90deg, hsl(42 55% 65%) 0%, transparent 100%)" }}
+        style={{
+          background:
+            "linear-gradient(90deg, transparent, hsl(42 55% 65%), transparent)",
+        }}
       />
 
-      <div className="mx-auto w-full max-w-[1400px] px-4 md:px-8 pt-16 pb-12">
+      {/* ── Background watermark — brighter than file 1 ── */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute -bottom-4 md:-bottom-8 left-1/2 -translate-x-1/2 font-serif leading-none whitespace-nowrap text-[20vw] text-luxury-gold/[0.300]"
+      >
+        Binary
+      </span>
+
+      <div className="relative mx-auto w-full max-w-[1400px] px-4 md:px-8 pt-16 pb-12">
         <div className="grid gap-12 md:grid-cols-[1.8fr_1fr_1fr]">
-          {/* Brand */}
+
+          {/* ── Brand ── */}
           <div className="space-y-6">
             <img
               src={logoLeft}
@@ -38,9 +52,9 @@ export default function Footer() {
             />
 
             <p className="font-sans text-sm leading-relaxed text-white/60 max-w-xs">
-              Ultra-luxury 2 & 3 BHK living on Sarjapur Road by Binary Ventures
-              — 80% open space, only 6 apartments per floor and homes with no
-              common walls.
+              Ultra-luxury 2 &amp; 3 BHK living on Sarjapur Road by Binary
+              Ventures — 80% open space, only 6 apartments per floor and homes
+              with no common walls.
             </p>
 
             <div className="flex items-center gap-4">
@@ -50,6 +64,7 @@ export default function Footer() {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={label}
                   className="w-10 h-10 rounded-full border border-luxury-gold/40 flex items-center justify-center hover:border-luxury-gold hover:bg-luxury-gold/10 transition-all duration-300"
                 >
                   <Icon size={16} className="text-luxury-gold" />
@@ -65,14 +80,12 @@ export default function Footer() {
             </a>
           </div>
 
-          {/* Explore */}
+          {/* ── Explore ── */}
           <div>
             <h4 className="font-serif text-lg text-luxury-gold mb-1">
               Explore
             </h4>
-
             <div className="h-px w-10 bg-luxury-gold/40 mb-5" />
-
             <ul className="space-y-3">
               {navLinks.map(({ label, href }) => (
                 <li key={href}>
@@ -91,20 +104,15 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* ── Find Us ── */}
           <div>
             <h4 className="font-serif text-lg text-luxury-gold mb-1">
               Find Us
             </h4>
-
             <div className="h-px w-10 bg-luxury-gold/40 mb-5" />
-
             <div className="space-y-6">
               <div className="flex items-start gap-3">
-                <MapPin
-                  size={18}
-                  className="text-luxury-gold mt-1 shrink-0"
-                />
+                <MapPin size={18} className="text-luxury-gold mt-1 shrink-0" />
                 <div className="font-sans text-sm text-white/60 leading-relaxed">
                   <p>Chambenahalli,</p>
                   <p>Sarjapur Road,</p>
@@ -129,32 +137,33 @@ export default function Footer() {
               </a>
             </div>
           </div>
+
         </div>
       </div>
 
-      <div className="border-t border-white/10" />
-
-      <div className="mx-auto w-full max-w-[1400px] px-4 md:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <span className="font-sans text-xs text-white/40">
-          © 2026 Binary Ventures. All rights reserved.
-        </span>
-
-        <div className="flex items-center gap-6">
-          <a
-            href="/privacy-policy"
-            className="font-sans text-xs text-white/40 hover:text-luxury-gold transition-colors"
-          >
-            Privacy Policy
-          </a>
-
-          <a
-            href="/terms-of-use"
-            className="font-sans text-xs text-white/40 hover:text-luxury-gold transition-colors"
-          >
-            Terms of Use
-          </a>
+      {/* ── Bottom bar ── */}
+      <div className="relative border-t border-white/10">
+        <div className="mx-auto w-full max-w-[1400px] px-4 md:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <span className="font-sans text-xs text-white/40">
+            © 2026 Binary Ventures. All rights reserved.
+          </span>
+          <div className="flex items-center gap-6">
+            <a
+              href="/privacy-policy"
+              className="font-sans text-xs text-white/40 hover:text-luxury-gold transition-colors"
+            >
+              Privacy Policy
+            </a>
+            <a
+              href="/terms-of-use"
+              className="font-sans text-xs text-white/40 hover:text-luxury-gold transition-colors"
+            >
+              Terms of Use
+            </a>
+          </div>
         </div>
       </div>
+
     </footer>
   );
 }

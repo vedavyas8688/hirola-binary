@@ -1,20 +1,12 @@
 import { useState } from "react";
-import { FaTimes } from "react-icons/fa";
+import { X, Check } from "lucide-react";
+import logoLeft from "../assets/images/logo-left.svg";
 
 export default function EnquireModal({ isOpen, onClose }) {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
+  const [countryCode, setCountryCode] = useState("+91");
   const [submitted, setSubmitted] = useState(false);
 
   if (!isOpen) return null;
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,143 +15,269 @@ export default function EnquireModal({ isOpen, onClose }) {
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
-      {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+        className="absolute inset-0 backdrop-blur-xl"
+        style={{ background: "rgba(4,12,6,0.92)" }}
         onClick={onClose}
       />
 
-      {/* Modal box */}
-      <div className="relative z-10 w-full max-w-lg bg-luxury-green-dark border border-luxury-gold/30 rounded-2xl shadow-2xl overflow-hidden">
+      <div
+        className="relative z-10 w-full overflow-hidden flex"
+        style={{
+          maxWidth: "780px",
+          borderRadius: "20px",
+          boxShadow: "0 50px 120px rgba(0,0,0,0.8), 0 0 0 1px rgba(201,168,76,0.2)",
+        }}
+      >
+        {/* ── Left panel — dark green ── */}
+        <div
+          className="hidden md:flex flex-col justify-between w-[260px] shrink-0 px-8 py-9 relative overflow-hidden"
+          style={{
+            background: "linear-gradient(160deg, #1a3a22 0%, #0d2016 50%, #081510 100%)",
+            borderRight: "1px solid rgba(201,168,76,0.15)",
+          }}
+        >
+          <div
+            className="absolute inset-0 opacity-5"
+            style={{
+              backgroundImage: `radial-gradient(circle at 1px 1px, rgba(201,168,76,0.8) 1px, transparent 0)`,
+              backgroundSize: "24px 24px",
+            }}
+          />
+          <div
+            className="absolute bottom-0 left-0 w-48 h-48 rounded-full pointer-events-none"
+            style={{
+              background: "radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%)",
+              transform: "translate(-30%, 30%)",
+            }}
+          />
 
-        {/* Header */}
-        <div className="flex items-center justify-between px-6 py-5 border-b border-luxury-gold/20">
-          <div>
-            <h2 className="font-serif text-xl md:text-2xl text-luxury-gold tracking-wide">
-              Enquire Now
-            </h2>
-            <p className="font-sans text-xs text-white/50 mt-0.5">
-              Our team will get back to you within 24 hours
-            </p>
+          <div className="relative z-10 flex flex-col h-full justify-between">
+            <div>
+              <img src={logoLeft} alt="Logo" className="h-10 mb-8 opacity-90" />
+              <p className="font-sans text-[10px] tracking-[0.4em] uppercase mb-3"
+                style={{ color: "rgba(201,168,76,0.5)" }}>
+                Sarjapur Road · Bengaluru
+              </p>
+              <h2 className="font-serif text-2xl leading-snug mb-6" style={{ color: "#f0e6cc" }}>
+                Where Luxury<br />
+                <span style={{ color: "#c9a84c" }}>Meets Life</span>
+              </h2>
+              <div className="h-px w-10 mb-6" style={{ background: "rgba(201,168,76,0.4)" }} />
+              <p className="font-sans text-xs leading-relaxed" style={{ color: "rgba(240,230,204,0.4)" }}>
+                Ultra-luxury 2 &amp; 3 BHK residences with 80% open space and no common walls.
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-4">
+              {[
+                { value: "2 & 3 BHK", label: "Configurations" },
+                { value: "1296+ sq.ft", label: "Starting Size" },
+                { value: "Q4 2026", label: "Possession" },
+              ].map((s) => (
+                <div key={s.label}>
+                  <p className="font-serif text-base" style={{ color: "#c9a84c" }}>{s.value}</p>
+                  <p className="font-sans text-[10px] uppercase tracking-widest mt-0.5"
+                    style={{ color: "rgba(240,230,204,0.3)" }}>{s.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
-          <button
-            onClick={onClose}
-            className="text-white/50 hover:text-luxury-gold transition-colors"
-          >
-            <FaTimes className="text-xl" />
-          </button>
         </div>
 
-        {/* Body */}
-        <div className="px-6 py-6">
+        {/* ── Right panel — gold bg, green text ── */}
+        <div
+          className="flex-1 flex flex-col relative overflow-hidden"
+          style={{ background: "var(--color-luxury-gold)" }}
+        >
+          {/* Sheen */}
+          <div
+            className="absolute top-0 left-0 right-0 h-28 pointer-events-none"
+            style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.15) 0%, transparent 100%)" }}
+          />
+          <div
+            className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none"
+            style={{ background: "linear-gradient(0deg, rgba(0,0,0,0.08) 0%, transparent 100%)" }}
+          />
+
           {submitted ? (
-            <div className="text-center py-10 flex flex-col items-center gap-4">
-              <div className="w-16 h-16 rounded-full bg-luxury-gold/10 border-2 border-luxury-gold flex items-center justify-center text-luxury-gold text-3xl">
-                ✓
+            <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-10 py-14 gap-6">
+              <div
+                className="w-20 h-20 rounded-full flex items-center justify-center"
+                style={{
+                  border: "2px solid rgba(8,21,16,0.25)",
+                  background: "rgba(8,21,16,0.1)",
+                }}
+              >
+                <Check className="w-9 h-9" style={{ color: "#081510" }} strokeWidth={2} />
               </div>
-              <h3 className="font-serif text-xl text-luxury-gold">
-                Thank You!
-              </h3>
-              <p className="font-sans text-sm text-white/60 max-w-xs">
-                We've received your enquiry. Our team will reach out to you
-                shortly.
-              </p>
+              <div>
+                <p className="font-sans text-[10px] tracking-[0.4em] uppercase mb-2"
+                  style={{ color: "rgba(8,21,16,0.45)" }}>Received</p>
+                <h3 className="font-serif text-3xl mb-3" style={{ color: "#081510" }}>Thank You</h3>
+                <p className="font-sans text-sm leading-relaxed" style={{ color: "rgba(8,21,16,0.55)" }}>
+                  Our team will reach out with a personalised offer within 24 hours.
+                </p>
+              </div>
               <button
                 onClick={onClose}
-                className="mt-2 px-8 py-2.5 border border-luxury-gold text-luxury-gold text-xs tracking-widest uppercase rounded-full hover:bg-luxury-gold hover:text-luxury-green-dark transition-all duration-200"
+                className="px-10 py-3 rounded-full font-sans text-xs tracking-[0.25em] uppercase transition-all duration-300"
+                style={{
+                  border: "1px solid rgba(8,21,16,0.25)",
+                  color: "#081510",
+                  background: "rgba(8,21,16,0.08)",
+                }}
               >
                 Close
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="relative z-10 flex-1 px-8 pt-7 pb-8 flex flex-col">
 
-              {/* Name */}
-              <div>
-                <label className="block font-sans text-xs text-white/60 mb-1.5 tracking-wide uppercase">
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  value={form.name}
-                  onChange={handleChange}
-                  placeholder="Enter your full name"
-                  className="w-full bg-white/5 border border-white/15 rounded-lg px-4 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-luxury-gold/60 transition-colors"
-                />
+              {/* Header */}
+              <div className="flex items-start justify-between mb-6">
+                <div>
+                  <p className="font-sans text-[10px] tracking-[0.4em] uppercase mb-1.5"
+                    style={{ color: "rgba(8,21,16,0.45)" }}>
+                    Limited Units Available
+                  </p>
+                  <h3 className="font-serif text-xl" style={{ color: "#081510" }}>
+                    Request a Callback
+                  </h3>
+                </div>
+                <button
+                  onClick={onClose}
+                  className="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 shrink-0 mt-0.5"
+                  style={{
+                    border: "1px solid rgba(8,21,16,0.18)",
+                    color: "rgba(8,21,16,0.5)",
+                    background: "rgba(8,21,16,0.06)",
+                  }}
+                >
+                  <X className="w-3.5 h-3.5" />
+                </button>
               </div>
 
-              {/* Email */}
-              <div>
-                <label className="block font-sans text-xs text-white/60 mb-1.5 tracking-wide uppercase">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  value={form.email}
-                  onChange={handleChange}
-                  placeholder="your@email.com"
-                  className="w-full bg-white/5 border border-white/15 rounded-lg px-4 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-luxury-gold/60 transition-colors"
-                />
-              </div>
+              {/* Form */}
+              <form onSubmit={handleSubmit} className="flex flex-col gap-2.5 flex-1">
 
-              {/* Phone */}
-              <div>
-                <label className="block font-sans text-xs text-white/60 mb-1.5 tracking-wide uppercase">
-                  Phone Number *
-                </label>
+                <input type="text" required placeholder="Full Name" autoComplete="off" />
+                <input type="email" required placeholder="Email Address" autoComplete="off" />
+
                 <div className="flex gap-2">
-                  <select className="bg-white/5 border border-white/15 rounded-lg px-3 py-3 text-sm text-white focus:outline-none focus:border-luxury-gold/60 transition-colors">
-                    <option value="+91" className="bg-luxury-green-dark">🇮🇳 +91</option>
-                    <option value="+1"  className="bg-luxury-green-dark">🇺🇸 +1</option>
-                    <option value="+44" className="bg-luxury-green-dark">🇬🇧 +44</option>
-                    <option value="+65" className="bg-luxury-green-dark">🇸🇬 +65</option>
+                  <select
+                    value={countryCode}
+                    onChange={(e) => setCountryCode(e.target.value)}
+                    style={{ width: "86px", flexShrink: 0 }}
+                  >
+                    <option value="+91">🇮🇳 +91</option>
+                    <option value="+1">🇺🇸 +1</option>
+                    <option value="+44">🇬🇧 +44</option>
+                    <option value="+971">🇦🇪 +971</option>
+                    <option value="+965">🇰🇼 +965</option>
                   </select>
                   <input
                     type="tel"
-                    name="phone"
                     required
-                    value={form.phone}
-                    onChange={handleChange}
-                    placeholder="Phone number"
-                    className="flex-1 bg-white/5 border border-white/15 rounded-lg px-4 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-luxury-gold/60 transition-colors"
+                    placeholder="Phone Number"
+                    inputMode="numeric"
+                    maxLength={15}
+                    autoComplete="off"
+                    onInput={(e) => {
+                      e.currentTarget.value = e.currentTarget.value.replace(/\D/g, "");
+                    }}
+                    style={{ flex: 1, width: "auto" }}
                   />
                 </div>
-              </div>
 
-              {/* Message */}
-              <div>
-                <label className="block font-sans text-xs text-white/60 mb-1.5 tracking-wide uppercase">
-                  Message (Optional)
-                </label>
-                <textarea
-                  name="message"
-                  rows={3}
-                  value={form.message}
-                  onChange={handleChange}
-                  placeholder="Tell us what you're looking for..."
-                  className="w-full bg-white/5 border border-white/15 rounded-lg px-4 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-luxury-gold/60 transition-colors resize-none"
-                />
-              </div>
+                <div className="grid grid-cols-2 gap-2">
+                  <select required>
+                    <option value="" disabled selected>Unit Type</option>
+                    <option value="2bhk">2 BHK</option>
+                    <option value="3bhk">3 BHK</option>
+                    <option value="penthouse">Penthouse</option>
+                  </select>
+                  <select required>
+                    <option value="" disabled selected>Budget</option>
+                    <option value="75-1cr">₹75L – ₹1Cr</option>
+                    <option value="1-1.5cr">₹1 – ₹1.5Cr</option>
+                    <option value="1.5-2cr">₹1.5 – ₹2Cr</option>
+                    <option value="2cr+">₹2Cr+</option>
+                  </select>
+                </div>
 
-              {/* Submit */}
-              <button
-                type="submit"
-                className="w-full py-3.5 bg-luxury-gold text-luxury-green-dark font-sans font-semibold text-sm tracking-widest uppercase rounded-full hover:bg-luxury-gold/90 transition-all duration-200 mt-2"
-              >
-                Submit Enquiry
-              </button>
+                {/* CTA — dark green bg, gold text */}
+                <button
+                  type="submit"
+                  className="mt-auto pt-3 w-full rounded-full py-4 font-sans font-semibold text-xs tracking-[0.3em] uppercase transition-all duration-300 group"
+                  style={{
+                    background: "linear-gradient(135deg, #081510 0%, #0d2016 100%)",
+                    color: "var(--color-luxury-gold)",
+                    boxShadow: "0 8px 24px rgba(8,21,16,0.3)",
+                  }}
+                >
+                  <span className="flex items-center justify-center gap-2">
+                    Request a Callback
+                    <span className="transition-transform duration-300 group-hover:translate-x-1 text-sm">→</span>
+                  </span>
+                </button>
 
-              <p className="text-center text-xs text-white/30 mt-2">
-                Your information is safe with us. No spam, ever.
-              </p>
-            </form>
+                <div className="flex items-center gap-3 mt-1">
+                  <div className="flex-1 h-px" style={{ background: "rgba(8,21,16,0.15)" }} />
+                  <p className="font-sans text-[10px] tracking-[0.2em] uppercase"
+                    style={{ color: "rgba(8,21,16,0.35)" }}>
+                    100% Confidential
+                  </p>
+                  <div className="flex-1 h-px" style={{ background: "rgba(8,21,16,0.15)" }} />
+                </div>
+
+              </form>
+            </div>
           )}
         </div>
       </div>
+
+      <style>{`
+        .fixed form input,
+        .fixed form select {
+          width: 100%;
+          border-radius: 9999px;
+          background: rgba(8,21,16,0.08);
+          border: 1px solid rgba(8,21,16,0.18);
+          color: #081510;
+          padding: 11px 16px;
+          font-size: 0.8125rem;
+          font-family: inherit;
+          outline: none;
+          transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+          appearance: none;
+          -webkit-appearance: none;
+        }
+        .fixed form input::placeholder {
+          color: rgba(8,21,16,0.35);
+        }
+        .fixed form input:focus,
+        .fixed form select:focus {
+          border-color: rgba(8,21,16,0.4);
+          background: rgba(8,21,16,0.13);
+          box-shadow: 0 0 0 3px rgba(8,21,16,0.07);
+        }
+        .fixed form select {
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23081510' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: right 12px center;
+          padding-right: 30px;
+          color: rgba(8,21,16,0.35);
+          cursor: pointer;
+        }
+        .fixed form select:valid {
+          color: rgba(8,21,16,0.85);
+        }
+        .fixed form select option {
+          background: #f5e6c0;
+          color: #081510;
+        }
+      `}</style>
     </div>
   );
 }

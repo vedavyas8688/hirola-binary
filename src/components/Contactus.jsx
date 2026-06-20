@@ -37,7 +37,6 @@ export default function ContactUs() {
               </h2>
             </div>
 
- 
             <p className="font-sans text-sm md:text-base text-cream-text/60 leading-relaxed max-w-sm">
               Premium residences on Sarjapur Road. Share your details and our
               team will craft a personalised offer just for you.
@@ -89,7 +88,8 @@ export default function ContactUs() {
           <div
             className="rounded-3xl p-6 md:p-8 border border-luxury-gold/20"
             style={{
-              background: "color-mix(in srgb, var(--clr-white) 5%, transparent)",
+              background:
+                "color-mix(in srgb, var(--clr-white) 5%, transparent)",
               backdropFilter: "blur(12px)",
             }}
           >
@@ -106,12 +106,16 @@ export default function ContactUs() {
                 <select
                   aria-label="Country code"
                   className="text-luxury-gold"
-                  style={{ width: "110px", flexShrink: 0, color: "var(--clr-gold)" }}
+                  style={{
+                    width: "110px",
+                    flexShrink: 0,
+                    color: "var(--clr-gold)",
+                  }}
                 >
                   <option value="+91">🇮🇳 +91</option>
                   <option value="+1">🇺🇸 +1</option>
-                  <option value="+44">🇬🇧 +44</option>
-                  <option value="+65">🇸🇬 +65</option>
+                  <option value="+965">🇰🇼 Kuwait (+965)</option>
+                  <option value="+971">🇦🇪 UAE (+971)</option>
                 </select>
                 <input
                   type="tel"
@@ -123,7 +127,7 @@ export default function ContactUs() {
                   onInput={(e) => {
                     e.currentTarget.value = e.currentTarget.value.replace(
                       /\D/g,
-                      ""
+                      "",
                     );
                   }}
                   style={{ flex: 1, width: "auto" }}
@@ -206,7 +210,10 @@ export default function ContactUs() {
 
             {/* Check badge */}
             <div className="mx-auto mb-5 w-16 h-16 rounded-full bg-luxury-gold flex items-center justify-center">
-              <Check className="w-8 h-8 text-luxury-green-dark" strokeWidth={3} />
+              <Check
+                className="w-8 h-8 text-luxury-green-dark"
+                strokeWidth={3}
+              />
             </div>
 
             <h3 className="font-serif text-2xl md:text-3xl text-luxury-gold mb-2">
