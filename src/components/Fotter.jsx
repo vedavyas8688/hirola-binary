@@ -31,31 +31,17 @@ export default function Footer() {
         }}
       />
 
-      {/* ── Background watermark ── */}
-      <span
-        aria-hidden="true"
-        className="pointer-events-none select-none absolute -bottom-2 md:-bottom-4 lg:-bottom-8 left-1/2 -translate-x-1/2 font-serif leading-none whitespace-nowrap text-[28vw] md:text-[22vw] lg:text-[18vw] text-luxury-gold/[0.08]"
-      >
-        Binary
-      </span>
-
       <div className="relative mx-auto w-full max-w-[1400px] px-4 md:px-8 pt-16 pb-12">
         <div className="grid gap-12 md:grid-cols-[1.8fr_1fr_1fr]">
 
           {/* ── Brand ── */}
           <div className="space-y-6">
-            <img
-              src={logoLeft}
-              alt="Binary Ventures"
-              className="h-12 md:h-16"
-            />
-
+            <img src={logoLeft} alt="Binary Ventures" className="h-12 md:h-16" />
             <p className="font-sans text-sm leading-relaxed text-white/60 max-w-xs">
               Ultra-luxury 2 &amp; 3 BHK living on Sarjapur Road by Binary
               Ventures — 80% open space, only 6 apartments per floor and homes
               with no common walls.
             </p>
-
             <div className="flex items-center gap-4">
               {socialLinks.map(({ label, href, icon: Icon }) => (
                 <a
@@ -70,7 +56,6 @@ export default function Footer() {
                 </a>
               ))}
             </div>
-
             <a
               href="/contact"
               className="inline-block rounded-full font-sans font-semibold text-sm px-7 py-2.5 text-luxury-green-dark bg-luxury-gold hover:bg-luxury-gold/90 transition-colors duration-200"
@@ -81,9 +66,7 @@ export default function Footer() {
 
           {/* ── Explore ── */}
           <div>
-            <h4 className="font-serif text-lg text-luxury-gold mb-1">
-              Explore
-            </h4>
+            <h4 className="font-serif text-lg text-luxury-gold mb-1">Explore</h4>
             <div className="h-px w-10 bg-luxury-gold/40 mb-5" />
             <ul className="space-y-3">
               {navLinks.map(({ label, href }) => (
@@ -92,10 +75,7 @@ export default function Footer() {
                     href={href}
                     className="font-sans text-sm text-white/60 hover:text-luxury-gold transition-colors duration-200 flex items-center gap-2 group"
                   >
-                    <ArrowRight
-                      size={14}
-                      className="text-luxury-gold/50 group-hover:text-luxury-gold"
-                    />
+                    <ArrowRight size={14} className="text-luxury-gold/50 group-hover:text-luxury-gold" />
                     {label}
                   </a>
                 </li>
@@ -105,9 +85,7 @@ export default function Footer() {
 
           {/* ── Find Us ── */}
           <div>
-            <h4 className="font-serif text-lg text-luxury-gold mb-1">
-              Find Us
-            </h4>
+            <h4 className="font-serif text-lg text-luxury-gold mb-1">Find Us</h4>
             <div className="h-px w-10 bg-luxury-gold/40 mb-5" />
             <div className="space-y-6">
               <div className="flex items-start gap-3">
@@ -118,7 +96,6 @@ export default function Footer() {
                   <p>Bengaluru, Karnataka – 560035</p>
                 </div>
               </div>
-
               <a
                 href="tel:+918000000000"
                 className="flex items-center gap-3 font-sans text-sm text-white/60 hover:text-luxury-gold transition-colors"
@@ -126,7 +103,6 @@ export default function Footer() {
                 <Phone size={16} className="text-luxury-gold" />
                 +91 80 0000 0000
               </a>
-
               <a
                 href="mailto:sales@binaryventures.in"
                 className="flex items-center gap-3 font-sans text-sm text-white/60 hover:text-luxury-gold transition-colors"
@@ -140,9 +116,19 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* ── Bottom bar ── */}
-      <div className="relative border-t border-white/10">
-        <div className="mx-auto w-full max-w-[1400px] px-4 md:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+      {/* ── Bottom bar with watermark ── */}
+      <div className="relative border-t border-white/10 overflow-hidden">
+
+        {/* Watermark scoped inside bottom bar only */}
+        <span
+          aria-hidden="true"
+          className="pointer-events-none select-none absolute inset-0 flex items-center justify-center font-serif leading-none whitespace-nowrap text-luxury-gold/[0.07]"
+          style={{ fontSize: "clamp(3rem, 15vw, 9rem)" }}
+        >
+          Binary Ventures
+        </span>
+
+        <div className="relative z-10 mx-auto w-full max-w-[1400px] px-4 md:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <span className="font-sans text-xs text-white/40">
             © 2026 Binary Ventures. All rights reserved.
           </span>
