@@ -16,7 +16,7 @@ export default function Banner() {
   }, [next]);
 
   return (
-    <section className="relative w-full h-[calc(100vh-4rem)] mt-16 md:h-[calc(100vh-5rem)] md:mt-20 bg-luxury-green-dark overflow-hidden">
+    <section className="relative w-full mt-16 md:mt-20 bg-luxury-green-dark overflow-hidden h-[58vh] sm:h-[68vh] md:h-[75vh] lg:h-[calc(100vh-5rem)]">
 
       {/* ── Desktop slides ── */}
       <div className="absolute inset-0 hidden md:block">
