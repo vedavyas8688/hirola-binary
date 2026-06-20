@@ -119,15 +119,6 @@ export default function Footer() {
       {/* ── Bottom bar with watermark ── */}
       <div className="relative border-t border-white/10 overflow-hidden">
 
-        {/* Watermark scoped inside bottom bar only */}
-        <span
-          aria-hidden="true"
-          className="pointer-events-none select-none absolute inset-0 flex items-center justify-center font-serif leading-none whitespace-nowrap text-luxury-gold/[0.07]"
-          style={{ fontSize: "clamp(3rem, 15vw, 9rem)" }}
-        >
-          Binary Ventures
-        </span>
-
         <div className="relative z-10 mx-auto w-full max-w-[1400px] px-4 md:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <span className="font-sans text-xs text-white/40">
             © 2026 Binary Ventures. All rights reserved.
