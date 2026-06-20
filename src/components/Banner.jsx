@@ -16,7 +16,7 @@ export default function Banner() {
   }, [next]);
 
   return (
-    <section className="relative w-full mt-16 md:mt-20 bg-luxury-green-dark overflow-hidden aspect-video lg:aspect-auto lg:h-[calc(100vh-5rem)]">
+    <section className="relative w-full mt-16 md:mt-20 bg-luxury-green-dark overflow-hidden aspect-[208/299] md:aspect-auto md:h-[75svh] lg:h-[calc(100vh-5rem)]">
 
       {/* ── Desktop slides ── */}
       <div className="absolute inset-0 hidden md:block">
@@ -46,7 +46,7 @@ export default function Banner() {
               src={slide.image}
               alt={slide.alt}
               draggable="false"
-              className="absolute inset-0 h-full w-full object-contain object-center"
+              className="absolute inset-0 h-full w-full object-cover object-center"
             />
 
             {/* Top gradient */}
