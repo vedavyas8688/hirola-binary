@@ -1,6 +1,16 @@
+import { useState } from "react";
+import { Check, X } from "lucide-react";
 import logoLeft from "../assets/images/logo-left.svg";
 
 export default function ContactUs() {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+    e.target.reset();
+  };
+
   return (
     <section
       id="contact"
@@ -87,7 +97,7 @@ export default function ContactUs() {
               Request a Callback
             </p>
 
-            <form className="flex flex-col gap-4">
+            <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
               {/* Name */}
               <input type="text" required placeholder="Full Name *" />
 
@@ -106,6 +116,15 @@ export default function ContactUs() {
                   type="tel"
                   required
                   placeholder="Phone Number *"
+                  inputMode="numeric"
+                  pattern="[0-9]*"
+                  maxLength={15}
+                  onInput={(e) => {
+                    e.currentTarget.value = e.currentTarget.value.replace(
+                      /\D/g,
+                      ""
+                    );
+                  }}
                   style={{ flex: 1, width: "auto" }}
                 />
               </div>
@@ -158,6 +177,54 @@ export default function ContactUs() {
           </div>
         </div>
       </div>
+
+      {/* ── Thank-you popup ── */}
+      {submitted && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center px-4"
+          role="dialog"
+          aria-modal="true"
+        >
+          {/* Backdrop */}
+          <div
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            onClick={() => setSubmitted(false)}
+          />
+
+          {/* Card */}
+          <div className="relative z-10 w-full max-w-sm rounded-2xl border border-luxury-gold/30 bg-luxury-green-dark p-8 text-center shadow-2xl">
+            {/* Close */}
+            <button
+              type="button"
+              onClick={() => setSubmitted(false)}
+              aria-label="Close"
+              className="absolute top-4 right-4 text-cream-text/50 hover:text-luxury-gold transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            {/* Check badge */}
+            <div className="mx-auto mb-5 w-16 h-16 rounded-full bg-luxury-gold flex items-center justify-center">
+              <Check className="w-8 h-8 text-luxury-green-dark" strokeWidth={3} />
+            </div>
+
+            <h3 className="font-serif text-2xl md:text-3xl text-luxury-gold mb-2">
+              Thank You!
+            </h3>
+            <p className="font-sans text-sm md:text-base text-cream-text/70 leading-relaxed">
+              Your request has been received. Our team will reach you shortly.
+            </p>
+
+            <button
+              type="button"
+              onClick={() => setSubmitted(false)}
+              className="mt-6 inline-block px-8 py-2.5 rounded-full bg-luxury-gold hover:bg-bright-gold text-foreground-green text-xs font-semibold tracking-widest uppercase transition-all duration-300"
+            >
+              Done
+            </button>
+          </div>
+        </div>
+      )}
 
       <style>{`
         form input,

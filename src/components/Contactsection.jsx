@@ -1,4 +1,5 @@
 import { MapPin, Phone, Mail } from "lucide-react";
+import Reveal from "./Reveal";
 
 const contactInfo = [
   {
@@ -30,7 +31,7 @@ export default function ContactSection() {
         <div className="grid lg:grid-cols-2 gap-6 md:gap-12 lg:gap-16 items-start">
 
           {/* ── Left: Info ── */}
-          <div className="space-y-6 md:space-y-8 order-2 lg:order-1">
+          <Reveal variant="left" className="space-y-6 md:space-y-8 order-2 lg:order-1">
 
             {/* Heading */}
             <div className="px-2 md:px-0">
@@ -72,12 +73,12 @@ export default function ContactSection() {
               ))}
             </div>
 
-            {/* Office Hours */}
-            <div className="border border-luxury-gold/20 rounded-md p-4 md:p-6 lg:p-8 bg-luxury-gold/5">
-              <h3 className="font-serif text-lg md:text-xl font-normal text-luxury-gold mb-3 md:mb-4">
+            {/* Office Hours — compact on desktop */}
+            <div className="border border-luxury-gold/20 rounded-md p-4 md:p-6 lg:p-5 bg-luxury-gold/5 lg:max-w-md">
+              <h3 className="font-serif text-lg md:text-xl lg:text-lg font-normal text-luxury-gold mb-3 md:mb-4 lg:mb-3">
                 Site Office Hours
               </h3>
-              <div className="space-y-2 font-sans text-sm md:text-base text-cream-text/70">
+              <div className="space-y-2 lg:space-y-1.5 font-sans text-sm md:text-base lg:text-sm text-cream-text/70">
                 <p className="flex justify-between gap-2">
                   <span className="text-cream-text font-medium">Monday – Saturday:</span>
                   <span>10:00 AM – 6:30 PM</span>
@@ -89,10 +90,10 @@ export default function ContactSection() {
               </div>
             </div>
 
-          </div>
+          </Reveal>
 
           {/* ── Right: Map ── */}
-          <div className="relative order-1 lg:order-2">
+          <Reveal variant="right" delay={150} className="relative order-1 lg:order-2">
             <div className="lg:sticky lg:top-24 rounded-xl overflow-hidden shadow-2xl border-4 border-luxury-gold/30">
               <iframe
                 src="https://www.google.com/maps?q=Chambenahalli,+Sarjapur+Road,+Bengaluru&output=embed"
@@ -106,7 +107,7 @@ export default function ContactSection() {
                 style={{ border: 0 }}
               />
             </div>
-          </div>
+          </Reveal>
 
         </div>
       </div>
