@@ -27,15 +27,14 @@ export default function Footer() {
       <div
         className="h-[2px] w-full"
         style={{
-          background:
-            "linear-gradient(90deg, transparent, hsl(42 55% 65%), transparent)",
+          background: "linear-gradient(90deg, transparent, hsl(42 55% 65%), transparent)",
         }}
       />
 
-      {/* ── Background watermark — brighter than file 1 ── */}
+      {/* ── Background watermark ── */}
       <span
         aria-hidden="true"
-        className="pointer-events-none select-none absolute -bottom-4 md:-bottom-8 left-1/2 -translate-x-1/2 font-serif leading-none whitespace-nowrap text-[20vw] text-luxury-gold/[0.300]"
+        className="pointer-events-none select-none absolute -bottom-2 md:-bottom-4 lg:-bottom-8 left-1/2 -translate-x-1/2 font-serif leading-none whitespace-nowrap text-[28vw] md:text-[22vw] lg:text-[18vw] text-luxury-gold/[0.08]"
       >
         Binary
       </span>
