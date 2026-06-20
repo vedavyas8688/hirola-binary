@@ -105,7 +105,8 @@ export default function ContactUs() {
               <div className="flex gap-3">
                 <select
                   aria-label="Country code"
-                  style={{ width: "110px", flexShrink: 0 }}
+                  className="text-luxury-gold"
+                  style={{ width: "110px", flexShrink: 0, color: "var(--clr-gold)" }}
                 >
                   <option value="+91">🇮🇳 +91</option>
                   <option value="+1">🇺🇸 +1</option>
