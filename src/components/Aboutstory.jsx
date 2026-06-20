@@ -1,3 +1,5 @@
+import aboutimage from "../assets/images/11.jpg";
+
 export default function AboutStory() {
   const stats = [
     { value: "3.5 Acres", label: "Land Area" },
@@ -12,7 +14,7 @@ export default function AboutStory() {
           {/* ── Left: Image ── */}
           <div className="order-2 lg:order-1">
             <img
-              src="https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1800&q=80"
+              src={aboutimage}
               alt="Project 4 facade"
               className="w-full aspect-[4/3] object-cover rounded-xl border-2 border-luxury-gold/60"
             />

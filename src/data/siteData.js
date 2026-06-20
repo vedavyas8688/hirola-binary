@@ -50,12 +50,13 @@ export const siteConfig = {
 };
 
 
-// About section images — replace with your actual imports if available.
-// For now export a simple array of image URLs used by AboutSection.
+ import one from "../assets/images/1.jpg";
+import two from "../assets/images/banner2.png";
 export const aboutImages = [
-  "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=800&q=80",
+   one,
   "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800&q=80",
-  "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+  two,
+  
 ];
 
 export const aboutContent = {
@@ -67,6 +68,10 @@ export const aboutContent = {
 
 
 import logoLeft from "../assets/images/logo-left.svg";
+import seventeen from "../assets/images/17.jpg";
+// import four from "../assets/images/4.jpg";
+import sixteen from "../assets/images/16.jpg";
+
 
 export const unitPlans = [
   {
@@ -74,7 +79,7 @@ export const unitPlans = [
     size: "1296 - 1826 sq.ft",
     logo: logoLeft,
     floorPlan:
-      "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=1200&q=80",
+       seventeen,
     description:
       "Spacious and sophisticated, our 3BED homes with dual balconies and open layouts are crafted for families who value comfort and luxury.",
   },
@@ -83,28 +88,30 @@ export const unitPlans = [
     size: "1131 - 1451 sq.ft",
     logo: logoLeft,
     floorPlan:
-      "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1200&q=80",
+      sixteen,
     description:
       "Elegantly designed 2BED homes with dual balconies that invite light, air, and warmth.",
   },
 ];
 
+import thirteen from "../assets/images/13.jpg";
+import fourteen from "../assets/images/14.jpg";
+import fifteen from "../assets/images/15.jpg";
 
 export const galleryCategories = [
   {
     label: "",
-    image:
-      "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1200&q=80",
+    image:thirteen ,
   },
   {
     label: "",
     image:
-      "https://images.unsplash.com/photo-1460317442991-0ec209397118?w=1200&q=80",
+       fourteen,
   },
   {
     label: "",
     image:
-      "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&q=80",
+       fifteen,
   },
 ];
 

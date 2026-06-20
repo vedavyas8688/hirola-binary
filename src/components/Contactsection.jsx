@@ -24,8 +24,7 @@ const contactInfo = [
 export default function ContactSection() {
   return (
     <section
-      className="py-10 md:py-20 lg:py-24 overflow-hidden"
-      style={{ background: "var(--grad-green)" }}
+      className="py-10 md:py-20 lg:py-24 overflow-hidden bg-luxury-green-dark"
     >
       <div className="mx-auto w-full max-w-[1600px] px-4 md:px-8">
         <div className="grid lg:grid-cols-2 gap-6 md:gap-12 lg:gap-16 items-start">

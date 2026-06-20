@@ -2,7 +2,7 @@ import { FaPlay } from "react-icons/fa";
 
 export default function VideoSection() {
   return (
-    <section className="bg-muted-panel py-20 px-4">
+    <section className="bg-bg-cream py-20 px-4">
       <div className="max-w-4xl mx-auto text-center flex flex-col items-center gap-6">
 
         {/* Heading */}

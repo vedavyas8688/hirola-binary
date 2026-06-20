@@ -1,3 +1,5 @@
+import banner3 from "../assets/images/banner3.jpg";
+
 export default function AboutContent() {
   return (
     <section className="py-12 md:py-20 px-4 md:px-8 bg-bg-cream">
@@ -35,7 +37,7 @@ export default function AboutContent() {
           {/* ── Right: Image ── */}
           <div className="relative">
             <img
-               src="https://images.unsplash.com/photo-1460317442991-0ec209397118?w=1600&q=80"
+               src={banner3}
               alt="Project 4 residences"
               className="w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover rounded-md shadow-xl border-4 border-luxury-gold"
             />

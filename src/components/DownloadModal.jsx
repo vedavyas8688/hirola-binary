@@ -12,7 +12,7 @@ export default function DownloadModal({ isOpen, onClose }) {
       />
 
       {/* Modal box */}
-      <div className="relative z-10 w-full max-w-md bg-[#0f2418] border border-luxury-gold/30 rounded-2xl shadow-2xl overflow-hidden">
+      <div className="relative z-10 w-full max-w-md bg-luxury-green-dark border border-luxury-gold/30 rounded-2xl shadow-2xl overflow-hidden">
 
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-5 border-b border-luxury-gold/20">
@@ -64,7 +64,7 @@ export default function DownloadModal({ isOpen, onClose }) {
             </button>
             <button
               onClick={onClose}
-              className="flex-1 py-3 bg-luxury-gold text-[#0f2418] font-semibold text-xs tracking-widest uppercase rounded-full hover:bg-luxury-gold/90 transition-all duration-200"
+              className="flex-1 py-3 bg-luxury-gold text-luxury-green-dark font-semibold text-xs tracking-widest uppercase rounded-full hover:bg-luxury-gold/90 transition-all duration-200"
             >
               Enquire Instead
             </button>

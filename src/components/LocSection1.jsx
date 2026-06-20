@@ -1,13 +1,10 @@
 import { locationData } from "../data/siteData";
-// import locationMapImg from "../assets/images/location-map.jpg";
-
-const locationMapImg =
-  "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg";
+import locationMapImg from "../assets/images/30.jpg";
 
 export default function LocSection1() {
   return (
     <section
-      className="py-10 md:py-20 lg:py-24 overflow-visible"
+      className="py-10 md:py-20 lg:py-24 overflow-visible bg-luxury-green-dark"
       style={{
         backgroundImage: `url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAGUlEQVR4nGPkMVRlIAUwkaR6VMOohiGlAQBfYgCCrIcb8AAAAABJRU5ErkJggg==")`,
         backgroundSize: "cover",

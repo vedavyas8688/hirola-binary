@@ -30,7 +30,7 @@ export default function EnquireModal({ isOpen, onClose }) {
       />
 
       {/* Modal box */}
-      <div className="relative z-10 w-full max-w-lg bg-[#0f2418] border border-luxury-gold/30 rounded-2xl shadow-2xl overflow-hidden">
+      <div className="relative z-10 w-full max-w-lg bg-luxury-green-dark border border-luxury-gold/30 rounded-2xl shadow-2xl overflow-hidden">
 
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-5 border-b border-luxury-gold/20">
@@ -66,7 +66,7 @@ export default function EnquireModal({ isOpen, onClose }) {
               </p>
               <button
                 onClick={onClose}
-                className="mt-2 px-8 py-2.5 border border-luxury-gold text-luxury-gold text-xs tracking-widest uppercase rounded-full hover:bg-luxury-gold hover:text-[#0f2418] transition-all duration-200"
+                className="mt-2 px-8 py-2.5 border border-luxury-gold text-luxury-gold text-xs tracking-widest uppercase rounded-full hover:bg-luxury-gold hover:text-luxury-green-dark transition-all duration-200"
               >
                 Close
               </button>
@@ -113,10 +113,10 @@ export default function EnquireModal({ isOpen, onClose }) {
                 </label>
                 <div className="flex gap-2">
                   <select className="bg-white/5 border border-white/15 rounded-lg px-3 py-3 text-sm text-white focus:outline-none focus:border-luxury-gold/60 transition-colors">
-                    <option value="+91" className="bg-[#0f2418]">🇮🇳 +91</option>
-                    <option value="+1"  className="bg-[#0f2418]">🇺🇸 +1</option>
-                    <option value="+44" className="bg-[#0f2418]">🇬🇧 +44</option>
-                    <option value="+65" className="bg-[#0f2418]">🇸🇬 +65</option>
+                    <option value="+91" className="bg-luxury-green-dark">🇮🇳 +91</option>
+                    <option value="+1"  className="bg-luxury-green-dark">🇺🇸 +1</option>
+                    <option value="+44" className="bg-luxury-green-dark">🇬🇧 +44</option>
+                    <option value="+65" className="bg-luxury-green-dark">🇸🇬 +65</option>
                   </select>
                   <input
                     type="tel"
@@ -148,7 +148,7 @@ export default function EnquireModal({ isOpen, onClose }) {
               {/* Submit */}
               <button
                 type="submit"
-                className="w-full py-3.5 bg-luxury-gold text-[#0f2418] font-sans font-semibold text-sm tracking-widest uppercase rounded-full hover:bg-luxury-gold/90 transition-all duration-200 mt-2"
+                className="w-full py-3.5 bg-luxury-gold text-luxury-green-dark font-sans font-semibold text-sm tracking-widest uppercase rounded-full hover:bg-luxury-gold/90 transition-all duration-200 mt-2"
               >
                 Submit Enquiry
               </button>

@@ -15,7 +15,7 @@ export default function GallerySection() {
   }, [next]);
 
   return (
-    <section className="py-24 bg-luxury-cream overflow-hidden">
+    <section className="py-24 bg-bg-cream overflow-hidden">
       <div className="mx-auto w-full max-w-[1600px] px-4 md:px-8">
 
         {/* Heading */}

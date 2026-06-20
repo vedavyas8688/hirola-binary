@@ -5,6 +5,7 @@ import TimelineProgressSection from "../components/TimelineProgressSection";
 import ContactUs from "../components/Contactus";
 import Footer from "../components/Fotter";
 import ProgressSection from "../components/ProgressSection";
+import banner6 from "../assets/images/banner6.jpg";
 
 const ProjectStatus = () => {
   return (
@@ -12,7 +13,7 @@ const ProjectStatus = () => {
       <Navbar />
       <PageBanner
         titleLine1="ProjectStatus"
-        image="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=80"
+        image={banner6}
       />
       <TimelineProgressSection />
       <ProgressSection />

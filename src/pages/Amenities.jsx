@@ -7,14 +7,15 @@ import BrochureSection from "../components/Brochuresection";
 import ContactUs from "../components/Contactus";
 import Footer from "../components/Fotter";
 import MasterPlanSection from "../components/Masterplansectio";
+import banner4 from "../assets/images/banner4.jpg";
 
 const Amenities = () => {
   return (
     <div>
       <Navbar />
       <PageBanner
-        titleLine1="About Us"
-        image="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=80"
+        titleLine1="Amenities"
+        image={banner4}
       />
       <AmenitiesGallery />
       <AmenitiesList />

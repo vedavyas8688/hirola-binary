@@ -5,6 +5,8 @@ import GallerySec1 from "../components/GallerySec1";
 import GallerySec2 from "../components/GallerySec2";
 import ContactUs from "../components/Contactus";
 import Footer from "../components/Fotter";
+import banner3 from "../assets/images/banner3.jpg";
+
 
 const Gallery = () => {
   return (
@@ -12,7 +14,7 @@ const Gallery = () => {
       <Navbar />
       <PageBanner
         titleLine1="Gallery"
-        image="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=80"
+        image={banner3}
       />
       <GallerySec1 />
       <GallerySec2 />

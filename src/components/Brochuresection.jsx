@@ -2,7 +2,7 @@ import { Download } from "lucide-react";
 
 export default function BrochureSection() {
   return (
-    <section className="py-12 md:py-20 lg:py-28 overflow-hidden section-primary-bg">
+    <section className="py-12 md:py-20 lg:py-28 overflow-hidden bg-luxury-green-dark">
       <div className="mx-auto w-full max-w-[1400px] px-4 md:px-8">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-relaxed text-luxury-gold mb-4 uppercase">

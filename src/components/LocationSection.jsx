@@ -1,4 +1,5 @@
 import { useState } from "react";
+import three from "../assets/images/3.jpg";
 
 const locationCategories = [
   {
@@ -19,15 +20,38 @@ const locationCategories = [
   },
   {
     label: "IT Companies",
-    items: [],
+    items: [
+      "Wipro Campus (3 Km)",
+      "Infosys SEZ Sarjapur (4 Km)",
+      "RGA Tech Park (6 Km)",
+      "Cessna Business Park (7 Km)",
+      "Salarpuria Softzone (8 Km)",
+      "Embassy Tech Village (10 Km)",
+      "Electronic City Phase 1 (12 Km)",
+      "Bagmane Tech Park (14 Km)",
+    ],
   },
   {
     label: "Hospitals",
-    items: [],
+    items: [
+      "Motherhood Hospital Sarjapur (4 Km)",
+      "Manipal Hospital Sarjapur (5 Km)",
+      "Columbia Asia Hospital (6 Km)",
+      "Narayana Multispeciality Hospital (8 Km)",
+      "Sakra World Hospital (10 Km)",
+      "Apollo Hospital Bannerghatta (12 Km)",
+    ],
   },
   {
     label: "Shopping",
-    items: [],
+    items: [
+      "Forum Mall Koramangala (8 Km)",
+      "Total Mall Sarjapur (5 Km)",
+      "DMart Sarjapur (3 Km)",
+      "Market Square Mall (9 Km)",
+      "Nexus Shantiniketan (11 Km)",
+      "Phoenix Marketcity (13 Km)",
+    ],
   },
 ];
 
@@ -38,14 +62,13 @@ export default function LocationSection() {
 
   return (
     <section
-      className="relative overflow-hidden py-12 md:py-16 lg:py-0"
-      style={{ background: "var(--grad-green)" }}
+      className="relative overflow-hidden py-12 md:py-16 lg:py-0 bg-luxury-green-dark"
     >
       <div className="mx-auto w-full max-w-[1600px] px-4 md:px-8 lg:px-12 h-full">
         <div className="grid gap-8 md:gap-10 lg:gap-0 lg:grid-cols-2 items-start relative h-full">
+
           {/* ── Left: Text + Accordion ── */}
           <div className="w-full py-4 md:py-6 lg:py-12 relative z-20">
-            {/* Heading */}
             <div className="text-left mb-6 md:mb-8">
               <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal leading-relaxed text-luxury-gold">
                 FROM SUBURBAN SOLITUDE TO URBAN CONNECTIVITY
@@ -83,12 +106,9 @@ export default function LocationSection() {
                       </span>
                     </button>
 
-                    {/* Expandable list */}
                     <div
                       className={`overflow-hidden transition-all duration-300 ${
-                        isOpen
-                          ? "max-h-[600px] opacity-100"
-                          : "max-h-0 opacity-0"
+                        isOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
                       }`}
                     >
                       {cat.items.length > 0 ? (
@@ -113,14 +133,16 @@ export default function LocationSection() {
               })}
             </div>
           </div>
+
           {/* ── Right: Location Image ── */}
           <div className="w-full flex items-start justify-end lg:absolute lg:right-0 lg:top-0 lg:w-1/2 lg:h-full pb-8 lg:pb-0">
             <img
-              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80"
+              src={three}
               alt="Project 4 Location"
               className="w-full h-full object-cover rounded-md lg:rounded-none"
             />
           </div>
+
         </div>
       </div>
     </section>

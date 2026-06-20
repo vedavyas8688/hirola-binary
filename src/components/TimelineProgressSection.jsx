@@ -14,7 +14,7 @@ const PROGRESS_IMAGES = [
 const TimelineProgressSection = () => {
   return (
     <section
-      className="py-10 md:py-20 lg:py-24 overflow-hidden"
+      className="py-10 md:py-20 lg:py-24 overflow-hidden bg-luxury-green-dark"
       style={{
         backgroundImage:
           'url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAGUlEQVR4nGPkMVRlIAUwkaR6VMOohiGlAQBfYgCCrIcb8AAAAABJRU5ErkJggg==")',

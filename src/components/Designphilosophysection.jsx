@@ -1,29 +1,41 @@
 import React from "react";
 import { Download } from "lucide-react";
+import eighteen from "../assets/images/18.jpg";
+import twentythree from "../assets/images/23.jpg";
 
 const DesignPhilosophySection = ({
-  image = "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80",
+  image =  twentythree,
+  backImage =  eighteen,
   imageAlt = "Project interior",
   enquireHref = "#enquire",
   brochureHref = "/brochure.pdf",
 }) => {
   return (
-    <section className="relative py-12 md:py-20 lg:py-28 overflow-hidden section-primary-bg">
+    <section className="relative py-12 md:py-20 lg:py-28 overflow-hidden bg-luxury-green-dark">
       <div className="mx-auto w-full max-w-[1400px] px-4 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           {/* ── Layered image collage ── */}
           <div className="relative max-w-xl mx-auto lg:mx-0 aspect-[4/3]">
-            {/* back panel — tall white backdrop on the right */}
-            <div className="absolute top-[2%] right-0 w-3/5 h-[95%] bg-card-white" />
-            {/* front panel — wider image, offset up-left, in front with shadow */}
-            <div className="absolute top-[12%] left-[8%] w-[84%] h-[74%] bg-muted-panel shadow-2xl overflow-hidden">
+
+            {/* Back panel — image with overlay */}
+            <div className="absolute top-[2%] right-0 w-3/5 h-[95%] overflow-hidden">
+              <img
+                src={backImage}
+                alt="background panel"
+                className="w-full h-full object-cover opacity-40"
+              />
+            </div>
+
+            {/* Front panel — main image */}
+            <div className="absolute top-[12%] left-[8%] w-[84%] h-[74%] shadow-2xl overflow-hidden">
               <img
                 src={image}
                 alt={imageAlt}
                 className="w-full h-full object-cover"
               />
             </div>
+
           </div>
 
           {/* ── Text content ── */}
@@ -42,6 +54,7 @@ const DesignPhilosophySection = ({
               balance with modern comfort.
             </p>
           </div>
+
         </div>
       </div>
 

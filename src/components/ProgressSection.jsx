@@ -5,7 +5,7 @@ const ProgressSection = () => {
     <div>
 
       {/* ── Heading ── */}
-      <section className="py-12 md:py-16 bg-[#f5f1e8]">
+      <section className="py-12 md:py-16 bg-bg-cream">
         <div className="mx-auto w-full max-w-[1600px] px-4 md:px-8">
           <div className="text-center px-2">
             <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-green-800 uppercase mb-4 md:mb-6">

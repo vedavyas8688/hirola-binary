@@ -5,6 +5,8 @@ import LocSection1 from "../components/LocSection1";
 import AddressSection from "../components/AddressSection";
 import ContactUs from "../components/Contactus";
 import Footer from "../components/Fotter";
+import banner7 from "../assets/images/banner7.jpg";
+
 
 const Location = () => {
   return (
@@ -12,7 +14,7 @@ const Location = () => {
       <Navbar />
       <PageBanner
         titleLine1="Location"
-        image="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=80"
+        image={banner7}
       />
       <LocSection1 />
       <AddressSection />

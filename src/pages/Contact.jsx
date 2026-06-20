@@ -4,6 +4,8 @@ import PageBanner from '../components/PageBanner'
 import ContactSection from '../components/Contactsection'
 import ContactUs from '../components/Contactus'
 import Footer from '../components/Fotter'
+import banner8 from "../assets/images/banner8.jpg";
+
 
 const Contact = () => {
   return (
@@ -11,7 +13,7 @@ const Contact = () => {
       <Navbar />
       <PageBanner
         titleLine1="Contact"
-        image="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=80"
+        image={banner8}
       />
       <ContactSection/>
       <ContactUs />

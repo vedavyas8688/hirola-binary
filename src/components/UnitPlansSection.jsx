@@ -3,7 +3,7 @@ import { unitPlans } from "../data/siteData";
 export default function UnitPlansSection() {
   return (
     <section
-      className="py-12 md:py-20 overflow-hidden bg-bg-cream"
+      className="py-16 md:py-24 overflow-hidden bg-luxury-green-dark"
       style={{
         backgroundImage: `url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAGUlEQVR4nGPkMVRlIAUwkaR6VMOohiGlAQBfYgCCrIcb8AAAAABJRU5ErkJggg==")`,
         backgroundSize: "cover",
@@ -13,68 +13,123 @@ export default function UnitPlansSection() {
     >
       <div className="mx-auto w-full max-w-[1600px] px-4 md:px-8">
 
-        {/* Heading */}
-        <div className="text-center mb-8 md:mb-12 lg:mb-16">
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal leading-relaxed text-white">
+        {/* ── Heading ── */}
+        <div className="text-center mb-12 md:mb-20">
+          <p className="font-sans text-xs md:text-sm tracking-[0.3em] text-luxury-gold uppercase mb-3">
+            Floor Plans
+          </p>
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal leading-tight text-white">
             HOMES DESIGNED FOR{" "}
             <span className="text-luxury-gold">ELEVATED LIVING</span>
           </h2>
-          <p className="font-sans text-base md:text-lg text-muted-sage max-w-4xl mx-auto mt-3 md:mt-4 px-2">
-            Thoughtfully planned layouts that maximize space, light, and functionality
+           <p className="font-sans text-base md:text-lg text-muted-sage max-w-2xl mx-auto mt-5 px-2 leading-relaxed">
+            Thoughtfully planned layouts that maximize space, light, and
+            functionality
           </p>
         </div>
 
-        {/* Unit plan rows */}
-        <div className="space-y-12 md:space-y-20">
+        {/* ── Unit plan rows ── */}
+        <div className="space-y-16 md:space-y-28">
           {unitPlans.map((unit, index) => {
             const isEven = index % 2 === 0;
             return (
               <div
                 key={unit.type}
-                className="relative flex flex-col lg:grid lg:items-center gap-6 md:gap-10 lg:grid-cols-2 lg:gap-12"
+                className="relative flex flex-col lg:grid lg:grid-cols-2 lg:items-center gap-10 lg:gap-0"
               >
-                {/* Gold vertical divider — desktop only */}
-                <div className="hidden lg:block absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-luxury-gold/40" />
+                {/* Gold vertical divider */}
+                <div className="hidden lg:flex absolute inset-y-0 left-1/2 -translate-x-1/2 flex-col items-center gap-0 z-10">
+                  <div className="flex-1 w-px bg-gradient-to-b from-transparent via-luxury-gold/50 to-transparent" />
+                  <div className="w-2 h-2 rounded-full border border-luxury-gold/60 bg-bg-cream" />
+                  <div className="flex-1 w-px bg-gradient-to-b from-transparent via-luxury-gold/50 to-transparent" />
+                </div>
 
-                {/* Text side */}
+                {/* ── Text side ── */}
                 <div
-                  className={`text-center order-1 ${
+                  className={`flex justify-center order-1 lg:px-10 xl:px-16 ${
                     isEven ? "lg:order-2" : "lg:order-1"
                   }`}
                 >
-                  <div className="mx-auto max-w-xl">
+                  <div className="max-w-md w-full text-center lg:text-left">
+
+                    {/* Logo */}
                     <img
                       src={unit.logo}
-                      alt="Project 4"
-                      className="h-10 md:h-12 lg:h-14 mx-auto mb-3 md:mb-4"
+                      alt="Project logo"
+                      className="h-10 md:h-12 lg:h-14 mx-auto lg:mx-0 mb-5"
                     />
-                    <p className="font-sans text-sm md:text-base text-muted-sage mt-1">
-                      {unit.type}, {unit.size}
-                    </p>
-                    <p className="font-sans text-sm md:text-base lg:text-lg text-muted-sage mt-4 md:mt-6 leading-relaxed px-2">
+
+                    {/* Type + size badge */}
+                    <div className="inline-flex items-center gap-2 mb-4">
+                      <span className="font-serif text-xl md:text-2xl lg:text-3xl text-white tracking-wide">
+                        {unit.type}
+                      </span>
+                       <span className="font-sans text-xs md:text-sm text-luxury-gold tracking-widest uppercase">
+                        {unit.size}
+                      </span>
+                    </div>
+
+                    
+
+                    {/* Description */}
+                    <p className="font-sans text-sm md:text-base lg:text-lg text-muted-sage leading-relaxed">
                       {unit.description}
                     </p>
-                    <button className="mt-4 md:mt-6 bg-primary-green hover:bg-luxury-green text-cream-text text-sm font-semibold rounded px-6 py-2 transition-colors">
+
+                    {/* Specs row */}
+                    {unit.specs && (
+                      <div className="mt-6 flex flex-wrap justify-center lg:justify-start gap-4">
+                        {unit.specs.map((spec) => (
+                          <div key={spec.label} className="text-center lg:text-left">
+                            <p className="font-serif text-lg text-luxury-gold">{spec.value}</p>
+                            <p className="font-sans text-xs text-muted-sage tracking-wider uppercase mt-0.5">{spec.label}</p>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* CTA */}
+                    <button className="mt-8 group relative inline-flex items-center gap-3 border border-luxury-gold/60 hover:border-luxury-gold text-luxury-gold text-xs tracking-[0.2em] uppercase font-sans px-7 py-3 transition-all duration-300 hover:bg-luxury-gold/10">
                       Check Prices
+                      <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                     </button>
+
                   </div>
                 </div>
 
-                {/* Image side */}
+                {/* ── Image side ── */}
                 <div
-                  className={`order-2 w-full ${
+                  className={`order-2 w-full flex justify-center lg:px-10 xl:px-16 ${
                     isEven ? "lg:order-1" : "lg:order-2"
                   }`}
                 >
-                  <div className="mx-auto w-full max-w-[720px] rounded-md overflow-hidden relative">
-                    <img
-                      src={unit.floorPlan}
-                      alt={`${unit.type} floor plan`}
-                      className="w-full h-auto object-contain transition-all duration-700"
-                    />
-                    <div className="absolute inset-0 bg-luxury-cream/40" />
+                  <div className="relative w-full max-w-[500px]">
+
+                    {/* Corner accent — top left */}
+                    <div className="absolute -top-3 -left-3 w-10 h-10 border-t border-l border-luxury-gold/50 z-10" />
+                    {/* Corner accent — bottom right */}
+                    <div className="absolute -bottom-3 -right-3 w-10 h-10 border-b border-r border-luxury-gold/50 z-10" />
+
+                    {/* Image */}
+                    <div className="aspect-square overflow-hidden rounded-sm">
+                      <img
+                        src={unit.floorPlan}
+                        alt={`${unit.type} floor plan`}
+                        className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-luxury-cream/20" />
+                    </div>
+
+                    {/* Floating label */}
+                    <div className="absolute bottom-4 left-4 bg-bg-cream/90 backdrop-blur-sm px-4 py-2 border border-luxury-gold/30">
+                      <p className="font-sans text-xs tracking-[0.2em] uppercase text-luxury-gold">
+                        {unit.type} · {unit.size}
+                      </p>
+                    </div>
+
                   </div>
                 </div>
+
               </div>
             );
           })}

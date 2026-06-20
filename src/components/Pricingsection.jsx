@@ -2,7 +2,7 @@ import React from "react";
 
 const PricingSection = () => {
   return (
-    <section className="py-10 md:py-20 lg:py-24 overflow-hidden bg-card-white">
+    <section className="py-10 md:py-20 lg:py-24 overflow-hidden bg-bg-cream">
       <div className="mx-auto w-full max-w-[1600px] px-4 md:px-8">
 
         {/* ── Heading ── */}

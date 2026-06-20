@@ -3,7 +3,7 @@ import { aboutImages, aboutContent } from "../data/siteData";
 export default function AboutSection() {
   return (
     <section
-      className="py-16 px-4 md:px-6 lg:px-8 overflow-hidden bg-bg-cream"
+      className="py-16 px-4 md:px-6 lg:px-8 overflow-hidden bg-luxury-green-dark"
       style={{
         backgroundImage: `url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAGUlEQVR4nGPkMVRlIAUwkaR6VMOohiGlAQBfYgCCrIcb8AAAAABJRU5ErkJggg==")`,
         backgroundSize: "cover",

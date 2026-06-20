@@ -105,7 +105,7 @@ const categories = [
 
 export default function AmenitiesList() {
   return (
-    <section className="py-12 md:py-20 lg:py-28 overflow-hidden section-primary-bg">
+    <section className="py-12 md:py-20 lg:py-28 overflow-hidden bg-luxury-green-dark">
       <div className="mx-auto w-full max-w-[1400px] px-4 md:px-8">
 
         {/* ── Heading ── */}

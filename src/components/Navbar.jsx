@@ -18,7 +18,7 @@ function LeftLogo() {
   );
 }
 
-function RightLogo({ className = "h-14 lg:h-16 xl:h-20 2xl:h-24 w-auto" }) {
+function RightLogo({ className = "h-10 lg:h-11 xl:h-12 2xl:h-14 w-auto" }) {
   return (
     <img
       src={logoRight}
@@ -85,7 +85,7 @@ export default function Navbar() {
 
             {/* Mobile: Binary logo + hamburger */}
             <div className="lg:hidden flex items-center gap-2 sm:gap-3">
-              <RightLogo className="h-16 sm:h-20 w-auto" />
+              <RightLogo className="h-9 sm:h-10 w-auto" />
               <button
                 className="flex flex-col gap-1 sm:gap-1.5 p-1.5 sm:p-2 hover:opacity-80 transition-opacity text-luxury-gold"
                 aria-label="Open menu"

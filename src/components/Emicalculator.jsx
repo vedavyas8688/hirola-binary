@@ -63,7 +63,7 @@
 //               </div>
 //               <input
 //                 type="range"
-//                 className="w-full accent-[#0C3125]"
+//                 className="w-full accent-luxury-green"
 //                 min={2000000}
 //                 max={18000000}
 //                 step={100000}
@@ -97,7 +97,7 @@
 //               </div>
 //               <input
 //                 type="range"
-//                 className="w-full accent-[#0C3125]"
+//                 className="w-full accent-luxury-green"
 //                 min={2}
 //                 max={20}
 //                 step={0.5}
@@ -131,7 +131,7 @@
 //               </div>
 //               <input
 //                 type="range"
-//                 className="w-full accent-[#0C3125]"
+//                 className="w-full accent-luxury-green"
 //                 min={1}
 //                 max={20}
 //                 step={1}
@@ -264,7 +264,7 @@ export default function EmiCalculator() {
               </div>
               <input
                 type="range"
-                className="w-full accent-[#0C3125]"
+                className="w-full accent-luxury-green"
                 min={2000000}
                 max={18000000}
                 step={100000}
@@ -300,7 +300,7 @@ export default function EmiCalculator() {
               </div>
               <input
                 type="range"
-                className="w-full accent-[#0C3125]"
+                className="w-full accent-luxury-green"
                 min={2}
                 max={20}
                 step={0.5}
@@ -336,7 +336,7 @@ export default function EmiCalculator() {
               </div>
               <input
                 type="range"
-                className="w-full accent-[#0C3125]"
+                className="w-full accent-luxury-green"
                 min={1}
                 max={20}
                 step={1}
@@ -436,7 +436,7 @@ export default function EmiCalculator() {
                       className="h-full rounded-full transition-all duration-500"
                       style={{
                         width: `${100 - principalPct}%`,
-                        background: "rgba(215,185,117,0.35)",
+                        background: "color-mix(in srgb, var(--clr-gold) 35%, transparent)",
                       }}
                     />
                   </div>

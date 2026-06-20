@@ -1,5 +1,3 @@
-
-
 export default function PageBanner({ eyebrow, titleLine1, titleLine2, image, alt }) {
   return (
     <section className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden">
@@ -9,18 +7,6 @@ export default function PageBanner({ eyebrow, titleLine1, titleLine2, image, alt
         src={image}
         alt={alt}
         className="absolute inset-0 w-full h-full object-cover object-center"
-      />
-
-      {/* ── Dark overlay ── */}
-      <div className="absolute inset-0 bg-black/50" />
-
-      {/* ── Green gradient fade from bottom ── */}
-      <div
-        className="absolute inset-x-0 bottom-0 h-2/3"
-        style={{
-          background:
-            "linear-gradient(to top, rgba(6,35,25,0.95) 0%, rgba(6,35,25,0.4) 60%, transparent 100%)",
-        }}
       />
 
       {/* ── Bottom-left text ── */}

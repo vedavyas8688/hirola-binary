@@ -7,28 +7,19 @@ import PricingSection from "../components/Pricingsection";
 import SpecificationsSection from "../components/Specificationssection";
 import ContactUs from "../components/Contactus";
 import Footer from "../components/Fotter";
- 
+import banner5 from "../assets/images/banner5.jpg";
+
 const UnitPlans = () => {
   return (
     <div>
       <Navbar />
-      <PageBanner
-        titleLine1="UnitPlans"
-        image="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=80"
-      />
+      <PageBanner titleLine1="UnitPlans" image={banner5} />
       <DesignPhilosophySection />
       <FloorPlanSection />
       <PricingSection />
       <SpecificationsSection />
       <ContactUs />
       <Footer />
-
-       
-
-
-
-
-
     </div>
   );
 };

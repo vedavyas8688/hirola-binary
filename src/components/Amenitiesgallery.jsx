@@ -1,26 +1,32 @@
- const images = [
+import eighteen from "../assets/images/18.jpg";
+import nineteen from "../assets/images/19.jpg";
+import twenty from "../assets/images/20.jpg";
+import twentyone from "../assets/images/21.jpg";
+import twentytwo from "../assets/images/22.jpg";
+ 
+const images = [
     {
-    src: "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1200&q=80",
+    src: eighteen,
     alt: "Grand Arrival Plaza",
     span: "col-span-2 row-span-2",
   },
   {
-    src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
+    src: nineteen,
     alt: "Ultra Luxury 2 & 3 BHK Homes",
     span: "col-span-1",
   },
   {
-    src: "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1200&q=80",
+    src: twenty,
     alt: "Fitness Deck",
     span: "col-span-1",
   },
   {
-    src: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80",
+    src: twentyone,
     alt: "Clubhouse Drop-Off",
     span: "col-span-1",
   },
   {
-    src: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
+    src: twentytwo,
     alt: "Multi-Purpose Play Court",
     span: "col-span-1",
   },
@@ -48,7 +54,7 @@ function ImagePlaceholder({ alt }) {
 
 export default function AmenitiesGallery() {
   return (
-    <section className="py-12 md:py-20 lg:py-28 bg-card-white overflow-hidden">
+    <section className="py-12 md:py-20 lg:py-28 bg-bg-cream overflow-hidden">
       <div className="mx-auto w-full max-w-[1400px] px-4 md:px-8">
 
         {/* ── Heading ── */}
