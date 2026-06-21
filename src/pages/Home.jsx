@@ -13,6 +13,7 @@ import ContactSection from "../components/Contactsection";
 import Contactus from "../components/Contactus";
 import Footer from "../components/Fotter";
 import FaqSection2 from "../components/Faqsection2";
+import MainMasterplansection from "../components/MainMasterplansection";
 
 const Home = () => {
   return (
@@ -22,9 +23,9 @@ const Home = () => {
       <AboutSection />
       <GallerySection />
       <UnitPlansSection />
+      <MainMasterplansection />
       <AmenitiesSection />
       <VideoSection />
-      <UnitPlansSection />
 
       <LocationSection />
       {/* <FaqSection /> */}

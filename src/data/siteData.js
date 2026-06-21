@@ -203,3 +203,90 @@ export const nextAddressCards = [
     fullWidth: true,
   },
 ];
+
+import masterPlanImg from "../assets/images/31.jpg";
+
+
+export const masterPlan = {
+  label: "Master Plan",
+  titleLine1: "A Thoughtfully Designed",
+  titleLine2: "3.5-Acre Master Plan",
+  image: masterPlanImg,
+  downloadName: "Binary-Project4-MasterPlan.jpg",
+  description:
+    "Project 4 is master-planned across 3.5 acres with 80%+ open space and only 234 residences — a rare low-density community on Sarjapur Road, with just 6 apartments per floor and no common walls.",
+  description2:
+    "At its heart lies a grand arrival plaza and a central landscape garden wrapped around an 8,000+ sq.ft clubhouse, with wide internal roads, community greens and leisure zones — ensuring privacy, ventilation and long-term livability.",
+};
+
+ export const videoSection = {
+  title: "WATCH PROJECT 4 RISE",
+  subtitle:
+    "See the latest construction progress at Project 4 — from foundation to skyline, every milestone built with precision and care on Sarjapur Road.",
+  youtubeId: "s-QL_tPe8CI",
+};
+ 
+
+
+import locationImg from "../assets/images/3.jpg";
+
+export const locationSection = {
+  eyebrow: "Location & Connectivity",
+  title: "FROM SUBURBAN SOLITUDE TO URBAN CONNECTIVITY",
+  intro:
+    "Perfectly positioned on Sarjapur Road, Project 4 stands at the heart of Bengaluru's next big growth zone. With landmark projects like STRR, PRR, SWIFT City and Metro Phase 3A, the neighbourhood promises seamless connectivity and strong future value.",
+  image: locationImg,
+  categories: [
+    {
+      label: "Institutes",
+      items: [
+        "Azim Premji University (3 Km)",
+        "Endevour International School (5 Km)",
+        "Champion International School (5 Km)",
+        "Wellsprings Academy (5 Km)",
+        "Vartika Montessori School (5 Km)",
+        "Cambridge Innovative School (5 Km)",
+        "Greenwood High Sarjapur (8 Km)",
+        "TISB Academy School (9 Km)",
+        "Oakridge International School (9 Km)",
+        "Delhi Public School (DPS) (10 Km)",
+        "Christ College of Science and Management (15 Km)",
+      ],
+    },
+    {
+      label: "IT Companies",
+      items: [
+        "Wipro Campus (3 Km)",
+        "Infosys SEZ Sarjapur (4 Km)",
+        "RGA Tech Park (6 Km)",
+        "Cessna Business Park (7 Km)",
+        "Salarpuria Softzone (8 Km)",
+        "Embassy Tech Village (10 Km)",
+        "Electronic City Phase 1 (12 Km)",
+        "Bagmane Tech Park (14 Km)",
+      ],
+    },
+    {
+      label: "Hospitals",
+      items: [
+        "Motherhood Hospital Sarjapur (4 Km)",
+        "Manipal Hospital Sarjapur (5 Km)",
+        "Columbia Asia Hospital (6 Km)",
+        "Narayana Multispeciality Hospital (8 Km)",
+        "Sakra World Hospital (10 Km)",
+        "Apollo Hospital Bannerghatta (12 Km)",
+      ],
+    },
+    {
+      label: "Shopping",
+      items: [
+        "Forum Mall Koramangala (8 Km)",
+        "Total Mall Sarjapur (5 Km)",
+        "DMart Sarjapur (3 Km)",
+        "Market Square Mall (9 Km)",
+        "Nexus Shantiniketan (11 Km)",
+        "Phoenix Marketcity (13 Km)",
+      ],
+    },
+  ],
+};
