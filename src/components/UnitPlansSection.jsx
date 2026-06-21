@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { unitPlans } from "../data/siteData";
+import Reveal from "./Reveal";
 
 export default function UnitPlansSection() {
   return (
@@ -15,7 +16,7 @@ export default function UnitPlansSection() {
       <div className="mx-auto w-full max-w-[1600px] px-4 md:px-8">
 
         {/* ── Heading ── */}
-        <div className="text-center mb-12 md:mb-20">
+        <Reveal className="text-center mb-12 md:mb-20">
           <p className="font-sans text-xs md:text-sm tracking-[0.3em] text-luxury-gold uppercase mb-3">
             Floor Plans
           </p>
@@ -27,14 +28,14 @@ export default function UnitPlansSection() {
             Thoughtfully planned 2 &amp; 3 BHK layouts that maximize space,
             light, and functionality
           </p>
-        </div>
+        </Reveal>
 
         {/* ── Unit plan rows ── */}
         <div className="space-y-16 md:space-y-28">
           {unitPlans.map((unit, index) => {
             const isEven = index % 2 === 0;
             return (
-              <div
+              <Reveal
                 key={unit.type}
                 className="relative flex flex-col lg:grid lg:grid-cols-2 lg:items-center gap-10 lg:gap-0"
               >
@@ -145,7 +146,7 @@ export default function UnitPlansSection() {
                   </div>
                 </div>
 
-              </div>
+              </Reveal>
             );
           })}
         </div>

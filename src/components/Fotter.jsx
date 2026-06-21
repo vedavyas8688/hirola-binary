@@ -16,7 +16,7 @@ export default function Footer() {
     { label: "Amenities", href: "/amenities" },
     { label: "Unit Plans", href: "/unit-plans" },
     { label: "Gallery", href: "/gallery" },
-    { label: "Project Status", href: "/project-status" },
+    { label: "Blog", href: "/blogpage" },
     { label: "Location", href: "/location" },
     { label: "Contact Us", href: "/contact" },
   ];

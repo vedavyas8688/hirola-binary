@@ -2,89 +2,15 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowRight, Clock, Calendar } from "lucide-react";
 
-import banner9 from "../assets/images/banner9.jpg";
-import banner10 from "../assets/images/banner10.jpg";
-import banner11 from "../assets/images/banner11.jpg";
-import banner12 from "../assets/images/banner12.jpg";
 import Navbar from "./Navbar";
-
-const BLOGS = [
-  {
-    id: 1,
-    category: "Market Insights",
-    title: "Why Sarjapur Road Is Bengaluru's Most Sought-After Address in 2026",
-    excerpt:
-      "From seamless connectivity to booming social infrastructure, Sarjapur Road has emerged as the city's most strategic residential corridor. Here's what's driving the demand.",
-    date: "18 Jun 2026",
-    readTime: "9 min read",
-    featured: true,
-    image: banner9,
-  },
-  {
-    id: 2,
-    category: "Living Well",
-    title: "The Art of Designing a Home That Grows With Your Family",
-    excerpt:
-      "A well-planned 3 BHK isn't just square footage — it's a canvas for life. We explore how thoughtful design anticipates the way families actually live.",
-    date: "05 Jun 2026",
-    readTime: "7 min read",
-    featured: false,
-    image: banner10,
-  },
-  {
-    id: 3,
-    category: "Investment",
-    title: "Pre-Launch vs Ready-to-Move: What Every Smart Buyer Should Know",
-    excerpt:
-      "Timing your property purchase can mean the difference between a great deal and a great home. We break down the pros, cons, and sweet spots.",
-    date: "22 May 2026",
-    readTime: "10 min read",
-    featured: false,
-    image: banner11,
-  },
-  {
-    id: 4,
-    category: "Lifestyle",
-    title: "Green Living: How Modern Residences Are Redefining Sustainability",
-    excerpt:
-      "Rainwater harvesting, solar rooftops, and native landscaping — the new generation of premium homes is built with the planet in mind.",
-    date: "11 May 2026",
-    readTime: "6 min read",
-    featured: false,
-    image: banner12,
-  },
-  {
-    id: 5,
-    category: "Market Insights",
-    title: "Understanding RERA: A Homebuyer's Complete Protection Guide",
-    excerpt:
-      "RERA transformed Indian real estate. Here's everything you need to know about your rights, builder obligations, and how to verify a project.",
-    date: "27 Apr 2026",
-    readTime: "11 min read",
-    featured: false,
-    image: banner9,
-  },
-  {
-    id: 6,
-    category: "Investment",
-    title: "NRI Home Buying in India: A Step-by-Step Guide for 2026",
-    excerpt:
-      "From FEMA regulations to repatriation rules, we simplify the entire process for Non-Resident Indians looking to invest back home.",
-    date: "09 Apr 2026",
-    readTime: "12 min read",
-    featured: false,
-    image: banner10,
-  },
-];
-
-const CATEGORIES = ["All", "Market Insights", "Investment", "Lifestyle", "Living Well"];
+import { blogs, blogCategories } from "../data/blogs";
 
 export default function BlogsPage() {
   const [active, setActive] = useState("All");
   const navigate = useNavigate();
 
   const filtered =
-    active === "All" ? BLOGS : BLOGS.filter((b) => b.category === active);
+    active === "All" ? blogs : blogs.filter((b) => b.category === active);
 
   const featured = filtered[0];
   const rest = filtered.slice(1);
@@ -127,7 +53,7 @@ export default function BlogsPage() {
       <div className="px-4 md:px-8 mb-12">
         <div className="mx-auto max-w-[1200px]">
           <div className="flex flex-wrap gap-2">
-            {CATEGORIES.map((cat) => {
+            {blogCategories.map((cat) => {
               const isActive = active === cat;
               return (
                 <button
@@ -163,7 +89,7 @@ export default function BlogsPage() {
           {/* ── Featured card (large) ── */}
           {featured && (
             <div
-              className="group relative mb-8 rounded-2xl overflow-hidden cursor-pointer border transition-all duration-500"
+              className="group relative mb-8 rounded-2xl overflow-hidden cursor-pointer border transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl"
               style={{ borderColor: "color-mix(in srgb, var(--clr-gold) 10%, transparent)" }}
               onClick={() => goToBlog(featured)}
             >
@@ -227,7 +153,7 @@ export default function BlogsPage() {
               {rest.map((blog) => (
                 <div
                   key={blog.id}
-                  className="group relative rounded-2xl overflow-hidden border transition-all duration-500 cursor-pointer flex flex-col"
+                  className="group relative rounded-2xl overflow-hidden border transition-all duration-500 cursor-pointer flex flex-col hover:-translate-y-1.5 hover:shadow-2xl"
                   style={{ borderColor: "color-mix(in srgb, var(--clr-gold) 10%, transparent)" }}
                   onClick={() => goToBlog(blog)}
                 >

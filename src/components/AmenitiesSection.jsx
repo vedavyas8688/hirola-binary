@@ -12,6 +12,8 @@ import {
   FaWalking,
   FaShieldAlt,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import Reveal from "./Reveal";
 
 const amenities = [
   { label: "Swimming Pool",     icon: <FaSwimmingPool /> },
@@ -34,17 +36,17 @@ export default function AmenitiesSection() {
       <div className="max-w-5xl mx-auto">
 
         {/* Heading */}
-        <div className="text-center mb-14">
+        <Reveal className="text-center mb-14">
           <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-normal tracking-widest text-luxury-gold mb-3">
             AN ENCLAVE OF EXQUISITE AMENITIES
           </h2>
           <p className="text-xs text-cream-text/50 tracking-[0.3em] uppercase">
             A Sanctuary of Belonging
           </p>
-        </div>
+        </Reveal>
 
         {/* Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 mb-12">
+        <Reveal delay={100} className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 mb-12">
           {amenities.map((item) => (
             <div
               key={item.label}
@@ -60,16 +62,16 @@ export default function AmenitiesSection() {
               </span>
             </div>
           ))}
-        </div>
+        </Reveal>
 
         {/* CTA */}
         <div className="text-center">
-          <a
-            href="/amenities"
+          <Link
+            to="/amenities"
             className="inline-block px-10 py-3 border border-luxury-gold text-luxury-gold text-xs tracking-[0.15em] uppercase rounded-full hover:bg-luxury-gold hover:text-luxury-green-dark transition-all duration-200"
           >
             VIEW ALL 60+ AMENITIES
-          </a>
+          </Link>
         </div>
 
       </div>

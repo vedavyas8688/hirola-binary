@@ -6,6 +6,7 @@ import {
   FaLeaf,
 } from "react-icons/fa";
 import { nextAddressCards } from "../data/siteData";
+import Reveal from "./Reveal";
 
 const iconMap = {
   FaRoad: <FaRoad />,
@@ -29,17 +30,17 @@ export default function AddressSection() {
       <div className="mx-auto w-full max-w-[1400px] px-4 md:px-8">
 
         {/* Heading */}
-        <div className="mb-10 md:mb-16 text-center">
+        <Reveal className="mb-10 md:mb-16 text-center">
           <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-relaxed text-luxury-gold">
             THE NEXT BIG ADDRESS
           </h2>
           <p className="font-sans text-base md:text-lg text-muted-foreground mt-3 md:mt-4">
             Where Sarjapur's Progress Finds Home.
           </p>
-        </div>
+        </Reveal>
 
         {/* Cards grid */}
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-10">
+        <Reveal delay={100} className="grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-10">
           {nextAddressCards.map((card) => (
             <div
               key={card.title}
@@ -71,7 +72,7 @@ export default function AddressSection() {
               </p>
             </div>
           ))}
-        </div>
+        </Reveal>
 
       </div>
     </section>

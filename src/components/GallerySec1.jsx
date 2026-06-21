@@ -1,5 +1,6 @@
 import React from "react";
 import img30 from "../assets/images/30.jpg";
+import Reveal from "./Reveal";
 
 
 const GallerySec1 = () => {
@@ -9,7 +10,7 @@ const GallerySec1 = () => {
         <div className="grid lg:grid-cols-2 gap-6 md:gap-12 lg:gap-16 items-center">
 
           {/* ── Image ── */}
-          <div className="relative border-4 border-luxury-gold rounded-2xl overflow-hidden shadow-xl">
+          <Reveal variant="left" className="relative border-4 border-luxury-gold rounded-2xl overflow-hidden shadow-xl">
             <img
               src={img30}
               className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover"
@@ -19,10 +20,10 @@ const GallerySec1 = () => {
                 Clubhouse
               </p>
             </div>
-          </div>
+          </Reveal>
 
           {/* ── Text content ── */}
-          <div className="space-y-4 md:space-y-6 text-center lg:text-left px-2 md:px-0">
+          <Reveal variant="right" delay={150} className="space-y-4 md:space-y-6 text-center lg:text-left px-2 md:px-0">
             <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-luxury-gold uppercase leading-tight">
               OUR CLUBHOUSE
             </h2>
@@ -41,7 +42,7 @@ const GallerySec1 = () => {
                 of Project 4.
               </p>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

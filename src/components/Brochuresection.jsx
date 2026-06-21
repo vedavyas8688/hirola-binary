@@ -1,10 +1,11 @@
 import { Download } from "lucide-react";
+import Reveal from "./Reveal";
 
 export default function BrochureSection() {
   return (
     <section className="py-12 md:py-20 lg:py-28 overflow-hidden bg-luxury-green-dark">
       <div className="mx-auto w-full max-w-[1400px] px-4 md:px-8">
-        <div className="max-w-5xl mx-auto text-center">
+        <Reveal className="max-w-5xl mx-auto text-center">
           <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-relaxed text-luxury-gold mb-4 uppercase">
             Your Future Unfolded
             <br />
@@ -25,7 +26,7 @@ export default function BrochureSection() {
             <Download className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" strokeWidth={2} />
             Download Brochure
           </a>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

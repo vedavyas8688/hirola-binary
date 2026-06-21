@@ -58,7 +58,7 @@ export const navLinks = [
   { href: "/unit-plans", label: "Unit Plans" },
   { href: "/gallery", label: "Gallery" },
   // { href: "/project-status", label: "Project Status" },
-  { href: "/blogpage", label: "blogpage" },
+  { href: "/blogpage", label: "Blog" },
   { href: "/location", label: "Location" },
   { href: "/contact", label: "Contact Us" },
 ];

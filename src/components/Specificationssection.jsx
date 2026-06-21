@@ -1,5 +1,6 @@
 import React from "react";
 import { Building2, ChefHat, Bath, LayoutGrid, PaintRoller, DoorOpen } from "lucide-react";
+import Reveal from "./Reveal";
 
 const SPECIFICATIONS = [
   {
@@ -58,7 +59,7 @@ const SpecificationsSection = () => {
       <div className="mx-auto w-full max-w-[1600px] px-4 md:px-8">
 
         {/* ── Heading ── */}
-        <div className="text-center mb-8 md:mb-12 lg:mb-16 px-2">
+        <Reveal className="text-center mb-8 md:mb-12 lg:mb-16 px-2">
           <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-relaxed text-luxury-gold uppercase">
             Specifications
           </h2>
@@ -67,10 +68,10 @@ const SpecificationsSection = () => {
             thoughtful detailing and future-ready services, ensuring comfort,
             safety and longevity for your family.
           </p>
-        </div>
+        </Reveal>
 
         {/* ── Spec cards ── */}
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 lg:gap-10 max-w-6xl mx-auto">
+        <Reveal delay={100} className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 lg:gap-10 max-w-6xl mx-auto">
           {SPECIFICATIONS.map(({ title, icon: Icon, items }) => (
             <div
               key={title}
@@ -96,7 +97,7 @@ const SpecificationsSection = () => {
               </ul>
             </div>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

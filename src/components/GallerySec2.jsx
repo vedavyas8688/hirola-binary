@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
+import Reveal from "./Reveal";
 
 import banner9 from "../assets/images/banner9.jpg";
 import banner10 from "../assets/images/banner10.jpg";
@@ -151,7 +152,7 @@ const GallerySec2 = () => {
     >
       <div className="mx-auto w-full max-w-[1600px] px-4 md:px-8">
         {/* ── Heading ── */}
-        <div className="text-center mb-10 md:mb-14">
+        <Reveal className="text-center mb-10 md:mb-14">
           <p className="font-sans text-xs tracking-[0.3em] text-luxury-gold uppercase mb-3">
             Gallery
           </p>
@@ -163,10 +164,10 @@ const GallerySec2 = () => {
             Explore every angle of your future community through a curated
             visual journey — from grand entrances to serene interiors.
           </p>
-        </div>
+        </Reveal>
 
         {/* ── Grid ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
+        <Reveal delay={100} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
           {visibleItems.map((image, index) => (
             <button
               key={index}
@@ -200,7 +201,7 @@ const GallerySec2 = () => {
               </div>
             </button>
           ))}
-        </div>
+        </Reveal>
 
         {/* ── Load more ── */}
         {hasMore && (

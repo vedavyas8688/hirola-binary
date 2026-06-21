@@ -1,5 +1,6 @@
 import { locationData } from "../data/siteData";
 import locationMapImg from "../assets/images/30.jpg";
+import Reveal from "./Reveal";
 
 export default function LocSection1() {
   return (
@@ -30,7 +31,7 @@ export default function LocSection1() {
           <div className="space-y-4 md:space-y-6 px-2 md:px-0">
 
             {/* Heading — desktop only */}
-            <div className="hidden lg:block">
+            <Reveal className="hidden lg:block">
               <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-relaxed text-luxury-gold">
                 AT THE CROSSROADS OF GROWTH AND CONVENIENCE.
               </h2>
@@ -39,7 +40,7 @@ export default function LocSection1() {
                 Project 4 places you right amidst innovation, opportunity, and
                 effortless access to the city's finest hubs.
               </p>
-            </div>
+            </Reveal>
 
             {/* Accordions */}
             <div className="space-y-3 md:space-y-4 mt-6 md:mt-8">

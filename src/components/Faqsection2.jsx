@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { faqs } from "../data/siteData";
+import Reveal from "./Reveal";
 
 export default function FaqSection2() {
   const [openIndex, setOpenIndex] = useState(null);
@@ -10,15 +11,15 @@ export default function FaqSection2() {
       <div className="mx-auto w-full max-w-[900px]">
 
         {/* Heading — centered (unchanged) */}
-        <div className="text-center mb-10 md:mb-14">
+        <Reveal className="text-center mb-10 md:mb-14">
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal leading-relaxed text-foreground-green">
             FREQUENTLY ASKED{" "}
             <span className="text-luxury-gold">QUESTIONS</span>
           </h2>
-        </div>
+        </Reveal>
 
         {/* Accordion — card style */}
-        <div className="space-y-3 md:space-y-4">
+        <Reveal delay={100} className="space-y-3 md:space-y-4">
           {faqs.map((faq, i) => {
             const isOpen = openIndex === i;
             return (
@@ -65,7 +66,7 @@ export default function FaqSection2() {
               </div>
             );
           })}
-        </div>
+        </Reveal>
 
       </div>
     </section>

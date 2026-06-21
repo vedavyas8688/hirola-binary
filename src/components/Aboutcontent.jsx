@@ -1,4 +1,5 @@
 import { aboutCompany } from "../data/siteData";
+import Reveal from "./Reveal";
 
 export default function AboutContent() {
   const { brand, tagline, paragraphs, image } = aboutCompany;
@@ -8,7 +9,7 @@ export default function AboutContent() {
       <div className="mx-auto w-full max-w-[1600px]">
         <div className="grid gap-8 md:gap-12 lg:grid-cols-2 items-center">
           {/* ── Left: Text ── */}
-          <div className="space-y-6 text-center lg:text-left">
+          <Reveal variant="left" className="space-y-6 text-center lg:text-left">
             <div>
               <span className="block font-serif text-base sm:text-lg md:text-xl font-normal tracking-wide leading-tight text-luxury-gold">
                 {brand}
@@ -32,16 +33,16 @@ export default function AboutContent() {
                 {p}
               </p>
             ))}
-          </div>
+          </Reveal>
 
           {/* ── Right: Image ── */}
-          <div className="relative">
+          <Reveal variant="right" delay={150} className="relative">
             <img
               src={image}
               alt="Project 4 residences"
               className="w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover rounded-md shadow-xl border-4 border-luxury-gold"
             />
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

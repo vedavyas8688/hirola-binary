@@ -1,3 +1,5 @@
+import Reveal from "./Reveal";
+
 export default function PageBanner({ eyebrow, titleLine1, titleLine2, image, alt }) {
   return (
     <section className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden">
@@ -11,7 +13,7 @@ export default function PageBanner({ eyebrow, titleLine1, titleLine2, image, alt
 
       {/* ── Bottom-left text ── */}
       <div className="absolute bottom-0 left-0 w-full max-w-[1400px] mx-auto px-4 md:px-8 pb-10 md:pb-16">
-        <div className="max-w-xl">
+        <Reveal className="max-w-xl">
 
           {/* Eyebrow */}
           {eyebrow && (
@@ -31,7 +33,7 @@ export default function PageBanner({ eyebrow, titleLine1, titleLine2, image, alt
           {/* Gold rule */}
           {/* <div className="h-[2px] w-16 bg-luxury-gold" /> */}
 
-        </div>
+        </Reveal>
       </div>
 
     </section>

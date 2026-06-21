@@ -1,3 +1,5 @@
+import Reveal from "./Reveal";
+
 const categories = [
   {
     title: "Arrival & Access",
@@ -111,22 +113,22 @@ export default function AmenitiesList() {
       <div className="mx-auto w-full max-w-[1400px] px-4 md:px-8">
 
         {/* ── Heading ── */}
-        <div className="text-center mb-10 md:mb-14">
+        <Reveal className="text-center mb-10 md:mb-14">
           <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-relaxed text-cream-text uppercase mb-4">
             60+ Curated{" "}
             <span className="text-luxury-gold">Amenities</span>
           </h2>
-        </div>
+        </Reveal>
 
         {/* ── Cards grid ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-stretch">
+        <Reveal delay={100} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-stretch">
           {categories.map(({ title, items }) => {
             const visibleItems = items.slice(0, MAX_ITEMS);
 
             return (
               <div
                 key={title}
-                className="bg-card-white rounded-lg shadow-lg p-6 md:p-8 flex flex-col h-full"
+                className="bg-card-white rounded-lg shadow-lg p-6 md:p-8 flex flex-col h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
               >
                 <h3 className="font-serif text-xl md:text-2xl text-luxury-gold mb-4 pb-2 border-b border-luxury-gold/40">
                   {title}
@@ -145,7 +147,7 @@ export default function AmenitiesList() {
               </div>
             );
           })}
-        </div>
+        </Reveal>
 
         {/* ── Divider line after the section ── */}
         <div className="mt-12 md:mt-16 h-px w-full bg-luxury-gold/20" />

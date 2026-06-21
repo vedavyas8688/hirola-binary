@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { galleryCategories } from "../data/siteData";
+import Reveal from "./Reveal";
 
 export default function GallerySection() {
   const [current, setCurrent] = useState(0);
@@ -43,12 +44,12 @@ export default function GallerySection() {
       <div className="mx-auto w-full max-w-[1600px] px-4 md:px-8">
 
         {/* Heading */}
-        <div className="text-center mb-12 md:mb-16">
+        <Reveal className="text-center mb-12 md:mb-16">
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal leading-relaxed text-foreground-green">
             A GLIMPSE INTO THE LIFE YOU{" "}
             <span className="text-luxury-gold">DESERVE</span>
           </h2>
-        </div>
+        </Reveal>
 
         {/* ── Mobile: slider (swipeable) ── */}
         <div className="md:hidden relative">
@@ -109,7 +110,7 @@ export default function GallerySection() {
         </div>
 
         {/* ── Desktop: staggered 3-column grid (unchanged) ── */}
-        <div className="hidden md:grid gap-8 md:grid-cols-3">
+        <Reveal delay={120} className="hidden md:grid gap-8 md:grid-cols-3">
           {galleryCategories.map((item, i) => (
             <div
               key={item.label}
@@ -136,7 +137,7 @@ export default function GallerySection() {
               </div>
             </div>
           ))}
-        </div>
+        </Reveal>
 
       </div>
     </section>

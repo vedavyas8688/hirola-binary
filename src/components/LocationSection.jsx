@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { locationSection } from "../data/siteData";
+import Reveal from "./Reveal";
 
 export default function LocationSection() {
   const [openIndex, setOpenIndex] = useState(0);
@@ -14,7 +15,7 @@ export default function LocationSection() {
 
           {/* ── Left: Text + Accordion ── */}
           <div className="w-full py-4 md:py-6 lg:py-12 relative z-20">
-            <div className="text-left mb-6 md:mb-8">
+            <Reveal variant="left" className="text-left mb-6 md:mb-8">
               {/* Eyebrow */}
               <div className="mb-3 flex items-center gap-3">
                 <span className="block h-px w-8 bg-luxury-gold" />
@@ -29,7 +30,7 @@ export default function LocationSection() {
               <p className="font-sans text-sm md:text-base text-cream-text/70 max-w-2xl mt-3 md:mt-4 leading-relaxed">
                 {intro}
               </p>
-            </div>
+            </Reveal>
 
             {/* Accordion */}
             <div className="space-y-0">

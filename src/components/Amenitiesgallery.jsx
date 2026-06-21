@@ -3,6 +3,7 @@ import nineteen from "../assets/images/19.jpg";
 import twenty from "../assets/images/20.jpg";
 import twentyone from "../assets/images/21.jpg";
 import twentytwo from "../assets/images/22.jpg";
+import Reveal from "./Reveal";
  
 const images = [
     {
@@ -58,7 +59,7 @@ export default function AmenitiesGallery() {
       <div className="mx-auto w-full max-w-[1400px] px-4 md:px-8">
 
         {/* ── Heading ── */}
-        <div className="text-center mb-10 md:mb-14 lg:mb-20">
+        <Reveal className="text-center mb-10 md:mb-14 lg:mb-20">
           <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-relaxed text-foreground-green uppercase mb-4 md:mb-6">
             Elevate Your Everyday with
             <br />
@@ -70,10 +71,10 @@ export default function AmenitiesGallery() {
             together the finest elements of modern living, ensuring you and your
             family enjoy the best of everything, right at your doorstep.
           </p>
-        </div>
+        </Reveal>
 
         {/* ── Bento grid ── */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 lg:gap-6 auto-rows-[220px] md:auto-rows-[200px] lg:auto-rows-[240px]">
+        <Reveal delay={100} className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 lg:gap-6 auto-rows-[220px] md:auto-rows-[200px] lg:auto-rows-[240px]">
           {images.map(({ src, alt, span }) => (
             <div key={alt} className={span}>
               {src ? (
@@ -87,7 +88,7 @@ export default function AmenitiesGallery() {
               )}
             </div>
           ))}
-        </div>
+        </Reveal>
 
       </div>
     </section>

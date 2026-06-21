@@ -1,4 +1,5 @@
 import aboutimage from "../assets/images/11.jpg";
+import Reveal from "./Reveal";
 
 export default function AboutStory() {
   const stats = [
@@ -12,16 +13,16 @@ export default function AboutStory() {
       <div className="mx-auto w-full max-w-[1400px]">
         <div className="grid lg:grid-cols-2 gap-10 md:gap-12 lg:gap-20 items-center">
           {/* ── Left: Image ── */}
-          <div className="order-2 lg:order-1">
+          <Reveal variant="left" className="order-2 lg:order-1">
             <img
               src={aboutimage}
               alt="Project 4 facade"
               className="w-full aspect-[4/3] object-cover rounded-xl border-2 border-luxury-gold/60"
             />
-          </div>
+          </Reveal>
 
           {/* ── Right: Text ── */}
-          <div className="space-y-6 md:space-y-8 order-1 lg:order-2">
+          <Reveal variant="right" delay={150} className="space-y-6 md:space-y-8 order-1 lg:order-2">
             {/* Heading */}
             <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-tight text-luxury-gold">
               A TAPESTRY OF TIMELESS
@@ -65,7 +66,7 @@ export default function AboutStory() {
                 ))}
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

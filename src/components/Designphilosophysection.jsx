@@ -2,6 +2,7 @@ import React from "react";
 import { Download } from "lucide-react";
 import eighteen from "../assets/images/18.jpg";
 import twentythree from "../assets/images/23.jpg";
+import Reveal from "./Reveal";
 
 const DesignPhilosophySection = ({
   image = twentythree,
@@ -16,7 +17,7 @@ const DesignPhilosophySection = ({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           {/* ── Layered image collage ── */}
-          <div className="relative w-full max-w-xl mx-auto lg:mx-0 aspect-[4/3]">
+          <Reveal variant="left" className="relative w-full max-w-xl mx-auto lg:mx-0 aspect-[4/3]">
 
             {/* Back panel — image with overlay */}
             <div className="absolute top-[2%] right-0 w-3/5 h-[95%] overflow-hidden">
@@ -36,10 +37,10 @@ const DesignPhilosophySection = ({
               />
             </div>
 
-          </div>
+          </Reveal>
 
           {/* ── Text content ── */}
-          <div>
+          <Reveal variant="right" delay={150}>
             <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-relaxed uppercase mb-4">
               <span className="text-luxury-gold">Beyond Brick and Beam,</span>
               <br />
@@ -53,7 +54,7 @@ const DesignPhilosophySection = ({
               is meticulously aligned with Vastu principles, blending spiritual
               balance with modern comfort.
             </p>
-          </div>
+          </Reveal>
 
         </div>
       </div>
