@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ArrowRight, MapPin, Phone, Mail } from "lucide-react";
 import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
 import logoLeft from "../assets/images/logo-left.svg";
@@ -22,8 +23,6 @@ export default function Footer() {
 
   return (
     <footer className="relative overflow-hidden bg-luxury-green-dark text-white">
-
-       
 
       <div className="relative mx-auto w-full max-w-[1400px] px-4 md:px-8 -pt-5 pb-12">
         <div className="grid gap-12 md:grid-cols-[1.8fr_1fr_1fr]">
@@ -50,12 +49,12 @@ export default function Footer() {
                 </a>
               ))}
             </div>
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="inline-block rounded-full font-sans font-semibold text-sm px-7 py-2.5 text-luxury-green-dark bg-luxury-gold hover:bg-luxury-gold/90 transition-colors duration-200"
             >
               Enquire Now
-            </a>
+            </Link>
           </div>
 
           {/* ── Explore ── */}
@@ -65,13 +64,13 @@ export default function Footer() {
             <ul className="space-y-3">
               {navLinks.map(({ label, href }) => (
                 <li key={href}>
-                  <a
-                    href={href}
+                  <Link
+                    to={href}
                     className="font-sans text-sm text-white/60 hover:text-luxury-gold transition-colors duration-200 flex items-center gap-2 group"
                   >
                     <ArrowRight size={14} className="text-luxury-gold/50 group-hover:text-luxury-gold" />
                     {label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -118,18 +117,18 @@ export default function Footer() {
             © 2026 Binary Ventures. All rights reserved.
           </span>
           <div className="flex items-center gap-6">
-            <a
-              href="/privacy-policy"
+            <Link
+              to="/privacy-policy"
               className="font-sans text-xs text-white/40 hover:text-luxury-gold transition-colors"
             >
               Privacy Policy
-            </a>
-            <a
-              href="/terms-of-use"
+            </Link>
+            <Link
+              to="/terms-of-use"
               className="font-sans text-xs text-white/40 hover:text-luxury-gold transition-colors"
             >
               Terms of Use
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -9,7 +9,8 @@ import Location from "./pages/Location";
 import Contact from "./pages/Contact";
 import BlogsPage from "./components/BlogsPage";
 import BlogDetailPage from "./components/BlogDetailPage";
-
+ import PrivacyPolicy from "./components/PrivacyPolicy";
+import TermsOfUse from "./components/TermsOfUse";
 function App() {
   return (
     <Routes>
@@ -23,6 +24,8 @@ function App() {
       <Route path="/blogpage/:id" element={<BlogDetailPage />} />
       <Route path="/location" element={<Location />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="/terms-of-use" element={<TermsOfUse />} />
     </Routes>
   );
 }

@@ -5,7 +5,7 @@ import LocSection1 from "../components/LocSection1";
 import AddressSection from "../components/AddressSection";
 import ContactUs from "../components/Contactus";
 import Footer from "../components/Fotter";
-import banner7 from "../assets/images/banner7.jpg";
+import banner14 from "../assets/images/banner14.jpg";
 
 
 const Location = () => {
@@ -14,7 +14,7 @@ const Location = () => {
       <Navbar />
       <PageBanner
         titleLine1="Location"
-        image={banner7}
+        image={banner14}
       />
       <LocSection1 />
       <AddressSection />

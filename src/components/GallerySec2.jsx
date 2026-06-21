@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 
+import banner9 from "../assets/images/banner9.jpg";
+import banner10 from "../assets/images/banner10.jpg";
+import banner11 from "../assets/images/banner11.jpg";
+import banner12 from "../assets/images/banner12.jpg";
+
 import img1 from "../assets/images/1.jpg";
 import img2 from "../assets/images/2.jpg";
 import img3 from "../assets/images/3.jpg";
@@ -64,9 +69,39 @@ import img29 from "../assets/images/29.jpg";
 // ];
 
 const IMAGES = [
-  img1, img2, img3, img4, img5, img6, img7, img8, img9, img10,
-  img11, img12, img13, img14, img15, img16, img17, img18, img19, img20,
-  img21, img22, img23, img24, img25, img26, img27, img28, img29,
+  banner9,
+  banner10,
+  banner11,
+  banner12,
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  img6,
+  img7,
+  img8,
+  img9,
+  img10,
+  img11,
+  img12,
+  img13,
+  img14,
+  img15,
+  img16,
+  img17,
+  img18,
+  img19,
+  img20,
+  img21,
+  img22,
+  img23,
+  img24,
+  img25,
+  img26,
+  img27,
+  img28,
+  img29,
 ];
 
 // const GALLERY_ITEMS = IMAGES.map((image, index) => ({
@@ -90,8 +125,7 @@ const GallerySec2 = () => {
   const closeLightbox = () => setLightboxIndex(null);
   const showPrev = () =>
     setLightboxIndex((prev) => (prev - 1 + IMAGES.length) % IMAGES.length);
-  const showNext = () =>
-    setLightboxIndex((prev) => (prev + 1) % IMAGES.length);
+  const showNext = () => setLightboxIndex((prev) => (prev + 1) % IMAGES.length);
 
   useEffect(() => {
     if (lightboxIndex === null) return;
@@ -116,7 +150,6 @@ const GallerySec2 = () => {
       }}
     >
       <div className="mx-auto w-full max-w-[1600px] px-4 md:px-8">
-
         {/* ── Heading ── */}
         <div className="text-center mb-10 md:mb-14">
           <p className="font-sans text-xs tracking-[0.3em] text-luxury-gold uppercase mb-3">
@@ -176,17 +209,18 @@ const GallerySec2 = () => {
               type="button"
               onClick={() =>
                 setVisibleCount((prev) =>
-                  Math.min(prev + LOAD_STEP, IMAGES.length)
+                  Math.min(prev + LOAD_STEP, IMAGES.length),
                 )
               }
               className="group inline-flex items-center gap-3 rounded-full border border-luxury-gold/50 hover:border-luxury-gold text-luxury-gold text-xs tracking-[0.25em] uppercase font-sans px-10 py-3.5 transition-all duration-300 hover:bg-luxury-gold/10"
             >
               Load More
-              <span className="transition-transform duration-300 group-hover:translate-y-0.5">↓</span>
+              <span className="transition-transform duration-300 group-hover:translate-y-0.5">
+                ↓
+              </span>
             </button>
           </div>
         )}
-
       </div>
 
       {/* ── Lightbox ── */}
@@ -208,7 +242,10 @@ const GallerySec2 = () => {
           {/* Prev */}
           <button
             type="button"
-            onClick={(e) => { e.stopPropagation(); showPrev(); }}
+            onClick={(e) => {
+              e.stopPropagation();
+              showPrev();
+            }}
             aria-label="Previous"
             className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-luxury-gold/40 bg-black/40 text-luxury-gold hover:bg-luxury-gold hover:text-foreground-green flex items-center justify-center transition-all duration-300"
           >
@@ -239,7 +276,10 @@ const GallerySec2 = () => {
           {/* Next */}
           <button
             type="button"
-            onClick={(e) => { e.stopPropagation(); showNext(); }}
+            onClick={(e) => {
+              e.stopPropagation();
+              showNext();
+            }}
             aria-label="Next"
             className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-luxury-gold/40 bg-black/40 text-luxury-gold hover:bg-luxury-gold hover:text-foreground-green flex items-center justify-center transition-all duration-300"
           >
