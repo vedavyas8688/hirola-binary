@@ -11,14 +11,15 @@ import sixteen from "../assets/images/16.jpg";
 import thirteen from "../assets/images/13.jpg";
 import fourteen from "../assets/images/14.jpg";
 import fifteen from "../assets/images/15.jpg";
+import banner1Mobile from "../assets/images/banner9.jpg";
 
 export const bannerSlides = [
-   
   {
     image: banner13,
+    imageMobile: banner1Mobile,
     alt: "Luxury Residential Tower",
   },
-   {
+  {
     image: banner10,
     alt: "Luxury Residential Tower",
   },
@@ -26,12 +27,10 @@ export const bannerSlides = [
     image: banner11,
     alt: "Luxury Residential Tower",
   },
-   {
+  {
     image: banner12,
     alt: "Luxury Residential Tower",
   },
-    
-  
 ];
 
 // Keep mobile slides using the same source images as desktop so animations,
@@ -82,14 +81,12 @@ export const aboutContent = {
     "Project 4 by Binary Ventures is ultra-luxury living reimagined on Sarjapur Road — where 80% open space, only 6 apartments per floor and homes with no common walls create a rare sense of privacy, light and calm. Thoughtfully designed 2 & 3 BHK residences welcome families, professionals, NRIs and first-time buyers into a future-ready, low-density community.",
 };
 
-
 export const unitPlans = [
   {
     type: "3 BED",
     size: "1296 - 1826 sq.ft",
     logo: logoLeft,
-    floorPlan:
-       seventeen,
+    floorPlan: seventeen,
     description:
       "Spacious and sophisticated, our 3BED homes with dual balconies and open layouts are crafted for families who value comfort and luxury.",
   },
@@ -97,8 +94,7 @@ export const unitPlans = [
     type: "2 BED",
     size: "1131 - 1451 sq.ft",
     logo: logoLeft,
-    floorPlan:
-      sixteen,
+    floorPlan: sixteen,
     description:
       "Elegantly designed 2BED homes with dual balconies that invite light, air, and warmth.",
   },
@@ -107,20 +103,17 @@ export const unitPlans = [
 export const galleryCategories = [
   {
     label: "Interiors",
-    image:thirteen ,
+    image: thirteen,
   },
   {
     label: "Exteriors",
-    image:
-       fourteen,
+    image: fourteen,
   },
   {
     label: "Amenities",
-    image:
-       fifteen,
+    image: fifteen,
   },
 ];
-
 
 export const locationData = [
   {
@@ -164,13 +157,9 @@ export const locationData = [
   },
   {
     title: "Shopping",
-    items: [
-      "D-Mart (2 Km)",
-      "Forum The Prestige City (5 Km)",
-    ],
+    items: ["D-Mart (2 Km)", "Forum The Prestige City (5 Km)"],
   },
 ];
-
 
 export const nextAddressCards = [
   {

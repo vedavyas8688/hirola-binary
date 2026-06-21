@@ -18,21 +18,30 @@ export default function Banner() {
   }, [next]);
 
   return (
-    <section className="relative w-full mt-16 md:mt-20 bg-luxury-green-dark overflow-hidden aspect-[208/299] md:aspect-auto md:h-[75svh] lg:h-[calc(100vh-5rem)]">
+    <section className="relative w-full mt-16 md:mt-20 bg-luxury-green-dark overflow-hidden h-[calc(100svh-4rem)] md:h-[calc(100svh-5rem)]">
 
-      {/* ── Slides (same images on mobile + desktop, shown 100% full) ── */}
+      {/* ── Slides — portrait image on mobile, wide image on desktop ── */}
       <div className="absolute inset-0">
         {bannerSlides.map((slide, i) => (
-          <img
+          <div
             key={i}
-            src={slide.image}
-            alt={slide.alt}
-            draggable="false"
-            loading={i === 0 ? "eager" : "lazy"}
-            className={`absolute inset-0 h-full w-full object-contain lg:object-cover transition-opacity duration-700 ease-in-out ${
+            className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
               i === current ? "opacity-100" : "opacity-0"
             }`}
-          />
+          >
+            <picture className="block h-full w-full">
+              {/* Desktop / tablet: wide landscape image */}
+              <source media="(min-width: 768px)" srcSet={slide.image} />
+              {/* Mobile (default): portrait image */}
+              <img
+                src={slide.imageMobile || slide.image}
+                alt={slide.alt}
+                draggable="false"
+                loading={i === 0 ? "eager" : "lazy"}
+                className="h-full w-full object-cover object-center"
+              />
+            </picture>
+          </div>
         ))}
       </div>
 
