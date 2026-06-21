@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { unitPlans } from "../data/siteData";
 
 export default function UnitPlansSection() {
@@ -22,9 +23,9 @@ export default function UnitPlansSection() {
             HOMES DESIGNED FOR{" "}
             <span className="text-luxury-gold">ELEVATED LIVING</span>
           </h2>
-           <p className="font-sans text-base md:text-lg text-muted-sage max-w-2xl mx-auto mt-5 px-2 leading-relaxed">
-            Thoughtfully planned layouts that maximize space, light, and
-            functionality
+          <p className="font-sans text-base md:text-lg text-muted-sage max-w-2xl mx-auto mt-5 px-2 leading-relaxed">
+            Thoughtfully planned 2 &amp; 3 BHK layouts that maximize space,
+            light, and functionality
           </p>
         </div>
 
@@ -60,16 +61,26 @@ export default function UnitPlansSection() {
                     />
 
                     {/* Type + size badge */}
-                    <div className="inline-flex items-center gap-2 mb-4">
+                    <div className="inline-flex items-center gap-2 mb-3">
                       <span className="font-serif text-xl md:text-2xl lg:text-3xl text-white tracking-wide">
                         {unit.type}
                       </span>
-                       <span className="font-sans text-xs md:text-sm text-luxury-gold tracking-widest uppercase">
-                        {unit.size}
-                      </span>
+                      {unit.size && (
+                        <span className="font-sans text-xs md:text-sm text-luxury-gold tracking-widest uppercase">
+                          {unit.size}
+                        </span>
+                      )}
                     </div>
 
-                    
+                    {/* Starting price */}
+                    {unit.price && (
+                      <p className="font-serif text-2xl md:text-3xl text-luxury-gold mb-4">
+                        {unit.price}
+                        <span className="font-sans text-xs text-muted-sage tracking-widest uppercase ml-2">
+                          Starting
+                        </span>
+                      </p>
+                    )}
 
                     {/* Description */}
                     <p className="font-sans text-sm md:text-base lg:text-lg text-muted-sage leading-relaxed">
@@ -89,10 +100,13 @@ export default function UnitPlansSection() {
                     )}
 
                     {/* CTA */}
-                    <button className="mt-8 group relative inline-flex items-center gap-3 border border-luxury-gold/60 hover:border-luxury-gold text-luxury-gold text-xs tracking-[0.2em] uppercase font-sans px-7 py-3 transition-all duration-300 hover:bg-luxury-gold/10">
+                    <Link
+                      to={unit.priceLink || "/contact"}
+                      className="mt-8 group relative inline-flex items-center gap-3 border border-luxury-gold/60 hover:border-luxury-gold text-luxury-gold text-xs tracking-[0.2em] uppercase font-sans px-7 py-3 transition-all duration-300 hover:bg-luxury-gold/10"
+                    >
                       Check Prices
                       <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-                    </button>
+                    </Link>
 
                   </div>
                 </div>
@@ -123,7 +137,8 @@ export default function UnitPlansSection() {
                     {/* Floating label */}
                     <div className="absolute bottom-4 left-4 bg-bg-cream/90 backdrop-blur-sm px-4 py-2 border border-luxury-gold/30">
                       <p className="font-sans text-xs tracking-[0.2em] uppercase text-luxury-gold">
-                        {unit.type} · {unit.size}
+                        {unit.type}
+                        {unit.size ? ` · ${unit.size}` : ""}
                       </p>
                     </div>
 
