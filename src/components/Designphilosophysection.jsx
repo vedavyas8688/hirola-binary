@@ -4,19 +4,19 @@ import eighteen from "../assets/images/18.jpg";
 import twentythree from "../assets/images/23.jpg";
 
 const DesignPhilosophySection = ({
-  image =  twentythree,
-  backImage =  eighteen,
+  image = twentythree,
+  backImage = eighteen,
   imageAlt = "Project interior",
   enquireHref = "#enquire",
   brochureHref = "/brochure.pdf",
 }) => {
   return (
-    <section className="relative py-12 md:py-20 lg:py-28 overflow-hidden bg-luxury-green-dark">
+    <section className="relative py-12 md:py-20 lg:py-28 pb-28 md:pb-32 overflow-hidden bg-luxury-green-dark">
       <div className="mx-auto w-full max-w-[1400px] px-4 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           {/* ── Layered image collage ── */}
-          <div className="relative max-w-xl mx-auto lg:mx-0 aspect-[4/3]">
+          <div className="relative w-full max-w-xl mx-auto lg:mx-0 aspect-[4/3]">
 
             {/* Back panel — image with overlay */}
             <div className="absolute top-[2%] right-0 w-3/5 h-[95%] overflow-hidden">
@@ -71,7 +71,7 @@ const DesignPhilosophySection = ({
       <a
         href={brochureHref}
         download
-        className="absolute bottom-8 right-8 md:right-12 flex items-center justify-center w-12 h-12 rounded-full border border-luxury-gold text-luxury-gold hover:bg-luxury-gold hover:text-foreground-green transition-colors duration-300"
+        className="absolute bottom-6 right-6 md:bottom-8 md:right-12 z-20 flex items-center justify-center w-12 h-12 rounded-full border border-luxury-gold bg-luxury-green-dark text-luxury-gold hover:bg-luxury-gold hover:text-foreground-green transition-colors duration-300 shadow-lg"
       >
         <Download className="w-5 h-5" strokeWidth={2} />
       </a>
