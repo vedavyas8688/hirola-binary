@@ -20,10 +20,12 @@ const Home = () => {
       <Navbar />
       <Banner />
       <AboutSection />
+      <GallerySection />
+      <UnitPlansSection />
       <AmenitiesSection />
       <VideoSection />
       <UnitPlansSection />
-      <GallerySection />
+
       <LocationSection />
       {/* <FaqSection /> */}
       <FaqSection2 />
@@ -32,7 +34,6 @@ const Home = () => {
       <ContactSection />
       <Contactus />
       <Footer />
-
     </div>
   );
 };

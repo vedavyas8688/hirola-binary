@@ -1,18 +1,42 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { galleryCategories } from "../data/siteData";
 
 export default function GallerySection() {
   const [current, setCurrent] = useState(0);
+  const total = galleryCategories.length;
 
-  const next = useCallback(() => {
-    setCurrent((c) => (c + 1) % galleryCategories.length);
-  }, []);
+  const next = useCallback(() => setCurrent((c) => (c + 1) % total), [total]);
+  const prev = useCallback(
+    () => setCurrent((c) => (c - 1 + total) % total),
+    [total]
+  );
 
   // Auto-advance on mobile
   useEffect(() => {
     const timer = setInterval(next, 4000);
     return () => clearInterval(timer);
   }, [next]);
+
+  // ── Swipe handling (mobile) ──
+  const touchStartX = useRef(null);
+  const touchEndX = useRef(null);
+  const SWIPE_THRESHOLD = 50; // px
+
+  const onTouchStart = (e) => {
+    touchEndX.current = null;
+    touchStartX.current = e.touches[0].clientX;
+  };
+  const onTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+  const onTouchEnd = () => {
+    if (touchStartX.current === null || touchEndX.current === null) return;
+    const delta = touchStartX.current - touchEndX.current;
+    if (delta > SWIPE_THRESHOLD) next(); // swipe left  → next
+    else if (delta < -SWIPE_THRESHOLD) prev(); // swipe right → prev
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
 
   return (
     <section className="py-24 bg-bg-cream overflow-hidden">
@@ -26,9 +50,14 @@ export default function GallerySection() {
           </h2>
         </div>
 
-        {/* ── Mobile: slider ── */}
+        {/* ── Mobile: slider (swipeable) ── */}
         <div className="md:hidden relative">
-          <div className="relative overflow-hidden">
+          <div
+            className="relative overflow-hidden touch-pan-y"
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+          >
             {galleryCategories.map((item, i) => (
               <div
                 key={item.label}
@@ -53,7 +82,8 @@ export default function GallerySection() {
                     <img
                       src={item.image}
                       alt={item.label}
-                      className="w-full h-80 object-cover"
+                      draggable="false"
+                      className="w-full h-80 object-cover select-none pointer-events-none"
                     />
                   </div>
                 </div>
@@ -78,7 +108,7 @@ export default function GallerySection() {
           </div>
         </div>
 
-        {/* ── Desktop: staggered 3-column grid ── */}
+        {/* ── Desktop: staggered 3-column grid (unchanged) ── */}
         <div className="hidden md:grid gap-8 md:grid-cols-3">
           {galleryCategories.map((item, i) => (
             <div
