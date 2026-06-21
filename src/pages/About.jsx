@@ -20,8 +20,9 @@ export default function About() {
       />
       <AboutStory />
       <AboutFeatures />
+       <FaqSection2 />
       <ContactUs />
-      <FaqSection2 />
+      
       <Footer />
     </div>
   );

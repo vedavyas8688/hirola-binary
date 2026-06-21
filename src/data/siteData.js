@@ -352,3 +352,39 @@ export const contactSection = {
     "Have a question about Binary Project 4 — pricing, floor plans, or the launch offer? Reach us directly or drop a message and our team will call you back within 24 hours.",
   interests: ["2 BHK", "3 BHK", "Investment", "NRI Purchase", "General Enquiry"],
 };
+
+export const aboutFeatures = {
+  eyebrow: "Why Binary",
+  title1: "DESIGNED FOR",
+  title2: "LIFE",
+
+  items: [
+    {
+      title: "The Sarjapura Advantage",
+      icon: "MapPin",
+      description:
+        "Strategically located in Sarjapura, the project offers seamless access to the ORR IT Corridor, major tech parks, leading schools, hospitals, and lifestyle destinations. With upcoming infrastructure developments such as STRR, Swift City, and Metro Phase 3A, it presents a future-ready investment opportunity backed by transparency, legal clarity, and a fully refundable EOI.",
+    },
+
+    {
+      title: "Thoughtful by Design",
+      icon: "Ruler",
+      description:
+        "Crafted for elevated living, the community features 80% open spaces, landscaped greens, and serene walkways. Homes are designed without common walls to ensure privacy, while Vastu-compliant layouts, expansive balconies, abundant natural light, and cross ventilation create a harmonious and comfortable living environment.",
+    },
+
+    {
+      title: "The Flow of Community",
+      icon: "Trees",
+      description:
+        "Inspired by nature's rhythm, the masterplan fosters a sense of connection, openness, and belonging. Carefully designed spaces encourage community interaction while dedicated wellness, recreation, and leisure zones create opportunities for residents to relax, engage, and thrive together.",
+    },
+
+    {
+      title: "Beyond the Ordinary",
+      icon: "Building2",
+      description:
+        "Experience a lifestyle enriched by an 8,000+ sq.ft. clubhouse and over 60 thoughtfully curated amenities. From sunlit swimming pools and recreation decks to fitness spaces, green retreats, smart living features, and sustainable design principles, every detail is crafted to deliver luxury, convenience, and well-being.",
+    },
+  ],
+};
