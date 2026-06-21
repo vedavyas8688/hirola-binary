@@ -103,6 +103,8 @@ const categories = [
   },
 ];
 
+const MAX_ITEMS = 5;
+
 export default function AmenitiesList() {
   return (
     <section className="py-12 md:py-20 lg:py-28 overflow-hidden bg-luxury-green-dark">
@@ -114,32 +116,39 @@ export default function AmenitiesList() {
             60+ Curated{" "}
             <span className="text-luxury-gold">Amenities</span>
           </h2>
-           
         </div>
 
         {/* ── Cards grid ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {categories.map(({ title, items }) => (
-            <div
-              key={title}
-              className="bg-card-white rounded-lg shadow-lg p-6 md:p-8"
-            >
-              <h3 className="font-serif text-xl md:text-2xl text-luxury-gold mb-4 pb-2 border-b border-luxury-gold/40">
-                {title}
-              </h3>
-              <ul className="space-y-2">
-                {items.map((item) => (
-                  <li
-                    key={item}
-                    className="font-sans text-sm md:text-base text-muted-sage leading-relaxed"
-                  >
-                    • {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-stretch">
+          {categories.map(({ title, items }) => {
+            const visibleItems = items.slice(0, MAX_ITEMS);
+
+            return (
+              <div
+                key={title}
+                className="bg-card-white rounded-lg shadow-lg p-6 md:p-8 flex flex-col h-full"
+              >
+                <h3 className="font-serif text-xl md:text-2xl text-luxury-gold mb-4 pb-2 border-b border-luxury-gold/40">
+                  {title}
+                </h3>
+
+                <ul className="space-y-2 flex-1">
+                  {visibleItems.map((item) => (
+                    <li
+                      key={item}
+                      className="font-sans text-sm md:text-base text-muted-sage leading-relaxed"
+                    >
+                      • {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
         </div>
+
+        {/* ── Divider line after the section ── */}
+        <div className="mt-12 md:mt-16 h-px w-full bg-luxury-gold/20" />
 
       </div>
     </section>

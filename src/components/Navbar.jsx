@@ -1,20 +1,21 @@
-import { useState } from "react";
+ import { useState } from "react";
+import { Link } from "react-router-dom";
 import { FaBars, FaTimes, FaPhoneAlt, FaDownload } from "react-icons/fa";
 import { siteConfig, navLinks } from "../data/siteData";
-import logoLeft from "../assets/images/logo-left.svg";
-import logoRight from "../assets/images/logo-right.png";
+import logoLeft from "../assets/images/logo-right.png";
+import logoRight from "../assets/images/logo-left.svg";
 import EnquireModal from "./EnquireModal";
 import DownloadModal from "./DownloadModal";
 
 function LeftLogo() {
   return (
-    <a href="/" className="cursor-pointer flex-shrink-0">
+    <Link to="/" className="cursor-pointer flex-shrink-0">
       <img
         src={logoLeft}
         alt={siteConfig.projectName || "Project logo"}
         className="h-8 sm:h-10 lg:h-12 xl:h-14 2xl:h-16 w-auto hover:opacity-80 transition-opacity"
       />
-    </a>
+    </Link>
   );
 }
 
@@ -32,6 +33,8 @@ export default function Navbar() {
   const [open, setOpen]               = useState(false);
   const [enquireOpen, setEnquireOpen] = useState(false);
   const [downloadOpen, setDownloadOpen] = useState(false);
+
+  const phone = "+91 96112 11255";
 
   return (
     <>
@@ -56,27 +59,27 @@ export default function Navbar() {
             {/* Desktop nav */}
             <nav className="hidden lg:flex items-center gap-3 xl:gap-5 2xl:gap-7">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.href}
-                  href={link.href}
+                  to={link.href}
                   className="font-sans text-xs lg:text-sm xl:text-base 2xl:text-lg text-luxury-gold hover:text-luxury-gold/80 transition-colors tracking-wide whitespace-nowrap"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </nav>
 
             {/* Right cluster: phone + divider + logo */}
             <div className="hidden lg:flex items-center gap-2 xl:gap-3 2xl:gap-4 flex-shrink-0">
               <a
-                href={`tel:${siteConfig.phone}`}
+                href={`tel:${phone}`}
                 className="flex items-center gap-1.5 xl:gap-2 text-luxury-gold hover:text-luxury-gold/80 transition-colors"
               >
                 <div className="w-6 h-6 xl:w-7 xl:h-7 2xl:w-8 2xl:h-8 rounded-full border-2 border-luxury-gold flex items-center justify-center">
                   <FaPhoneAlt className="w-3 h-3 xl:w-3.5 xl:h-3.5 2xl:w-4 2xl:h-4" />
                 </div>
                 <span className="font-sans text-xs lg:text-sm xl:text-base 2xl:text-lg font-semibold whitespace-nowrap">
-                  {siteConfig.phone}
+                  {phone}
                 </span>
               </a>
               <div className="w-px h-8 xl:h-10 bg-luxury-gold/30" />
@@ -110,7 +113,7 @@ export default function Navbar() {
         <div className="absolute inset-0 bg-luxury-green/60 backdrop-blur-sm" />
         <div className="relative z-10 flex">
           <a
-            href={`tel:${siteConfig.phone}`}
+            href={`tel:${phone}`}
             className="flex-1 flex items-center justify-center gap-2 py-4 text-luxury-gold font-sans font-semibold text-sm uppercase tracking-wider border-r border-luxury-gold/30 hover:bg-luxury-gold/10 transition-colors"
           >
             <FaPhoneAlt className="w-4 h-4" />
@@ -140,13 +143,13 @@ export default function Navbar() {
 
           {/* Drawer header */}
           <div className="flex items-center justify-between p-6 border-b border-luxury-gold/20">
-            <a href="/" className="cursor-pointer">
+            <Link to="/" className="cursor-pointer">
               <img
                 src={logoLeft}
                 alt="Project logo"
                 className="h-12 w-auto hover:opacity-80 transition-opacity"
               />
-            </a>
+            </Link>
             <button
               className="text-luxury-gold hover:text-luxury-gold/80 transition-colors"
               aria-label="Close menu"
@@ -159,14 +162,14 @@ export default function Navbar() {
           {/* Drawer nav links */}
           <nav className="flex flex-col py-6 px-6 space-y-0 flex-1">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
-                href={link.href}
+                to={link.href}
                 onClick={() => setOpen(false)}
                 className="font-sans text-lg text-luxury-gold hover:bg-luxury-gold/10 py-4 px-4 rounded-sm transition-colors border-b border-luxury-gold/10"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
 

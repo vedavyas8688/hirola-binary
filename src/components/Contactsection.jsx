@@ -96,7 +96,7 @@ export default function ContactSection() {
         </div>
 
         {/* ── Divider line after the section ── */}
-        <div className="mt-12 md:mt-16 lg:mt-20 h-px w-full bg-gradient-to-r from-transparent via-luxury-gold/40 to-transparent" />
+        <div className="mt-2 md:mt-16 lg:mt-20 h-px w-full bg-gradient-to-r from-transparent via-luxury-gold/40 to-transparent" />
 
       </div>
     </section>

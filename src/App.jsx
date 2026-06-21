@@ -4,9 +4,11 @@ import About from "./pages/About";
 import Amenities from "./pages/Amenities";
 import UnitPlans from "./pages/UnitPlans";
 import Gallery from "./pages/Gallery";
-import ProjectStatus from "./pages/ProjectStatus";
+// import ProjectStatus from "./pages/ProjectStatus";
 import Location from "./pages/Location";
 import Contact from "./pages/Contact";
+import BlogsPage from "./components/BlogsPage";
+import BlogDetailPage from "./components/BlogDetailPage";
 
 function App() {
   return (
@@ -16,7 +18,9 @@ function App() {
       <Route path="/amenities" element={<Amenities />} />
       <Route path="/unit-plans" element={<UnitPlans />} />
       <Route path="/gallery" element={<Gallery />} />
-      <Route path="/project-status" element={<ProjectStatus />} />
+      {/* <Route path="/project-status" element={<ProjectStatus />} /> */}
+      <Route path="/blogpage" element={<BlogsPage />} />
+      <Route path="/blogpage/:id" element={<BlogDetailPage />} />
       <Route path="/location" element={<Location />} />
       <Route path="/contact" element={<Contact />} />
     </Routes>

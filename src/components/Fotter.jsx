@@ -91,18 +91,18 @@ export default function Footer() {
                 </div>
               </div>
               <a
-                href="tel:+918000000000"
+                href="tel:+919611211255"
                 className="flex items-center gap-3 font-sans text-sm text-white/60 hover:text-luxury-gold transition-colors"
               >
                 <Phone size={16} className="text-luxury-gold" />
-                +91 80 0000 0000
+                +91 96112 11255
               </a>
               <a
                 href="mailto:sales@binaryventures.in"
                 className="flex items-center gap-3 font-sans text-sm text-white/60 hover:text-luxury-gold transition-colors"
               >
                 <Mail size={16} className="text-luxury-gold" />
-                sales@binaryventures.in
+                 sales@binaryrealty.com
               </a>
             </div>
           </div>

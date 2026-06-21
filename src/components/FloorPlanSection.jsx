@@ -9,16 +9,16 @@ import twentyeight from "../assets/images/28.jpg";
 import twentynine from "../assets/images/29.jpg";
 
 const UNIT_PLANS = [
-  { id: 1, bedType: "2 BED", image: twentythree },
-  { id: 2, bedType: "2 BED", image: twentyfour },
-  { id: 3, bedType: "2 BED", image: twentyfive },
-  { id: 4, bedType: "2 BED", image: twentysix },
-  { id: 5, bedType: "3 BED", image: twentyseven },
-  { id: 6, bedType: "3 BED", image: twentyeight },
-  { id: 7, bedType: "3 BED", image: twentynine },
+  { id: 1, bedType: "2 BHK", image: twentythree },
+  { id: 2, bedType: "2 BHK", image: twentyfour },
+  { id: 3, bedType: "2 BHK", image: twentyfive },
+  { id: 4, bedType: "2 BHK", image: twentysix },
+  { id: 5, bedType: "3 BHK", image: twentyseven },
+  { id: 6, bedType: "3 BHK", image: twentyeight },
+  { id: 7, bedType: "3 BHK", image: twentynine },
 ];
 
-const FILTERS = ["All", "2 BED", "3 BED"];
+const FILTERS = ["All", "2 BHK", "3 BHK"];
 
 const FloorPlanSection = () => {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -140,7 +140,7 @@ const FloorPlanSection = () => {
                       </div>
                     )}
 
-                    {/* BED type label */}
+                    {/* BHK type label */}
                     <div className="absolute bottom-0 left-0 right-0 px-5 py-4">
                       <p className="font-serif text-lg md:text-xl text-luxury-gold leading-snug">
                         {unit.bedType}

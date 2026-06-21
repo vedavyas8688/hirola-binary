@@ -44,7 +44,19 @@ export default function MainMasterplansection() {
   };
 
   const inputClass =
-    "w-full font-sans text-sm text-foreground-green bg-bg-cream border border-luxury-gold/40 rounded-md px-4 py-3 outline-none appearance-none transition-colors focus:border-luxury-gold focus:ring-1 focus:ring-luxury-gold/40 placeholder:text-muted-sage/70";
+    "w-full font-sans text-sm text-foreground-green bg-white rounded-md px-4 py-3 outline-none appearance-none transition-colors placeholder:text-muted-sage";
+
+  // Inline style guarantees border visibility — bypasses Tailwind token resolution entirely
+  const inputStyle = {
+    border: "2px solid #6b8f71",
+    boxSizing: "border-box",
+  };
+
+  const inputFocusHandlers = {
+    onFocus: (e) => { e.target.style.borderColor = "#C9A84C"; },
+    onBlur:  (e) => { e.target.style.borderColor = "#6b8f71"; },
+  };
+
   const labelClass =
     "font-serif text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-sage";
 
@@ -185,6 +197,8 @@ export default function MainMasterplansection() {
                         placeholder="Your name"
                         required
                         className={inputClass}
+                        style={inputStyle}
+                        {...inputFocusHandlers}
                       />
                     </div>
                     <div className="flex flex-col gap-2">
@@ -197,6 +211,8 @@ export default function MainMasterplansection() {
                         placeholder="+91 XXXXX XXXXX"
                         required
                         className={inputClass}
+                        style={inputStyle}
+                        {...inputFocusHandlers}
                       />
                     </div>
                   </div>
@@ -211,6 +227,8 @@ export default function MainMasterplansection() {
                       placeholder="you@email.com"
                       required
                       className={inputClass}
+                      style={inputStyle}
+                      {...inputFocusHandlers}
                     />
                   </div>
 
@@ -223,6 +241,8 @@ export default function MainMasterplansection() {
                       placeholder="Any specific questions about the project?"
                       rows={3}
                       className={`${inputClass} resize-none`}
+                      style={inputStyle}
+                      {...inputFocusHandlers}
                     />
                   </div>
 

@@ -20,9 +20,9 @@ export default function BrochureSection() {
           <a
             href="/brochure.pdf"
             download
-            className="inline-flex items-center gap-2.5 md:gap-3.5 rounded-full bg-luxury-gold hover:bg-bright-gold text-foreground-green font-semibold px-8 sm:px-10 md:px-14 py-3 sm:py-3.5 md:py-4 text-sm sm:text-base md:text-lg shadow-lg transition-colors duration-300"
+            className="inline-flex items-center justify-center gap-2.5 md:gap-3.5 rounded-full bg-luxury-gold hover:bg-bright-gold text-foreground-green font-semibold px-8 sm:px-10 md:px-14 py-3 sm:py-3.5 md:py-4 text-sm sm:text-base md:text-lg shadow-lg transition-colors duration-300 whitespace-nowrap"
           >
-            <Download className="w-4 h-4 md:w-5 md:h-5" strokeWidth={2} />
+            <Download className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" strokeWidth={2} />
             Download Brochure
           </a>
         </div>
