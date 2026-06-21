@@ -1,16 +1,36 @@
 // src/data/siteData.js
-import banner1 from "../assets/images/banner1.jpg";
-import banner2 from "../assets/images/banner2.png";
+import banner11 from "../assets/images/banner11.jpg";
+import banner12 from "../assets/images/banner12.jpg";
+import banner13 from "../assets/images/banner13.jpg";
+import banner10 from "../assets/images/banner10.jpg";
+import one from "../assets/images/1.jpg";
+import two from "../assets/images/banner2.png";
+import logoLeft from "../assets/images/logo-left.svg";
+import seventeen from "../assets/images/17.jpg";
+import sixteen from "../assets/images/16.jpg";
+import thirteen from "../assets/images/13.jpg";
+import fourteen from "../assets/images/14.jpg";
+import fifteen from "../assets/images/15.jpg";
 
 export const bannerSlides = [
+   
   {
-    image: banner1,
+    image: banner13,
     alt: "Luxury Residential Tower",
   },
    {
-    image: banner2,
+    image: banner10,
     alt: "Luxury Residential Tower",
   },
+  {
+    image: banner11,
+    alt: "Luxury Residential Tower",
+  },
+   {
+    image: banner12,
+    alt: "Luxury Residential Tower",
+  },
+    
   
 ];
 
@@ -49,14 +69,10 @@ export const siteConfig = {
   brochureUrl: "/brochure.pdf",
 };
 
-
- import one from "../assets/images/1.jpg";
-import two from "../assets/images/banner2.png";
 export const aboutImages = [
-   one,
+  one,
   "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800&q=80",
   two,
-  
 ];
 
 export const aboutContent = {
@@ -65,12 +81,6 @@ export const aboutContent = {
   description:
     "Project 4 by Binary Ventures is ultra-luxury living reimagined on Sarjapur Road — where 80% open space, only 6 apartments per floor and homes with no common walls create a rare sense of privacy, light and calm. Thoughtfully designed 2 & 3 BHK residences welcome families, professionals, NRIs and first-time buyers into a future-ready, low-density community.",
 };
-
-
-import logoLeft from "../assets/images/logo-left.svg";
-import seventeen from "../assets/images/17.jpg";
-// import four from "../assets/images/4.jpg";
-import sixteen from "../assets/images/16.jpg";
 
 
 export const unitPlans = [
@@ -93,11 +103,6 @@ export const unitPlans = [
       "Elegantly designed 2BED homes with dual balconies that invite light, air, and warmth.",
   },
 ];
-
- 
-import thirteen from "../assets/images/13.jpg";
-import fourteen from "../assets/images/14.jpg";
-import fifteen from "../assets/images/15.jpg";
 
 export const galleryCategories = [
   {
