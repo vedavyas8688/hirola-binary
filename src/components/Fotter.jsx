@@ -23,15 +23,9 @@ export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-luxury-green-dark text-white">
 
-      {/* Top gold hairline */}
-      <div
-        className="h-[2px] w-full"
-        style={{
-          background: "linear-gradient(90deg, transparent, hsl(42 55% 65%), transparent)",
-        }}
-      />
+       
 
-      <div className="relative mx-auto w-full max-w-[1400px] px-4 md:px-8 pt-16 pb-12">
+      <div className="relative mx-auto w-full max-w-[1400px] px-4 md:px-8 -pt-5 pb-12">
         <div className="grid gap-12 md:grid-cols-[1.8fr_1fr_1fr]">
 
           {/* ── Brand ── */}

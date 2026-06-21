@@ -44,7 +44,7 @@ export default function MainMasterplansection() {
   };
 
   const inputClass =
-    "w-full font-sans text-sm text-foreground-green bg-bg-cream border border-luxury-gold/30 px-4 py-3 outline-none transition-colors focus:border-luxury-gold placeholder:text-muted-sage/60";
+    "w-full font-sans text-sm text-foreground-green bg-bg-cream border border-luxury-gold/40 rounded-md px-4 py-3 outline-none appearance-none transition-colors focus:border-luxury-gold focus:ring-1 focus:ring-luxury-gold/40 placeholder:text-muted-sage/70";
   const labelClass =
     "font-serif text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-sage";
 

@@ -290,3 +290,65 @@ export const locationSection = {
     },
   ],
 };
+
+
+export const faqs = [
+  {
+    question: "Where is Project 4 located?",
+    answer:
+      "Project 4 by Binary Ventures is on Sarjapur Road, Chambenahalli, Bengaluru — within 10–15 minutes of the ORR IT corridor and close to Whitefield, Electronic City and Bellandur.",
+  },
+  {
+    question: "What configurations are available?",
+    answer:
+      "Ultra-luxury 2 and 3 BHK residences, with only 6 apartments per floor and homes designed with no common walls for maximum privacy.",
+  },
+  {
+    question: "What are the starting prices?",
+    answer:
+      "2 BHK homes start from ₹95 Lakhs and 3 BHK homes from ₹1.35 Crore, at ₹8,499 per sq.ft. A launch offer of ₹8,500/sq.ft. applies to the first 50 flats.",
+  },
+  {
+    question: "How large is the development?",
+    answer:
+      "Project 4 spans 3.5 acres with 234 residences, 80% open space, a grand 8,000+ sq.ft. clubhouse and 60+ amenities.",
+  },
+  {
+    question: "What makes Project 4 different?",
+    answer:
+      "Low-density living — only 6 apartments per floor, no common walls, large balconies, Vaastu-compliant layouts and abundant cross-ventilation set within 80% open space.",
+  },
+  {
+    question: "Is it a good investment?",
+    answer:
+      "Yes — a strong IT catchment with upcoming Metro Phase 3A, STRR and PRR connectivity makes it attractive for end-users and NRIs alike.",
+  },
+  {
+    question: "Is the EOI refundable?",
+    answer: "Yes, the Expression of Interest (EOI) is fully refundable.",
+  },
+];
+
+
+import aboutCompanyImg from "../assets/images/banner3.jpg";
+
+export const aboutCompany = {
+  brand: "BINARY VENTURES",
+  tagline: ["EXCELLENTLY BUILT,", "EXCLUSIVELY DELIVERED."],
+  image: aboutCompanyImg,
+  paragraphs: [
+    "Binary Ventures presents Project 4 — an ultra-luxury, low-density community on Sarjapur Road, designed around 80% open space, only 6 apartments per floor and homes with no common walls.",
+    "Set across 3.5 acres with 234 residences and a grand 8,000+ sq.ft. clubhouse, Project 4 places future-ready homes within 10–15 minutes of the ORR IT corridor, with upcoming metro connectivity and strong appreciation potential.",
+  ],
+};
+
+
+export const contactSection = {
+  phone: "+91 98765 43210",        // TODO: confirm the real number with client
+  phoneHref: "tel:+919876543210",
+  email: "info@binaryventures.in",
+  address: "Chambenahalli, Sarjapur Road, Bengaluru",
+  intro:
+    "Have a question about Binary Project 4 — pricing, floor plans, or the launch offer? Reach us directly or drop a message and our team will call you back within 24 hours.",
+  interests: ["2 BHK", "3 BHK", "Investment", "NRI Purchase", "General Enquiry"],
+};

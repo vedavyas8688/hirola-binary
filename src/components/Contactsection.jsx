@@ -1,32 +1,33 @@
 import { MapPin, Phone, Mail } from "lucide-react";
 import Reveal from "./Reveal";
-
-const contactInfo = [
-  {
-    icon: <MapPin className="w-6 h-6 md:w-7 md:h-7 text-luxury-gold" />,
-    label: "Address",
-    content: "Chambenahalli, Sarjapur Road, Bengaluru, Karnataka.",
-    href: null,
-  },
-  {
-    icon: <Phone className="w-6 h-6 md:w-7 md:h-7 text-luxury-gold" />,
-    label: "Phone",
-    content: "+91 00000 00000",
-    href: "tel:+910000000000",
-  },
-  {
-    icon: <Mail className="w-6 h-6 md:w-7 md:h-7 text-luxury-gold" />,
-    label: "Email",
-    content: "info@binaryventures.in",
-    href: "mailto:info@binaryventures.in",
-  },
-];
+import { contactSection } from "../data/siteData";
 
 export default function ContactSection() {
+  const { phone, phoneHref, email, address } = contactSection;
+
+  const contactInfo = [
+    {
+      icon: <MapPin className="w-6 h-6 md:w-7 md:h-7 text-luxury-gold" />,
+      label: "Address",
+      content: address,
+      href: null,
+    },
+    {
+      icon: <Phone className="w-6 h-6 md:w-7 md:h-7 text-luxury-gold" />,
+      label: "Phone",
+      content: phone,
+      href: phoneHref,
+    },
+    {
+      icon: <Mail className="w-6 h-6 md:w-7 md:h-7 text-luxury-gold" />,
+      label: "Email",
+      content: email,
+      href: `mailto:${email}`,
+    },
+  ];
+
   return (
-    <section
-      className="py-10 md:py-20 lg:py-24 overflow-hidden bg-luxury-green-dark"
-    >
+    <section className="py-10 md:py-20 lg:py-24 overflow-hidden bg-luxury-green-dark">
       <div className="mx-auto w-full max-w-[1600px] px-4 md:px-8">
         <div className="grid lg:grid-cols-2 gap-6 md:gap-12 lg:gap-16 items-start">
 
@@ -73,23 +74,6 @@ export default function ContactSection() {
               ))}
             </div>
 
-            {/* Office Hours — compact on desktop */}
-            <div className="border border-luxury-gold/20 rounded-md p-4 md:p-6 lg:p-5 bg-luxury-gold/5 lg:max-w-md">
-              <h3 className="font-serif text-lg md:text-xl lg:text-lg font-normal text-luxury-gold mb-3 md:mb-4 lg:mb-3">
-                Site Office Hours
-              </h3>
-              <div className="space-y-2 lg:space-y-1.5 font-sans text-sm md:text-base lg:text-sm text-cream-text/70">
-                <p className="flex justify-between gap-2">
-                  <span className="text-cream-text font-medium">Monday – Saturday:</span>
-                  <span>10:00 AM – 6:30 PM</span>
-                </p>
-                <p className="flex justify-between gap-2">
-                  <span className="text-cream-text font-medium">Sunday:</span>
-                  <span>10:00 AM – 6:30 PM</span>
-                </p>
-              </div>
-            </div>
-
           </Reveal>
 
           {/* ── Right: Map ── */}
@@ -110,6 +94,10 @@ export default function ContactSection() {
           </Reveal>
 
         </div>
+
+        {/* ── Divider line after the section ── */}
+        <div className="mt-12 md:mt-16 lg:mt-20 h-px w-full bg-gradient-to-r from-transparent via-luxury-gold/40 to-transparent" />
+
       </div>
     </section>
   );

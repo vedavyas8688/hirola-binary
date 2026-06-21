@@ -1,6 +1,8 @@
-import banner3 from "../assets/images/banner3.jpg";
+import { aboutCompany } from "../data/siteData";
 
 export default function AboutContent() {
+  const { brand, tagline, paragraphs, image } = aboutCompany;
+
   return (
     <section className="py-12 md:py-20 px-4 md:px-8 bg-bg-cream">
       <div className="mx-auto w-full max-w-[1600px]">
@@ -8,36 +10,34 @@ export default function AboutContent() {
           {/* ── Left: Text ── */}
           <div className="space-y-6 text-center lg:text-left">
             <div>
-              <span className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal leading-relaxed text-luxury-gold">
-                BINARY VENTURES
+              <span className="block font-serif text-base sm:text-lg md:text-xl font-normal tracking-wide leading-tight text-luxury-gold">
+                {brand}
               </span>
-              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-relaxed text-foreground-green mt-2">
-                EXCELLENTLY BUILT,
-                <br />
-                EXCLUSIVELY DELIVERED.
+              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-normal leading-tight text-luxury-gold mt-2">
+                {tagline.map((line, i) => (
+                  <span key={i} className="block">
+                    {line}
+                  </span>
+                ))}
               </h2>
             </div>
 
             <div className="h-1 w-24 bg-luxury-gold mx-auto lg:mx-0" />
 
-            <p className="font-sans text-sm sm:text-base md:text-lg text-muted-sage leading-relaxed">
-              Binary Ventures presents Project 4 — an ultra-luxury, low-density
-              community on Sarjapur Road, designed around 80% open space, only 6
-              apartments per floor and homes with no common walls.
-            </p>
-
-            <p className="font-sans text-sm sm:text-base md:text-lg text-muted-sage leading-relaxed">
-              Set across 3.5 acres with 234 residences and a grand 8,000+ sq.ft.
-              clubhouse, Project 4 places future-ready homes within 10–15
-              minutes of the ORR IT corridor, with upcoming metro connectivity
-              and strong appreciation potential.
-            </p>
+            {paragraphs.map((p, i) => (
+              <p
+                key={i}
+                className="font-sans text-sm sm:text-base md:text-lg text-muted-sage leading-relaxed"
+              >
+                {p}
+              </p>
+            ))}
           </div>
 
           {/* ── Right: Image ── */}
           <div className="relative">
             <img
-               src={banner3}
+              src={image}
               alt="Project 4 residences"
               className="w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover rounded-md shadow-xl border-4 border-luxury-gold"
             />
