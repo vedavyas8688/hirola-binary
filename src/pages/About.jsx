@@ -6,10 +6,15 @@ import Footer from "../components/Fotter";
 import Navbar from "../components/Navbar";
 import PageBanner from "../components/Pagebanner";
 import banner10 from "../assets/images/banner10.jpg";
+import Seo from "../components/Seo";
 
 export default function About() {
   return (
     <div>
+      <Seo
+        title="About Binary Ventures"
+        description="The vision behind Project 4 — a low-density, ultra-luxury community on Sarjapur Road with 80% open space and homes designed with no common walls."
+      />
       <Navbar />
       <PageBanner
         // eyebrow="Who We Are"

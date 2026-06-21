@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import Navbar from "./Navbar";
+import Seo from "./Seo";
 
 const sections = [
   {
@@ -48,6 +49,10 @@ const sections = [
 export default function PrivacyPolicy() {
   return (
      <>
+     <Seo
+        title="Privacy Policy"
+        description="How Binary Ventures collects, uses and protects your personal information for Project 4 enquiries, brochure downloads and callback requests."
+      />
      <Navbar />
 
      <div className="min-h-screen bg-luxury-green-dark">

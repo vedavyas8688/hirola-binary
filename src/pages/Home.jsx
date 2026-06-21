@@ -1,4 +1,5 @@
-﻿import Navbar from "../components/Navbar";
+﻿import Seo from "../components/Seo";
+import Navbar from "../components/Navbar";
 import Banner from "../components/Banner";
 import AboutSection from "../components/AboutSection";
 import AmenitiesSection from "../components/AmenitiesSection";
@@ -18,6 +19,10 @@ import MainMasterplansection from "../components/MainMasterplansection";
 const Home = () => {
   return (
     <div>
+      <Seo
+        title="Ultra-Luxury 2 & 3 BHK on Sarjapur Road, Bengaluru"
+        description="Project 4 by Binary Ventures — ultra-luxury 2 & 3 BHK homes on Sarjapur Road, Bengaluru. 3.5 acres, 80% open space, only 6 apartments per floor and 60+ amenities."
+      />
       <Navbar />
       <Banner />
       <AboutSection />

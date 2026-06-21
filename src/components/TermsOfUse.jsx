@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import Navbar from "./Navbar";
+import Seo from "./Seo";
 
 const sections = [
   {
@@ -56,6 +57,10 @@ const sections = [
 export default function TermsOfUse() {
   return (
      <>
+     <Seo
+        title="Terms of Use"
+        description="The terms governing your access to and use of the Binary Ventures Project 4 website."
+      />
      <Navbar />
 
      <div className="min-h-screen bg-luxury-green-dark">
