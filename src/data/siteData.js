@@ -84,20 +84,20 @@ export const aboutContent = {
 
 export const unitPlans = [
   {
-    type: "3 BED",
+    type: "3 BHK",
     size: "1296 - 1826 sq.ft",
     logo: logoLeft,
     floorPlan: seventeen,
     description:
-      "Spacious and sophisticated, our 3BED homes with dual balconies and open layouts are crafted for families who value comfort and luxury.",
+      "Spacious and sophisticated, our 3BHK homes with dual balconies and open layouts are crafted for families who value comfort and luxury.",
   },
   {
-    type: "2 BED",
+    type: "2 BHK",
     size: "1131 - 1451 sq.ft",
     logo: logoLeft,
     floorPlan: sixteen,
     description:
-      "Elegantly designed 2BED homes with dual balconies that invite light, air, and warmth.",
+      "Elegantly designed 2BHK homes with dual balconies that invite light, air, and warmth.",
   },
 ];
 

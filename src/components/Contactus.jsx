@@ -49,7 +49,6 @@ export default function ContactUs() {
                 { value: "1296+", label: "Sq.ft" },
                 { value: "RERA", label: "APPROVED" },
               ].map((s) => (
-              
                 <div
                   key={s.label}
                   className="border border-luxury-gold/20 rounded-2xl px-4 py-4 text-center"
@@ -163,10 +162,8 @@ export default function ContactUs() {
           </div>
         </div>
       </div>
-
-      {/* ── Bottom divider line ── */}
-      <div className="mt-16 md:mt-20 h-px w-full bg-gradient-to-r from-transparent via-luxury-gold/40 to-transparent" />
-
+ 
+ 
       {/* ── Thank-you popup ── */}
       {submitted && (
         <div
@@ -215,6 +212,8 @@ export default function ContactUs() {
               Done
             </button>
           </div>
+                <div className="mt-16 md:mt-20 h-px w-full bg-gradient-to-r from-transparent via-luxury-gold/40 to-transparent" />
+
         </div>
       )}
 

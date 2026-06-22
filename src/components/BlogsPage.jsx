@@ -5,6 +5,7 @@ import { ArrowRight, Clock, Calendar } from "lucide-react";
 import Navbar from "./Navbar";
 import { blogs, blogCategories } from "../data/blogs";
 import Seo from "./Seo";
+import Footer from "./Fotter";
 
 export default function BlogsPage() {
   const [active, setActive] = useState("All");
@@ -300,6 +301,8 @@ export default function BlogsPage() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </>
   );
 }
