@@ -47,7 +47,7 @@ export default function ContactUs() {
               {[
                 { value: "2 & 3", label: "BHK Homes" },
                 { value: "1296+", label: "Sq.ft" },
-                { value: "RERA", label: "APPROVED" },
+                { value: "RERA", label: "In Process" },
               ].map((s) => (
                 <div
                   key={s.label}
@@ -212,8 +212,7 @@ export default function ContactUs() {
               Done
             </button>
           </div>
-                <div className="mt-16 md:mt-20 h-px w-full bg-gradient-to-r from-transparent via-luxury-gold/40 to-transparent" />
-
+          
         </div>
       )}
 

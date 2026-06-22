@@ -1,36 +1,30 @@
- import { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes, FaPhoneAlt, FaDownload } from "react-icons/fa";
 import { siteConfig, navLinks } from "../data/siteData";
 import logoLeft from "../assets/images/logo-right.png";
-import logoRight from "../assets/images/logo-left.svg";
+import logoRight from "../assets/images/logo-left1.svg";
 import EnquireModal from "./EnquireModal";
 import DownloadModal from "./DownloadModal";
 
 function LeftLogo() {
   return (
-    <Link to="/" className="cursor-pointer flex-shrink-0">
+    <Link to="/" className="cursor-pointer flex-shrink-0 flex items-center">
       <img
         src={logoLeft}
         alt={siteConfig.projectName || "Project logo"}
-        className="h-8 sm:h-10 lg:h-12 xl:h-14 2xl:h-16 w-auto hover:opacity-80 transition-opacity"
+        className="h-11 sm:h-12 lg:h-14 xl:h-16 2xl:h-20 w-auto object-contain hover:opacity-80 transition-opacity"
       />
     </Link>
   );
 }
 
-function RightLogo({ className = "h-10 lg:h-11 xl:h-12 2xl:h-14 w-auto" }) {
-  return (
-    <img
-      src={logoRight}
-      alt="Binary Ventures"
-      className={className}
-    />
-  );
+function RightLogo({ className = "h-14 lg:h-16 xl:h-20 2xl:h-20 w-auto" }) {
+  return <img src={logoRight} alt="Binary Ventures" className={className} />;
 }
 
 export default function Navbar() {
-  const [open, setOpen]               = useState(false);
+  const [open, setOpen] = useState(false);
   const [enquireOpen, setEnquireOpen] = useState(false);
   const [downloadOpen, setDownloadOpen] = useState(false);
 
@@ -52,7 +46,7 @@ export default function Navbar() {
         <div className="absolute inset-0 bg-luxury-green/40 backdrop-blur-sm" />
 
         <div className="container mx-auto px-2 sm:px-4 lg:px-6 xl:px-12 2xl:px-20 max-w-full relative z-10">
-          <div className="flex items-center justify-between h-16 sm:h-18 lg:h-20 xl:h-22 w-full">
+          <div className="flex items-center justify-between h-16 md:h-20 xl:h-24 w-full">
 
             <LeftLogo />
 
@@ -88,7 +82,7 @@ export default function Navbar() {
 
             {/* Mobile: Binary logo + hamburger */}
             <div className="lg:hidden flex items-center gap-2 sm:gap-3">
-              <RightLogo className="h-9 sm:h-10 w-auto" />
+              <RightLogo className="h-12 sm:h-14 w-auto" />
               <button
                 className="flex flex-col gap-1 sm:gap-1.5 p-1.5 sm:p-2 hover:opacity-80 transition-opacity text-luxury-gold"
                 aria-label="Open menu"
@@ -175,7 +169,7 @@ export default function Navbar() {
 
           {/* Binary logo at bottom of drawer */}
           <div className="pb-4 pt-0 flex justify-center">
-            <RightLogo className="h-20 w-auto opacity-80" />
+            <RightLogo className="h-24 w-auto opacity-80" />
           </div>
 
         </div>
@@ -213,14 +207,8 @@ export default function Navbar() {
       </button>
 
       {/* ── Modals ── */}
-      <EnquireModal
-        isOpen={enquireOpen}
-        onClose={() => setEnquireOpen(false)}
-      />
-      <DownloadModal
-        isOpen={downloadOpen}
-        onClose={() => setDownloadOpen(false)}
-      />
+      <EnquireModal isOpen={enquireOpen} onClose={() => setEnquireOpen(false)} />
+      <DownloadModal isOpen={downloadOpen} onClose={() => setDownloadOpen(false)} />
     </>
   );
 }
