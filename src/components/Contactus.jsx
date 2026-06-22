@@ -47,8 +47,9 @@ export default function ContactUs() {
               {[
                 { value: "2 & 3", label: "BHK Homes" },
                 { value: "1296+", label: "Sq.ft" },
-                { value: "Q4", label: "Possession" },
+                { value: "RERA", label: "APPROVED" },
               ].map((s) => (
+              
                 <div
                   key={s.label}
                   className="border border-luxury-gold/20 rounded-2xl px-4 py-4 text-center"

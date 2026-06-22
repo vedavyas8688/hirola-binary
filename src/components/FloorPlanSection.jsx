@@ -62,7 +62,7 @@ const FloorPlanSection = () => {
             <span className="text-luxury-gold">YOUR DREAMS</span>
           </h2>
           <div className="h-px w-14 bg-luxury-gold/50 mx-auto mt-5 mb-5" />
-          <p className="font-sans text-sm md:text-base text-muted-sage max-w-2xl mx-auto leading-relaxed">
+          <p className="font-sans text-sm md:text-base text-white max-w-2xl mx-auto leading-relaxed">
             Expertly crafted layouts designed to maximise space, light and
             comfort — discover a home that speaks to your lifestyle.
           </p>

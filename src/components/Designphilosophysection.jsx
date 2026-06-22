@@ -42,11 +42,11 @@ const DesignPhilosophySection = ({
           {/* ── Text content ── */}
           <Reveal variant="right" delay={150}>
             <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-relaxed uppercase mb-4">
-              <span className="text-luxury-gold">Beyond Brick and Beam,</span>
+              <span className="text-luxury-gold">Beyond Brick and Beam Lies Intention</span>
               <br />
-              <span className="text-cream-text">Lies Intention</span>
+              {/* <span className="text-cream-text"> /span> */}
             </h2>
-            <p className="font-sans text-sm sm:text-base md:text-lg text-cream-text/80 leading-relaxed max-w-xl">
+            <p className="font-sans text-sm sm:text-base md:text-lg text-white leading-relaxed max-w-xl">
               At Project 4, every space is designed with purpose and precision,
               where light, air, and energy flow in perfect harmony. Expansive
               layouts invite natural sunlight to fill your home, while cross

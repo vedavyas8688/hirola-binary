@@ -160,7 +160,7 @@ const GallerySec2 = () => {
             THE ESSENCE OF PROJECT 4
           </h2>
           <div className="h-px w-14 bg-luxury-gold/50 mx-auto mt-5 mb-5" />
-          <p className="font-sans text-sm md:text-base text-muted-sage max-w-2xl mx-auto leading-relaxed">
+          <p className="font-sans text-sm md:text-base text-white max-w-2xl mx-auto leading-relaxed">
             Explore every angle of your future community through a curated
             visual journey — from grand entrances to serene interiors.
           </p>

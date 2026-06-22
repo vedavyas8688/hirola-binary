@@ -64,7 +64,7 @@ export default function EnquireModal({ isOpen, onClose }) {
                 <span style={{ color: "#c9a84c" }}>Meets Life</span>
               </h2>
               <div className="h-px w-10 mb-6" style={{ background: "rgba(201,168,76,0.4)" }} />
-              <p className="font-sans text-xs leading-relaxed" style={{ color: "rgba(240,230,204,0.4)" }}>
+              <p className="font-sans text-xs leading-relaxed text-white" >
                 Ultra-luxury 2 &amp; 3 BHK residences with 80% open space and no common walls.
               </p>
             </div>
@@ -73,12 +73,12 @@ export default function EnquireModal({ isOpen, onClose }) {
               {[
                 { value: "2 & 3 BHK", label: "Configurations" },
                 { value: "1296+ sq.ft", label: "Starting Size" },
-                { value: "Q4 2026", label: "Possession" },
+                { value: "RERA", label: "APPROVED" },
               ].map((s) => (
                 <div key={s.label}>
                   <p className="font-serif text-base" style={{ color: "#c9a84c" }}>{s.value}</p>
-                  <p className="font-sans text-[10px] uppercase tracking-widest mt-0.5"
-                    style={{ color: "rgba(240,230,204,0.3)" }}>{s.label}</p>
+                  <p className="font-sans text-[10px] uppercase tracking-widest mt-0.5 text-white"
+                     >{s.label}</p>
                 </div>
               ))}
             </div>

@@ -248,37 +248,28 @@ export default function BlogsPage() {
                       }}
                     >
                       <h3
-                        className="font-serif text-lg leading-snug mb-3 flex-1"
-                        style={{ color: "var(--clr-cream-text)" }}
+                        className="font-serif text-lg leading-snug mb-3 flex-1 text-luxury-gold"
+                         
                       >
                         {blog.title}
                       </h3>
                       <p
-                        className="font-sans text-xs leading-relaxed mb-5 line-clamp-2"
-                        style={{
-                          color:
-                            "color-mix(in srgb, var(--clr-cream-text) 50%, transparent)",
-                        }}
+                        className="font-sans text-xs leading-relaxed mb-5 line-clamp-2 text-white"
+                         
                       >
                         {blog.excerpt}
                       </p>
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
                           <span
-                            className="flex items-center gap-1 font-sans text-[10px]"
-                            style={{
-                              color:
-                                "color-mix(in srgb, var(--clr-cream-text) 30%, transparent)",
-                            }}
+                            className="flex items-center gap-1 font-sans text-[10px] text-white"
+                             
                           >
                             <Calendar size={9} /> {blog.date}
                           </span>
                           <span
-                            className="flex items-center gap-1 font-sans text-[10px]"
-                            style={{
-                              color:
-                                "color-mix(in srgb, var(--clr-cream-text) 30%, transparent)",
-                            }}
+                            className="flex items-center gap-1 font-sans text-[10px] text-white"
+                             
                           >
                             <Clock size={9} /> {blog.readTime}
                           </span>

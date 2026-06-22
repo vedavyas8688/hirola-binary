@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import banner1 from "../assets/images/banner1.jpg";
+import img31 from "../assets/images/31.jpg";
 
 const MasterPlanSection = () => {
   const [zoomed, setZoomed] = useState(false);
@@ -19,7 +19,7 @@ const MasterPlanSection = () => {
 
         <div className="max-w-5xl mx-auto">
           <img
-            src={banner1}
+            src={img31}
             alt="Master Plan"
             onClick={() => setZoomed(true)}
             className="w-full h-auto object-contain rounded-xl cursor-zoom-in hover:opacity-90 transition-opacity"
