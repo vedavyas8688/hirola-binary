@@ -125,37 +125,28 @@ export default function BlogDetailPage() {
               </span>
               <h1
                 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal leading-tight max-w-4xl mb-8"
-                style={{ color: "var(--clr-cream-text)" }}
+                style={{ color: "var(--clr-gold)" }}
               >
                 {blog.title}
               </h1>
               <div className="flex items-center gap-6">
                 <span
-                  className="flex items-center gap-2 font-sans text-xs"
-                  style={{
-                    color:
-                      "color-mix(in srgb, var(--clr-cream-text) 40%, transparent)",
-                  }}
+                  className="flex items-center gap-2 font-sans text-xs text-white"
+                   
                 >
                   <Calendar size={11} /> {blog.date}
                 </span>
                 <span
-                  className="flex items-center gap-2 font-sans text-xs"
-                  style={{
-                    color:
-                      "color-mix(in srgb, var(--clr-cream-text) 40%, transparent)",
-                  }}
+                  className="flex items-center gap-2 font-sans text-xs text-white"
+                   
                 >
                   <Clock size={11} /> {blog.readTime}
                 </span>
                 <span
-                  className="flex items-center gap-2 font-sans text-xs"
-                  style={{
-                    color:
-                      "color-mix(in srgb, var(--clr-cream-text) 40%, transparent)",
-                  }}
+                  className="flex items-center gap-2 font-sans text-xs text-white"
+                   
                 >
-                  <BookOpen size={11} /> {blog.author || "Binary Ventures Team"}
+                  <BookOpen size={11} /> {blog.author || "Binary Project 4"}
                 </span>
               </div>
             </div>
@@ -169,8 +160,7 @@ export default function BlogDetailPage() {
             <p
               className="font-sans text-lg md:text-xl leading-relaxed mb-12 border-l-2 pl-6"
               style={{
-                color:
-                  "color-mix(in srgb, var(--clr-cream-text) 70%, transparent)",
+                color: "#ffffff",
                 borderColor:
                   "color-mix(in srgb, var(--clr-gold) 40%, transparent)",
               }}
@@ -190,10 +180,7 @@ export default function BlogDetailPage() {
                   <p
                     key={j}
                     className="font-sans text-sm md:text-base leading-relaxed mb-4"
-                    style={{
-                      color:
-                        "color-mix(in srgb, var(--clr-cream-text) 60%, transparent)",
-                    }}
+                    style={{ color: "#ffffff" }}
                   >
                     {para}
                   </p>
@@ -253,16 +240,13 @@ export default function BlogDetailPage() {
               </p>
               <h3
                 className="font-serif text-2xl md:text-3xl mb-4"
-                style={{ color: "var(--clr-cream-text)" }}
+                style={{ color: "var(--clr-gold)" }}
               >
                 Explore Premium Homes on Sarjapur Road
               </h3>
               <p
                 className="font-sans text-sm mb-6 leading-relaxed"
-                style={{
-                  color:
-                    "color-mix(in srgb, var(--clr-cream-text) 50%, transparent)",
-                }}
+                style={{ color: "#ffffff" }}
               >
                 Our team is available to walk you through available units,
                 pricing, and everything you need to make a confident decision.
@@ -286,11 +270,8 @@ export default function BlogDetailPage() {
               {/* Share */}
               <div>
                 <p
-                  className="font-sans text-[9px] tracking-[0.3em] uppercase mb-4"
-                  style={{
-                    color:
-                      "color-mix(in srgb, var(--clr-gold) 50%, transparent)",
-                  }}
+                  className="font-sans text-[9px] tracking-[0.3em] uppercase mb-4 text-luxury-gold"
+                   
                 >
                   Share
                 </p>
@@ -299,10 +280,8 @@ export default function BlogDetailPage() {
                     <button
                       key={s}
                       type="button"
-                      className="font-sans text-[9px] tracking-[0.1em] uppercase border px-3 py-1.5 rounded-full transition-all duration-200"
+                      className="font-sans text-[9px] tracking-[0.1em] uppercase border px-3 py-1.5 rounded-full transition-all duration-200 text-white"
                       style={{
-                        color:
-                          "color-mix(in srgb, var(--clr-gold) 60%, transparent)",
                         borderColor:
                           "color-mix(in srgb, var(--clr-gold) 20%, transparent)",
                       }}
@@ -324,11 +303,8 @@ export default function BlogDetailPage() {
               {/* Related articles */}
               <div>
                 <p
-                  className="font-sans text-[9px] tracking-[0.3em] uppercase mb-5"
-                  style={{
-                    color:
-                      "color-mix(in srgb, var(--clr-gold) 50%, transparent)",
-                  }}
+                  className="font-sans text-[9px] tracking-[0.3em] uppercase mb-5  text-luxury-gold"
+                   
                 >
                   Related Articles
                 </p>
@@ -340,29 +316,20 @@ export default function BlogDetailPage() {
                       onClick={() => navigate(`/blogpage/${r.id}`)}
                     >
                       <span
-                        className="font-sans text-[8px] tracking-[0.25em] uppercase block mb-1"
-                        style={{
-                          color:
-                            "color-mix(in srgb, var(--clr-gold) 50%, transparent)",
-                        }}
+                        className="font-sans text-[8px] tracking-[0.25em] uppercase block mb-1  text-luxury-gold"
+                         
                       >
                         {r.category}
                       </span>
                       <p
-                        className="font-serif text-sm leading-snug transition-colors duration-200"
-                        style={{
-                          color:
-                            "color-mix(in srgb, var(--clr-cream-text) 70%, transparent)",
-                        }}
+                        className="font-serif text-sm leading-snug transition-colors duration-200 text-white"
+                         
                       >
                         {r.title}
                       </p>
                       <span
-                        className="font-sans text-[9px] mt-1 block"
-                        style={{
-                          color:
-                            "color-mix(in srgb, var(--clr-cream-text) 30%, transparent)",
-                        }}
+                        className="font-sans text-[9px] mt-1 block  text-luxury-gold"
+                        
                       >
                         {r.readTime}
                       </span>
@@ -397,7 +364,7 @@ export default function BlogDetailPage() {
                 </p>
                 <p
                   className="font-serif text-base leading-tight mb-3"
-                  style={{ color: "var(--clr-cream-text)" }}
+                  style={{ color: "var(--clr-gold)" }}
                 >
                   2 & 3 BHK Residences
                   <br />
@@ -407,10 +374,7 @@ export default function BlogDetailPage() {
                 </p>
                 <p
                   className="font-sans text-[10px] leading-relaxed mb-4"
-                  style={{
-                    color:
-                      "color-mix(in srgb, var(--clr-cream-text) 40%, transparent)",
-                  }}
+                  style={{ color: "#ffffff" }}
                 >
                   Starting ₹75 Lakhs · Q4 Possession · RERA Registered
                 </p>
