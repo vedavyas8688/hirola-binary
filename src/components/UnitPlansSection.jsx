@@ -24,7 +24,7 @@ export default function UnitPlansSection() {
             HOMES DESIGNED FOR{" "}
             <span className="text-luxury-gold">ELEVATED LIVING</span>
           </h2>
-          <p className="font-sans text-base md:text-lg text-muted-sage max-w-2xl mx-auto mt-5 px-2 leading-relaxed">
+          <p className="font-sans text-base md:text-lg text-white max-w-2xl mx-auto mt-5 px-2 leading-relaxed">
             Thoughtfully planned 2 &amp; 3 BHK layouts that maximize space,
             light, and functionality
           </p>

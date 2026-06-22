@@ -40,7 +40,7 @@ export default function AmenitiesSection() {
           <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-normal tracking-widest text-luxury-gold mb-3">
             AN ENCLAVE OF EXQUISITE AMENITIES
           </h2>
-          <p className="text-xs text-cream-text/50 tracking-[0.3em] uppercase">
+          <p className="text-xs text-white tracking-[0.3em] uppercase">
             A Sanctuary of Belonging
           </p>
         </Reveal>

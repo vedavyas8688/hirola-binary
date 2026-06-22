@@ -69,7 +69,7 @@ export default function AboutSection() {
 
             <div className="h-1 w-16 bg-luxury-gold" />
 
-            <p className="font-sans text-base md:text-lg text-muted-sage leading-relaxed">
+            <p className="font-sans text-base md:text-lg text-white leading-relaxed">
               {aboutContent.description}
             </p>
           </Reveal>
