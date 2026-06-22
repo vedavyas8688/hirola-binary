@@ -34,18 +34,18 @@ export default function AboutStory() {
 
             {/* Body */}
             <div className="space-y-5">
-              <p className="font-sans text-base md:text-lg text-cream-text/80 leading-relaxed">
+              <p className="font-sans text-base md:text-lg text-white leading-relaxed">
                 Beyond its skyline, Project 4 reflects something rarer — the
                 calm of low-density living, with only 6 apartments per floor, no
                 common walls and homes that open to light, air and 80% open
                 space.
               </p>
-              <p className="font-sans text-base md:text-lg text-cream-text/80 leading-relaxed">
+              <p className="font-sans text-base md:text-lg text-white leading-relaxed">
                 Its ultra-luxury 2 &amp; 3 BHK residences blend contemporary
                 elegance with the privacy of low-density living, creating a
                 seamless harmony between luxury and everyday life.
               </p>
-              <p className="font-sans text-base md:text-lg text-cream-text font-medium leading-relaxed">
+              <p className="font-sans text-base md:text-lg text-white font-medium leading-relaxed">
                 Here, privacy, space and luxury become a way of life — not just
                 an address.
               </p>
