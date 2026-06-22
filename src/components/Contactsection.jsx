@@ -39,7 +39,7 @@ export default function ContactSection() {
               <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-relaxed text-cream-text mb-4 md:mb-6">
                 GET IN <span className="text-luxury-gold">TOUCH</span>
               </h2>
-              <p className="font-sans text-sm sm:text-base md:text-lg text-cream-text/70 leading-relaxed">
+              <p className="font-sans text-sm sm:text-base md:text-lg text-white leading-relaxed">
                 We'd love to hear from you. Whether you have a question about
                 features, plans, pricing, or anything else, our team is ready
                 to answer all your questions.
@@ -60,12 +60,12 @@ export default function ContactSection() {
                     {href ? (
                       <a
                         href={href}
-                        className="font-sans text-sm md:text-base text-cream-text/70 hover:text-luxury-gold transition-colors break-all"
+                        className="font-sans text-sm md:text-base text-white hover:text-luxury-gold transition-colors break-all"
                       >
                         {content}
                       </a>
                     ) : (
-                      <p className="font-sans text-sm md:text-base text-cream-text/70 leading-relaxed">
+                      <p className="font-sans text-sm md:text-base text-white leading-relaxed">
                         {content}
                       </p>
                     )}

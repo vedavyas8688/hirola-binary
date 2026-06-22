@@ -37,7 +37,7 @@ export default function ContactUs() {
               </h2>
             </div>
 
-            <p className="font-sans text-sm md:text-base text-cream-text/60 leading-relaxed max-w-sm">
+            <p className="font-sans text-sm md:text-base text-white leading-relaxed max-w-sm">
               Premium residences on Sarjapur Road. Share your details and our
               team will craft a personalised offer just for you.
             </p>
@@ -56,7 +56,7 @@ export default function ContactUs() {
                   <p className="font-serif text-lg md:text-xl text-luxury-gold">
                     {s.value}
                   </p>
-                  <p className="font-sans text-xs text-cream-text/50 mt-1 tracking-wide uppercase">
+                  <p className="font-sans text-xs text-white mt-1 tracking-wide uppercase">
                     {s.label}
                   </p>
                 </div>

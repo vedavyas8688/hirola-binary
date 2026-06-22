@@ -63,11 +63,11 @@ export default function UnitPlansSection() {
 
                     {/* Type + size badge */}
                     <div className="inline-flex items-center gap-2 mb-3">
-                      <span className="font-serif text-xl md:text-2xl lg:text-3xl text-white tracking-wide">
+                      <span className="font-serif text-xl md:text-2xl lg:text-3xl text-luxury-gold tracking-wide">
                         {unit.type}
                       </span>
                       {unit.size && (
-                        <span className="font-sans text-xs md:text-sm text-luxury-gold tracking-widest uppercase">
+                        <span className="font-sans text-xs md:text-sm text-white tracking-widest uppercase">
                           {unit.size}
                         </span>
                       )}
@@ -84,7 +84,7 @@ export default function UnitPlansSection() {
                     )}
 
                     {/* Description */}
-                    <p className="font-sans text-sm md:text-base lg:text-lg text-muted-sage leading-relaxed">
+                    <p className="font-sans text-sm md:text-base lg:text-lg text-white leading-relaxed">
                       {unit.description}
                     </p>
 

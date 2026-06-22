@@ -12,7 +12,7 @@ export default function VideoSection() {
           </h2>
 
           {/* Subtitle */}
-          <p className="text-sm md:text-base text-foreground-green/60 max-w-2xl leading-relaxed">
+          <p className="text-sm md:text-base text-foreground-green max-w-2xl leading-relaxed">
             {videoSection.subtitle}
           </p>
         </Reveal>

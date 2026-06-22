@@ -82,10 +82,10 @@ export default function MainMasterplansection() {
                 <span className="text-luxury-gold">{masterPlan.titleLine2}</span>
               </h2>
 
-              <p className="mb-6 font-sans text-base leading-relaxed text-muted-sage">
+              <p className="mb-6 font-sans text-base leading-relaxed text-black">
                 {masterPlan.description}
               </p>
-              <p className="font-sans text-base leading-relaxed text-muted-sage">
+              <p className="font-sans text-base leading-relaxed text-black">
                 {masterPlan.description2}
               </p>
             </Reveal>

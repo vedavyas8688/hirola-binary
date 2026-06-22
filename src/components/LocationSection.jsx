@@ -27,7 +27,7 @@ export default function LocationSection() {
               <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-tight tracking-wide text-luxury-gold">
                 {title}
               </h2>
-              <p className="font-sans text-sm md:text-base text-cream-text/70 max-w-2xl mt-3 md:mt-4 leading-relaxed">
+              <p className="font-sans text-sm md:text-base text-cream-text max-w-2xl mt-3 md:mt-4 leading-relaxed">
                 {intro}
               </p>
             </Reveal>

@@ -165,7 +165,7 @@ export default function EmiCalculator() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 {/* Total Payable Amount */}
                 <div>
-                  <p className="font-sans text-[0.65rem] tracking-[0.2em] uppercase text-luxury-gold/70 mb-2">
+                  <p className="font-sans text-[0.65rem] tracking-[0.2em] uppercase text-luxury-gold mb-2">
                     Total Payable Amount
                   </p>
 
@@ -176,13 +176,13 @@ export default function EmiCalculator() {
 
                 {/* Monthly EMI */}
                 <div className="md:text-right">
-                  <p className="font-sans text-[0.65rem] tracking-[0.2em] uppercase text-luxury-gold/70 mb-2">
+                  <p className="font-sans text-[0.65rem] tracking-[0.2em] uppercase text-luxury-gold mb-2">
                     Your Monthly EMI
                   </p>
 
                   <p className="font-serif text-2xl md:text-3xl lg:text-4xl text-cream-text">
                     ₹{formatINR(emi)}
-                    <span className="font-sans text-xs ml-2 text-cream-text/60">
+                    <span className="font-sans text-xs ml-2 text-cream-text">
                       /month
                     </span>
                   </p>
@@ -209,7 +209,7 @@ export default function EmiCalculator() {
                   },
                 ].map(({ label, value }) => (
                   <div key={label}>
-                    <p className="font-sans text-[0.6rem] tracking-[0.15em] uppercase text-luxury-gold/60 mb-1">
+                    <p className="font-sans text-[0.6rem] tracking-[0.15em] uppercase text-luxury-gold mb-1">
                       {label}
                     </p>
                     <p className="font-serif text-base sm:text-lg text-cream-text">
@@ -231,7 +231,7 @@ export default function EmiCalculator() {
                       }}
                     />
                   </div>
-                  <span className="font-sans text-[0.6rem] tracking-wide text-luxury-gold/70 w-24 text-right whitespace-nowrap">
+                  <span className="font-sans text-[0.6rem] tracking-wide text-luxury-gold w-24 text-right whitespace-nowrap">
                     Principal {principalPct}%
                   </span>
                 </div>
@@ -245,7 +245,7 @@ export default function EmiCalculator() {
                       }}
                     />
                   </div>
-                  <span className="font-sans text-[0.6rem] tracking-wide text-luxury-gold/70 w-24 text-right whitespace-nowrap">
+                  <span className="font-sans text-[0.6rem] tracking-wide text-luxury-gold w-24 text-right whitespace-nowrap">
                     Interest {100 - principalPct}%
                   </span>
                 </div>
