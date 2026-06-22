@@ -44,7 +44,7 @@ export default function AddressSection() {
           {nextAddressCards.map((card) => (
             <div
               key={card.title}
-              className={`bg-white/80 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-lg border-2 border-luxury-gold/20 hover:border-luxury-gold/40 hover:shadow-xl transition-all duration-300 ${
+              className={`bg-white backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-lg border-2 border-luxury-gold/20 hover:border-luxury-gold/40 hover:shadow-xl transition-all duration-300 ${
                 card.fullWidth ? "md:col-span-2" : ""
               }`}
             >
@@ -57,11 +57,11 @@ export default function AddressSection() {
                 </div>
                 {/* Title + subtitle */}
                 <div>
-                  <h3 className="font-serif text-lg md:text-xl font-bold text-luxury-gold">
+                  <h3 className="font-serif text-lg md:text-xl font-bold text-green-800">
                     {card.title}
                   </h3>
                   {card.subtitle && (
-                    <h4 className="font-sans text-xs md:text-sm font-semibold text-green-800">
+                    <h4 className="font-sans text-xs md:text-sm font-semibold text-luxury-gold">
                       {card.subtitle}
                     </h4>
                   )}
