@@ -1,20 +1,9 @@
 import { useState } from "react";
+import { useModal } from "./Modalcontext";
 
 const CONFIGS = {
-  "2bhk": {
-    label: "2 BHK Ultra Luxury",
-    size: 1117,
-    eoiRate: 8499,
-    marketRate: 9500,
-    tag: "Best Value",
-  },
-  "3bhk": {
-    label: "3 BHK Ultra Luxury",
-    size: 1624,
-    eoiRate: 8499,
-    marketRate: 9500,
-    tag: "Most Popular",
-  },
+  "2bhk": { label: "2 BHK Ultra Luxury", size: 1117, eoiRate: 8499, marketRate: 9500, tag: "Best Value" },
+  "3bhk": { label: "3 BHK Ultra Luxury", size: 1624, eoiRate: 8499, marketRate: 9500, tag: "Most Popular" },
 };
 
 const TRUST = [
@@ -45,7 +34,7 @@ const TRUST = [
       </svg>
     ),
     title: "Prime Location",
-    sub: "Sarjapur Road",
+    sub: "Sarjapura Road",
   },
   {
     icon: (
@@ -61,297 +50,71 @@ const TRUST = [
 
 function fmt(n) {
   if (n >= 10000000) return `₹${(n / 10000000).toFixed(2)} Cr`;
-  if (n >= 100000)   return `₹${(n / 100000).toFixed(0)} Lakhs`;
+  if (n >= 100000) return `₹${(n / 100000).toFixed(0)} Lakhs`;
   return `₹${n.toLocaleString("en-IN")}`;
 }
 
 export default function PriceAdvantage() {
+  const { openModal } = useModal();
   const [active, setActive] = useState("2bhk");
   const cfg = CONFIGS[active];
 
-  const eoiTotal    = cfg.eoiRate * cfg.size;
+  const eoiTotal = cfg.eoiRate * cfg.size;
   const marketTotal = cfg.marketRate * cfg.size;
-  const saving      = marketTotal - eoiTotal;
-  const savingPct   = Math.round((saving / marketTotal) * 100);
+  const saving = marketTotal - eoiTotal;
+  const savingPct = Math.round((saving / marketTotal) * 100);
 
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Montserrat:wght@400;500;600;700&display=swap');
-
-        .pa-section {
-          background: #FAF7F0;
-          padding: 100px 80px;
-          font-family: 'Montserrat', sans-serif;
-        }
-
+        .pa-section { background: #FAF7F0; padding: 100px 80px; font-family: 'Montserrat', sans-serif; }
         .pa-inner { max-width: 1280px; margin: 0 auto; }
-
-        .pa-tag {
-          font-size: 10px; font-weight: 600;
-          letter-spacing: 0.28em; text-transform: uppercase;
-          color: #D7B975; display: block; margin-bottom: 12px;
-          font-family: 'Montserrat', sans-serif;
-        }
-
-        .pa-heading {
-          font-family: 'Playfair Display', serif;
-          font-size: clamp(32px, 4vw, 52px);
-          font-weight: 600; line-height: 1.15;
-          color: #082B1F; margin: 0 0 12px;
-        }
+        .pa-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: #D7B975; display: block; margin-bottom: 12px; font-family: 'Montserrat', sans-serif; }
+        .pa-heading { font-family: 'Playfair Display', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 600; line-height: 1.15; color: #082B1F; margin: 0 0 16px; }
         .pa-heading em { color: #D7B975; font-style: italic; }
+        .pa-sub { font-size: 16px; line-height: 1.7; color: #478570; max-width: 600px; margin: 0 auto 60px; }
 
-        .pa-rule {
-          width: 48px; height: 2px;
-          background: linear-gradient(90deg, #E8BA30, #D7B975);
-          border-radius: 2px; margin: 0 auto 20px;
-        }
+        .pa-toggle { display: inline-flex; border: 1px solid rgba(119,90,25,0.2); border-radius: 6px; overflow: hidden; margin-bottom: 48px; }
+        .pa-toggle button { padding: 12px 32px; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; border: none; cursor: pointer; transition: background 0.25s, color 0.25s; }
+        .pa-toggle button.active { background: #0B412F; color: #FAF6EB; }
+        .pa-toggle button:not(.active) { background: transparent; color: #478570; }
+        .pa-toggle button:not(.active):hover { background: rgba(11,65,47,0.06); }
 
-        .pa-sub {
-          font-size: 16px; line-height: 1.7; color: #478570;
-          max-width: 600px; margin: 0 auto 60px;
-        }
-
-        /* Config toggle */
-        .pa-toggle {
-          display: inline-flex;
-          border: 1px solid rgba(119,90,25,0.2);
-          border-radius: 6px;
-          overflow: hidden;
-          margin-bottom: 48px;
-        }
-        .pa-toggle button {
-          padding: 12px 32px;
-          font-family: 'Montserrat', sans-serif;
-          font-size: 11px; font-weight: 600;
-          letter-spacing: 0.14em; text-transform: uppercase;
-          border: none; cursor: pointer;
-          transition: background 0.25s, color 0.25s;
-        }
-        .pa-toggle button.active {
-          background: #0B412F; color: #FAF6EB;
-        }
-        .pa-toggle button:not(.active) {
-          background: transparent; color: #478570;
-        }
-        .pa-toggle button:not(.active):hover {
-          background: rgba(11,65,47,0.06);
-        }
-
-        /* Main card */
-        .pa-card {
-          display: grid;
-          grid-template-columns: 1fr 420px;
-          border: 1px solid rgba(119,90,25,0.12);
-          border-radius: 4px;
-          overflow: hidden;
-          background: #fff;
-          box-shadow: 0 40px 80px rgba(8,43,31,0.06);
-        }
-
-        /* Left panel */
+        .pa-card { display: grid; grid-template-columns: 1fr 420px; border: 1px solid rgba(119,90,25,0.12); border-radius: 4px; overflow: hidden; background: #fff; box-shadow: 0 40px 80px rgba(8,43,31,0.06); }
         .pa-left { padding: 56px 60px; display: flex; flex-direction: column; gap: 40px; }
+        .pa-config-label { font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #D7B975; margin-bottom: 6px; }
+        .pa-config-value { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 600; color: #082B1F; }
+        .pa-config-size { font-size: 13px; color: #478570; margin-top: 2px; font-weight: 500; }
 
-        .pa-config-label {
-          font-size: 10px; font-weight: 600;
-          letter-spacing: 0.22em; text-transform: uppercase;
-          color: #D7B975; margin-bottom: 6px;
-        }
-
-        .pa-config-value {
-          font-family: 'Playfair Display', serif;
-          font-size: 26px; font-weight: 600;
-          color: #082B1F;
-        }
-
-        .pa-config-size {
-          font-size: 13px; color: #478570;
-          margin-top: 2px; font-weight: 500;
-        }
-
-        .pa-prices {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 0;
-        }
-
+        .pa-prices { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
         .pa-price-block { padding: 28px 0; }
-        .pa-price-block + .pa-price-block {
-          padding-left: 40px;
-          border-left: 1px solid rgba(215,185,117,0.2);
-          margin-left: 40px;
-        }
+        .pa-price-block + .pa-price-block { padding-left: 40px; border-left: 1px solid rgba(215,185,117,0.2); margin-left: 40px; }
+        .pa-price-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #478570; margin-bottom: 10px; }
+        .pa-price-num { font-family: 'Playfair Display', serif; font-size: clamp(32px, 3.5vw, 44px); font-weight: 700; color: #082B1F; line-height: 1; }
+        .pa-price-num.market { color: #B0BAB7; text-decoration: line-through; text-decoration-color: rgba(119,90,25,0.3); font-size: clamp(24px, 2.5vw, 32px); }
+        .pa-price-unit { font-size: 12px; color: #478570; margin-top: 4px; font-weight: 500; }
+        .pa-price-total { font-size: 12px; color: #D7B975; margin-top: 6px; font-weight: 600; letter-spacing: 0.04em; }
+        .pa-underline { height: 2px; width: 40px; background: linear-gradient(90deg, #E8BA30, #D7B975); border-radius: 2px; margin-top: 10px; }
+        .pa-disclaimer { font-size: 10px; color: #B0BAB7; font-style: italic; letter-spacing: 0.04em; }
 
-        .pa-price-tag {
-          font-size: 10px; font-weight: 600;
-          letter-spacing: 0.18em; text-transform: uppercase;
-          color: #478570; margin-bottom: 10px;
-        }
-
-        .pa-price-num {
-          font-family: 'Playfair Display', serif;
-          font-size: clamp(32px, 3.5vw, 44px);
-          font-weight: 700; color: #082B1F;
-          line-height: 1;
-        }
-        .pa-price-num.market {
-          color: #B0BAB7;
-          text-decoration: line-through;
-          text-decoration-color: rgba(119,90,25,0.3);
-          font-size: clamp(24px, 2.5vw, 32px);
-        }
-
-        .pa-price-unit {
-          font-size: 12px; color: #478570;
-          margin-top: 4px; font-weight: 500;
-        }
-
-        .pa-price-total {
-          font-size: 12px; color: #D7B975;
-          margin-top: 6px; font-weight: 600;
-          letter-spacing: 0.04em;
-        }
-
-        .pa-underline {
-          height: 2px; width: 40px;
-          background: linear-gradient(90deg, #E8BA30, #D7B975);
-          border-radius: 2px; margin-top: 10px;
-        }
-
-        .pa-disclaimer {
-          font-size: 10px; color: #B0BAB7;
-          font-style: italic; letter-spacing: 0.04em;
-        }
-
-        /* Right panel */
-        .pa-right {
-          background: linear-gradient(160deg, #0B412F 0%, #062319 100%);
-          padding: 56px 48px;
-          display: flex; flex-direction: column;
-          justify-content: space-between;
-          position: relative; overflow: hidden;
-        }
-
-        .pa-right::before {
-          content: '';
-          position: absolute; top: -60px; right: -60px;
-          width: 200px; height: 200px;
-          border-radius: 50%;
-          border: 1px solid rgba(215,185,117,0.08);
-          pointer-events: none;
-        }
-        .pa-right::after {
-          content: '';
-          position: absolute; bottom: -40px; left: -40px;
-          width: 140px; height: 140px;
-          border-radius: 50%;
-          border: 1px solid rgba(215,185,117,0.06);
-          pointer-events: none;
-        }
-
-        .pa-badge {
-          display: inline-block;
-          padding: 5px 14px;
-          border: 1px solid rgba(215,185,117,0.3);
-          font-size: 9px; font-weight: 600;
-          letter-spacing: 0.24em; text-transform: uppercase;
-          color: #D7B975; margin-bottom: 28px;
-          position: relative; z-index: 1;
-        }
-
-        .pa-saving-label {
-          font-size: 11px; font-weight: 600;
-          letter-spacing: 0.18em; text-transform: uppercase;
-          color: rgba(215,185,117,0.6); margin-bottom: 10px;
-          position: relative; z-index: 1;
-        }
-
-        .pa-saving-num {
-          font-family: 'Playfair Display', serif;
-          font-size: clamp(40px, 5vw, 62px);
-          font-weight: 700; font-style: italic;
-          color: #FAF6EB; line-height: 1;
-          position: relative; z-index: 1;
-          transition: opacity 0.3s;
-        }
-
-        .pa-saving-pct {
-          margin-top: 16px;
-          display: flex; align-items: center; gap: 10px;
-          padding: 12px 0;
-          border-top: 1px solid rgba(255,255,255,0.06);
-          border-bottom: 1px solid rgba(255,255,255,0.06);
-          position: relative; z-index: 1;
-        }
-
-        .pa-saving-pct-val {
-          font-family: 'Playfair Display', serif;
-          font-size: 22px; font-weight: 600;
-          color: #D7B975;
-        }
-
-        .pa-saving-pct-label {
-          font-size: 10px; font-weight: 600;
-          letter-spacing: 0.16em; text-transform: uppercase;
-          color: rgba(215,185,117,0.6);
-        }
-
-        .pa-cta {
-          width: 100%;
-          background: #D7B975; color: #082B1F;
-          border: none; cursor: pointer;
-          padding: 18px 24px;
-          font-family: 'Montserrat', sans-serif;
-          font-size: 11px; font-weight: 700;
-          letter-spacing: 0.2em; text-transform: uppercase;
-          display: flex; align-items: center; justify-content: space-between;
-          transition: background 0.3s, color 0.3s;
-          position: relative; z-index: 1;
-          border-radius: 2px;
-        }
+        .pa-right { background: linear-gradient(160deg, #0B412F 0%, #062319 100%); padding: 56px 48px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+        .pa-right::before { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; border-radius: 50%; border: 1px solid rgba(215,185,117,0.08); pointer-events: none; }
+        .pa-right::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 140px; height: 140px; border-radius: 50%; border: 1px solid rgba(215,185,117,0.06); pointer-events: none; }
+        .pa-badge { display: inline-block; padding: 5px 14px; border: 1px solid rgba(215,185,117,0.3); font-size: 9px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: #D7B975; margin-bottom: 28px; position: relative; z-index: 1; }
+        .pa-saving-label { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(215,185,117,0.6); margin-bottom: 10px; position: relative; z-index: 1; }
+        .pa-saving-num { font-family: 'Playfair Display', serif; font-size: clamp(40px, 5vw, 62px); font-weight: 700; font-style: italic; color: #FAF6EB; line-height: 1; position: relative; z-index: 1; transition: opacity 0.3s; }
+        .pa-saving-pct { margin-top: 16px; display: flex; align-items: center; gap: 10px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); position: relative; z-index: 1; }
+        .pa-saving-pct-val { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; color: #D7B975; }
+        .pa-saving-pct-label { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(215,185,117,0.6); }
+        .pa-cta { width: 100%; background: #D7B975; color: #082B1F; border: none; cursor: pointer; padding: 18px 24px; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; display: flex; align-items: center; justify-content: space-between; transition: background 0.3s, color 0.3s; position: relative; z-index: 1; border-radius: 2px; }
         .pa-cta:hover { background: #E8BA30; }
 
-        /* Trust grid */
-        .pa-trust {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 24px;
-          margin-top: 48px;
-        }
-
-        .pa-trust-item {
-          display: flex; flex-direction: column;
-          align-items: center; gap: 12px;
-          text-align: center;
-          padding: 28px 16px;
-          border: 1px solid rgba(119,90,25,0.1);
-          border-radius: 4px;
-          background: #fff;
-          transition: border-color 0.3s, background 0.3s;
-          cursor: default;
-        }
-        .pa-trust-item:hover {
-          border-color: rgba(215,185,117,0.3);
-          background: rgba(215,185,117,0.03);
-        }
-
-        .pa-trust-icon {
-          width: 48px; height: 48px; border-radius: 50%;
-          border: 1px solid rgba(215,185,117,0.25);
-          display: flex; align-items: center; justify-content: center;
-        }
-
-        .pa-trust-title {
-          font-size: 11px; font-weight: 600;
-          letter-spacing: 0.16em; text-transform: uppercase;
-          color: #082B1F;
-        }
-
-        .pa-trust-sub {
-          font-size: 10px; color: #B0BAB7;
-          letter-spacing: 0.1em; text-transform: uppercase;
-        }
+        .pa-trust { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
+        .pa-trust-item { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; padding: 28px 16px; border: 1px solid rgba(119,90,25,0.1); border-radius: 4px; background: #fff; transition: border-color 0.3s, background 0.3s; cursor: default; }
+        .pa-trust-item:hover { border-color: rgba(215,185,117,0.3); background: rgba(215,185,117,0.03); }
+        .pa-trust-icon { width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(215,185,117,0.25); display: flex; align-items: center; justify-content: center; }
+        .pa-trust-title { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #082B1F; }
+        .pa-trust-sub { font-size: 10px; color: #B0BAB7; letter-spacing: 0.1em; text-transform: uppercase; }
 
         @media (max-width: 1024px) {
           .pa-card { grid-template-columns: 1fr; }
@@ -360,30 +123,23 @@ export default function PriceAdvantage() {
           .pa-left { padding: 40px 32px; }
           .pa-right { padding: 40px 32px; }
         }
-
         @media (max-width: 600px) {
           .pa-prices { grid-template-columns: 1fr; }
-          .pa-price-block + .pa-price-block {
-            padding-left: 0; border-left: none; margin-left: 0;
-            border-top: 1px solid rgba(215,185,117,0.2); padding-top: 24px;
-          }
+          .pa-price-block + .pa-price-block { padding-left: 0; border-left: none; margin-left: 0; border-top: 1px solid rgba(215,185,117,0.2); padding-top: 24px; }
           .pa-trust { grid-template-columns: 1fr; }
         }
       `}</style>
 
-      <section className="pa-section">
+      <section id="advantage" className="pa-section">
         <div className="pa-inner">
-
           {/* Header */}
           <div style={{ textAlign: "center" }}>
             <span className="pa-tag">Investment Opportunity</span>
             <h2 className="pa-heading">
-              EOI Price Advantage —{" "}
-              <em>See Your Value Appreciation</em>
+              EOI Price Advantage — <em>See Your Value Appreciation</em>
             </h2>
-            <div className="pa-rule" />
             <p className="pa-sub">
-              Compare our exclusive EOI pricing with prevailing market rates on Sarjapur Road.
+              Compare our exclusive EOI pricing with prevailing market rates on Sarjapura Road.
               Secure your home at a significant entry-point advantage before public launch.
             </p>
           </div>
@@ -392,11 +148,7 @@ export default function PriceAdvantage() {
           <div style={{ display: "flex", justifyContent: "center" }}>
             <div className="pa-toggle">
               {Object.entries(CONFIGS).map(([key, val]) => (
-                <button
-                  key={key}
-                  className={active === key ? "active" : ""}
-                  onClick={() => setActive(key)}
-                >
+                <button key={key} className={active === key ? "active" : ""} onClick={() => setActive(key)}>
                   {val.label}
                 </button>
               ))}
@@ -405,49 +157,34 @@ export default function PriceAdvantage() {
 
           {/* Main card */}
           <div className="pa-card">
-
             {/* Left */}
             <div className="pa-left">
-
-              {/* Config info */}
               <div>
                 <div className="pa-config-label">Selected Configuration</div>
                 <div className="pa-config-value">{cfg.label}</div>
                 <div className="pa-config-size">
-                  {cfg.size.toLocaleString("en-IN")} Sq.Ft · Ultra Luxury · Chambenahalli, Sarjapur Road
+                  {cfg.size.toLocaleString("en-IN")} Sq.Ft · Ultra Luxury · Sompura Gate, Sarjapura Road
                 </div>
               </div>
 
-              {/* Price comparison */}
               <div className="pa-prices">
-                {/* EOI */}
                 <div className="pa-price-block">
                   <div className="pa-price-tag">Exclusive EOI Rate</div>
-                  <div className="pa-price-num">
-                    ₹{cfg.eoiRate.toLocaleString("en-IN")}
-                  </div>
+                  <div className="pa-price-num">₹{cfg.eoiRate.toLocaleString("en-IN")}</div>
                   <div className="pa-price-unit">/sq.ft</div>
-                  <div className="pa-price-total">
-                    Total: {fmt(eoiTotal)}
-                  </div>
+                  <div className="pa-price-total">Total: {fmt(eoiTotal)}</div>
                   <div className="pa-underline" />
                 </div>
-
-                {/* Market */}
                 <div className="pa-price-block">
                   <div className="pa-price-tag">Current Market Avg.</div>
-                  <div className="pa-price-num market">
-                    ₹{cfg.marketRate.toLocaleString("en-IN")}
-                  </div>
+                  <div className="pa-price-num market">₹{cfg.marketRate.toLocaleString("en-IN")}</div>
                   <div className="pa-price-unit">/sq.ft</div>
-                  <div className="pa-price-total" style={{ color: "#B0BAB7" }}>
-                    Total: {fmt(marketTotal)}
-                  </div>
+                  <div className="pa-price-total" style={{ color: "#B0BAB7" }}>Total: {fmt(marketTotal)}</div>
                 </div>
               </div>
 
               <div className="pa-disclaimer">
-                * Prices exclusive of statutory charges, GST, and floor rise premiums. Market rate is indicative average for Sarjapur Road micro-market.
+                * Prices exclusive of statutory charges, GST and floor-rise premiums. Market rate is an indicative average for the Sarjapura Road micro-market.
               </div>
             </div>
 
@@ -483,14 +220,13 @@ export default function PriceAdvantage() {
                 </div>
               </div>
 
-              <button className="pa-cta">
+              <button className="pa-cta" onClick={openModal}>
                 <span>Request EOI Details</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg>
               </button>
             </div>
-
           </div>
 
           {/* Trust grid */}
@@ -503,7 +239,6 @@ export default function PriceAdvantage() {
               </div>
             ))}
           </div>
-
         </div>
       </section>
     </>

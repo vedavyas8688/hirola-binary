@@ -1,400 +1,166 @@
-import { useState, useEffect } from "react";
-import { X, Check } from "lucide-react";
-import logoLeft from "../../assets/images/logo-left3.png";
+import { useEffect, useState } from "react";
+import { X, Check, Sparkles } from "lucide-react";
+import { lpConfig } from "../../data/landingData";
+
+const POPUP_DELAY_MS = 5000; // ← auto-popup appears after 5 seconds
 
 export default function LeadPopup() {
-  const [visible, setVisible] = useState(false);
-  const [countryCode, setCountryCode] = useState("+91");
-  const [submitted, setSubmitted] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [dismissed, setDismissed] = useState(false);
 
-  // Show after 2.5s
   useEffect(() => {
-    const timer = setTimeout(() => setVisible(true), 2500);
-    return () => clearTimeout(timer);
-  }, []);
+    if (dismissed) return;
+    const t = setTimeout(() => setOpen(true), POPUP_DELAY_MS);
+    return () => clearTimeout(t);
+  }, [dismissed]);
 
-  // Lock body scroll
   useEffect(() => {
-    document.body.style.overflow = visible ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [visible]);
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
 
-  if (!visible) return null;
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e) => e.key === "Escape" && close();
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
 
-  const handleSubmit = (e) => {
+  const close = () => { setOpen(false); setDismissed(true); };
+
+  const submit = (e) => {
     e.preventDefault();
-    // TODO: Wire to your API / CRM here
-    setSubmitted(true);
+    // TODO: wire to your CRM / API endpoint here
+    setSent(true);
+    setTimeout(close, 2800);
   };
 
-  const onClose = () => setVisible(false);
+  if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
-      {/* Backdrop */}
-      <div
-        className="absolute inset-0 backdrop-blur-xl"
-        style={{ background: "rgba(4,12,6,0.92)" }}
-        onClick={onClose}
-      />
+    <div className="lpop-overlay" role="dialog" aria-modal="true" aria-label="Special pre-launch offer" onClick={close}>
+      <style>{STYLES}</style>
+      <div className="lpop-card" onClick={(e) => e.stopPropagation()}>
+        <button className="lpop-close" onClick={close} aria-label="Close"><X size={18} strokeWidth={1.8} /></button>
 
-      {/* Modal */}
-      <div
-        className="relative z-10 w-full overflow-hidden flex"
-        style={{
-          maxWidth: "780px",
-          borderRadius: "20px",
-          boxShadow:
-            "0 50px 120px rgba(0,0,0,0.8), 0 0 0 1px rgba(201,168,76,0.2)",
-          animation: "lpSlideUp 0.38s cubic-bezier(0.22,0.61,0.36,1)",
-        }}
-      >
-        {/* ── Left panel — dark green ── */}
-        <div
-          className="hidden md:flex flex-col justify-between w-[260px] shrink-0 px-8 py-9 relative overflow-hidden"
-          style={{
-            background:
-              "linear-gradient(160deg, #1a3a22 0%, #0d2016 50%, #081510 100%)",
-            borderRight: "1px solid rgba(201,168,76,0.15)",
-          }}
-        >
-          {/* Dot grid */}
-          <div
-            className="absolute inset-0 opacity-5"
-            style={{
-              backgroundImage: `radial-gradient(circle at 1px 1px, rgba(201,168,76,0.8) 1px, transparent 0)`,
-              backgroundSize: "24px 24px",
-            }}
-          />
-          {/* Glow orb */}
-          <div
-            className="absolute bottom-0 left-0 w-48 h-48 rounded-full pointer-events-none"
-            style={{
-              background:
-                "radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%)",
-              transform: "translate(-30%, 30%)",
-            }}
-          />
-
-          <div className="relative z-10 flex flex-col h-full justify-between">
-            <div>
-              <img
-                src={logoLeft}
-                alt="Binary Ventures"
-                className="h-10 mb-8 opacity-90"
-              />
-              <p
-                className="font-sans text-[10px] tracking-[0.4em] uppercase mb-3"
-                style={{ color: "rgba(201,168,76,0.5)" }}
-              >
-                Sarjapur Road · Bengaluru
-              </p>
-              <h2
-                className="font-serif text-2xl leading-snug mb-6"
-                style={{ color: "#f0e6cc" }}
-              >
-                Where Luxury
-                <br />
-                <span style={{ color: "#c9a84c" }}>Meets Life</span>
-              </h2>
-              <div
-                className="h-px w-10 mb-6"
-                style={{ background: "rgba(201,168,76,0.4)" }}
-              />
-              <p className="font-sans text-xs leading-relaxed text-white">
-                Ultra-luxury 2 &amp; 3 BHK residences with 80% open space and no
-                common walls.
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-4">
-              {[
-                { value: "2 & 3 BHK", label: "Configurations" },
-                { value: "₹95 Lakhs", label: "Starting Price" },
-                { value: "6 Units", label: "Per Floor Only" },
-              ].map((s) => (
-                <div key={s.label}>
-                  <p
-                    className="font-serif text-base"
-                    style={{ color: "#c9a84c" }}
-                  >
-                    {s.value}
-                  </p>
-                  <p className="font-sans text-[10px] uppercase tracking-widest mt-0.5 text-white">
-                    {s.label}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* left — offer panel */}
+        <div className="lpop-left">
+          <span className="lpop-badge"><Sparkles size={13} /> Pre-Launch · EOI Open</span>
+          <h3 className="lpop-title">Binary<br />Temple Tree</h3>
+          <p className="lpop-codename">Codename {lpConfig.codename} · by {lpConfig.developer}</p>
+          <ul className="lpop-list">
+            <li><Check size={15} /> 2 &amp; 3 BHK from ₹95 L</li>
+            <li><Check size={15} /> EOI rate ₹8,499/sq.ft</li>
+            <li><Check size={15} /> 100% refundable deposit</li>
+            <li><Check size={15} /> Only 6 homes per floor</li>
+          </ul>
         </div>
 
-        {/* ── Right panel — gold bg ── */}
-        <div
-          className="flex-1 flex flex-col relative overflow-hidden"
-          style={{ background: "var(--color-luxury-gold, #D7B975)" }}
-        >
-          {/* Sheen top */}
-          <div
-            className="absolute top-0 left-0 right-0 h-28 pointer-events-none"
-            style={{
-              background:
-                "linear-gradient(180deg, rgba(255,255,255,0.15) 0%, transparent 100%)",
-            }}
-          />
-          {/* Sheen bottom */}
-          <div
-            className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none"
-            style={{
-              background:
-                "linear-gradient(0deg, rgba(0,0,0,0.08) 0%, transparent 100%)",
-            }}
-          />
-
-          {submitted ? (
-            /* ── Success state ── */
-            <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-10 py-14 gap-6">
-              <div
-                className="w-20 h-20 rounded-full flex items-center justify-center"
-                style={{
-                  border: "2px solid rgba(8,21,16,0.25)",
-                  background: "rgba(8,21,16,0.1)",
-                }}
-              >
-                <Check
-                  className="w-9 h-9"
-                  style={{ color: "#081510" }}
-                  strokeWidth={2}
-                />
-              </div>
-              <div>
-                <p
-                  className="font-sans text-[10px] tracking-[0.4em] uppercase mb-2"
-                  style={{ color: "rgba(8,21,16,0.45)" }}
-                >
-                  Received
-                </p>
-                <h3
-                  className="font-serif text-3xl mb-3"
-                  style={{ color: "#081510" }}
-                >
-                  Thank You
-                </h3>
-                <p
-                  className="font-sans text-sm leading-relaxed"
-                  style={{ color: "rgba(8,21,16,0.55)" }}
-                >
-                  Our team will reach out with a personalised offer within 24
-                  hours.
-                </p>
-              </div>
-              <button
-                onClick={onClose}
-                className="px-10 py-3 rounded-full font-sans text-xs tracking-[0.25em] uppercase transition-all duration-300"
-                style={{
-                  border: "1px solid rgba(8,21,16,0.25)",
-                  color: "#081510",
-                  background: "rgba(8,21,16,0.08)",
-                }}
-              >
-                Close
-              </button>
+        {/* right — form */}
+        <div className="lpop-right">
+          {sent ? (
+            <div className="lpop-success">
+              <span className="lpop-check"><Check size={28} strokeWidth={2.5} /></span>
+              <h4>Thank you!</h4>
+              <p>We'll reach out with pricing &amp; availability shortly.</p>
             </div>
           ) : (
-            /* ── Form state ── */
-            <div className="relative z-10 flex-1 px-8 pt-7 pb-8 flex flex-col">
-              {/* Header */}
-              <div className="flex items-start justify-between mb-6">
-                <div>
-                  <p
-                    className="font-sans text-[10px] tracking-[0.4em] uppercase mb-1.5"
-                    style={{ color: "rgba(8,21,16,0.45)" }}
-                  >
-                    Limited Units · Launch Offer
-                  </p>
-                  <h3
-                    className="font-serif text-xl"
-                    style={{ color: "#081510" }}
-                  >
-                    Get Exclusive Pricing
-                  </h3>
-                </div>
-                <button
-                  onClick={onClose}
-                  className="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 shrink-0 mt-0.5"
-                  style={{
-                    border: "1px solid rgba(8,21,16,0.18)",
-                    color: "rgba(8,21,16,0.5)",
-                    background: "rgba(8,21,16,0.06)",
-                  }}
-                >
-                  <X className="w-3.5 h-3.5" />
-                </button>
-              </div>
-
-              {/* Form */}
-              <form
-                onSubmit={handleSubmit}
-                className="flex flex-col gap-2.5 flex-1"
-              >
-                <input
-                  type="text"
-                  required
-                  placeholder="Full Name"
-                  autoComplete="off"
-                />
-                <input
-                  type="email"
-                  required
-                  placeholder="Email Address"
-                  autoComplete="off"
-                />
-
-                {/* Phone with country code */}
-                <div className="flex gap-2">
-                  <select
-                    value={countryCode}
-                    onChange={(e) => setCountryCode(e.target.value)}
-                    style={{ width: "86px", flexShrink: 0 }}
-                  >
-                    <option value="+91">🇮🇳 +91</option>
-                    <option value="+1">🇺🇸 +1</option>
-                    <option value="+44">🇬🇧 +44</option>
-                    <option value="+971">🇦🇪 +971</option>
-                    <option value="+65">🇸🇬 +65</option>
-                  </select>
+            <>
+              <h4 className="lpop-form-title">Unlock Pre-Launch Pricing</h4>
+              <p className="lpop-form-sub">Enter your details — limited to the first 50 units.</p>
+              <form onSubmit={submit} className="lpop-form">
+                <input type="text" required placeholder="Full Name" autoComplete="name" />
+                <div className="lpop-phone">
+                  <span>+91</span>
                   <input
-                    type="tel"
-                    required
-                    placeholder="Phone Number"
-                    inputMode="numeric"
-                    maxLength={15}
-                    autoComplete="off"
-                    onInput={(e) => {
-                      e.currentTarget.value = e.currentTarget.value.replace(
-                        /\D/g,
-                        "",
-                      );
-                    }}
-                    style={{ flex: 1, width: "auto" }}
+                    type="tel" required placeholder="Phone Number" inputMode="numeric" maxLength={10} autoComplete="tel"
+                    onInput={(e) => { e.currentTarget.value = e.currentTarget.value.replace(/\D/g, ""); }}
                   />
                 </div>
-
-                {/* BHK + Budget */}
-                <div className="grid grid-cols-2 gap-2">
-                  <select required defaultValue="">
-                    <option value="" disabled>
-                      Unit Type
-                    </option>
-                    <option value="2bhk">Ultra Luxury 2 BHK</option>
-                    <option value="3bhk">Ultra Luxury 3 BHK</option>
-                  </select>
-                  <select required defaultValue="">
-                    <option value="" disabled>
-                      Budget
-                    </option>
-                    <option value="75-1cr">₹75L – ₹1Cr</option>
-                    <option value="1-1.5cr">₹1 – ₹1.5Cr</option>
-                    <option value="1.5-2cr">₹1.5 – ₹2Cr</option>
-                    <option value="2cr+">₹2Cr+</option>
-                  </select>
-                </div>
-
-                {/* CTA */}
-                <button
-                  type="submit"
-                  className="mt-auto pt-3 w-full rounded-full py-4 font-sans font-semibold text-xs tracking-[0.3em] uppercase transition-all duration-300 group"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, #081510 0%, #0d2016 100%)",
-                    color: "var(--color-luxury-gold, #D7B975)",
-                    boxShadow: "0 8px 24px rgba(8,21,16,0.3)",
-                  }}
-                >
-                  <span className="flex items-center justify-center gap-2">
-                    Request a Callback
-                    <span className="transition-transform duration-300 group-hover:translate-x-1 text-sm">
-                      →
-                    </span>
-                  </span>
-                </button>
-
-                <div className="flex items-center gap-3 mt-1">
-                  <div
-                    className="flex-1 h-px"
-                    style={{ background: "rgba(8,21,16,0.15)" }}
-                  />
-                  <p
-                    className="font-sans text-[10px] tracking-[0.2em] uppercase"
-                    style={{ color: "rgba(8,21,16,0.35)" }}
-                  >
-                    100% Confidential
-                  </p>
-                  <div
-                    className="flex-1 h-px"
-                    style={{ background: "rgba(8,21,16,0.15)" }}
-                  />
-                </div>
+                <input type="email" placeholder="Email (optional)" autoComplete="email" />
+                <button type="submit">Get the Offer →</button>
               </form>
-            </div>
+              <a href={lpConfig.phoneHref} className="lpop-call">Or call {lpConfig.phone}</a>
+            </>
           )}
         </div>
       </div>
-
-      <style>{`
-        @keyframes lpSlideUp {
-          from { opacity: 0; transform: translateY(30px) scale(0.97); }
-          to   { opacity: 1; transform: translateY(0)    scale(1);    }
-        }
-
-        .fixed form input,
-        .fixed form select {
-          width: 100%;
-          border-radius: 9999px;
-          background: rgba(8,21,16,0.08);
-          border: 1px solid rgba(8,21,16,0.18);
-          color: #081510;
-          padding: 11px 16px;
-          font-size: 0.8125rem;
-          font-family: inherit;
-          outline: none;
-          transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
-          appearance: none;
-          -webkit-appearance: none;
-        }
-        .fixed form input::placeholder {
-          color: rgba(8,21,16,0.35);
-        }
-        .fixed form input:focus,
-        .fixed form select:focus {
-          border-color: rgba(8,21,16,0.4);
-          background: rgba(8,21,16,0.13);
-          box-shadow: 0 0 0 3px rgba(8,21,16,0.07);
-        }
-        .fixed form select {
-          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23081510' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
-          background-repeat: no-repeat;
-          background-position: right 12px center;
-          padding-right: 30px;
-          color: rgba(8,21,16,0.35);
-          cursor: pointer;
-        }
-        .fixed form select:valid {
-          color: rgba(8,21,16,0.85);
-        }
-        .fixed form select option {
-          background: #f5e6c0;
-          color: #081510;
-        }
-
-        @media (max-width: 640px) {
-          .fixed form .grid {
-            grid-template-columns: 1fr;
-          }
-        }
-      `}</style>
     </div>
   );
 }
+
+const STYLES = `
+  @keyframes lpopFade { from { opacity: 0 } to { opacity: 1 } }
+  @keyframes lpopPop  { from { opacity: 0; transform: translateY(20px) scale(.97) } to { opacity: 1; transform: none } }
+
+  .lpop-overlay {
+    position: fixed; inset: 0; z-index: 130; display: flex; align-items: center; justify-content: center;
+    padding: 20px; background: rgba(4,12,6,0.8);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    animation: lpopFade .28s ease both;
+  }
+  .lpop-card {
+    position: relative; width: 100%; max-width: 720px; display: grid; grid-template-columns: 1fr 1fr;
+    border-radius: 22px; overflow: hidden; background: #fff;
+    box-shadow: 0 50px 120px rgba(0,0,0,0.55);
+    animation: lpopPop .4s cubic-bezier(.22,.61,.36,1) both;
+    font-family: var(--font-sans, 'Poppins', sans-serif);
+  }
+  .lpop-close {
+    position: absolute; top: 14px; right: 14px; z-index: 5; width: 34px; height: 34px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: #fff; cursor: pointer;
+    transition: background .2s;
+  }
+  .lpop-close:hover { background: rgba(255,255,255,0.3); }
+
+  .lpop-left {
+    background: linear-gradient(160deg, #0B412F 0%, #062319 100%); color: #FAF6EB;
+    padding: 40px 34px; display: flex; flex-direction: column; justify-content: center;
+  }
+  .lpop-badge {
+    display: inline-flex; align-items: center; gap: 6px; align-self: flex-start;
+    padding: 5px 12px; border: 1px solid rgba(215,185,117,0.35); border-radius: 999px;
+    font-size: 9px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #E8BA30;
+  }
+  .lpop-title { font-family: var(--font-serif, 'Playfair Display', serif); font-size: 34px; font-weight: 700; color: #D7B975; margin: 18px 0 6px; line-height: 1.05; }
+  .lpop-codename { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,246,235,0.55); margin: 0 0 22px; }
+  .lpop-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+  .lpop-list li { display: flex; align-items: center; gap: 10px; font-size: 13.5px; color: rgba(250,246,235,0.85); }
+  .lpop-list svg { color: #D7B975; flex-shrink: 0; }
+
+  .lpop-right { padding: 40px 34px; display: flex; flex-direction: column; justify-content: center; }
+  .lpop-form-title { font-family: var(--font-serif, 'Playfair Display', serif); font-size: 23px; font-weight: 600; color: #082B1F; margin: 0 0 6px; }
+  .lpop-form-sub { font-size: 13px; color: #478570; margin: 0 0 20px; line-height: 1.5; }
+  .lpop-form { display: flex; flex-direction: column; gap: 11px; }
+  .lpop-form input {
+    width: 100%; border-radius: 10px; padding: 13px 15px; border: 1px solid rgba(215,185,117,0.35);
+    background: #FAF7F0; color: #082B1F; font-size: 14px; font-family: inherit; outline: none; transition: border-color .2s, background .2s;
+  }
+  .lpop-form input::placeholder { color: rgba(8,43,31,0.4); }
+  .lpop-form input:focus { border-color: #D7B975; background: #fff; }
+  .lpop-phone { display: flex; gap: 8px; }
+  .lpop-phone span { display: flex; align-items: center; padding: 0 13px; border-radius: 10px; background: #FAF7F0; border: 1px solid rgba(215,185,117,0.35); color: #082B1F; font-size: 14px; font-weight: 600; flex-shrink: 0; }
+  .lpop-phone input { flex: 1; }
+  .lpop-form button {
+    margin-top: 4px; border: none; cursor: pointer; padding: 15px; border-radius: 10px;
+    background: linear-gradient(135deg, #E8BA30, #D7B975); color: #062319;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; transition: opacity .2s, transform .2s; font-family: inherit;
+  }
+  .lpop-form button:hover { opacity: .92; transform: translateY(-1px); }
+  .lpop-call { display: block; text-align: center; margin-top: 14px; font-size: 11px; color: #478570; text-decoration: none; }
+  .lpop-call:hover { color: #D7B975; }
+
+  .lpop-success { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 16px 4px; }
+  .lpop-check { width: 60px; height: 60px; border-radius: 50%; background: #0B412F; color: #D7B975; display: flex; align-items: center; justify-content: center; margin-bottom: 6px; }
+  .lpop-success h4 { font-family: var(--font-serif, 'Playfair Display', serif); font-size: 24px; color: #082B1F; margin: 0; }
+  .lpop-success p { font-size: 13px; color: #478570; margin: 0; }
+
+  @media (max-width: 640px) {
+    .lpop-card { grid-template-columns: 1fr; max-width: 420px; max-height: 92vh; overflow-y: auto; }
+    .lpop-left { padding: 32px 26px 26px; }
+    .lpop-title { font-size: 28px; }
+    .lpop-right { padding: 28px 26px 32px; }
+  }
+`;

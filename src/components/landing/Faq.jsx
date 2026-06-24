@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { lpFaqs } from "../../data/landingData";
+import { useModal } from "./Modalcontext";
 
 export default function Faq() {
   const [open, setOpen] = useState(0);
+  const { openModal } = useModal();
 
   return (
     <section id="faq" className="lp-fade py-20 md:py-28 lg:py-[120px] px-5 sm:px-8 md:px-12 lg:px-20 max-w-screen-xl mx-auto">
@@ -30,7 +32,6 @@ export default function Faq() {
                 isOpen ? "border-luxury-gold/40" : "border-luxury-gold/15 hover:border-luxury-gold/30"
               }`}
             >
-              {/* gold accent rail when open */}
               <span
                 aria-hidden="true"
                 className={`absolute left-0 top-0 h-full w-1 bg-luxury-gold transition-opacity duration-300 ${isOpen ? "opacity-100" : "opacity-0"}`}
@@ -39,7 +40,7 @@ export default function Faq() {
               <button
                 onClick={() => setOpen(isOpen ? -1 : i)}
                 aria-expanded={isOpen}
-                className="flex w-full items-center justify-between gap-4 px-5 md:px-7 py-5 md:py-6 text-left"
+                className="flex w-full items-center justify-between gap-4 px-5 md:px-7 py-5 md:py-6 text-left bg-transparent border-0 cursor-pointer"
               >
                 <h3 className="text-[16px] leading-[24px] md:text-[19px] md:leading-[28px] font-serif font-medium text-luxury-green-dark">
                   {q}
@@ -53,11 +54,7 @@ export default function Faq() {
                 </span>
               </button>
 
-              {/* answer — animated open/close */}
-              <div
-                className="grid transition-all duration-400 ease-out"
-                style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
-              >
+              <div className="grid transition-all duration-400 ease-out" style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}>
                 <div className="overflow-hidden">
                   <p className="px-5 md:px-7 pb-5 md:pb-6 text-[14px] md:text-[15px] leading-relaxed text-foreground-green/65">
                     {a}
@@ -69,14 +66,14 @@ export default function Faq() {
         })}
       </div>
 
-      {/* footer link */}
+      {/* footer link → opens modal */}
       <div className="text-center mt-10 md:mt-12">
-        <a
-          href="#enquire"
-          className="inline-block text-luxury-green-dark text-[13px] tracking-[0.05em] font-semibold uppercase border-b-2 border-luxury-green-dark pb-1 hover:text-luxury-gold hover:border-luxury-gold transition-colors"
+        <button
+          onClick={openModal}
+          className="lp-underline inline-block bg-transparent border-0 cursor-pointer text-luxury-green-dark text-[13px] tracking-[0.05em] font-semibold uppercase pb-1 hover:text-luxury-gold transition-colors"
         >
           Have more questions? Talk to us
-        </a>
+        </button>
       </div>
     </section>
   );

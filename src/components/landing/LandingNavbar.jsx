@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Phone, Menu, X } from "lucide-react";
 import { lpNav, lpConfig } from "../../data/landingData";
+import { useModal } from "./Modalcontext";
 import logo1 from "../../assets/images/logo-right.png";
 import logo2 from "../../assets/images/logo-left3.png";
 
 export default function LandingNavbar() {
   const [open, setOpen] = useState(false);
+  const { openModal } = useModal();
 
   return (
     <>
@@ -15,7 +17,7 @@ export default function LandingNavbar() {
 
           {/* Logo left */}
           <div className="flex-shrink-0 mr-10 md:mr-12">
-            <img src={logo1} alt="Binary Ventures" className="h-10 md:h-[52px] w-auto" />
+            <img src={logo1} alt="Binary Realty" className="h-10 md:h-[52px] w-auto" />
           </div>
 
           {/* Nav links — desktop only */}
@@ -40,24 +42,22 @@ export default function LandingNavbar() {
             </span>
           </div>
 
-          {/* Enquire Now — desktop */}
-          <a
-            href="#enquire"
-            className="hidden md:flex items-center px-6 h-[38px] bg-luxury-gold text-luxury-green-dark text-[10px] font-sans font-semibold uppercase tracking-[0.2em] no-underline flex-shrink-0 mr-6 hover:bg-bright-gold transition-colors duration-200"
+          {/* Enquire Now — desktop (opens modal) */}
+          <button
+            onClick={openModal}
+            className="hidden md:flex items-center px-6 h-[38px] bg-luxury-gold text-luxury-green-dark text-[10px] font-sans font-semibold uppercase tracking-[0.2em] no-underline flex-shrink-0 mr-6 hover:bg-bright-gold transition-colors duration-200 border-0 cursor-pointer"
           >
             Enquire Now
-          </a>
+          </button>
 
-          {/* Logo2 right badge — desktop */}
+          {/* Codename badge right — desktop */}
           <div className="hidden md:flex flex-col items-center justify-center h-[68px] px-5 relative flex-shrink-0">
             <span className="absolute left-0 top-3 bottom-3 w-px bg-luxury-gold/30" />
-            <img src={logo2} alt="Binary Project 4 Codename" className="h-20 w-auto" />
+            <img src={logo2} alt=" Project4 Codename Project 4" className="h-20 w-auto" />
           </div>
 
-          {/* ── Mobile right — both logos + pulse badge + hamburger ── */}
+          {/* ── Mobile right ── */}
           <div className="ml-auto md:hidden flex items-center gap-3">
-
-            {/* Pre-launch pulse — mobile */}
             <div className="flex items-center gap-1.5 mr-1">
               <span className="w-1.5 h-1.5 rounded-full bg-luxury-gold animate-pulse flex-shrink-0" />
               <span className="text-luxury-gold text-[8px] font-sans font-semibold uppercase tracking-[0.18em] leading-none">
@@ -65,13 +65,11 @@ export default function LandingNavbar() {
               </span>
             </div>
 
-            {/* Logo2 — right badge on mobile */}
             <div className="relative flex items-center pl-3">
               <span className="absolute left-0 top-1 bottom-1 w-px bg-luxury-gold/30" />
-              <img src={logo2} alt="Binary Project 4 Codename" className="h-9 w-auto" />
+              <img src={logo2} alt="Codename Project 4" className="h-9 w-auto" />
             </div>
 
-            {/* Hamburger */}
             <button
               onClick={() => setOpen(true)}
               className="text-luxury-gold ml-1"
@@ -100,12 +98,11 @@ export default function LandingNavbar() {
         }`}
         style={{ background: "var(--clr-green-dark)" }}
       >
-        {/* Drawer header — both logos */}
         <div className="flex items-center justify-between px-5 h-[64px] border-b border-luxury-gold/15">
           <div className="flex items-center gap-3">
-            <img src={logo1} alt="Binary Ventures" className="h-8 w-auto" />
+            <img src={logo1} alt="Binary Realty" className="h-8 w-auto" />
             <span className="w-px h-6 bg-luxury-gold/25" />
-            <img src={logo2} alt="Binary Project 4" className="h-9 w-auto" />
+            <img src={logo2} alt="Codename Project 4" className="h-9 w-auto" />
           </div>
           <button
             onClick={() => setOpen(false)}
@@ -117,7 +114,6 @@ export default function LandingNavbar() {
           </button>
         </div>
 
-        {/* Pulse badge row */}
         <div className="flex items-center gap-2 px-5 py-3 border-b border-luxury-gold/10">
           <span className="w-1.5 h-1.5 rounded-full bg-luxury-gold animate-pulse" />
           <span className="text-luxury-gold text-[9px] font-sans font-semibold uppercase tracking-[0.22em]">
@@ -136,13 +132,12 @@ export default function LandingNavbar() {
               {l.label}
             </a>
           ))}
-          <a
-            href="#enquire"
-            onClick={() => setOpen(false)}
-            className="mt-5 flex items-center justify-center bg-luxury-gold text-luxury-green-dark py-3.5 text-[10px] font-sans font-semibold uppercase tracking-[0.2em] no-underline"
+          <button
+            onClick={() => { setOpen(false); openModal(); }}
+            className="mt-5 flex items-center justify-center bg-luxury-gold text-luxury-green-dark py-3.5 text-[10px] font-sans font-semibold uppercase tracking-[0.2em] no-underline border-0 cursor-pointer"
           >
             Enquire Now
-          </a>
+          </button>
           <a
             href={lpConfig.phoneHref}
             className="mt-3 flex items-center justify-center gap-2.5 border border-luxury-gold/35 py-3.5 text-luxury-gold text-[10px] font-sans uppercase tracking-[0.18em] no-underline"

@@ -1,5 +1,6 @@
-import { lpHero } from "../../data/landingData";
- 
+import { lpHero, lpConfig } from "../../data/landingData";
+import { useModal } from "./Modalcontext";
+
 const STYLES = `
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
@@ -12,71 +13,43 @@ const STYLES = `
   .lh-5 { animation: fadeUp 1s cubic-bezier(.22,.61,.36,1) 0.62s both; }
   .lh-6 { animation: fadeUp 1s cubic-bezier(.22,.61,.36,1) 0.74s both; }
 
-  .lh-panel {
-    position: relative;
-    background: var(--clr-primary-green);
-  }
+  .lh-panel { position: relative; background: var(--clr-primary-green); }
   .lh-panel::after {
-    content: "";
-    position: absolute;
-    top: 12%; bottom: 12%; right: 0;
-    width: 1px;
+    content: ""; position: absolute; top: 12%; bottom: 12%; right: 0; width: 1px;
     background: linear-gradient(to bottom, transparent, var(--clr-gold-bright) 30%, var(--clr-gold-bright) 70%, transparent);
-    opacity: 0.6;
-    pointer-events: none;
+    opacity: 0.6; pointer-events: none;
   }
   .lh-panel::before {
-    content: "";
-    position: absolute;
-    top: 32px; left: 40px;
-    width: 32px; height: 32px;
-    border-top: 1px solid var(--clr-gold-bright);
-    border-left: 1px solid var(--clr-gold-bright);
-    opacity: 0.45;
-    pointer-events: none;
+    content: ""; position: absolute; top: 32px; left: 40px; width: 32px; height: 32px;
+    border-top: 1px solid var(--clr-gold-bright); border-left: 1px solid var(--clr-gold-bright);
+    opacity: 0.45; pointer-events: none;
   }
   .lh-rule {
     width: 100%; height: 0.5px;
     background: linear-gradient(to right, var(--clr-gold-bright), transparent);
-    opacity: 0.4;
-    margin: 24px 0;
+    opacity: 0.4; margin: 24px 0;
   }
-  .lh-price-block {
-    border-left: 2px solid var(--clr-gold-bright);
-    padding-left: 18px;
-  }
+  .lh-price-block { border-left: 2px solid var(--clr-gold-bright); padding-left: 18px; }
 
-  /* CTA button */
   .lh-cta {
-    font-family: var(--font-sans);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    background: transparent;
-    color: var(--clr-gold-bright);
-    border: 1px solid var(--clr-gold-bright);
-    cursor: pointer;
+    font-family: var(--font-sans); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    background: transparent; color: var(--clr-gold-bright);
+    border: 1px solid var(--clr-gold-bright); cursor: pointer;
     padding: 15px 42px;
     transition: background 0.35s, color 0.35s, transform 0.3s, box-shadow 0.35s;
-    position: relative;
-    overflow: hidden;
+    position: relative; overflow: hidden;
   }
   .lh-cta::before {
-    content: "";
-    position: absolute; inset: 0;
-    background: var(--clr-gold-bright);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.35s cubic-bezier(.22,.61,.36,1);
-    z-index: 0;
+    content: ""; position: absolute; inset: 0; background: var(--clr-gold-bright);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.35s cubic-bezier(.22,.61,.36,1); z-index: 0;
   }
   .lh-cta:hover::before { transform: scaleX(1); }
   .lh-cta span { position: relative; z-index: 1; transition: color 0.35s; }
   .lh-cta:hover span { color: var(--clr-fg-green); }
   .lh-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(0,0,0,0.3); }
 
-  /* Mobile */
   @media (max-width: 767px) {
     .lh-section { flex-direction: column !important; height: auto !important; min-height: 100svh; }
     .lh-panel { width: 100% !important; padding: 36px 28px 32px !important; }
@@ -91,7 +64,7 @@ const STYLES = `
 `;
 
 export default function LandingHero() {
-  // const { openModal } = useModal();
+  const { openModal } = useModal();
 
   return (
     <>
@@ -99,9 +72,8 @@ export default function LandingHero() {
 
       <section
         className="lh-section"
-        style={{ display: "flex", width: "100%", height: "100vh", paddingTop: "69px" }}
+        style={{ display: "flex", width: "100%", height: "100vh", paddingTop: "81px" }}
       >
-
         {/* ══════ LEFT PANEL ══════ */}
         <div
           className="lh-panel"
@@ -111,47 +83,40 @@ export default function LandingHero() {
             padding: "0 56px 0 60px", overflow: "hidden", zIndex: 10,
           }}
         >
-          {/* Eyebrow */}
           <p className="lh-1" style={{
             fontFamily: "var(--font-sans)", fontSize: "10px", fontWeight: 500,
             letterSpacing: "0.32em", textTransform: "uppercase",
             color: "var(--clr-cream-text)", opacity: 0.55, margin: "0 0 14px",
           }}>
-            Introducing
+            {lpHero.eyebrow}
           </p>
 
-          {/* Heading */}
           <h1 className="lh-2" style={{
-            fontFamily: "var(--font-serif)", fontSize: "clamp(42px, 5.5vw, 72px)",
-            fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase",
-            color: "var(--clr-gold-bright)", lineHeight: 0.95, margin: "0 0 10px",
+            fontFamily: "var(--font-serif)", fontSize: "clamp(36px, 4.6vw, 60px)",
+            fontWeight: 700, letterSpacing: "0.04em", textTransform: "uppercase",
+            color: "var(--clr-gold-bright)", lineHeight: 1.0, margin: "0 0 10px",
           }}>
-            Project 4
+             Project4
           </h1>
 
-          {/* By line */}
           <p className="lh-2" style={{
             fontFamily: "var(--font-sans)", fontSize: "11px", fontWeight: 300,
             letterSpacing: "0.3em", textTransform: "uppercase",
             color: "var(--clr-cream-text)", opacity: 0.5, margin: 0,
           }}>
-            by Binary Ventures
+             Binary Realty
           </p>
 
           <div className="lh-rule lh-3" />
 
-          {/* Description */}
           <p className="lh-3" style={{
             fontFamily: "var(--font-sans)", fontSize: "14px", fontWeight: 400,
             lineHeight: 1.85, color: "var(--clr-cream-text)", opacity: 0.78,
             maxWidth: "320px", margin: "0 0 28px",
           }}>
-            3.5-acre private sanctuary on Sarjapur Road — 234 ultra-luxury
-            residences, 80% open space, only 6 apartments per floor,
-            no common walls, 60+ amenities.
+            {lpHero.intro}
           </p>
 
-          {/* Pricing */}
           <div className="lh-price-block lh-4" style={{ marginBottom: "14px" }}>
             <p style={{
               fontFamily: "var(--font-serif)", fontSize: "clamp(16px, 2vw, 22px)",
@@ -189,13 +154,13 @@ export default function LandingHero() {
               fontFamily: "var(--font-sans)", fontSize: "11px", fontWeight: 300,
               color: "var(--clr-cream-text)", opacity: 0.62, letterSpacing: "0.06em",
             }}>
-              Chambenahalli, Sarjapur Road, Bengaluru
+              {lpHero.location}
             </span>
           </div>
 
-          {/* CTA — now opens modal */}
+          {/* CTA — opens modal */}
           <div className="lh-6">
-            <button className="lh-cta" >
+            <button className="lh-cta" onClick={openModal}>
               <span>Submit Your EOI Now</span>
             </button>
           </div>
@@ -203,10 +168,9 @@ export default function LandingHero() {
 
         {/* ══════ RIGHT PANEL ══════ */}
         <div className="lh-right" style={{ flex: 1, position: "relative", overflow: "hidden" }}>
-
           <img
             src={lpHero.bg}
-            alt="Binary Project 4 — Sarjapur Road, Bengaluru"
+            alt="Project4 — Sarjapura Road, Bengaluru"
             style={{
               position: "absolute", inset: 0, width: "100%", height: "100%",
               objectFit: "cover", objectPosition: "center",
@@ -226,7 +190,6 @@ export default function LandingHero() {
             pointerEvents: "none",
           }} />
 
-          {/* Overlay text */}
           <div style={{
             position: "absolute", inset: 0,
             display: "flex", flexDirection: "column",
@@ -251,11 +214,10 @@ export default function LandingHero() {
               color: "rgba(250,246,235,0.72)", letterSpacing: "0.12em",
               textTransform: "uppercase", margin: "0 0 10px",
             }}>
-              Upcoming Metro · IT Corridor Access · Sarjapur Road
+              Upcoming Metro · IT Corridor Access · Sarjapura Road
             </p>
           </div>
 
-          {/* Pre-Launch badge */}
           <div className="lh-6" style={{
             position: "absolute", bottom: "30px", right: "30px",
             display: "flex", alignItems: "center", gap: "12px",
@@ -269,7 +231,6 @@ export default function LandingHero() {
             </span>
             <div style={{ width: "36px", height: "0.5px", background: "rgba(232,186,48,0.55)" }} />
           </div>
-
         </div>
       </section>
     </>
