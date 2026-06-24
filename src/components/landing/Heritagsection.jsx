@@ -5,12 +5,12 @@ const CARDS = [
   {
     Icon: LayoutGrid,
     title: "Low Density",
-    desc: "Only 6 Units Per Floor & No Common Walls.",
+    desc: "Only 6 Units Per Floor & No Common Walls — Maximum Privacy.",
   },
   {
     Icon: Train,
     title: "Prime Access",
-    desc: "10-15 Minutes to ORR IT Corridor & Upcoming Metro.",
+    desc: "10–15 Minutes to ORR IT Corridor & Upcoming Metro Connectivity.",
   },
   {
     Icon: Dumbbell,
@@ -20,7 +20,7 @@ const CARDS = [
   {
     Icon: TrendingUp,
     title: "Investment",
-    desc: "Strong Rental Yield & High Appreciation Potential.",
+    desc: "Strong Rental Yield & High Appreciation Potential on Sarjapur Road.",
   },
 ];
 
@@ -32,8 +32,8 @@ export default function HeritageSection() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("opacity-100", "translate-y-0");
-            entry.target.classList.remove("opacity-0", "translate-y-10");
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
           }
         });
       },
@@ -42,7 +42,9 @@ export default function HeritageSection() {
 
     cardRefs.current.forEach((card) => {
       if (card) {
-        card.classList.add("opacity-0", "translate-y-10", "transition-all", "duration-700");
+        card.style.opacity = "0";
+        card.style.transform = "translateY(40px)";
+        card.style.transition = "opacity 0.7s cubic-bezier(0.22,0.61,0.36,1), transform 0.7s cubic-bezier(0.22,0.61,0.36,1)";
         observer.observe(card);
       }
     });
@@ -53,134 +55,186 @@ export default function HeritageSection() {
   return (
     <>
       <style>{`
+        /* ── Heritage Section responsive ── */
+        .heritage-section {
+          padding: 60px 80px 120px;
+          max-width: 1440px;
+          margin: 0 auto;
+        }
+
+        @media (max-width: 1024px) {
+          .heritage-section {
+            padding: 48px 48px 96px;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .heritage-section {
+            padding: 36px 24px 72px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .heritage-section {
+            padding: 28px 16px 56px;
+          }
+        }
+
+        /* ── Header ── */
+        .heritage-header {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          margin-bottom: 96px;
+        }
+
+        @media (max-width: 768px) {
+          .heritage-header {
+            margin-bottom: 64px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .heritage-header {
+            margin-bottom: 48px;
+          }
+        }
+
+        /* ── Heading ── */
+        .heritage-heading {
+          font-family: "Playfair Display", serif;
+          font-size: clamp(32px, 5vw, 64px);
+          font-weight: 700;
+          line-height: 1.1;
+          letter-spacing: -0.02em;
+          color: #082B1F;
+          max-width: 896px;
+          margin: 0;
+        }
+
+        .heritage-heading em {
+          color: #D7B975;
+          font-style: normal;
+        }
+
+        /* ── Subtext ── */
+        .heritage-subtext {
+          font-family: "Poppins", sans-serif;
+          font-size: clamp(15px, 2vw, 18px);
+          line-height: 1.7;
+          letter-spacing: 0.01em;
+          font-weight: 400;
+          color: #478570;
+          max-width: 672px;
+          margin: 24px 0 0;
+        }
+
+        /* ── Cards grid ── */
+        .heritage-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+          gap: 32px;
+        }
+
+        @media (max-width: 640px) {
+          .heritage-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+          }
+        }
+
+        /* ── Card ── */
         .heritage-card {
           background: #ffffff;
           padding: 40px;
-          border: 1px solid rgba(193,200,196,0.1);
-          box-shadow: 0 10px 30px -15px rgba(0,22,16,0.05);
-          transition: all 0.5s;
+          border: 1px solid #E0D8C7;
+          box-shadow: 0 10px 30px -15px rgba(8, 43, 31, 0.06);
+          transition: border-color 0.5s, box-shadow 0.5s;
           position: relative;
           overflow: hidden;
         }
-        .heritage-card:hover {
-          border-color: rgba(119,90,25,0.3);
-          box-shadow: 0 20px 40px -20px rgba(119,90,25,0.1);
+
+        @media (max-width: 480px) {
+          .heritage-card {
+            padding: 28px 24px;
+          }
         }
+
+        .heritage-card:hover {
+          border-color: rgba(215, 185, 117, 0.45);
+          box-shadow: 0 20px 40px -20px rgba(215, 185, 117, 0.18);
+        }
+
         .heritage-card .bubble {
           position: absolute;
           top: 0;
           right: 0;
           width: 64px;
           height: 64px;
-          background: rgba(119,90,25,0.05);
+          background: rgba(215, 185, 117, 0.08);
           border-radius: 50%;
           transform: translate(32px, -32px);
           transition: transform 0.7s;
         }
+
         .heritage-card:hover .bubble {
           transform: translate(32px, -32px) scale(3);
         }
+
         .heritage-card .bottom-line {
           position: absolute;
           bottom: 0;
           left: 0;
           height: 4px;
           width: 0;
-          background: #775a19;
+          background: #D7B975;
           transition: width 0.5s;
         }
+
         .heritage-card:hover .bottom-line {
           width: 100%;
         }
+
+        /* ── Card text ── */
         .heritage-card-title {
           font-family: "Playfair Display", serif;
-          font-size: 32px;
+          font-size: clamp(22px, 3vw, 32px);
           line-height: 1.3;
           font-weight: 500;
-          color: #001610;
+          color: #082B1F;
           margin: 0 0 16px;
         }
+
         .heritage-card-desc {
           font-family: "Montserrat", sans-serif;
           font-size: 12px;
           font-weight: 600;
           letter-spacing: 0.1em;
           text-transform: uppercase;
-          color: #414845;
+          color: #478570;
           line-height: 1.6;
           margin: 0;
         }
       `}</style>
 
-      <section
-        id="heritage"
-        style={{
-          padding: "120px 80px",
-          maxWidth: "1440px",
-          margin: "0 auto",
-        }}
-      >
+      <section id="heritage" className="heritage-section">
         {/* Header */}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            textAlign: "center",
-            marginBottom: "96px",
-          }}
-        >
-          <h1
-            style={{
-              fontFamily: '"Playfair Display", serif',
-              fontSize: "clamp(40px, 5vw, 64px)",
-              fontWeight: 700,
-              lineHeight: 1.1,
-              letterSpacing: "-0.02em",
-              color: "#001610",
-              maxWidth: "896px",
-              margin: 0,
-            }}
-          >
-            The Legacy of <em style={{ color: "#775a19", fontStyle: "normal" }}>Project 4</em>
-          </h1>
+        <div className="heritage-header">
+          <h2 className="heritage-heading">
+            The Legacy of<br />
+            <em>Binary Project 4</em>
+          </h2>
 
-          {/* Gold rule */}
-          <div
-            style={{
-              width: "96px",
-              height: "4px",
-              background: "#775a19",
-              margin: "24px 0 32px",
-            }}
-          />
-
-          <p
-            style={{
-              fontFamily: '"Montserrat", sans-serif',
-              fontSize: "18px",
-              lineHeight: 1.6,
-              letterSpacing: "0.01em",
-              fontWeight: 400,
-              color: "#414845",
-              maxWidth: "672px",
-              margin: 0,
-            }}
-          >
-            Binary Ventures brings a new dimension to Sarjapur Road with Project 4.
-            An ultra-luxury residential enclave spanning 3.5 acres, designed for
-            low-density living with 80% open spaces and uncompromising privacy.
+          <p className="heritage-subtext">
+            Binary Ventures redefines ultra-luxury living on Sarjapur Road.
+            A 3.5-acre residential enclave with 234 exclusive homes, 80% open spaces,
+            and only 6 apartments per floor — built for those who choose privacy, space, and legacy.
           </p>
         </div>
 
         {/* Cards grid */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-            gap: "32px",
-          }}
-        >
+        <div className="heritage-grid">
           {CARDS.map(({ Icon, title, desc }, i) => (
             <div
               key={title}
@@ -192,7 +246,7 @@ export default function HeritageSection() {
                 <Icon
                   size={36}
                   strokeWidth={1.25}
-                  style={{ color: "#001610", display: "block", marginBottom: "24px" }}
+                  style={{ color: "#0C3125", display: "block", marginBottom: "24px" }}
                 />
                 <h3 className="heritage-card-title">{title}</h3>
                 <p className="heritage-card-desc">{desc}</p>

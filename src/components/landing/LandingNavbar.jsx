@@ -10,56 +10,71 @@ export default function LandingNavbar() {
   return (
     <>
       <header className="fixed top-0 w-full z-50 bg-luxury-green-dark">
-        {/* ── Main bar ── */}
+        {/* Main bar */}
         <div className="flex items-center px-6 md:px-10 h-[80px]">
+
           {/* Logo left */}
-          <div className="flex-shrink-0 mr-12 md:mr-14">
-            <img
-              src={logo1}
-              alt={lpConfig.brandTitle}
-              className="h-12 md:h-[52px] w-auto"
-            />
+          <div className="flex-shrink-0 mr-10 md:mr-12">
+            <img src={logo1} alt="Binary Ventures" className="h-10 md:h-[52px] w-auto" />
           </div>
 
-          {/* Nav links */}
-          <div className="hidden md:flex items-center gap-9 flex-1">
+          {/* Nav links — desktop only */}
+          <nav className="hidden md:flex items-center gap-8 flex-1">
             {lpNav.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
-                className="relative text-cream-text/70 hover:text-luxury-gold text-[15px] font-sans font-normal uppercase tracking-[0.2em] no-underline transition-colors duration-250
+                className="relative text-cream-text/70 hover:text-luxury-gold text-[13px] font-sans font-normal uppercase tracking-[0.2em] no-underline transition-colors duration-250
                   after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:h-px after:bg-luxury-gold after:transition-all after:duration-300 hover:after:w-full"
               >
                 {l.label}
               </a>
             ))}
+          </nav>
+
+          {/* Pre-Launch badge — desktop */}
+          <div className="hidden md:flex items-center gap-2 mx-6 px-4 py-1 border border-luxury-gold/30 flex-shrink-0">
+            <span className="w-1.5 h-1.5 rounded-full bg-luxury-gold animate-pulse" />
+            <span className="text-luxury-gold text-[9px] font-sans font-semibold uppercase tracking-[0.22em]">
+              Pre-Launch · EOI Open
+            </span>
           </div>
 
-          {/* Enquire Now button */}
+          {/* Enquire Now — desktop */}
           <a
             href="#enquire"
-            className="hidden md:flex items-center px-6 h-[38px] bg-luxury-gold text-luxury-green-dark text-[10px] font-sans font-medium uppercase tracking-[0.2em] no-underline flex-shrink-0 mr-6 hover:bg-bright-gold transition-colors duration-200"
+            className="hidden md:flex items-center px-6 h-[38px] bg-luxury-gold text-luxury-green-dark text-[10px] font-sans font-semibold uppercase tracking-[0.2em] no-underline flex-shrink-0 mr-6 hover:bg-bright-gold transition-colors duration-200"
           >
             Enquire Now
           </a>
 
-          {/* Codename badge — logo2 */}
+          {/* Logo2 right badge — desktop */}
           <div className="hidden md:flex flex-col items-center justify-center h-[68px] px-5 relative flex-shrink-0">
             <span className="absolute left-0 top-3 bottom-3 w-px bg-luxury-gold/30" />
-            <img src={logo2} alt="Codename" className="h-20 w-auto" />
+            <img src={logo2} alt="Binary Project 4 Codename" className="h-20 w-auto" />
           </div>
 
-          {/* Mobile right */}
+          {/* ── Mobile right — both logos + pulse badge + hamburger ── */}
           <div className="ml-auto md:hidden flex items-center gap-3">
-            <a
-              href="#enquire"
-              className="text-luxury-green-dark bg-luxury-gold text-[9px] font-sans font-medium uppercase tracking-[0.15em] px-4 py-2 no-underline"
-            >
-              Enquire
-            </a>
+
+            {/* Pre-launch pulse — mobile */}
+            <div className="flex items-center gap-1.5 mr-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-luxury-gold animate-pulse flex-shrink-0" />
+              <span className="text-luxury-gold text-[8px] font-sans font-semibold uppercase tracking-[0.18em] leading-none">
+                Pre-Launch
+              </span>
+            </div>
+
+            {/* Logo2 — right badge on mobile */}
+            <div className="relative flex items-center pl-3">
+              <span className="absolute left-0 top-1 bottom-1 w-px bg-luxury-gold/30" />
+              <img src={logo2} alt="Binary Project 4 Codename" className="h-9 w-auto" />
+            </div>
+
+            {/* Hamburger */}
             <button
               onClick={() => setOpen(true)}
-              className="text-luxury-gold"
+              className="text-luxury-gold ml-1"
               style={{ background: "none", border: "none", cursor: "pointer" }}
               aria-label="Open menu"
             >
@@ -68,7 +83,7 @@ export default function LandingNavbar() {
           </div>
         </div>
 
-        {/* ── Gold rule ── */}
+        {/* Gold rule */}
         <div
           className="h-px"
           style={{
@@ -78,15 +93,20 @@ export default function LandingNavbar() {
         />
       </header>
 
-      {/* ── Mobile Drawer ── */}
+      {/* Mobile Drawer */}
       <div
         className={`fixed inset-0 z-[70] md:hidden flex flex-col transition-transform duration-500 ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
         style={{ background: "var(--clr-green-dark)" }}
       >
+        {/* Drawer header — both logos */}
         <div className="flex items-center justify-between px-5 h-[64px] border-b border-luxury-gold/15">
-          <img src={logo2} alt="Codename" className="h-9 w-auto" />
+          <div className="flex items-center gap-3">
+            <img src={logo1} alt="Binary Ventures" className="h-8 w-auto" />
+            <span className="w-px h-6 bg-luxury-gold/25" />
+            <img src={logo2} alt="Binary Project 4" className="h-9 w-auto" />
+          </div>
           <button
             onClick={() => setOpen(false)}
             className="text-luxury-gold"
@@ -97,7 +117,15 @@ export default function LandingNavbar() {
           </button>
         </div>
 
-        <div className="flex flex-col px-5 pt-3 pb-8">
+        {/* Pulse badge row */}
+        <div className="flex items-center gap-2 px-5 py-3 border-b border-luxury-gold/10">
+          <span className="w-1.5 h-1.5 rounded-full bg-luxury-gold animate-pulse" />
+          <span className="text-luxury-gold text-[9px] font-sans font-semibold uppercase tracking-[0.22em]">
+            Pre-Launch · EOI Open
+          </span>
+        </div>
+
+        <div className="flex flex-col px-5 pt-2 pb-8">
           {lpNav.map((l) => (
             <a
               key={l.href}
@@ -111,7 +139,7 @@ export default function LandingNavbar() {
           <a
             href="#enquire"
             onClick={() => setOpen(false)}
-            className="mt-5 flex items-center justify-center bg-luxury-gold text-luxury-green-dark py-3.5 text-[10px] font-sans font-medium uppercase tracking-[0.2em] no-underline"
+            className="mt-5 flex items-center justify-center bg-luxury-gold text-luxury-green-dark py-3.5 text-[10px] font-sans font-semibold uppercase tracking-[0.2em] no-underline"
           >
             Enquire Now
           </a>

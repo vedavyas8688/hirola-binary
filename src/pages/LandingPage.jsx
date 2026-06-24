@@ -7,19 +7,19 @@ import Features from "../components/landing/Features";
 import PriceAdvantage from "../components/landing/PriceAdvantage";
 import EoiProcess from "../components/landing/EoiProcess";
 import MasterPlan from "../components/landing/MasterPlan";
- import LandingNavbar from "../components/landing/LandingNavbar";
+import LandingNavbar from "../components/landing/LandingNavbar";
 import LandingHero from "../components/landing/LandingHero";
 import HeritageSection from "../components/landing/Heritagsection";
 import MainMasterplansection from "../components/MainMasterplansection";
 import Clubhouses from "../components/landing/Clubhouses";
 import Faq from "../components/landing/Faq";
-import Locations from "../components/landing/Locations"; 
+import Locations from "../components/landing/Locations";
 import SiteVisit from "../components/landing/SiteVisit";
 import LandingFooter from "../components/landing/LandingFooter";
 import FloatingActions from "../components/landing/FloatingActions";
+import LeadPopup from "../components/landing/LeadPopup"; // ← new
 
 export default function LandingPage() {
-  // Same fade-in behaviour as the original page's IntersectionObserver
   useEffect(() => {
     const io = new IntersectionObserver(
       (entries) =>
@@ -37,10 +37,12 @@ export default function LandingPage() {
 
   return (
     <div className="bg-bg-cream text-foreground-green font-sans overflow-x-hidden">
+      {/* Lead capture popup — appears after 2.5s */}
+      <LeadPopup />
+
       <LandingNavbar />
       <LandingHero />
       <HeritageSection />
-
       <WhyEoi />
       <StatsBar />
       <Features />
@@ -51,7 +53,7 @@ export default function LandingPage() {
       <Faq />
       <Locations />
       <SiteVisit />
-       <LandingFooter />
+      <LandingFooter />
       <FloatingActions />
     </div>
   );
