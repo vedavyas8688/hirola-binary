@@ -1,12 +1,4 @@
 export default function StatsSection() {
-  const STATS = [
-    { value: "3.5",    sub: "Acres",            label: "Total Land Area",     large: true },
-    { value: "234",    sub: "Units",             label: "Total Apartments",    large: true },
-    { value: "8,000+", sub: "Sq.Ft",            label: "Clubhouse Size",      large: false },
-    { value: "60+",    sub: "Amenities",         label: "World-Class Features",large: false },
-    { value: "80%",    sub: "Open Space",        label: "Of Total Land Area",  large: false },
-  ];
-
   return (
     <>
       <style>{`
@@ -55,7 +47,6 @@ export default function StatsSection() {
           flex-shrink: 0;
         }
 
-        /* Large stats — number + unit on separate lines */
         .stat-value {
           font-family: "Playfair Display", serif;
           font-weight: 700;
@@ -79,7 +70,6 @@ export default function StatsSection() {
           margin: 4px 0 0;
         }
 
-        /* Small stats — unit label uses gold muted style */
         .stat-sub-small {
           font-family: "Montserrat", sans-serif;
           font-size: 10px;
@@ -90,7 +80,6 @@ export default function StatsSection() {
           margin: 10px 0 0;
         }
 
-        /* Bottom label — same for all */
         .stat-label {
           font-family: "Montserrat", sans-serif;
           font-size: 10px;
@@ -110,58 +99,52 @@ export default function StatsSection() {
 
         /* ── Mobile ── */
         @media (max-width: 768px) {
-          .stats-section {
-            padding: 0 24px 48px;
-          }
-          .stats-divider {
-            margin-bottom: 40px;
-          }
+          .stats-section { padding: 0 24px 48px; }
+          .stats-divider { margin-bottom: 40px; }
+
           .stats-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 36px 0;
+            gap: 32px 0;
             align-items: start;
           }
+
           .stat-sep { display: none; }
+
           .stat-item {
             padding: 0;
-            border-bottom: 1px solid rgba(215, 185, 117, 0.15);
-            padding-bottom: 28px;
-          }
-          /* Last row items — no bottom border */
-          .stat-item:nth-last-child(-n+2) {
-            border-bottom: none;
-            padding-bottom: 0;
-          }
-          /* Odd items get a right border as column divider */
-          .stat-item:nth-child(odd) {
-            padding-right: 24px;
-            border-right: 1px solid rgba(215, 185, 117, 0.15);
-          }
-          .stat-item:nth-child(even) {
-            padding-left: 24px;
-          }
-          /* 5th item — span full width, centered */
-          .stat-item:last-child {
-            grid-column: 1 / -1;
-            border-right: none;
-            border-bottom: none;
-            padding: 0;
+            border: none;
             display: flex;
             flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+          }
+
+          .stat-item:nth-child(odd) {
+            padding-right: 16px;
+          }
+
+          .stat-item:nth-child(even) {
+            padding-left: 16px;
+          }
+
+          .stat-item:last-child {
+            grid-column: 1 / -1;
             align-items: center;
             text-align: center;
+            padding: 0;
           }
-          .stat-large .stat-value { font-size: 48px; }
-          .stat-small .stat-value { font-size: 42px; }
-          .stat-sub-large { font-size: 28px; }
+
+          .stat-large .stat-value { font-size: 44px; }
+          .stat-small .stat-value  { font-size: 38px; }
+          .stat-sub-large          { font-size: 26px; }
         }
 
         @media (max-width: 400px) {
           .stats-section { padding: 0 16px 40px; }
-          .stat-large .stat-value { font-size: 40px; }
-          .stat-small .stat-value { font-size: 36px; }
-          .stat-sub-large { font-size: 24px; }
+          .stat-large .stat-value { font-size: 38px; }
+          .stat-small .stat-value { font-size: 32px; }
+          .stat-sub-large { font-size: 22px; }
         }
       `}</style>
 
