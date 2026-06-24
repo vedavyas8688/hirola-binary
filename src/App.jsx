@@ -13,6 +13,8 @@ import BlogDetailPage from "./components/BlogDetailPage";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import TermsOfUse from "./components/TermsOfUse";
 import LandingPage from "./pages/LandingPage";
+import LandingTermsAndConditions from "./components/landing/LandingTermsAndConditions";
+import LandingPrivacyPolicy from "./components/landing/LandingPrivacyPolicy";
  
 function App() {
   return (
@@ -32,6 +34,9 @@ function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-use" element={<TermsOfUse />} />
         <Route path="/landingpage" element={<LandingPage />} />
+        <Route path="/terms-and-conditions" element={<LandingTermsAndConditions />} />
+        <Route path="/privacypolicy" element={<LandingPrivacyPolicy />} />
+
          
       </Routes>
     </>

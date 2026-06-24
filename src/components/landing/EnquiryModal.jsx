@@ -39,7 +39,7 @@ export default function EnquiryModal() {
       className="btt-modal-overlay"
       role="dialog"
       aria-modal="true"
-      aria-label="Enquire about Binary Temple Tree"
+      aria-label="Enquire about Project4"
       onClick={closeModal}
     >
       <style>{STYLES}</style>
