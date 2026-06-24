@@ -10,8 +10,10 @@ import Location from "./pages/Location";
 import Contact from "./pages/Contact";
 import BlogsPage from "./components/BlogsPage";
 import BlogDetailPage from "./components/BlogDetailPage";
- import PrivacyPolicy from "./components/PrivacyPolicy";
+import PrivacyPolicy from "./components/PrivacyPolicy";
 import TermsOfUse from "./components/TermsOfUse";
+import LandingPage from "./pages/LandingPage";
+ 
 function App() {
   return (
     <>
@@ -29,6 +31,8 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-use" element={<TermsOfUse />} />
+        <Route path="/landingpage" element={<LandingPage />} />
+         
       </Routes>
     </>
   );
