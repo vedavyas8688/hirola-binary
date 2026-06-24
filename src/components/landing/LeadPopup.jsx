@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { X, Check, Sparkles } from "lucide-react";
 import { lpConfig } from "../../data/landingData";
 
-const POPUP_DELAY_MS = 5000; // ← auto-popup appears after 5 seconds
+const POPUP_DELAY_MS = 2000;
 
 export default function LeadPopup() {
   const [open, setOpen] = useState(false);
@@ -107,13 +107,19 @@ const STYLES = `
     animation: lpopPop .4s cubic-bezier(.22,.61,.36,1) both;
     font-family: var(--font-sans, 'Poppins', sans-serif);
   }
+
+  /* ── Close button fix ───────────────────────────────────────────────
+     On desktop the button sits over the white right panel, so we use
+     dark colors. On mobile the card stacks to single-column and the
+     button floats over the dark left panel, so we switch back to white.
+  ─────────────────────────────────────────────────────────────────── */
   .lpop-close {
     position: absolute; top: 14px; right: 14px; z-index: 5; width: 34px; height: 34px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: #fff; cursor: pointer;
-    transition: background .2s;
+    background: rgba(8,43,31,0.08); border: 1px solid rgba(8,43,31,0.18);
+    color: #082B1F; cursor: pointer; transition: background .2s, color .2s;
   }
-  .lpop-close:hover { background: rgba(255,255,255,0.3); }
+  .lpop-close:hover { background: rgba(8,43,31,0.15); }
 
   .lpop-left {
     background: linear-gradient(160deg, #0B412F 0%, #062319 100%); color: #FAF6EB;
@@ -162,5 +168,15 @@ const STYLES = `
     .lpop-left { padding: 32px 26px 26px; }
     .lpop-title { font-size: 28px; }
     .lpop-right { padding: 28px 26px 32px; }
+    .lpop-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 8px; }
+    .lpop-list li { font-size: 12px; }
+
+    /* On mobile the button floats over the dark left panel — switch back to white */
+    .lpop-close {
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.3);
+      color: #fff;
+    }
+    .lpop-close:hover { background: rgba(255,255,255,0.3); }
   }
 `;

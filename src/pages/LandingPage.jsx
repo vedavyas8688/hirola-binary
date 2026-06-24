@@ -21,6 +21,7 @@ import SiteVisit from "../components/landing/SiteVisit";
 import LandingFooter from "../components/landing/LandingFooter";
 import FloatingActions from "../components/landing/FloatingActions";
 import LeadPopup from "../components/landing/LeadPopup";
+import EOIPriceCalculator from "../components/landing/Eoipricecalculator";
 
 export default function LandingPage() {
   useEffect(() => {
@@ -53,6 +54,7 @@ export default function LandingPage() {
         <HeritageSection />
         <SectionDivider tone="cream" />
         <WhyEoi />
+        <EOIPriceCalculator />
 
         {/* green → green */}
         <StatsBar />

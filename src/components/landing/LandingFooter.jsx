@@ -85,7 +85,7 @@ export default function LandingFooter() {
           </p>
           <div className="flex items-center gap-6">
             <a href="/privacy-policy" className="lp-underline text-cream-text/55 text-[12px] hover:text-luxury-gold">Privacy Policy</a>
-            <a href="/terms-and-conditions" className="lp-underline text-cream-text/55 text-[12px] hover:text-luxury-gold">Terms &amp; Conditions</a>
+            <a href="/terms-of-use" className="lp-underline text-cream-text/55 text-[12px] hover:text-luxury-gold">Terms &amp; Conditions</a>
           </div>
         </div>
 
