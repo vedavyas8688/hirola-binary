@@ -1,4 +1,4 @@
- import { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const FEATURES = [
   {
@@ -89,41 +89,111 @@ export default function KeyFeatures() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@400;500;600&family=Montserrat:wght@400;500;600;700&display=swap');
-        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.22,0.61,0.36,1), transform 0.7s cubic-bezier(0.22,0.61,0.36,1); will-change: opacity, transform; }
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&display=swap');
+
+        /* ── Reveal animations ── */
+        .reveal {
+          opacity: 0;
+          transform: translateY(24px);
+          transition: opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+                      transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+          will-change: opacity, transform;
+        }
         .reveal-left  { transform: translateX(-32px); }
         .reveal-right { transform: translateX(32px); }
         .reveal.is-visible { opacity: 1 !important; transform: none !important; }
+
+        /* ── CTA hover ── */
         .kf-cta:hover { opacity: 0.8; }
         .kf-cta:hover .cta-arrow { transform: translateX(4px); }
+
+        /* ── Reduced motion ── */
         @media (prefers-reduced-motion: reduce) {
           .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
         }
+
+        /* ── Tablet: ~768px–860px ── */
         @media (max-width: 860px) {
+          .kf-features-section { padding: 72px 48px !important; }
           .kf-row { grid-template-columns: 1fr !important; gap: 28px !important; }
           .kf-row > *:first-child { order: 2; }
           .kf-row > *:last-child  { order: 1; }
         }
+
+        /* ── Mobile: ≤540px ── */
         @media (max-width: 540px) {
-          .kf-features-section { padding: 60px 24px !important; }
+          .kf-features-section { padding: 56px 24px !important; }
+          .kf-header { margin-bottom: 40px !important; }
+          .kf-rows  { gap: 44px !important; }
+        }
+
+        /* ── Small mobile: ≤380px ── */
+        @media (max-width: 380px) {
+          .kf-features-section { padding: 48px 16px !important; }
         }
       `}</style>
 
-      <section className="kf-features-section" style={{ background: "linear-gradient(180deg, #0B412F, #082B1F)", padding: "80px 80px" }}>
-        {/* Section header */}
-        <div style={{ maxWidth: "1440px", margin: "0 auto 56px", display: "flex", flexDirection: "column", alignItems: "center", gap: "12px", textAlign: "center" }}>
-          <span style={{ fontFamily: '"Montserrat", sans-serif', fontSize: "10px", fontWeight: 600, letterSpacing: "0.28em", textTransform: "uppercase", color: "#D7B975" }}>
+      <section
+        className="kf-features-section"
+        style={{
+          background: "linear-gradient(180deg, #0B412F, #082B1F)",
+          padding: "80px 80px",
+        }}
+      >
+        {/* ── Section header ── */}
+        <div
+          className="kf-header"
+          style={{
+            maxWidth: "1440px",
+            margin: "0 auto 56px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "12px",
+            textAlign: "center",
+          }}
+        >
+          <span style={{
+            fontFamily: '"Montserrat", sans-serif',
+            fontSize: "10px",
+            fontWeight: 600,
+            letterSpacing: "0.28em",
+            textTransform: "uppercase",
+            color: "#D7B975",
+          }}>
             Key Features
           </span>
-          <h2 style={{ fontFamily: '"Playfair Display", serif', fontSize: "clamp(28px, 3vw, 42px)", fontWeight: 600, color: "#FAF6EB", margin: 0, lineHeight: 1.2 }}>
+          <h2 style={{
+            fontFamily: '"Playfair Display", serif',
+            fontSize: "clamp(28px, 3vw, 42px)",
+            fontWeight: 600,
+            color: "#FAF6EB",
+            margin: 0,
+            lineHeight: 1.2,
+          }}>
             Crafted for the{" "}
             <span style={{ color: "#D7B975", fontWeight: 500 }}>Discerning Few</span>
           </h2>
-          <div style={{ width: "48px", height: "2px", background: "linear-gradient(90deg, #E8BA30, #D7B975)", borderRadius: "2px", marginTop: "4px" }} />
+          <div style={{
+            width: "48px",
+            height: "2px",
+            background: "linear-gradient(90deg, #E8BA30, #D7B975)",
+            borderRadius: "2px",
+            marginTop: "4px",
+          }} />
         </div>
 
-        {/* Rows */}
-        <div style={{ maxWidth: "1440px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "56px" }}>
+        {/* ── Rows ── */}
+        <div
+          className="kf-rows"
+          style={{
+            maxWidth: "1440px",
+            margin: "0 auto",
+            display: "flex",
+            flexDirection: "column",
+            gap: "56px",
+          }}
+        >
           {FEATURES.map((f) => <FeatureRow key={f.title} {...f} />)}
         </div>
       </section>

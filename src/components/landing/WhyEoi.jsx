@@ -268,7 +268,7 @@ export default function EOISection() {
                   right: "-48px",
                   background: "#0B412F",
                   borderRadius: "9999px",
-                  padding: "30px 25px",
+                  padding: "30px 32px",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
