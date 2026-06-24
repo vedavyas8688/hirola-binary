@@ -120,6 +120,13 @@ export default function EOISection() {
           align-items: center;
         }
 
+        /* ── Circle image container ── */
+        .eoi-circle-wrap {
+          width: 100%;
+          max-width: 560px;
+          position: relative;
+        }
+
         /* ── Benefit text ── */
         .eoi-benefit-title {
           font-family: "Playfair Display", serif;
@@ -210,6 +217,10 @@ export default function EOISection() {
           .eoi-badge-number {
             font-size: 44px;
           }
+          /* ── Shrink circle on tablet ── */
+          .eoi-circle-wrap {
+            max-width: 340px;
+          }
         }
 
         @media (max-width: 540px) {
@@ -224,6 +235,13 @@ export default function EOISection() {
           .eoi-img-col {
             margin-top: 32px;
           }
+          /* ── Shrink circle further on small mobile ── */
+          .eoi-circle-wrap {
+            max-width: 260px;
+          }
+          .eoi-badge-number {
+            font-size: 36px;
+          }
         }
       `}</style>
 
@@ -232,7 +250,7 @@ export default function EOISection() {
 
           {/* Left — circular image */}
           <div className="eoi-img-col" style={{ display: "flex", justifyContent: "center", position: "relative" }}>
-            <div style={{ width: "100%", maxWidth: "560px", position: "relative" }}>
+            <div className="eoi-circle-wrap">
               <div style={{ position: "relative", borderRadius: "9999px", overflow: "hidden", aspectRatio: "1 / 1" }}>
                 <img
                   src={IMAGE_URL}
@@ -250,7 +268,7 @@ export default function EOISection() {
                   right: "-48px",
                   background: "#0B412F",
                   borderRadius: "9999px",
-                  padding: "40px 32px",
+                  padding: "30px 25px",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
