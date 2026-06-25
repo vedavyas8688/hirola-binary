@@ -1,5 +1,6 @@
 import { lpHero, lpConfig } from "../../data/landingData";
 import { useModal } from "./Modalcontext";
+import landingbanner from "../../assets/images/landingbanner.jpg"
 
 const STYLES = `
   @keyframes fadeUp {
@@ -169,7 +170,7 @@ export default function LandingHero() {
         {/* ══════ RIGHT PANEL ══════ */}
         <div className="lh-right" style={{ flex: 1, position: "relative", overflow: "hidden" }}>
           <img
-            src={lpHero.bg}
+            src={landingbanner}
             alt="Project4 — Sarjapura Road, Bengaluru"
             style={{
               position: "absolute", inset: 0, width: "100%", height: "100%",
