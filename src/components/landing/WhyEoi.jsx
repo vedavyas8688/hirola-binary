@@ -16,7 +16,7 @@ const BENEFITS = [
   {
     Icon: ShieldCheck,
     title: "Refundable EOI",
-    desc: "100% fully refundable deposit ensuring a completely risk-free commitment. Secure your spot at  Project4 without hesitation.",
+    desc: "100% fully refundable deposit ensuring a completely risk-free commitment. Secure your spot at Project4 without hesitation.",
   },
 ];
 
@@ -56,132 +56,211 @@ export default function EOISection() {
   return (
     <>
       <style>{`
-        @keyframes bounce-slow { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
-        .eoi-bounce { animation: bounce-slow 5s ease-in-out infinite; }
-
-        .eoi-icon-wrap {
-          width: 56px; height: 56px; flex-shrink: 0;
-          display: flex; align-items: center; justify-content: center;
-          border-radius: 9999px; background: rgba(215, 185, 117, 0.12); color: #D7B975;
-          transition: background 0.5s, color 0.5s;
+        @keyframes bounceSlow {
+          0%, 100% { transform: translateY(0); }
+          50%       { transform: translateY(-18px); }
         }
-        .eoi-benefit:hover .eoi-icon-wrap { background: #D7B975; color: #082B1F; }
+        .badge-bounce { animation: bounceSlow 5s ease-in-out infinite; }
 
-        .eoi-cta {
-          display: inline-flex; align-items: center; gap: 12px;
-          background: #0B412F; color: #FAF6EB; padding: 20px 48px;
-          font-family: "Montserrat", sans-serif; font-size: 12px; font-weight: 600;
-          letter-spacing: 0.18em; text-transform: uppercase; border: none; cursor: pointer;
-          border-radius: 8px; box-shadow: 0 10px 30px rgba(11, 65, 47, 0.2);
-          transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+        .benefit-icon { transition: background 0.4s ease, color 0.4s ease; }
+        .benefit-row:hover .benefit-icon {
+          background: #D7B975 !important;
+          color: #082B1F !important;
         }
-        .eoi-cta:hover { background: #062319; box-shadow: 0 16px 40px rgba(11, 65, 47, 0.32); transform: translateY(-1px); }
-        .eoi-cta:hover .eoi-cta-arrow { transform: translateX(4px); }
-        .eoi-cta-arrow { transition: transform 0.3s; }
 
-        .eoi-outer { background: #F0EBDB; padding: 120px 80px; }
-        .eoi-grid { max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-        .eoi-circle-wrap { width: 100%; max-width: 560px; position: relative; }
-
-        .eoi-benefit-title { font-family: "Playfair Display", serif; font-size: 22px; font-weight: 500; line-height: 1.3; color: #082B1F; margin: 0; }
-        .eoi-benefit-desc { font-family: "Poppins", sans-serif; font-size: 15px; font-weight: 400; line-height: 1.6; color: #478570; margin: 8px 0 0; }
-
-        .eoi-heading { font-family: "Playfair Display", serif; font-size: clamp(34px, 4.5vw, 60px); font-weight: 600; line-height: 1.2; color: #082B1F; margin: 0; }
-        .eoi-heading span { color: #D7B975; font-weight: 500; }
-
-        .eoi-subtext { font-family: "Poppins", sans-serif; font-size: 17px; line-height: 1.7; letter-spacing: 0.01em; font-weight: 400; color: #478570; max-width: 520px; margin: 0; }
-
-        .eoi-badge-number { font-family: "Playfair Display", serif; font-size: 60px; font-weight: 600; color: #FAF6EB; line-height: 1; margin-bottom: 4px; }
-        .eoi-badge-label { font-family: "Montserrat", sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(250, 246, 235, 0.75); text-align: center; }
-
-        @media (max-width: 1024px) {
-          .eoi-grid { grid-template-columns: 1fr; }
-          .eoi-img-col { order: 2; margin-top: 48px; }
-          .eoi-content-col { order: 1; }
-          .eoi-outer { padding: 96px 48px; }
-        }
-        @media (max-width: 768px) {
-          .eoi-outer { padding: 72px 24px; }
-          .eoi-grid { gap: 40px; }
-          .eoi-badge-number { font-size: 44px; }
-          .eoi-circle-wrap { max-width: 340px; }
-        }
-        @media (max-width: 540px) {
-          .eoi-outer { padding: 56px 16px; }
-          .eoi-cta { padding: 16px 28px; width: 100%; justify-content: center; }
-          .eoi-img-col { margin-top: 32px; }
-          .eoi-circle-wrap { max-width: 260px; }
-          .eoi-badge-number { font-size: 36px; }
-        }
+        .cta-arrow { transition: transform 0.3s; }
+        .eoi-cta-btn { transition: background 0.3s, box-shadow 0.3s, transform 0.2s; }
+        .eoi-cta-btn:hover { background: #062319 !important; transform: translateY(-1px); }
+        .eoi-cta-btn:hover .cta-arrow { transform: translateX(5px); }
       `}</style>
 
-      <section className="eoi-outer">
-        <div className="eoi-grid">
-          {/* Left — circular image */}
-          <div className="eoi-img-col" style={{ display: "flex", justifyContent: "center", position: "relative" }}>
-            <div className="eoi-circle-wrap">
-              <div style={{ position: "relative", borderRadius: "9999px", overflow: "hidden", aspectRatio: "1 / 1" }}>
-                <img
-                  src={IMAGE_URL}
-                  alt="Aerial view of  Project4 — 80% open landscape"
-                  style={{ width: "100%", height: "100%", borderRadius: "9999px", objectFit: "cover", display: "block" }}
-                />
-              </div>
+      {/* ── Section wrapper ── */}
+      <section
+        className="w-full min-h-screen flex items-center justify-center py-20 lg:py-24"
+        style={{ backgroundColor: "#F0EBDB" }}
+      >
+        <div className="w-full max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
 
-              <div
-                className="eoi-bounce"
-                style={{
-                  position: "absolute", top: "48px", right: "-48px",
-                  background: "#0B412F", borderRadius: "9999px", padding: "30px 32px",
-                  display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-                  boxShadow: "0 24px 48px rgba(8, 43, 31, 0.32)", border: "1px solid rgba(215, 185, 117, 0.15)",
-                  zIndex: 10, minWidth: "160px",
-                }}
-              >
-                <span className="eoi-badge-number">80%</span>
-                <span className="eoi-badge-label">Open Area</span>
-              </div>
-            </div>
-          </div>
+          {/* ── Two-column grid ── */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
 
-          {/* Right — content */}
-          <div className="eoi-content-col" style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
-            <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-              <h2 className="eoi-heading">
-                Why Enter at the <br />
-                <span>EOI Stage?</span>
-              </h2>
-              <p className="eoi-subtext">
-                The EOI window offers discerning investors a unique opportunity
-                to secure their future at  Project4 before public launch —
-                at ₹8,499/sq.ft with a 100% refundable deposit.
-              </p>
-            </div>
+            {/* ══ LEFT — Circular Image ══
+                Mobile: stacks below content (order-2)
+                Desktop: sits left (order-1)                    */}
+            <div className="order-2 lg:order-1 flex justify-center lg:justify-end">
+              <div className="relative w-full max-w-[400px] xl:max-w-[440px]">
 
-            <div style={{ display: "flex", flexDirection: "column", gap: "36px", padding: "8px 0" }}>
-              {BENEFITS.map(({ Icon, title, desc }, i) => (
-                <div
-                  key={title}
-                  className="eoi-benefit"
-                  ref={(el) => (benefitRefs.current[i] = el)}
-                  style={{ display: "flex", gap: "32px", alignItems: "flex-start" }}
-                >
-                  <div className="eoi-icon-wrap"><Icon size={22} strokeWidth={1.5} /></div>
-                  <div style={{ display: "flex", flexDirection: "column" }}>
-                    <h3 className="eoi-benefit-title">{title}</h3>
-                    <p className="eoi-benefit-desc">{desc}</p>
-                  </div>
+                {/* Circle */}
+                <div className="aspect-square w-full rounded-full overflow-hidden shadow-2xl">
+                  <img
+                    src={IMAGE_URL}
+                    alt="Aerial view of Project4 — 80% open landscape"
+                    className="w-full h-full object-cover rounded-full"
+                  />
                 </div>
-              ))}
+
+                {/* Floating 80% badge */}
+                <div
+                  className="badge-bounce absolute flex flex-col items-center justify-center rounded-full z-10"
+                  style={{
+                    top: "40px",
+                    right: "-28px",
+                    background: "#0B412F",
+                    padding: "26px 28px",
+                    minWidth: "130px",
+                    boxShadow: "0 20px 48px rgba(8,43,31,0.35)",
+                    border: "1px solid rgba(215,185,117,0.2)",
+                  }}
+                >
+                  <span
+                    className="leading-none mb-1 block"
+                    style={{
+                      fontFamily: "'Playfair Display', serif",
+                      fontSize: "clamp(36px, 3.8vw, 50px)",
+                      fontWeight: 600,
+                      color: "#FAF6EB",
+                    }}
+                  >
+                    80%
+                  </span>
+                  <span
+                    className="text-center block"
+                    style={{
+                      fontFamily: "'Montserrat', sans-serif",
+                      fontSize: "9px",
+                      fontWeight: 600,
+                      letterSpacing: "0.22em",
+                      textTransform: "uppercase",
+                      color: "rgba(250,246,235,0.7)",
+                    }}
+                  >
+                    Open Area
+                  </span>
+                </div>
+
+              </div>
             </div>
 
-            <div style={{ paddingTop: "8px" }}>
-              <button className="eoi-cta" onClick={openModal}>
-                <span>Get EOI Pre-Booking Offer</span>
-                <ArrowRight size={18} strokeWidth={1.5} className="eoi-cta-arrow" />
-              </button>
+            {/* ══ RIGHT — Content ══
+                Mobile: shown first (order-1)
+                Desktop: sits right (order-2)                   */}
+            <div className="order-1 lg:order-2 flex flex-col gap-8 lg:gap-10">
+
+              {/* Heading + intro */}
+              <div className="flex flex-col gap-4">
+                <h2
+                  className="m-0 leading-tight"
+                  style={{
+                    fontFamily: "'Playfair Display', serif",
+                    fontSize: "clamp(30px, 3.2vw, 50px)",
+                    fontWeight: 600,
+                    color: "#082B1F",
+                  }}
+                >
+                  Why Enter at the{" "}
+                  <br className="hidden sm:block" />
+                  <span style={{ color: "#D7B975", fontWeight: 500 }}>
+                    EOI Stage?
+                  </span>
+                </h2>
+
+                <p
+                  className="m-0 leading-relaxed max-w-[440px]"
+                  style={{
+                    fontFamily: "'Poppins', sans-serif",
+                    fontSize: "15px",
+                    color: "#478570",
+                  }}
+                >
+                  The EOI window offers discerning investors a unique opportunity
+                  to secure their future at Project4 before public launch — at
+                  ₹8,499/sq.ft with a 100% refundable deposit.
+                </p>
+              </div>
+
+              {/* Divider */}
+              <div
+                className="w-12 h-px"
+                style={{ backgroundColor: "rgba(215,185,117,0.4)" }}
+              />
+
+              {/* Benefits */}
+              <div className="flex flex-col gap-7">
+                {BENEFITS.map(({ Icon, title, desc }, i) => (
+                  <div
+                    key={title}
+                    className="benefit-row flex items-start gap-5"
+                    ref={(el) => (benefitRefs.current[i] = el)}
+                  >
+                    {/* Icon bubble */}
+                    <div
+                      className="benefit-icon flex-shrink-0 flex items-center justify-center rounded-full"
+                      style={{
+                        width: "52px",
+                        height: "52px",
+                        background: "rgba(215,185,117,0.1)",
+                        color: "#D7B975",
+                      }}
+                    >
+                      <Icon size={20} strokeWidth={1.5} />
+                    </div>
+
+                    {/* Copy */}
+                    <div className="flex flex-col gap-1 pt-1">
+                      <h3
+                        className="m-0 leading-snug"
+                        style={{
+                          fontFamily: "'Playfair Display', serif",
+                          fontSize: "18px",
+                          fontWeight: 500,
+                          color: "#082B1F",
+                        }}
+                      >
+                        {title}
+                      </h3>
+                      <p
+                        className="m-0 leading-relaxed"
+                        style={{
+                          fontFamily: "'Poppins', sans-serif",
+                          fontSize: "13.5px",
+                          color: "#478570",
+                        }}
+                      >
+                        {desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA */}
+              <div className="pt-2">
+                <button
+                  className="eoi-cta-btn inline-flex items-center gap-3 rounded-lg border-none cursor-pointer w-full sm:w-auto justify-center sm:justify-start"
+                  onClick={openModal}
+                  style={{
+                    background: "#0B412F",
+                    color: "#FAF6EB",
+                    padding: "18px 40px",
+                    fontFamily: "'Montserrat', sans-serif",
+                    fontSize: "11px",
+                    fontWeight: 600,
+                    letterSpacing: "0.18em",
+                    textTransform: "uppercase",
+                    boxShadow: "0 10px 30px rgba(11,65,47,0.22)",
+                  }}
+                >
+                  <span>Get EOI Pre-Booking Offer</span>
+                  <ArrowRight size={16} strokeWidth={1.5} className="cta-arrow" />
+                </button>
+              </div>
+
             </div>
+            {/* end right col */}
+
           </div>
+          {/* end grid */}
+
         </div>
       </section>
     </>
