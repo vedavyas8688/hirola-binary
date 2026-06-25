@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useModal } from "./Modalcontext";
+import landingimage1 from "../../assets/images/landingimage1.jpg"
+import landingimage2 from "../../assets/images/landingimage2.jpg"
 
 const FEATURES = [
   {
@@ -7,9 +9,8 @@ const FEATURES = [
     title: "Architectural Excellence",
     body: "Only 6 ultra-luxury residences per floor with no common walls. East & North facing options, large balconies, cross ventilation and maximum natural light — Vaastu-compliant homes built for discerning families.",
     cta: "Explore the Configurations",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBXz0LRbapZqRvwkrvcc9D_BTGuxEVDjfHLI9tte4EWdg_w-hZCq3Qk9RLuXhuxDIqs2tCgrPh_sLyvOzIFOrvFcNqah4zZ4DWDVBUNHb5pN1jv2mTJtqRiyliUzUVZQpj_6AXAhmVDUqGsnVeJnarSFcvwnUuP-xKvMZbcuW_NYafrXVZGtNcewcwLq4pSqb9myIdvi2aBzT5t30OhOfmTB-ApLZ-Alo8OB-QcISNnuJ6r2zpQi7Ptiql0qD0pBJg8e0_fw3fKtxE",
-    imageAlt: " Project4 ultra-luxury apartment interior",
+    image:landingimage2,
+     imageAlt: " Project4 ultra-luxury apartment interior",
     imageRight: true,
   },
   {
@@ -17,8 +18,7 @@ const FEATURES = [
     title: "60+ Curated Amenities",
     body: "An 8,000+ sq.ft grand clubhouse, sky cinema terrace, BBQ lawn, yoga court, star-gazing deck, pool lounge, toddler zones, senior park, butterfly garden, amphitheatre, skating rink, cricket nets and more — every inch designed for extraordinary living.",
     cta: "View All Amenities",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuD51uG4ySflgDLBstECuN9Hgtx6QTIDQEFw7kEvOpQgedcCnYnlgINPxhy9Sf0ryAD9G0h3PlcHwQzudbPfMiEDwUsc8m27uCVshUhY4vpuKl0XRNTmTtBjbUp-KmkVlxHnwuhcGSM9dbUvsTXw4VVZargdNywbNfX9sUcg3q_TpgaC9gFjAqrlq2LkWqsdHfD9TrqIV0ti6powoc9a_uq8BNoJSuT9RCuFPOM_EXMYWPcr75evnHwhQRFpgjFxYFAZBltaMHbNfdQ",
+    image:landingimage1,
     imageAlt: " Project4 premium amenities and clubhouse",
     imageRight: false,
   },

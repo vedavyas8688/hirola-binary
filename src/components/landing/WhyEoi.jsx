@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Tag, Building2, ShieldCheck, ArrowRight } from "lucide-react";
 import { useModal } from "./Modalcontext";
+import landingimage3 from "../../assets/images/landingimage3.jpg"
 
 const BENEFITS = [
   {
@@ -20,9 +21,7 @@ const BENEFITS = [
   },
 ];
 
-const IMAGE_URL =
-  "https://lh3.googleusercontent.com/aida/AP1WRLvSgNFVSEIN6gDH6R-scVUJAxeMJxvy-wVkZmklqKzGi_aPtye89-S-E-5z0CC0GaohcPBCNw8OfZSobzG6c6OiDQAB4bi8V-8RGptRLtuVR5spIStyA68edS3U83pIlhxdELQ9yb_rN91DF4js4plkddn6wHPvnx0IDBageACTZP2UZvrijZCzfqEemV5ArYXRsPqSeyY12CWPVp6Xqdokq1s9YpwzZQ5ez-n5ExttMvIV-1DQWt83Zh8";
-
+const IMAGE_URL =landingimage3;
 export default function EOISection() {
   const { openModal } = useModal();
   const benefitRefs = useRef([]);

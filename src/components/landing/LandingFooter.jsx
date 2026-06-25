@@ -43,7 +43,7 @@ export default function LandingFooter() {
               />
             </div>
             <p className="mt-3 text-luxury-gold text-[11px] font-semibold uppercase tracking-[0.22em]">
-              {lpConfig.brandName} · Codename {lpConfig.codename}
+                Codename Project 4
             </p>
             <p className="mt-5 text-cream-text/65 text-[14px] leading-relaxed max-w-sm">
               {lpFooter.ethos}
