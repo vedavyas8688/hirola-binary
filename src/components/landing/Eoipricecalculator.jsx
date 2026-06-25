@@ -312,7 +312,7 @@ export default function EOIPriceCalculator() {
         @media (max-width: 640px) { .eoi-savings-val { font-size: 26px; } }
         .eoi-savings-sub { font-size: 12px; color: rgba(250,246,235,0.55); margin-top: 7px; }
         .eoi-savings-icon {
-          font-size: 42px; color: rgba(215,185,117,0.12);
+          font-size: 42px; color:#ffffff;
           line-height: 1; margin-top: 18px;
           font-family: 'Playfair Display', serif;
         }
