@@ -137,7 +137,7 @@ export default function LandingFooter() {
         <div className="mt-14 pt-7 border-t border-luxury-gold/15 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-cream-text/45 text-[12px] text-center md:text-left">
             © {new Date().getFullYear()} {lpConfig.developer}. All rights
-            reserved. · {lpConfig.rera}
+            reserved.
           </p>
            <div className="flex items-center gap-6">
             <Link
@@ -155,13 +155,6 @@ export default function LandingFooter() {
             </Link>
           </div>
         </div>
-
-        <p className="mt-6 text-cream-text/35 text-[11px] leading-relaxed max-w-4xl">
-          Disclaimer: This is not an offer, an invitation to offer and/or
-          commitment of any nature. The images shown are artistic impressions
-          and the project is subject to RERA approvals. "{lpConfig.codename}" is
-          an internal codename for {lpConfig.brandName}.
-        </p>
       </div>
     </footer>
   );

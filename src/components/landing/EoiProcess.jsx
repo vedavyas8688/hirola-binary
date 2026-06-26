@@ -72,7 +72,7 @@ export default function EoiProcess() {
                   style={{ background: "linear-gradient(100deg, transparent, color-mix(in srgb, var(--clr-gold) 16%, transparent), transparent)" }}
                 />
 
-                <p className="font-serif text-3xl font-semibold leading-none" style={gradText}>
+                <p className="font-sans text-3xl font-bold leading-none" style={gradText}>
                   {String(s.n).padStart(2, "0")}.
                 </p>
 

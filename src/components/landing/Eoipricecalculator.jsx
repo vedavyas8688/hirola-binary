@@ -160,7 +160,7 @@ function SavingsGauge({ targetPct, targetSavings }) {
           style={{
             fontSize: 19, fontWeight: 700, lineHeight: 1,
             color: "#082B1F",
-            fontFamily: "'Playfair Display', serif",
+            fontFamily: "'Montserrat', sans-serif",
           }}
         >
           ₹{targetSavings.toFixed(1)} L
@@ -261,7 +261,7 @@ export default function EOIPriceCalculator() {
         .eoi-card-eoi .eoi-card-lbl { color: rgba(215,185,117,0.65); }
         .eoi-card-mkt .eoi-card-lbl { color: #478570; }
         .eoi-card-val {
-          font-family: 'Playfair Display', serif;
+          font-family: 'Montserrat', sans-serif;
           font-size: 28px; font-weight: 700; line-height: 1;
         }
         .eoi-card-eoi .eoi-card-val { color: #D7B975; }
@@ -305,7 +305,7 @@ export default function EOIPriceCalculator() {
           display: block; margin-bottom: 12px;
         }
         .eoi-savings-val {
-          font-family: 'Playfair Display', serif;
+          font-family: 'Montserrat', sans-serif;
           font-size: 34px; font-weight: 700;
           color: #D7B975; line-height: 1.1;
         }

@@ -47,7 +47,7 @@ export default function LeadPopup() {
         {/* left — offer panel */}
         <div className="lpop-left">
           <span className="lpop-badge"><Sparkles size={13} /> Pre-Launch · EOI Open</span>
-          <h3 className="lpop-title">Binary<br />Temple Tree</h3>
+          <h3 className="lpop-title">Project 4</h3>
           <p className="lpop-codename">Codename {lpConfig.codename} · by {lpConfig.developer}</p>
           <ul className="lpop-list">
             <li><Check size={15} /> 2 &amp; 3 BHK from ₹95 L</li>

@@ -31,9 +31,9 @@ export default function Locations() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
           {/* left: tabs + list */}
-          <div>
+          <div className="flex flex-col">
             <div className="flex flex-wrap gap-2 mb-7">
               {lpLocation.groups.map((g, i) => (
                 <button
@@ -50,7 +50,7 @@ export default function Locations() {
               ))}
             </div>
 
-            <div className="space-y-1">
+            <div className="space-y-1 flex-1 flex flex-col justify-center">
               {active.items.map(([place, time]) => (
                 <div
                   key={place}
@@ -79,9 +79,9 @@ export default function Locations() {
             </div>
           </div>
 
-          {/* right: map + address card */}
-          <div className="space-y-5">
-            <div className="relative rounded-2xl overflow-hidden border border-luxury-gold/20 shadow-[0_30px_60px_rgba(8,43,31,0.1)] h-[350px] md:h-[500px]">
+          {/* right: map — stretches to match the left column height */}
+          <div className="flex flex-col h-full">
+            <div className="relative rounded-2xl overflow-hidden border border-luxury-gold/20 shadow-[0_30px_60px_rgba(8,43,31,0.1)] flex-1 min-h-[350px] md:min-h-[460px]">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.950295086763!2d77.68184167525969!3d12.910916216205425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1377591db561%3A0x77bf70ae3c020cf4!2sSarjapur%20Main%20Rd%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1782328249171!5m2!1sen!2sin"
                 className="w-full h-full"

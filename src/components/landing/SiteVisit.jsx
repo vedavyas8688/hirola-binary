@@ -22,7 +22,7 @@ export default function SiteVisit() {
             <div className="relative">
               <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.3em] text-luxury-gold">Book Your Visit</span>
               <h2 className="mt-4 font-serif text-[30px] leading-[36px] md:text-[44px] md:leading-[50px] font-semibold text-luxury-gold">
-                Experience Binary <br /><span className="italic">Temple Tree</span>
+                Experience  Project4 <br /><span className="italic"> </span>
               </h2>
               <p className="mt-5 text-[15px] leading-relaxed text-cream-text/82 max-w-md">{lpSiteVisit.intro}</p>
 
@@ -81,7 +81,7 @@ export default function SiteVisit() {
                   </Field>
                   <Field label="Configuration of Interest">
                     <select className="sv-input" defaultValue="">
-                      <option value="" disabled>Select a configuration</option>
+                      <option value="" disabled>Choose Your Preferred Configuration</option>
                       <option>2 BHK Ultra Luxury</option>
                       <option>3 BHK Ultra Luxury</option>
                       <option>Not sure yet</option>

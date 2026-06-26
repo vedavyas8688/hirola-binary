@@ -48,33 +48,53 @@ export default function LandingPage() {
         <EnquiryModal />
 
         <LandingNavbar />
+
+        {/* 1 — Banner */}
         <LandingHero />
 
-        {/* cream → cream */}
+        {/* 2 — Heritage */}
         <HeritageSection />
         <SectionDivider tone="cream" />
-        <WhyEoi />
-        <EOIPriceCalculator />
 
-        {/* green → green */}
+        {/* 3 — Price Advantage */}
+        <PriceAdvantage />
+
+        {/* 4 — Stats Bar */}
         <StatsBar />
         <SectionDivider tone="green" />
-        <Features />
 
-        {/* cream → cream */}
-        <PriceAdvantage />
-        <SectionDivider tone="cream" />
-        <EoiProcess />
-
-        {/* green → green */}
+        {/* 5 — Master Plan */}
         <MainMasterplansection />
         <SectionDivider tone="green" />
+
+        {/* 6 — Clubhouse */}
         <Clubhouses />
 
-        <Faq />
+        {/* ── Supporting sections ── */}
+        <WhyEoi />
+        <Features />
+        <EoiProcess />
+        <SectionDivider tone="cream" />
         <Locations />
+        <SectionDivider tone="cream" />
         <SiteVisit />
+
+        {/* ── Last three ── */}
+        {/* Calculator — wrapped in a padded section (it renders a bare card) */}
+        <SectionDivider tone="cream" />
+        <section className="bg-bg-cream py-16 md:py-24 px-5 sm:px-8 md:px-12 lg:px-20">
+          <div className="max-w-screen-xl mx-auto">
+            <EOIPriceCalculator />
+          </div>
+        </section>
+        <SectionDivider tone="cream" />
+
+        {/* FAQ */}
+        <Faq />
+
+        {/* Footer */}
         <LandingFooter />
+
         <FloatingActions />
       </div>
     </ModalProvider>

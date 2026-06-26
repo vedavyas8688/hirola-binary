@@ -154,7 +154,7 @@ export const lpFaqs = [
     "EOI pricing rewards early buyers before demand-based price discovery takes place. It is how we build an initial community of residents who benefit from significant day-one appreciation.",
   ],
   [
-    "Where exactly is Binary Temple Tree located?",
+    "Where exactly is Project 4 located?",
     "Binary Temple Tree is at S.Y. No. 19, Sompura Gate, Sarjapura Road, Bengaluru – 562125, within easy reach of the ORR IT corridor and upcoming metro connectivity.",
   ],
 ];

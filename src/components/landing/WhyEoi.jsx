@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Tag, Building2, ShieldCheck, ArrowRight } from "lucide-react";
 import { useModal } from "./Modalcontext";
-import landingimage3 from "../../assets/images/landingimage3.jpg"
+import landingimage4 from "../../assets/images/landingimage4.jpg"
 
 const BENEFITS = [
   {
@@ -21,7 +21,7 @@ const BENEFITS = [
   },
 ];
 
-const IMAGE_URL =landingimage3;
+const IMAGE_URL =landingimage4;
 export default function EOISection() {
   const { openModal } = useModal();
   const benefitRefs = useRef([]);
@@ -78,16 +78,16 @@ export default function EOISection() {
         className="w-full min-h-screen flex items-center justify-center py-20 lg:py-24"
         style={{ backgroundColor: "#F0EBDB" }}
       >
-        <div className="w-full max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
+        <div className="w-[88%] max-w-[1400px] mx-auto px-2 sm:px-6 lg:px-10">
 
           {/* ── Two-column grid ── */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-24 items-center">
 
             {/* ══ LEFT — Circular Image ══
                 Mobile: stacks below content (order-2)
                 Desktop: sits left (order-1)                    */}
             <div className="order-2 lg:order-1 flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-[400px] xl:max-w-[440px]">
+              <div className="relative w-full max-w-[400px] xl:max-w-[460px]">
 
                 {/* Circle */}
                 <div className="aspect-square w-full rounded-full overflow-hidden shadow-2xl">
@@ -114,9 +114,9 @@ export default function EOISection() {
                   <span
                     className="leading-none mb-1 block"
                     style={{
-                      fontFamily: "'Playfair Display', serif",
+                      fontFamily: "'Montserrat', sans-serif",
                       fontSize: "clamp(36px, 3.8vw, 50px)",
-                      fontWeight: 600,
+                      fontWeight: 700,
                       color: "#FAF6EB",
                     }}
                   >
@@ -164,7 +164,7 @@ export default function EOISection() {
                 </h2>
 
                 <p
-                  className="m-0 leading-relaxed max-w-[440px]"
+                  className="m-0 leading-relaxed max-w-[480px]"
                   style={{
                     fontFamily: "'Poppins', sans-serif",
                     fontSize: "15px",

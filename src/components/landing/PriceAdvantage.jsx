@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ShieldCheck, Star, MapPin, TrendingUp, Lock, ArrowRight } from "lucide-react";
 import { useModal } from "./Modalcontext";
 
 const CONFIGS = {
@@ -8,41 +9,22 @@ const CONFIGS = {
 
 const TRUST = [
   {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D7B975" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-        <polyline points="9 12 11 14 15 10" />
-      </svg>
-    ),
-    title: "RERA Certified",
+    icon: <ShieldCheck size={22} strokeWidth={1.5} color="#D7B975" />,
+    title: "Trusted Developer",
     sub: "Transparency Assured",
   },
   {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D7B975" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-      </svg>
-    ),
+    icon: <Star size={22} strokeWidth={1.5} color="#D7B975" />,
     title: "Ultra Luxury",
     sub: "Premium Finishes",
   },
   {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D7B975" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
-        <circle cx="12" cy="9" r="2.5" />
-      </svg>
-    ),
+    icon: <MapPin size={22} strokeWidth={1.5} color="#D7B975" />,
     title: "Prime Location",
     sub: "Sarjapura Road",
   },
   {
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D7B975" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
-        <polyline points="16 7 22 7 22 13" />
-      </svg>
-    ),
+    icon: <TrendingUp size={22} strokeWidth={1.5} color="#D7B975" />,
     title: "High Appreciation",
     sub: "Metro Growth Corridor",
   },
@@ -57,12 +39,19 @@ function fmt(n) {
 export default function PriceAdvantage() {
   const { openModal } = useModal();
   const [active, setActive] = useState("2bhk");
+  const [unlocked, setUnlocked] = useState(false);
   const cfg = CONFIGS[active];
 
   const eoiTotal = cfg.eoiRate * cfg.size;
   const marketTotal = cfg.marketRate * cfg.size;
   const saving = marketTotal - eoiTotal;
   const savingPct = Math.round((saving / marketTotal) * 100);
+
+  const unlock = (e) => {
+    e.preventDefault();
+    // TODO: wire to your CRM / API endpoint here
+    setUnlocked(true);
+  };
 
   return (
     <>
@@ -80,6 +69,55 @@ export default function PriceAdvantage() {
         .pa-toggle button:not(.active) { background: transparent; color: #478570; }
         .pa-toggle button:not(.active):hover { background: rgba(11,65,47,0.06); }
 
+        /* ── Blur gate ── */
+        .pa-gate { position: relative; }
+        .pa-card.locked { filter: blur(9px); pointer-events: none; user-select: none; }
+        .pa-card { transition: filter 0.45s ease; }
+
+        .pa-lock {
+          position: absolute; inset: 0; z-index: 6;
+          display: flex; align-items: center; justify-content: center; padding: 24px;
+          background: rgba(250,247,240,0.45);
+        }
+        .pa-lock-card {
+          width: 100%; max-width: 380px; text-align: center;
+          background: linear-gradient(160deg, #0B412F 0%, #062319 100%);
+          border: 1px solid rgba(215,185,117,0.3); border-radius: 18px;
+          padding: 34px 30px 28px; box-shadow: 0 30px 80px rgba(8,43,31,0.45);
+        }
+        .pa-lock-icon {
+          width: 46px; height: 46px; margin: 0 auto 16px; border-radius: 50%;
+          border: 1px solid rgba(215,185,117,0.4); background: rgba(215,185,117,0.08);
+          display: flex; align-items: center; justify-content: center; color: #E8BA30;
+        }
+        .pa-lock-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #E8BA30; display: block; }
+        .pa-lock-title { font-family: 'Playfair Display', serif; font-size: 23px; font-weight: 600; color: #D7B975; margin: 9px 0 20px; line-height: 1.2; }
+
+        .pa-lock-form { display: flex; flex-direction: column; gap: 11px; }
+        .pa-lock-form input {
+          width: 100%; height: 48px; border-radius: 11px; padding: 0 16px;
+          background: rgba(255,255,255,0.06); border: 1px solid rgba(215,185,117,0.28);
+          color: #FAF6EB; font-size: 14px; font-family: 'Montserrat', sans-serif; outline: none;
+          transition: border-color .2s, background .2s;
+        }
+        .pa-lock-form input::placeholder { color: rgba(250,246,235,0.45); }
+        .pa-lock-form input:focus { border-color: #D7B975; background: rgba(255,255,255,0.1); }
+        .pa-lock-phone { display: flex; gap: 8px; }
+        .pa-lock-cc {
+          display: flex; align-items: center; height: 48px; padding: 0 14px; border-radius: 11px;
+          background: rgba(255,255,255,0.06); border: 1px solid rgba(215,185,117,0.28);
+          color: #D7B975; font-size: 14px; font-weight: 600; flex-shrink: 0;
+        }
+        .pa-lock-phone input { flex: 1; }
+        .pa-lock-btn {
+          margin-top: 5px; width: 100%; height: 50px; border: none; cursor: pointer; border-radius: 11px;
+          background: linear-gradient(135deg, #E8BA30 0%, #D7B975 100%); color: #062319;
+          font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+          font-family: 'Montserrat', sans-serif; transition: opacity .2s, transform .2s;
+        }
+        .pa-lock-btn:hover { opacity: .92; transform: translateY(-1px); }
+        .pa-lock-note { font-size: 10.5px; color: rgba(215,185,117,0.6); margin: 14px 0 0; letter-spacing: 0.02em; }
+
         .pa-card { display: grid; grid-template-columns: 1fr 420px; border: 1px solid rgba(119,90,25,0.12); border-radius: 4px; overflow: hidden; background: #fff; box-shadow: 0 40px 80px rgba(8,43,31,0.06); }
         .pa-left { padding: 56px 60px; display: flex; flex-direction: column; gap: 40px; }
         .pa-config-label { font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #D7B975; margin-bottom: 6px; }
@@ -90,7 +128,7 @@ export default function PriceAdvantage() {
         .pa-price-block { padding: 28px 0; }
         .pa-price-block + .pa-price-block { padding-left: 40px; border-left: 1px solid rgba(215,185,117,0.2); margin-left: 40px; }
         .pa-price-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #478570; margin-bottom: 10px; }
-        .pa-price-num { font-family: 'Playfair Display', serif; font-size: clamp(32px, 3.5vw, 44px); font-weight: 700; color: #082B1F; line-height: 1; }
+        .pa-price-num { font-family: 'Montserrat', sans-serif; font-size: clamp(32px, 3.5vw, 44px); font-weight: 700; color: #082B1F; line-height: 1; }
         .pa-price-num.market { color: #B0BAB7; text-decoration: line-through; text-decoration-color: rgba(119,90,25,0.3); font-size: clamp(24px, 2.5vw, 32px); }
         .pa-price-unit { font-size: 12px; color: #478570; margin-top: 4px; font-weight: 500; }
         .pa-price-total { font-size: 12px; color: #D7B975; margin-top: 6px; font-weight: 600; letter-spacing: 0.04em; }
@@ -102,9 +140,9 @@ export default function PriceAdvantage() {
         .pa-right::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 140px; height: 140px; border-radius: 50%; border: 1px solid rgba(215,185,117,0.06); pointer-events: none; }
         .pa-badge { display: inline-block; padding: 5px 14px; border: 1px solid rgba(215,185,117,0.3); font-size: 9px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: #D7B975; margin-bottom: 28px; position: relative; z-index: 1; }
         .pa-saving-label { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(215,185,117,0.6); margin-bottom: 10px; position: relative; z-index: 1; }
-        .pa-saving-num { font-family: 'Playfair Display', serif; font-size: clamp(40px, 5vw, 62px); font-weight: 700; font-style: italic; color: #FAF6EB; line-height: 1; position: relative; z-index: 1; transition: opacity 0.3s; }
+        .pa-saving-num { font-family: 'Montserrat', sans-serif; font-size: clamp(40px, 5vw, 62px); font-weight: 700; color: #FAF6EB; line-height: 1; position: relative; z-index: 1; transition: opacity 0.3s; }
         .pa-saving-pct { margin-top: 16px; display: flex; align-items: center; gap: 10px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); position: relative; z-index: 1; }
-        .pa-saving-pct-val { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; color: #D7B975; }
+        .pa-saving-pct-val { font-family: 'Montserrat', sans-serif; font-size: 22px; font-weight: 700; color: #D7B975; }
         .pa-saving-pct-label { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(215,185,117,0.6); }
         .pa-cta { width: 100%; background: #D7B975; color: #082B1F; border: none; cursor: pointer; padding: 18px 24px; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; display: flex; align-items: center; justify-content: space-between; transition: background 0.3s, color 0.3s; position: relative; z-index: 1; border-radius: 2px; }
         .pa-cta:hover { background: #E8BA30; }
@@ -155,78 +193,101 @@ export default function PriceAdvantage() {
             </div>
           </div>
 
-          {/* Main card */}
-          <div className="pa-card">
-            {/* Left */}
-            <div className="pa-left">
-              <div>
-                <div className="pa-config-label">Selected Configuration</div>
-                <div className="pa-config-value">{cfg.label}</div>
-                <div className="pa-config-size">
-                  {cfg.size.toLocaleString("en-IN")} Sq.Ft · Ultra Luxury · Sompura Gate, Sarjapura Road
+          {/* Main card — blurred until the visitor submits the form */}
+          <div className="pa-gate">
+            <div className={`pa-card${unlocked ? "" : " locked"}`}>
+              {/* Left */}
+              <div className="pa-left">
+                <div>
+                  <div className="pa-config-label">Selected Configuration</div>
+                  <div className="pa-config-value">{cfg.label}</div>
+                  <div className="pa-config-size">
+                    {cfg.size.toLocaleString("en-IN")} Sq.Ft · Ultra Luxury · Sompura Gate, Sarjapura Road
+                  </div>
+                </div>
+
+                <div className="pa-prices">
+                  <div className="pa-price-block">
+                    <div className="pa-price-tag">Exclusive EOI Rate</div>
+                    <div className="pa-price-num">₹{cfg.eoiRate.toLocaleString("en-IN")}</div>
+                    <div className="pa-price-unit">/sq.ft</div>
+                    <div className="pa-price-total">Total: {fmt(eoiTotal)}</div>
+                    <div className="pa-underline" />
+                  </div>
+                  <div className="pa-price-block">
+                    <div className="pa-price-tag">Current Market Avg.</div>
+                    <div className="pa-price-num market">₹{cfg.marketRate.toLocaleString("en-IN")}</div>
+                    <div className="pa-price-unit">/sq.ft</div>
+                    <div className="pa-price-total" style={{ color: "#B0BAB7" }}>Total: {fmt(marketTotal)}</div>
+                  </div>
+                </div>
+
+                <div className="pa-disclaimer">
+                  * Prices exclusive of statutory charges, GST and floor-rise premiums. Market rate is an indicative average for the Sarjapura Road micro-market.
                 </div>
               </div>
 
-              <div className="pa-prices">
-                <div className="pa-price-block">
-                  <div className="pa-price-tag">Exclusive EOI Rate</div>
-                  <div className="pa-price-num">₹{cfg.eoiRate.toLocaleString("en-IN")}</div>
-                  <div className="pa-price-unit">/sq.ft</div>
-                  <div className="pa-price-total">Total: {fmt(eoiTotal)}</div>
-                  <div className="pa-underline" />
-                </div>
-                <div className="pa-price-block">
-                  <div className="pa-price-tag">Current Market Avg.</div>
-                  <div className="pa-price-num market">₹{cfg.marketRate.toLocaleString("en-IN")}</div>
-                  <div className="pa-price-unit">/sq.ft</div>
-                  <div className="pa-price-total" style={{ color: "#B0BAB7" }}>Total: {fmt(marketTotal)}</div>
-                </div>
-              </div>
+              {/* Right — savings */}
+              <div className="pa-right">
+                <div>
+                  <div className="pa-badge">Your Advantage</div>
+                  <div className="pa-saving-label">Total Capital Saving</div>
+                  <div className="pa-saving-num">{fmt(saving)}</div>
+                  <div className="pa-saving-pct">
+                    <div>
+                      <TrendingUp size={18} strokeWidth={2} color="#D7B975" />
+                    </div>
+                    <div>
+                      <div className="pa-saving-pct-val">{savingPct}% Below Market</div>
+                      <div className="pa-saving-pct-label">Immediate Price Advantage</div>
+                    </div>
+                  </div>
 
-              <div className="pa-disclaimer">
-                * Prices exclusive of statutory charges, GST and floor-rise premiums. Market rate is an indicative average for the Sarjapura Road micro-market.
+                  <div style={{ marginTop: "24px", position: "relative", zIndex: 1 }}>
+                    <div style={{ fontSize: "10px", fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: "rgba(215,185,117,0.5)", marginBottom: "8px" }}>
+                      EOI Deposit
+                    </div>
+                    <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "22px", fontWeight: 600, color: "#FAF6EB" }}>
+                      Fully Refundable
+                    </div>
+                    <div style={{ fontSize: "11px", color: "rgba(215,185,117,0.5)", marginTop: "4px" }}>
+                      Risk-free commitment
+                    </div>
+                  </div>
+                </div>
+
+                <button className="pa-cta" onClick={openModal}>
+                  <span>Request EOI Details</span>
+                  <ArrowRight size={18} strokeWidth={2} />
+                </button>
               </div>
             </div>
 
-            {/* Right — savings */}
-            <div className="pa-right">
-              <div>
-                <div className="pa-badge">Your Advantage</div>
-                <div className="pa-saving-label">Total Capital Saving</div>
-                <div className="pa-saving-num">{fmt(saving)}</div>
-                <div className="pa-saving-pct">
-                  <div>
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D7B975" strokeWidth="2" strokeLinecap="round">
-                      <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
-                      <polyline points="16 7 22 7 22 13" />
-                    </svg>
+            {/* Lock overlay — complete the form to reveal the advantages */}
+            {!unlocked && (
+              <div className="pa-lock">
+                <div className="pa-lock-card">
+                  <div className="pa-lock-icon">
+                    <Lock size={20} strokeWidth={1.6} />
                   </div>
-                  <div>
-                    <div className="pa-saving-pct-val">{savingPct}% Below Market</div>
-                    <div className="pa-saving-pct-label">Immediate Price Advantage</div>
-                  </div>
-                </div>
+                  <span className="pa-lock-eyebrow">Exclusive · EOI Pricing</span>
+                  <h3 className="pa-lock-title">Complete the form to view your advantage</h3>
 
-                <div style={{ marginTop: "24px", position: "relative", zIndex: 1 }}>
-                  <div style={{ fontSize: "10px", fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: "rgba(215,185,117,0.5)", marginBottom: "8px" }}>
-                    EOI Deposit
-                  </div>
-                  <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "22px", fontWeight: 600, color: "#FAF6EB" }}>
-                    Fully Refundable
-                  </div>
-                  <div style={{ fontSize: "11px", color: "rgba(215,185,117,0.5)", marginTop: "4px" }}>
-                    Risk-free commitment
-                  </div>
+                  <form className="pa-lock-form" onSubmit={unlock}>
+                    <input type="text" required placeholder="Full Name" autoComplete="name" />
+                    <div className="pa-lock-phone">
+                      <span className="pa-lock-cc">+91</span>
+                      <input
+                        type="tel" required placeholder="Phone Number" inputMode="numeric" maxLength={10} autoComplete="tel"
+                        onInput={(e) => { e.currentTarget.value = e.currentTarget.value.replace(/\D/g, ""); }}
+                      />
+                    </div>
+                    <button type="submit" className="pa-lock-btn">Reveal My Advantage →</button>
+                  </form>
+                  <p className="pa-lock-note">100% refundable EOI · We never share your details</p>
                 </div>
               </div>
-
-              <button className="pa-cta" onClick={openModal}>
-                <span>Request EOI Details</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                  <path d="M5 12h14M13 6l6 6-6 6" />
-                </svg>
-              </button>
-            </div>
+            )}
           </div>
 
           {/* Trust grid */}

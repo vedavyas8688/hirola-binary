@@ -56,8 +56,8 @@ export default function HeritageSection() {
   return (
     <>
       <style>{`
-        .heritage-section { padding: 60px 80px 120px; max-width: 1440px; margin: 0 auto; }
-        @media (max-width: 1024px) { .heritage-section { padding: 48px 48px 96px; } }
+        .heritage-section { padding: 60px 48px 120px; max-width: 1440px; margin: 0 auto; }
+        @media (max-width: 1024px) { .heritage-section { padding: 48px 32px 96px; } }
         @media (max-width: 768px)  { .heritage-section { padding: 36px 24px 72px; } }
         @media (max-width: 480px)  { .heritage-section { padding: 28px 16px 56px; } }
 
@@ -67,17 +67,19 @@ export default function HeritageSection() {
 
         .heritage-heading {
           font-family: "Playfair Display", serif;
-          font-size: clamp(32px, 5vw, 64px);
+          font-size: clamp(30px, 4.4vw, 56px);
           font-weight: 700; line-height: 1.1; letter-spacing: -0.02em;
-          color: #082B1F; max-width: 896px; margin: 0;
+          color: #082B1F; max-width: 100%; margin: 0;
+          white-space: nowrap;
         }
+        @media (max-width: 600px) { .heritage-heading { white-space: normal; } }
         .heritage-heading em { color: #D7B975; font-style: normal; }
 
         .heritage-subtext {
           font-family: "Poppins", sans-serif;
           font-size: clamp(15px, 2vw, 18px);
           line-height: 1.7; letter-spacing: 0.01em; font-weight: 400;
-          color: #478570; max-width: 672px; margin: 24px 0 0;
+          color: #478570; max-width: 920px; margin: 24px auto 0;
         }
 
         .heritage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; }
@@ -120,14 +122,13 @@ export default function HeritageSection() {
       <section id="heritage" className="heritage-section">
         <div className="heritage-header">
           <h2 className="heritage-heading">
-            The Legacy of<br />
-            <em>Project4</em>
+            The Legacy of <em>Project 4</em>
           </h2>
 
           <p className="heritage-subtext">
-            Binary Realty redefines ultra-luxury living on Sarjapura Road.
-            A 3.5-acre residential enclave with 234 exclusive homes, 80% open spaces,
-            and only 6 apartments per floor — built for those who choose privacy, space and legacy.
+            Binary Realty redefines ultra-luxury living on Sarjapura Road — a 3.5-acre residential
+            enclave with 234 exclusive homes, 80% open spaces and only 6 apartments per floor, built
+            for those who choose privacy, space and legacy.
           </p>
         </div>
 

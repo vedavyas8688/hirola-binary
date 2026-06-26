@@ -120,7 +120,7 @@ export default function LandingHero() {
 
           <div className="lh-price-block lh-4" style={{ marginBottom: "14px" }}>
             <p style={{
-              fontFamily: "var(--font-serif)", fontSize: "clamp(16px, 2vw, 22px)",
+              fontFamily: "var(--font-sans)", fontSize: "clamp(16px, 2vw, 22px)",
               fontWeight: 600, color: "var(--clr-cream-text)", margin: "0 0 6px", lineHeight: 1.25,
             }}>
               2 BHK from ₹95 L &nbsp;·&nbsp; 3 BHK from ₹1.35 Cr
@@ -167,7 +167,7 @@ export default function LandingHero() {
           </div>
         </div>
 
-        {/* ══════ RIGHT PANEL ══════ */}
+        {/* ══════ RIGHT PANEL — image only, no overlaid content ══════ */}
         <div className="lh-right" style={{ flex: 1, position: "relative", overflow: "hidden" }}>
           <img
             src={landingbanner}
@@ -190,48 +190,6 @@ export default function LandingHero() {
             background: "linear-gradient(to right, rgba(11,65,47,0.72), transparent)",
             pointerEvents: "none",
           }} />
-
-          <div style={{
-            position: "absolute", inset: 0,
-            display: "flex", flexDirection: "column",
-            alignItems: "center", justifyContent: "center",
-            textAlign: "center", padding: "0 52px", pointerEvents: "none",
-          }}>
-            <h2 className="lh-4" style={{
-              fontFamily: "var(--font-serif)", fontSize: "clamp(20px, 3vw, 44px)",
-              fontWeight: 700, color: "var(--clr-cream-text)", lineHeight: 1.2,
-              letterSpacing: "0.04em", textTransform: "uppercase", maxWidth: "500px",
-              textShadow: "0 2px 28px rgba(6,35,25,0.55)", margin: "0 0 18px",
-            }}>
-              Ultra Luxury Living.
-              <br />
-              <span style={{ color: "var(--clr-gold-bright)", fontSize: "0.7em", fontWeight: 400, letterSpacing: "0.06em" }}>
-                80% Open Space · No Common Walls
-              </span>
-            </h2>
-
-            <p className="lh-5" style={{
-              fontFamily: "var(--font-sans)", fontSize: "12px", fontWeight: 300,
-              color: "rgba(250,246,235,0.72)", letterSpacing: "0.12em",
-              textTransform: "uppercase", margin: "0 0 10px",
-            }}>
-              Upcoming Metro · IT Corridor Access · Sarjapura Road
-            </p>
-          </div>
-
-          <div className="lh-6" style={{
-            position: "absolute", bottom: "30px", right: "30px",
-            display: "flex", alignItems: "center", gap: "12px",
-          }}>
-            <div style={{ width: "36px", height: "0.5px", background: "rgba(232,186,48,0.55)" }} />
-            <span style={{
-              fontFamily: "var(--font-sans)", fontSize: "10px", fontWeight: 500,
-              color: "var(--clr-gold-bright)", letterSpacing: "0.32em", textTransform: "uppercase",
-            }}>
-              Pre-Launch
-            </span>
-            <div style={{ width: "36px", height: "0.5px", background: "rgba(232,186,48,0.55)" }} />
-          </div>
         </div>
       </section>
     </>

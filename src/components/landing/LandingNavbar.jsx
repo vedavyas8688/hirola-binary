@@ -1,4 +1,4 @@
-import { useState } from "react";
+ import { useState } from "react";
 import { Phone, Menu, X } from "lucide-react";
 import { lpNav, lpConfig } from "../../data/landingData";
 import { useModal } from "./Modalcontext";
@@ -11,9 +11,20 @@ export default function LandingNavbar() {
 
   return (
     <>
-      <header className="fixed top-0 w-full z-50 bg-luxury-green-dark">
+      <header
+        className="fixed top-0 w-full z-50 overflow-hidden"
+        style={{
+          backgroundImage: `url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAGUlEQVR4nGPkMVRlIAUwkaR6VMOohiGlAQBfYgCCrIcb8AAAAABJRU5ErkJggg==")`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center center",
+        }}
+      >
+        {/* Green overlay — matches main website navbar */}
+        <div className="absolute inset-0 bg-luxury-green/40 backdrop-blur-sm" />
+
         {/* Main bar */}
-        <div className="flex items-center px-6 md:px-10 h-[80px]">
+        <div className="relative z-10 flex items-center px-6 md:px-10 h-[80px]">
 
           {/* Logo left */}
           <div className="flex-shrink-0 mr-10 md:mr-12">
@@ -83,7 +94,7 @@ export default function LandingNavbar() {
 
         {/* Gold rule */}
         <div
-          className="h-px"
+          className="relative z-10 h-px"
           style={{
             background:
               "linear-gradient(90deg, transparent 0%, rgba(215,185,117,0.5) 20%, rgba(215,185,117,0.85) 50%, rgba(215,185,117,0.5) 80%, transparent 100%)",
