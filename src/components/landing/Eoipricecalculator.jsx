@@ -18,14 +18,7 @@ const CONFIGS = {
     eoiRate: "₹10,250 – ₹10,500 / sq.ft",
     marketRate: "₹11,500 – ₹14,000 / sq.ft",
   },
-  "4bhk": {
-    label: "4 BHK (2200–2400 sq.ft)",
-    eoi: 2.2,
-    market: 2.75,
-    savings: 55.0,
-    eoiRate: "₹10,500 – ₹10,950 / sq.ft",
-    marketRate: "₹12,000 – ₹15,000 / sq.ft",
-  },
+   
 };
 
 /* ── smooth number animation ── */
