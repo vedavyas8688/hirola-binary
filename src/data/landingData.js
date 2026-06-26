@@ -155,7 +155,7 @@ export const lpFaqs = [
   ],
   [
     "Where exactly is Project 4 located?",
-    "Binary Temple Tree is at S.Y. No. 19, Sompura Gate, Sarjapura Road, Bengaluru – 562125, within easy reach of the ORR IT corridor and upcoming metro connectivity.",
+    "PROJECT 4 is at S.Y. No. 19, Sompura Gate, Sarjapura Road, Bengaluru – 562125, within easy reach of the ORR IT corridor and upcoming metro connectivity.",
   ],
 ];
 
