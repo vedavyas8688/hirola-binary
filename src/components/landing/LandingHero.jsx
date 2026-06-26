@@ -52,11 +52,12 @@ const STYLES = `
   .lh-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(0,0,0,0.3); }
 
   @media (max-width: 767px) {
-    .lh-section { flex-direction: column !important; height: auto !important; min-height: 100svh; }
+    /* Mobile only: image on top, text below */
+    .lh-section { flex-direction: column-reverse !important; height: auto !important; min-height: 100svh; }
     .lh-panel { width: 100% !important; padding: 36px 28px 32px !important; }
     .lh-panel::before { top: 20px; left: 24px; width: 22px; height: 22px; }
     .lh-panel::after {
-      top: auto; bottom: 0; right: 12%; left: 12%; width: auto; height: 1px;
+      top: 0; bottom: auto; right: 12%; left: 12%; width: auto; height: 1px;
       background: linear-gradient(to right, transparent, var(--clr-gold-bright) 30%, var(--clr-gold-bright) 70%, transparent);
     }
     .lh-right { flex: none !important; height: 52vw !important; min-height: 240px; max-height: 320px; }
