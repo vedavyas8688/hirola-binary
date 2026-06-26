@@ -48,12 +48,13 @@ export default function LeadPopup() {
         <div className="lpop-left">
           <span className="lpop-badge"><Sparkles size={13} /> Pre-Launch · EOI Open</span>
           <h3 className="lpop-title">Project 4</h3>
-          <p className="lpop-codename">Codename {lpConfig.codename} · by {lpConfig.developer}</p>
+          <p className="lpop-codename">· by  binaryventures</p>
+          <span className="lpop-rule" />
           <ul className="lpop-list">
-            <li><Check size={15} /> 2 &amp; 3 BHK from ₹95 L</li>
-            <li><Check size={15} /> EOI rate ₹8,499/sq.ft</li>
-            <li><Check size={15} /> 100% refundable deposit</li>
-            <li><Check size={15} /> Only 6 homes per floor</li>
+            <li><span className="lpop-tick"><Check size={13} strokeWidth={3} /></span> 2 &amp; 3 BHK from ₹95 L</li>
+            <li><span className="lpop-tick"><Check size={13} strokeWidth={3} /></span> EOI rate ₹8,499/sq.ft</li>
+            <li><span className="lpop-tick"><Check size={13} strokeWidth={3} /></span> 100% refundable deposit</li>
+            <li><span className="lpop-tick"><Check size={13} strokeWidth={3} /></span> Only 6 homes per floor</li>
           </ul>
         </div>
 
@@ -103,9 +104,15 @@ const STYLES = `
   .lpop-card {
     position: relative; width: 100%; max-width: 720px; display: grid; grid-template-columns: 1fr 1fr;
     border-radius: 22px; overflow: hidden; background: #fff;
+    border: 1px solid rgba(215,185,117,0.28);
     box-shadow: 0 50px 120px rgba(0,0,0,0.55);
     animation: lpopPop .4s cubic-bezier(.22,.61,.36,1) both;
     font-family: var(--font-sans, 'Poppins', sans-serif);
+  }
+  /* premium gold accent across the very top of the card */
+  .lpop-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; z-index: 6;
+    background: linear-gradient(90deg, #E8BA30, #D7B975 50%, #E8BA30);
   }
 
   /* ── Close button fix ───────────────────────────────────────────────
@@ -122,39 +129,65 @@ const STYLES = `
   .lpop-close:hover { background: rgba(8,43,31,0.15); }
 
   .lpop-left {
+    position: relative; overflow: hidden;
     background: linear-gradient(160deg, #0B412F 0%, #062319 100%); color: #FAF6EB;
     padding: 40px 34px; display: flex; flex-direction: column; justify-content: center;
   }
+  /* faint gold ring + corner ornament for a richer panel */
+  .lpop-left::before {
+    content: ''; position: absolute; top: -70px; right: -70px; width: 200px; height: 200px;
+    border-radius: 50%; border: 1px solid rgba(215,185,117,0.12); pointer-events: none;
+  }
+  .lpop-left::after {
+    content: ''; position: absolute; top: 22px; left: 22px; width: 26px; height: 26px;
+    border-top: 1px solid rgba(215,185,117,0.4); border-left: 1px solid rgba(215,185,117,0.4);
+    pointer-events: none;
+  }
+  .lpop-left > * { position: relative; z-index: 1; }
+
   .lpop-badge {
     display: inline-flex; align-items: center; gap: 6px; align-self: flex-start;
     padding: 5px 12px; border: 1px solid rgba(215,185,117,0.35); border-radius: 999px;
     font-size: 9px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #E8BA30;
   }
-  .lpop-title { font-family: var(--font-serif, 'Playfair Display', serif); font-size: 34px; font-weight: 700; color: #D7B975; margin: 18px 0 6px; line-height: 1.05; }
-  .lpop-codename { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,246,235,0.55); margin: 0 0 22px; }
-  .lpop-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
-  .lpop-list li { display: flex; align-items: center; gap: 10px; font-size: 13.5px; color: rgba(250,246,235,0.85); }
-  .lpop-list svg { color: #D7B975; flex-shrink: 0; }
+  .lpop-title {
+    font-family: var(--font-serif, 'Playfair Display', serif); font-size: 34px; font-weight: 700;
+    margin: 18px 0 6px; line-height: 1.05; letter-spacing: 0.01em;
+    background: linear-gradient(120deg, #D7B975, #F0DDAE 55%, #E8BA30);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: #D7B975;
+  }
+  .lpop-codename { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,246,235,0.55); margin: 0 0 16px; }
+  .lpop-rule { display: block; width: 46px; height: 2px; margin: 0 0 20px; border-radius: 2px;
+    background: linear-gradient(90deg, #E8BA30, rgba(215,185,117,0)); }
+  .lpop-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 13px; }
+  .lpop-list li { display: flex; align-items: center; gap: 11px; font-size: 13.5px; color: rgba(250,246,235,0.9); }
+  .lpop-tick {
+    width: 22px; height: 22px; flex-shrink: 0; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(215,185,117,0.14); border: 1px solid rgba(215,185,117,0.3); color: #E8BA30;
+  }
 
-  .lpop-right { padding: 40px 34px; display: flex; flex-direction: column; justify-content: center; }
+  .lpop-right { padding: 40px 34px; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(180deg, #ffffff, #FAF7F0); }
   .lpop-form-title { font-family: var(--font-serif, 'Playfair Display', serif); font-size: 23px; font-weight: 600; color: #082B1F; margin: 0 0 6px; }
   .lpop-form-sub { font-size: 13px; color: #478570; margin: 0 0 20px; line-height: 1.5; }
   .lpop-form { display: flex; flex-direction: column; gap: 11px; }
   .lpop-form input {
     width: 100%; border-radius: 10px; padding: 13px 15px; border: 1px solid rgba(215,185,117,0.35);
-    background: #FAF7F0; color: #082B1F; font-size: 14px; font-family: inherit; outline: none; transition: border-color .2s, background .2s;
+    background: #FAF7F0; color: #082B1F; font-size: 14px; font-family: inherit; outline: none; transition: border-color .2s, background .2s, box-shadow .2s;
   }
   .lpop-form input::placeholder { color: rgba(8,43,31,0.4); }
-  .lpop-form input:focus { border-color: #D7B975; background: #fff; }
+  .lpop-form input:focus { border-color: #D7B975; background: #fff; box-shadow: 0 0 0 3px rgba(215,185,117,0.18); }
   .lpop-phone { display: flex; gap: 8px; }
   .lpop-phone span { display: flex; align-items: center; padding: 0 13px; border-radius: 10px; background: #FAF7F0; border: 1px solid rgba(215,185,117,0.35); color: #082B1F; font-size: 14px; font-weight: 600; flex-shrink: 0; }
   .lpop-phone input { flex: 1; }
   .lpop-form button {
     margin-top: 4px; border: none; cursor: pointer; padding: 15px; border-radius: 10px;
     background: linear-gradient(135deg, #E8BA30, #D7B975); color: #062319;
-    font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; transition: opacity .2s, transform .2s; font-family: inherit;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    transition: opacity .2s, transform .2s, box-shadow .2s; font-family: inherit;
+    box-shadow: 0 10px 26px rgba(215,185,117,0.32);
   }
-  .lpop-form button:hover { opacity: .92; transform: translateY(-1px); }
+  .lpop-form button:hover { opacity: .96; transform: translateY(-1px); box-shadow: 0 14px 32px rgba(215,185,117,0.42); }
   .lpop-call { display: block; text-align: center; margin-top: 14px; font-size: 11px; color: #478570; text-decoration: none; }
   .lpop-call:hover { color: #D7B975; }
 

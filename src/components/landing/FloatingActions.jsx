@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Phone, MessageCircle } from "lucide-react";
+import { Phone } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { lpConfig } from "../../data/landingData";
 import { useModal } from "./Modalcontext";
 
@@ -88,7 +89,7 @@ export default function FloatingActions() {
       <div className={`fa-desktop ${show ? "" : "fa-hidden"}`}>
         <a href={lpConfig.whatsapp} target="_blank" rel="noopener noreferrer"
           className="fa-btn fa-wa fa-icon" aria-label="Chat on WhatsApp">
-          <MessageCircle size={20} strokeWidth={1.8} />
+          <FaWhatsapp size={22} color="#fff" />
         </a>
         <a href={lpConfig.phoneHref}
           className="fa-btn fa-call fa-icon" aria-label="Call us">
@@ -103,7 +104,7 @@ export default function FloatingActions() {
       <div className="fa-mobile">
         <a href={lpConfig.whatsapp} target="_blank" rel="noopener noreferrer"
           className="fa-mobile-icon fa-wa" aria-label="Chat on WhatsApp">
-          <MessageCircle size={20} strokeWidth={1.8} color="#fff" />
+          <FaWhatsapp size={22} color="#fff" />
         </a>
         <button onClick={openModal} className="fa-mobile-enq" aria-label="Enquire now">
           Enquire Now
