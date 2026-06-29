@@ -79,17 +79,17 @@ export default function Locations() {
             </div>
           </div>
 
-          {/* right: map — stretches to match the left column height */}
+          {/* right: map */}
           <div className="flex flex-col h-full">
             <div className="relative rounded-2xl overflow-hidden border border-luxury-gold/20 shadow-[0_30px_60px_rgba(8,43,31,0.1)] flex-1 min-h-[350px] md:min-h-[460px]">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.950295086763!2d77.68184167525969!3d12.910916216205425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1377591db561%3A0x77bf70ae3c020cf4!2sSarjapur%20Main%20Rd%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1782328249171!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3889.5!2d77.768549!3d12.885946!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDUzJzA5LjQiTiA3N8KwNDYnMDYuOCJF!5e0!3m2!1sen!2sin!4v1"
                 className="w-full h-full"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="strict-origin-when-cross-origin"
-                title="Sarjapur Main Road Location"
+                title="Codename New Dimension Location"
               />
             </div>
           </div>

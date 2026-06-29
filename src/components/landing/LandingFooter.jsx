@@ -50,7 +50,7 @@ export default function LandingFooter() {
             </p>
 
             {/* socials */}
-            <div className="flex items-center gap-3 mt-7">
+            {/* <div className="flex items-center gap-3 mt-7">
               {SOCIALS.map(({ Icon, href, label }) => (
                 <a
                   key={label}
@@ -63,7 +63,7 @@ export default function LandingFooter() {
                   <Icon size={17} strokeWidth={1.6} />
                 </a>
               ))}
-            </div>
+            </div> */}
           </div>
 
           {/* col: project */}
@@ -107,7 +107,7 @@ export default function LandingFooter() {
                   {lpConfig.phone}
                 </a>
               </li>
-              <li className="flex items-center gap-3">
+              {/* <li className="flex items-center gap-3">
                 <Mail
                   size={16}
                   strokeWidth={1.6}
@@ -119,7 +119,7 @@ export default function LandingFooter() {
                 >
                   {lpConfig.email}
                 </a>
-              </li>
+              </li> */}
             </ul>
 
             <a

@@ -6,7 +6,7 @@ import Seo from "./Seo";
 const sections = [
   {
     title: "1. Introduction",
-    body: `Binary Ventures ("we", "us", "our") is committed to protecting the privacy of visitors to our website and prospective customers of Project 4 on Sarjapur Road, Bengaluru. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or interact with us regarding our residential project.`,
+    body: `Binary Ventures ("we", "us", "our") is committed to protecting the privacy of visitors to our website and prospective customers of  Codename Project 4 on Sarjapur Road, Bengaluru. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or interact with us regarding our residential project.`,
   },
   {
     title: "2. Information We Collect",

@@ -49,7 +49,6 @@ export default function PriceAdvantage() {
 
   const unlock = (e) => {
     e.preventDefault();
-    // TODO: wire to your CRM / API endpoint here
     setUnlocked(true);
   };
 
@@ -98,7 +97,7 @@ export default function PriceAdvantage() {
           width: 100%; height: 48px; border-radius: 11px; padding: 0 16px;
           background: rgba(255,255,255,0.06); border: 1px solid rgba(215,185,117,0.28);
           color: #FAF6EB; font-size: 14px; font-family: 'Montserrat', sans-serif; outline: none;
-          transition: border-color .2s, background .2s;
+          transition: border-color .2s, background .2s; box-sizing: border-box;
         }
         .pa-lock-form input::placeholder { color: rgba(250,246,235,0.45); }
         .pa-lock-form input:focus { border-color: #D7B975; background: rgba(255,255,255,0.1); }
@@ -108,7 +107,7 @@ export default function PriceAdvantage() {
           background: rgba(255,255,255,0.06); border: 1px solid rgba(215,185,117,0.28);
           color: #D7B975; font-size: 14px; font-weight: 600; flex-shrink: 0;
         }
-        .pa-lock-phone input { flex: 1; }
+        .pa-lock-phone input { flex: 1; min-width: 0; }
         .pa-lock-btn {
           margin-top: 5px; width: 100%; height: 50px; border: none; cursor: pointer; border-radius: 11px;
           background: linear-gradient(135deg, #E8BA30 0%, #D7B975 100%); color: #062319;
@@ -147,12 +146,29 @@ export default function PriceAdvantage() {
         .pa-cta { width: 100%; background: #D7B975; color: #082B1F; border: none; cursor: pointer; padding: 18px 24px; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; display: flex; align-items: center; justify-content: space-between; transition: background 0.3s, color 0.3s; position: relative; z-index: 1; border-radius: 2px; }
         .pa-cta:hover { background: #E8BA30; }
 
+        /* ── Premium trust cards ── */
         .pa-trust { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
-        .pa-trust-item { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; padding: 28px 16px; border: 1px solid rgba(119,90,25,0.1); border-radius: 4px; background: #fff; transition: border-color 0.3s, background 0.3s; cursor: default; }
-        .pa-trust-item:hover { border-color: rgba(215,185,117,0.3); background: rgba(215,185,117,0.03); }
-        .pa-trust-icon { width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(215,185,117,0.25); display: flex; align-items: center; justify-content: center; }
-        .pa-trust-title { font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #082B1F; }
-        .pa-trust-sub { font-size: 10px; color: #B0BAB7; letter-spacing: 0.1em; text-transform: uppercase; }
+        .pa-trust-item {
+          display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center;
+          padding: 32px 20px 28px;
+          background: linear-gradient(160deg, #0B412F 0%, #062319 100%);
+          border: 1px solid rgba(215,185,117,0.2); border-radius: 8px;
+          position: relative; overflow: hidden;
+          transition: border-color 0.3s, transform 0.3s; cursor: default;
+        }
+        .pa-trust-item::before {
+          content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+          background: linear-gradient(90deg, transparent, #D7B975, transparent);
+        }
+        .pa-trust-item:hover { border-color: rgba(215,185,117,0.45); transform: translateY(-3px); }
+        .pa-trust-icon {
+          width: 52px; height: 52px; border-radius: 50%;
+          border: 1px solid rgba(215,185,117,0.35);
+          background: rgba(215,185,117,0.08);
+          display: flex; align-items: center; justify-content: center;
+        }
+        .pa-trust-title { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #FAF6EB; }
+        .pa-trust-sub { font-size: 10px; color: rgba(215,185,117,0.65); letter-spacing: 0.1em; text-transform: uppercase; }
 
         @media (max-width: 1024px) {
           .pa-card { grid-template-columns: 1fr; }
@@ -162,9 +178,19 @@ export default function PriceAdvantage() {
           .pa-right { padding: 40px 32px; }
         }
         @media (max-width: 600px) {
+          .pa-section { padding: 48px 16px; }
+          .pa-sub { margin-bottom: 36px; font-size: 14px; }
+          .pa-toggle { margin-bottom: 28px; }
+          .pa-toggle button { padding: 10px 18px; font-size: 10px; }
+          .pa-left { padding: 28px 20px; gap: 28px; }
+          .pa-right { padding: 28px 20px; }
           .pa-prices { grid-template-columns: 1fr; }
           .pa-price-block + .pa-price-block { padding-left: 0; border-left: none; margin-left: 0; border-top: 1px solid rgba(215,185,117,0.2); padding-top: 24px; }
-          .pa-trust { grid-template-columns: 1fr; }
+          .pa-trust { grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 32px; }
+          .pa-trust-item { padding: 22px 12px 20px; gap: 10px; }
+          .pa-trust-icon { width: 42px; height: 42px; }
+          .pa-lock-card { padding: 28px 20px 24px; }
+          .pa-lock-title { font-size: 19px; }
         }
       `}</style>
 
@@ -282,7 +308,8 @@ export default function PriceAdvantage() {
                         onInput={(e) => { e.currentTarget.value = e.currentTarget.value.replace(/\D/g, ""); }}
                       />
                     </div>
-                    <button type="submit" className="pa-lock-btn">Reveal My Advantage →</button>
+                    <input type="email" placeholder="Email (optional)" autoComplete="email" />
+                    <button type="submit" className="pa-lock-btn">Submit</button>
                   </form>
                   <p className="pa-lock-note">100% refundable EOI · We never share your details</p>
                 </div>

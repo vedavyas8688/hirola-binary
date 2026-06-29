@@ -88,10 +88,10 @@ export default function SiteVisit() {
                     </select>
                   </Field>
 
-                  <button type="submit" className="w-full mt-2 rounded-lg bg-luxury-green-dark text-cream-text py-4 text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-[#062319] transition-colors border-0 cursor-pointer">
-                    Request My Site Visit →
+                  <button type="submit" className="w-25 mt-2 rounded-lg bg-luxury-green-dark text-cream-text py-4 text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-[#062319] transition-colors border-0 cursor-pointer">
+                    Submit →
                   </button>
-                  <p className="text-center text-[11px] text-foreground-green/45">EOI is 100% refundable · Your details stay private</p>
+                  <p className="text-center text-[11px] text-foreground-green/45">  · Your details stay private</p>
                 </form>
               </>
             )}

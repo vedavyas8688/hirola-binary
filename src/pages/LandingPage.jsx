@@ -22,6 +22,7 @@ import LandingFooter from "../components/landing/LandingFooter";
 import FloatingActions from "../components/landing/FloatingActions";
 import LeadPopup from "../components/landing/LeadPopup";
 import EOIPriceCalculator from "../components/landing/Eoipricecalculator";
+import ApartmentFeatures from "../components/landing/Apartmentfeatures";
 
 export default function LandingPage() {
   useEffect(() => {
@@ -51,6 +52,8 @@ export default function LandingPage() {
 
         {/* 1 — Banner */}
         <LandingHero />
+         <WhyEoi />
+         <StatsBar />
 
         {/* 2 — Heritage */}
         <HeritageSection />
@@ -59,23 +62,19 @@ export default function LandingPage() {
         {/* 3 — Price Advantage */}
         <PriceAdvantage />
 
-        {/* 4 — Stats Bar */}
-        <StatsBar />
-        <SectionDivider tone="green" />
-
         {/* 5 — Master Plan */}
         <MainMasterplansection />
-        <SectionDivider tone="green" />
-
+        <ApartmentFeatures />
+         
+         <Locations />
         {/* 6 — Clubhouse */}
         <Clubhouses />
 
         {/* ── Supporting sections ── */}
-        <WhyEoi />
+        
         <Features />
         <EoiProcess />
         <SectionDivider tone="cream" />
-        <Locations />
         <SectionDivider tone="cream" />
         <SiteVisit />
 

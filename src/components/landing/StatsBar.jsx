@@ -4,6 +4,11 @@ export default function StatsSection() {
       {/* Divider */}
       <div className="max-w-[1440px] mx-auto mb-10 md:mb-14 h-px bg-gradient-to-r from-transparent via-[rgba(215,185,117,0.4)] to-transparent" />
 
+      {/* Heading */}
+      <div className="max-w-[1440px] mx-auto mb-10 md:mb-14 text-center">
+        <h2 className="font-serif font-semibold text-[clamp(36px,5vw,64px)] leading-tight  text-luxury-gold m-0">Project Statistics</h2>
+      </div>
+
       {/* Desktop & Tablet: flex row — all numbers align on one baseline */}
       <div className="max-w-[1440px] mx-auto hidden md:flex items-end">
         <div className="flex-1 flex flex-col justify-end">

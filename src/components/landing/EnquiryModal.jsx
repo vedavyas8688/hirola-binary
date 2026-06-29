@@ -77,7 +77,7 @@ export default function EnquiryModal() {
                   onInput={(e) => { e.currentTarget.value = e.currentTarget.value.replace(/\D/g, ""); }}
                 />
               </div>
-              <button type="submit" className="btt-modal-submit">Request a Callback →</button>
+              <button type="submit" className="btt-modal-submit">Submit →</button>
             </form>
 
             <a href={lpConfig.phoneHref} className="btt-modal-call">

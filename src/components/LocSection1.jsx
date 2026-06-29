@@ -36,7 +36,7 @@ export default function LocSection1() {
                 AT THE CROSSROADS OF GROWTH AND CONVENIENCE.
               </h2>
               <p className="font-sans text-sm sm:text-base md:text-lg text-white/90 leading-relaxed text-left mt-4">
-                Where Sarjapur's evolving skyline meets seamless connectivity,
+                Where Sarjapur's evolving skyline meets seamless connectivity, Codename
                 Project 4 places you right amidst innovation, opportunity, and
                 effortless access to the city's finest hubs.
               </p>

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useModal } from "./Modalcontext";
+import { TrendingUp, IndianRupee, BadgePercent } from "lucide-react";
 
 const CONFIGS = {
   "2bhk": {
@@ -18,10 +19,8 @@ const CONFIGS = {
     eoiRate: "₹10,250 – ₹10,500 / sq.ft",
     marketRate: "₹11,500 – ₹14,000 / sq.ft",
   },
-   
 };
 
-/* ── smooth number animation ── */
 function useSmooth(target, duration = 700) {
   const valRef = useRef(target);
   const fromRef = useRef(target);
@@ -50,11 +49,9 @@ function useSmooth(target, duration = 700) {
   return valRef.current;
 }
 
-/* ── Gauge using a direct SVG ref — no React re-render overhead ── */
 function SavingsGauge({ targetPct, targetSavings }) {
   const arcRef = useRef(null);
   const savingsRef = useRef(null);
-  const pctRef = useRef(null);
 
   const animRef = useRef(null);
   const fromPct = useRef(targetPct);
@@ -83,16 +80,10 @@ function SavingsGauge({ targetPct, targetSavings }) {
 
       const dash = Math.max(0, (curPct / 100) * CIRC);
       if (arcRef.current) {
-        arcRef.current.setAttribute(
-          "stroke-dasharray",
-          `${dash} ${CIRC}`
-        );
+        arcRef.current.setAttribute("stroke-dasharray", `${dash} ${CIRC}`);
       }
       if (savingsRef.current) {
         savingsRef.current.textContent = `₹${curSavings.toFixed(1)} L`;
-      }
-      if (pctRef.current) {
-        pctRef.current.textContent = `~${Math.round(curPct)}% saved`;
       }
 
       if (t < 1) animRef.current = requestAnimationFrame(tick);
@@ -106,28 +97,19 @@ function SavingsGauge({ targetPct, targetSavings }) {
     return () => cancelAnimationFrame(animRef.current);
   }, [targetPct, targetSavings, CIRC]);
 
-  /* initial render — set starting values */
   const initDash = (targetPct / 100) * CIRC;
 
   return (
     <div style={{ position: "relative", width: 170, height: 170, flexShrink: 0 }}>
-      <svg
-        width="170"
-        height="170"
-        style={{ transform: "rotate(-90deg)", display: "block" }}
-      >
-        <circle
-          cx="85" cy="85" r={R}
-          fill="none"
-          stroke="#E0D8C7"
-          strokeWidth="13"
-          strokeLinecap="round"
-        />
+      <svg width="170" height="170" style={{ transform: "rotate(-90deg)", display: "block" }}>
+        {/* track — light cream border */}
+        <circle cx="85" cy="85" r={R} fill="none" stroke="#E0D8C7" strokeWidth="13" strokeLinecap="round" />
+        {/* animated arc — primary green */}
         <circle
           ref={arcRef}
           cx="85" cy="85" r={R}
           fill="none"
-          stroke="#D7B975"
+          stroke="#0B412F"
           strokeWidth="13"
           strokeLinecap="round"
           strokeDasharray={`${initDash} ${CIRC}`}
@@ -143,19 +125,15 @@ function SavingsGauge({ targetPct, targetSavings }) {
         <span style={{
           fontSize: 9, letterSpacing: "0.14em",
           textTransform: "uppercase", color: "#478570",
-          marginBottom: 3,
-          fontFamily: "'Poppins', sans-serif",
+          marginBottom: 3, fontFamily: "'Poppins', sans-serif",
         }}>
           Savings
         </span>
-        <span
-          ref={savingsRef}
-          style={{
-            fontSize: 19, fontWeight: 700, lineHeight: 1,
-            color: "#082B1F",
-            fontFamily: "'Montserrat', sans-serif",
-          }}
-        >
+        <span ref={savingsRef} style={{
+          fontSize: 19, fontWeight: 700, lineHeight: 1,
+          color: "#0B412F",
+          fontFamily: "'Poppins', sans-serif",
+        }}>
           ₹{targetSavings.toFixed(1)} L
         </span>
       </div>
@@ -168,7 +146,6 @@ export default function EOIPriceCalculator() {
   const { openModal } = useModal();
   const cfg = CONFIGS[selected];
 
-  /* savings % = savings / market price, expressed as percentage */
   const savingsPct = Math.min(
     Math.round((cfg.savings / (cfg.market * 100)) * 100),
     95
@@ -226,20 +203,13 @@ export default function EOIPriceCalculator() {
           background-repeat: no-repeat; background-position: right 13px center;
           transition: border-color .2s, box-shadow .2s;
         }
-        .eoi-sel:focus {
-          border-color: #D7B975;
-          box-shadow: 0 0 0 3px rgba(215,185,117,0.2);
-        }
+        .eoi-sel:focus { border-color: #D7B975; box-shadow: 0 0 0 3px rgba(215,185,117,0.2); }
 
         .eoi-rates { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
-        .eoi-rate-box {
-          background: #F0EBDB; border: 1px solid #E0D8C7;
-          border-radius: 12px; padding: 13px 15px;
-        }
+        .eoi-rate-box { background: #F0EBDB; border: 1px solid #E0D8C7; border-radius: 12px; padding: 13px 15px; }
         .eoi-rate-lbl {
           font-size: 9px; font-weight: 600; letter-spacing: 0.14em;
-          text-transform: uppercase; color: #478570;
-          display: block; margin-bottom: 5px;
+          text-transform: uppercase; color: #478570; display: block; margin-bottom: 5px;
         }
         .eoi-rate-val { font-size: 12.5px; font-weight: 600; color: #082B1F; }
 
@@ -254,11 +224,12 @@ export default function EOIPriceCalculator() {
         .eoi-card-eoi .eoi-card-lbl { color: rgba(215,185,117,0.65); }
         .eoi-card-mkt .eoi-card-lbl { color: #478570; }
         .eoi-card-val {
-          font-family: 'Montserrat', sans-serif;
+          font-family: 'Poppins', sans-serif;
           font-size: 28px; font-weight: 700; line-height: 1;
         }
+        /* ── both card numbers green ── */
         .eoi-card-eoi .eoi-card-val { color: #D7B975; }
-        .eoi-card-mkt .eoi-card-val { color: #082B1F; }
+        .eoi-card-mkt .eoi-card-val { color: #0B412F; }
         @media (max-width: 400px) { .eoi-card-val { font-size: 22px; } }
 
         .eoi-gauge-row {
@@ -269,10 +240,7 @@ export default function EOIPriceCalculator() {
           display: flex; align-items: center; gap: 20px;
         }
         .eoi-legend { display: flex; flex-direction: column; gap: 10px; flex: 1; }
-        .eoi-legend-row {
-          display: flex; align-items: center; gap: 9px;
-          font-size: 12px; color: #478570; font-weight: 500;
-        }
+        .eoi-legend-row { display: flex; align-items: center; gap: 9px; font-size: 12px; color: #478570; font-weight: 500; }
         .eoi-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
         .eoi-legend-pct {
           margin-top: 8px; padding-top: 10px;
@@ -282,32 +250,64 @@ export default function EOIPriceCalculator() {
 
         .eoi-savings {
           background: linear-gradient(160deg, #0B412F 0%, #062319 100%);
-          border-radius: 20px; padding: 26px 22px;
-          display: flex; flex-direction: column; justify-content: space-between;
+          border: 1px solid rgba(215,185,117,0.2);
+          border-radius: 20px; padding: 32px 26px;
+          display: flex; flex-direction: column; align-items: center; justify-content: center;
           min-height: 210px; position: relative; overflow: hidden;
+          text-align: center; gap: 0;
         }
         @media (max-width: 1024px) { .eoi-savings { min-height: auto; } }
         .eoi-savings::before {
-          content: ''; position: absolute; top: -32px; right: -32px;
-          width: 130px; height: 130px; border-radius: 50%;
-          background: rgba(215,185,117,0.07); pointer-events: none;
+          content: ''; position: absolute; top: -40px; right: -40px;
+          width: 160px; height: 160px; border-radius: 50%;
+          background: radial-gradient(circle, rgba(215,185,117,0.08) 0%, transparent 70%);
+          pointer-events: none;
+        }
+        .eoi-savings::after {
+          content: ''; position: absolute; bottom: -30px; left: -30px;
+          width: 100px; height: 100px; border-radius: 50%;
+          background: radial-gradient(circle, rgba(215,185,117,0.05) 0%, transparent 70%);
+          pointer-events: none;
+        }
+        .eoi-savings-icon-wrap {
+          width: 52px; height: 52px; border-radius: 50%;
+          border: 1px solid rgba(215,185,117,0.3);
+          background: rgba(215,185,117,0.08);
+          display: flex; align-items: center; justify-content: center;
+          margin-bottom: 18px;
         }
         .eoi-savings-eye {
-          font-size: 9px; font-weight: 700; letter-spacing: 0.18em;
-          text-transform: uppercase; color: rgba(215,185,117,0.6);
-          display: block; margin-bottom: 12px;
+          font-size: 9px; font-weight: 600; letter-spacing: 0.22em;
+          text-transform: uppercase; color: rgba(215,185,117,0.55);
+          display: block; margin-bottom: 10px;
         }
         .eoi-savings-val {
-          font-family: 'Montserrat', sans-serif;
-          font-size: 34px; font-weight: 700;
-          color: #D7B975; line-height: 1.1;
+          font-family: 'Poppins', sans-serif;
+          font-size: 36px; font-weight: 700;
+          color: #D7B975; line-height: 1;
+          letter-spacing: -0.01em;
         }
-        @media (max-width: 640px) { .eoi-savings-val { font-size: 26px; } }
-        .eoi-savings-sub { font-size: 12px; color: rgba(250,246,235,0.55); margin-top: 7px; }
-        .eoi-savings-icon {
-          font-size: 42px; color:#ffffff;
-          line-height: 1; margin-top: 18px;
-          font-family: 'Playfair Display', serif;
+        @media (max-width: 640px) { .eoi-savings-val { font-size: 28px; } }
+        .eoi-savings-divider {
+          width: 32px; height: 1px;
+          background: rgba(215,185,117,0.25);
+          margin: 14px auto;
+        }
+        .eoi-savings-sub {
+          font-size: 11.5px; color: rgba(250,246,235,0.4);
+          line-height: 1.65; max-width: 160px;
+        }
+        .eoi-savings-badge {
+          margin-top: 20px;
+          display: inline-flex; align-items: center; gap: 6px;
+          padding: 6px 14px;
+          border: 1px solid rgba(215,185,117,0.25);
+          border-radius: 999px;
+          background: rgba(215,185,117,0.07);
+        }
+        .eoi-savings-badge-text {
+          font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
+          text-transform: uppercase; color: rgba(215,185,117,0.75);
         }
 
         .eoi-cta-wrap { margin-top: 30px; display: flex; justify-content: center; }
@@ -339,17 +339,11 @@ export default function EOIPriceCalculator() {
           {/* LEFT */}
           <div>
             <label className="eoi-lbl" htmlFor="eoi-cfg">Preferred configuration</label>
-            <select
-              id="eoi-cfg"
-              className="eoi-sel"
-              value={selected}
-              onChange={(e) => setSelected(e.target.value)}
-            >
+            <select id="eoi-cfg" className="eoi-sel" value={selected} onChange={(e) => setSelected(e.target.value)}>
               {Object.entries(CONFIGS).map(([k, v]) => (
                 <option key={k} value={k}>{v.label}</option>
               ))}
             </select>
-
             <div className="eoi-rates">
               <div className="eoi-rate-box">
                 <span className="eoi-rate-lbl">EOI Rate</span>
@@ -384,26 +378,27 @@ export default function EOIPriceCalculator() {
                   Tentative EOI Price
                 </div>
                 <div className="eoi-legend-row">
-                  <div className="eoi-dot" style={{ background: "#D7B975" }} />
+                  <div className="eoi-dot" style={{ background: "#0B412F" }} />
                   Savings at EOI
                 </div>
-                <div className="eoi-legend-pct">
-                  ~{savingsPct}% saved vs market
-                </div>
+                <div className="eoi-legend-pct">~{savingsPct}% saved vs market</div>
               </div>
             </div>
           </div>
 
           {/* RIGHT */}
           <div className="eoi-savings">
-            <div>
-              <span className="eoi-savings-eye">Total savings if you book now</span>
-              <div className="eoi-savings-val">₹{savingsVal.toFixed(2)} L*</div>
-              <p className="eoi-savings-sub">
-                Approx. ₹{cfg.savings} L savings at EOI vs market.
-              </p>
+            <div className="eoi-savings-icon-wrap">
+              <TrendingUp size={22} strokeWidth={1.6} color="#D7B975" />
             </div>
-            <div className="eoi-savings-icon">↑</div>
+            <span className="eoi-savings-eye">Total savings if you book now</span>
+            <div className="eoi-savings-val">₹{savingsVal.toFixed(2)} L*</div>
+            <div className="eoi-savings-divider" />
+            <p className="eoi-savings-sub">Approx. ₹{cfg.savings} L savings at EOI vs market.</p>
+            <div className="eoi-savings-badge">
+              <BadgePercent size={12} strokeWidth={1.8} color="#D7B975" style={{ opacity: 0.75 }} />
+              <span className="eoi-savings-badge-text">EOI Advantage</span>
+            </div>
           </div>
         </div>
 

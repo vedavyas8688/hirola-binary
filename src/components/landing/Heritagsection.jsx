@@ -126,7 +126,7 @@ export default function HeritageSection() {
           </h2>
 
           <p className="heritage-subtext">
-            Binary Realty redefines ultra-luxury living on Sarjapura Road — a 3.5-acre residential
+            Binary Ventures redefines ultra-luxury living on Sarjapura Road — a 3.5-acre residential
             enclave with 234 exclusive homes, 80% open spaces and only 6 apartments per floor, built
             for those who choose privacy, space and legacy.
           </p>
