@@ -1,12 +1,12 @@
 // ============================================================
-//  Binary Temple Tree  ·  Codename Project 4  ·  by Binary Realty
+//  Codename Project 4  ·  by Binary Ventures
 //  Single source of truth for copy + contact details.
 // ============================================================
 
 export const lpConfig = {
-  brandName: "Project 4",
-  codename: "Binary Realty",
-  developer: "",
+  brandName: "Codename Project 4",
+  codename: "Project 4",
+  developer: "Binary Ventures",
 
   phone: "+91 96112 11255",
   phoneHref: "tel:+919611211255",
@@ -16,12 +16,9 @@ export const lpConfig = {
 
   whatsapp: "https://wa.me/919611211255",
 
-  address:
-    "Binary Temple Tree, S.Y. No. 19, Sompura Gate, Sarjapura Road, Bengaluru, Karnataka – 562125",
-  addressShort: "Sompura Gate, Sarjapura Road, Bengaluru – 562125",
-  locationShort: "Sompura Gate, Sarjapura Road, Bengaluru",
-
-  rera: "RERA: PRM/KA/RERA/1251/308/PR/071123/006380",
+  address: "Chambenahalli, Sarjapur Road, Bengaluru",
+  addressShort: "Chambenahalli, Sarjapur Road, Bengaluru",
+  locationShort: "Chambenahalli, Sarjapur Road, Bengaluru",
 
   social: {
     instagram: "https://instagram.com/",
@@ -43,13 +40,13 @@ export const lpHero = {
   bg: "https://lh3.googleusercontent.com/aida-public/AB6AXuCt5e0RGqU6-2vSx8KF35z7_tPWryvJ9ryQTm3G07aaUe1uCUN6g6Nwz2b7k7u7PQhdsmHU1s0JmgOEMgUigssV2vBr5GJXAIeE_5YPJK7iAjN8D6LjlyUOVnUfBp_60cA5ASYMDQANYCGCD7lPgwCOcIPyphsLfa74MPiP92IZ8jWbqnYDTIDlvcSviE-TSMXBAwHQdeU6BDjKZcJyEAg0rgQgSC939q5k2Uj6AAz2bF7Yk2xhruCv3eGVDOmMnuaGksmxThip4Jxe",
   eyebrow: "Introducing",
   intro:
-    "A 3.5-acre private sanctuary on Sarjapura Road — 234 ultra-luxury residences, 80% open space, only 6 apartments per floor, no common walls and 60+ amenities.",
-  location: "Sompura Gate, Sarjapura Road, Bengaluru",
+    "A 3.5-acre private sanctuary on Sarjapur Road — 234 ultra-luxury residences, 80% open space, only 6 apartments per floor, no common walls and 60+ amenities.",
+  location: "Chambenahalli, Sarjapur Road, Bengaluru",
 };
 
 export const lpLegacy = {
   intro:
-    "Binary Realty redefines ultra-luxury living on Sarjapura Road — a 3.5-acre residential enclave with 234 exclusive homes, 80% open spaces, and only 6 apartments per floor, built for those who choose privacy, space and legacy.",
+    "Binary Ventures redefines ultra-luxury living on Sarjapur Road — a 3.5-acre residential enclave with 234 exclusive homes, 80% open spaces, and only 6 apartments per floor, built for those who choose privacy, space and legacy.",
 };
 
 export const lpStats = [
@@ -62,8 +59,8 @@ export const lpStats = [
 
 export const lpPrice = {
   eoiPrice: "₹8,499",
-  marketPrice: "₹9,500",
-  note: "*EOI price is per sq.ft, exclusive of statutory charges, GST and floor-rise premiums. Market rate is an indicative Sarjapura Road micro-market average.",
+  marketPrice: "₹11,000 – ₹13,000",
+  note: "*EOI price is per sq.ft, exclusive of statutory charges, GST and floor-rise premiums. Market rate is an indicative Sarjapur Road micro-market average.",
 };
 
 export const lpProcess = [
@@ -85,7 +82,7 @@ export const lpProcess = [
   {
     n: 4,
     title: "Register EOI",
-    desc: "Confirm your preferred unit and formally register your Expression of Interest with Binary Realty.",
+    desc: "Confirm your preferred unit and formally register your Expression of Interest with Binary Ventures.",
   },
 ];
 
@@ -115,7 +112,7 @@ export const lpMasterPlan = {
 export const lpClubhouse = {
   bg: "https://lh3.googleusercontent.com/aida-public/AB6AXuDHu_o7u3QHrzAu7fjt39nCJKl3OWTKNWEo28UZ39st82aoYMnGlw8gP7rYfQ8ylckPciNz4-AsMAzN051x6QqnIEy79uUTH3aVKYSE6wBrdbvzE45bLA6Pjoa38QtYo2RieMhMC130ZUA89JPVo6y5DCWmFsUNOe9cpbQIZeTbHaCUhtFWdFGhyAIC5GtD8g4wmuiTiwiMgvK_VJyNHJHIlLuIltoYUfyMzg0c-zg7ENcpRDJvbxmY0pao8qGBksoRAPsw1gOJGw3U",
   intro:
-    "A grand 8,000+ sq.ft clubhouse anchors everyday life at Binary Temple Tree — four curated experience zones designed to evolve with you and your loved ones, with something for every age group.",
+    "A grand 8,000+ sq.ft clubhouse anchors everyday life at Codename Project 4 — four curated experience zones designed to evolve with you and your loved ones, with something for every age group.",
   cards: [
     {
       icon: "spa",
@@ -154,8 +151,8 @@ export const lpFaqs = [
     "EOI pricing rewards early buyers before demand-based price discovery takes place. It is how we build an initial community of residents who benefit from significant day-one appreciation.",
   ],
   [
-    "Where exactly is Project 4 located?",
-    "PROJECT 4 is at S.Y. No. 19, Sompura Gate, Sarjapura Road, Bengaluru – 562125, within easy reach of the ORR IT corridor and upcoming metro connectivity.",
+    "Where exactly is Codename Project 4 located?",
+    "Codename Project 4 is at Chambenahalli, Sarjapur Road, Bengaluru, within easy reach of the ORR IT corridor and upcoming metro connectivity.",
   ],
 ];
 
@@ -207,8 +204,8 @@ export const lpLocation = {
 
 export const lpSiteVisit = {
   intro:
-    "Experience the grandeur of Binary Temple Tree first-hand. Join us for an exclusive guided walkthrough of the site and the proposed amenities.",
-  hours: "Open 7 days a week · 10:00 AM – 6:30 PM",
+    "Experience the grandeur of Codename Project 4 first-hand. Join us for an exclusive guided walkthrough of the site and the proposed amenities.",
+  hours: "Open 7 days a week · 10:00 AM – 7:00 PM",
   phone: "Direct Assistance: +91 96112 11255",
 };
 
@@ -234,5 +231,5 @@ export const lpFooter = {
       { label: "Terms & Conditions", href: "/terms-and-conditions" },
     ],
   },
-  legalRight: ["Architecture of Permanence", "Global Standards · Project 4"],
+  legalRight: ["Architecture of Permanence", "Global Standards · Codename Project 4"],
 };
