@@ -47,7 +47,7 @@ const DesignPhilosophySection = ({
               {/* <span className="text-cream-text"> /span> */}
             </h2>
             <p className="font-sans text-sm sm:text-base md:text-lg text-white leading-relaxed max-w-xl">
-              At Project 4, every space is designed with purpose and precision,
+              At Codename Project 4, every space is designed with purpose and precision,
               where light, air, and energy flow in perfect harmony. Expansive
               layouts invite natural sunlight to fill your home, while cross
               ventilation ensures freshness throughout the day. Each residence

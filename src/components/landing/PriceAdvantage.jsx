@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ShieldCheck, Star, MapPin, TrendingUp, Lock, ArrowRight } from "lucide-react";
 import { useModal } from "./Modalcontext";
+import LeadForm from "./LeadForm";
 
 const CONFIGS = {
   "2bhk": { label: "2 BHK Ultra Luxury", size: 1117, eoiRate: 8499, marketRate: 9500, tag: "Best Value" },
@@ -46,11 +47,6 @@ export default function PriceAdvantage() {
   const marketTotal = cfg.marketRate * cfg.size;
   const saving = marketTotal - eoiTotal;
   const savingPct = Math.round((saving / marketTotal) * 100);
-
-  const unlock = (e) => {
-    e.preventDefault();
-    setUnlocked(true);
-  };
 
   return (
     <>
@@ -173,24 +169,29 @@ export default function PriceAdvantage() {
         @media (max-width: 1024px) {
           .pa-card { grid-template-columns: 1fr; }
           .pa-trust { grid-template-columns: repeat(2, 1fr); }
-          .pa-section { padding: 64px 24px; }
-          .pa-left { padding: 40px 32px; }
-          .pa-right { padding: 40px 32px; }
+          .pa-section { padding: 56px 24px; }
+          .pa-left { padding: 36px 32px; gap: 32px; }
+          .pa-right { padding: 36px 32px; }
         }
         @media (max-width: 600px) {
-          .pa-section { padding: 48px 16px; }
-          .pa-sub { margin-bottom: 36px; font-size: 14px; }
-          .pa-toggle { margin-bottom: 28px; }
+          .pa-section { padding: 36px 16px; }
+          .pa-sub { margin-bottom: 22px; font-size: 13.5px; }
+          .pa-toggle { margin-bottom: 20px; }
           .pa-toggle button { padding: 10px 18px; font-size: 10px; }
-          .pa-left { padding: 28px 20px; gap: 28px; }
-          .pa-right { padding: 28px 20px; }
+          .pa-left { padding: 22px 18px; gap: 20px; }
+          .pa-right { padding: 22px 18px; }
+          .pa-config-value { font-size: 22px; }
           .pa-prices { grid-template-columns: 1fr; }
-          .pa-price-block + .pa-price-block { padding-left: 0; border-left: none; margin-left: 0; border-top: 1px solid rgba(215,185,117,0.2); padding-top: 24px; }
-          .pa-trust { grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 32px; }
-          .pa-trust-item { padding: 22px 12px 20px; gap: 10px; }
-          .pa-trust-icon { width: 42px; height: 42px; }
-          .pa-lock-card { padding: 28px 20px 24px; }
-          .pa-lock-title { font-size: 19px; }
+          .pa-price-block { padding: 16px 0; }
+          .pa-price-block + .pa-price-block { padding-left: 0; border-left: none; margin-left: 0; border-top: 1px solid rgba(215,185,117,0.2); padding-top: 16px; }
+          .pa-saving-num { font-size: 40px; }
+          .pa-saving-pct { margin-top: 12px; padding: 10px 0; }
+          .pa-cta { padding: 15px 20px; }
+          .pa-trust { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 24px; }
+          .pa-trust-item { padding: 18px 12px 16px; gap: 8px; }
+          .pa-trust-icon { width: 40px; height: 40px; }
+          .pa-lock-card { padding: 24px 18px 20px; }
+          .pa-lock-title { font-size: 18px; margin: 8px 0 16px; }
         }
       `}</style>
 
@@ -282,7 +283,7 @@ export default function PriceAdvantage() {
                   </div>
                 </div>
 
-                <button className="pa-cta" onClick={openModal}>
+                <button className="pa-cta" onClick={() => openModal("EOI Price Advantage")}>
                   <span>Request EOI Details</span>
                   <ArrowRight size={18} strokeWidth={2} />
                 </button>
@@ -299,18 +300,8 @@ export default function PriceAdvantage() {
                   <span className="pa-lock-eyebrow">Exclusive · EOI Pricing</span>
                   <h3 className="pa-lock-title">Complete the form to view your advantage</h3>
 
-                  <form className="pa-lock-form" onSubmit={unlock}>
-                    <input type="text" required placeholder="Full Name" autoComplete="name" />
-                    <div className="pa-lock-phone">
-                      <span className="pa-lock-cc">+91</span>
-                      <input
-                        type="tel" required placeholder="Phone Number" inputMode="numeric" maxLength={10} autoComplete="tel"
-                        onInput={(e) => { e.currentTarget.value = e.currentTarget.value.replace(/\D/g, ""); }}
-                      />
-                    </div>
-                    <input type="email" placeholder="Email (optional)" autoComplete="email" />
-                    <button type="submit" className="pa-lock-btn">Submit</button>
-                  </form>
+                  <LeadForm theme="dark" showThanks={false} onSubmit={() => setUnlocked(true)} />
+
                   <p className="pa-lock-note">100% refundable EOI · We never share your details</p>
                 </div>
               </div>

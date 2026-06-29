@@ -104,7 +104,7 @@ export default function EoiProcess() {
             </p>
 
             <button
-              onClick={openModal}
+              onClick={() => openModal("The EOI Process")}
               className="group inline-flex items-center gap-2.5 rounded-full bg-white py-1.5 pl-2 pr-6 font-sans text-sm font-semibold text-luxury-green-dark transition-transform duration-300 hover:-translate-y-0.5 border-0 cursor-pointer"
             >
               <span

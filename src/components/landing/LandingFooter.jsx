@@ -32,13 +32,13 @@ export default function LandingFooter() {
             <div className="flex items-center gap-4">
               <img
                 src={logoRealty}
-                alt="Binary Realty"
+                alt="Binary Ventures"
                 className="h-11 w-auto"
               />
               <span className="w-px h-9 bg-luxury-gold/25" />
               <img
                 src={logoCodename}
-                alt="Project4 — Codename Project 4"
+                alt="Codename Project 4"
                 className="h-12 w-auto"
               />
             </div>

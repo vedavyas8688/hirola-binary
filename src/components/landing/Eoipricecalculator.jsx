@@ -403,7 +403,7 @@ export default function EOIPriceCalculator() {
         </div>
 
         <div className="eoi-cta-wrap">
-          <button className="eoi-cta" onClick={openModal}>Get EOI Pre-Booking Offer</button>
+          <button className="eoi-cta" onClick={() => openModal("EOI Price Calculator")}>Get EOI Pre-Booking Offer</button>
         </div>
       </div>
     </>

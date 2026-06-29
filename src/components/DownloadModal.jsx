@@ -21,7 +21,7 @@ export default function DownloadModal({ isOpen, onClose }) {
               Download Brochure
             </h2>
             <p className="font-sans text-xs text-white/50 mt-0.5">
-              Project 4 by Binary Ventures
+              Codename Project 4 by Binary Ventures
             </p>
           </div>
           <button

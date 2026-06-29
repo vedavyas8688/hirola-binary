@@ -10,7 +10,7 @@ const FEATURES = [
     body: "Only 6 ultra-luxury residences per floor with no common walls. East & North facing options, large balconies, cross ventilation and maximum natural light — Vaastu-compliant homes built for discerning families.",
     cta: "Explore the Configurations",
     image:landingimage2,
-     imageAlt: " Project4 ultra-luxury apartment interior",
+     imageAlt: "Codename Project 4 ultra-luxury apartment interior",
     imageRight: true,
   },
   {
@@ -19,7 +19,7 @@ const FEATURES = [
     body: "An 8,000+ sq.ft grand clubhouse, sky cinema terrace, BBQ lawn, yoga court, star-gazing deck, pool lounge, toddler zones, senior park, butterfly garden, amphitheatre, skating rink, cricket nets and more — every inch designed for extraordinary living.",
     cta: "View All Amenities",
     image:landingimage1,
-    imageAlt: " Project4 premium amenities and clubhouse",
+    imageAlt: "Codename Project 4 premium amenities and clubhouse",
     imageRight: false,
   },
 ];
@@ -139,7 +139,7 @@ export default function KeyFeatures() {
         </div>
 
         <div className="kf-rows" style={{ maxWidth: "1440px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "56px" }}>
-          {FEATURES.map((f) => <FeatureRow key={f.title} {...f} onCta={openModal} />)}
+          {FEATURES.map((f) => <FeatureRow key={f.title} {...f} onCta={() => openModal("Key Features")} />)}
         </div>
       </section>
     </>

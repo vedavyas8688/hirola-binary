@@ -95,7 +95,7 @@ export default function FloatingActions() {
           className="fa-btn fa-call fa-icon" aria-label="Call us">
           <Phone size={19} strokeWidth={1.8} />
         </a>
-        <button onClick={openModal} className="fa-btn fa-enq" aria-label="Enquire now">
+        <button onClick={() => openModal("Enquire Now")} className="fa-btn fa-enq" aria-label="Enquire now">
           Enquire Now
         </button>
       </div>
@@ -106,7 +106,7 @@ export default function FloatingActions() {
           className="fa-mobile-icon fa-wa" aria-label="Chat on WhatsApp">
           <FaWhatsapp size={22} color="#fff" />
         </a>
-        <button onClick={openModal} className="fa-mobile-enq" aria-label="Enquire now">
+        <button onClick={() => openModal("Enquire Now")} className="fa-mobile-enq" aria-label="Enquire now">
           Enquire Now
         </button>
         <a href={lpConfig.phoneHref}

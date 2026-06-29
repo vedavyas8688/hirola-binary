@@ -1,4 +1,4 @@
- import { useState } from "react";
+import { useState } from "react";
 import { Phone, Menu, X } from "lucide-react";
 import { lpNav, lpConfig } from "../../data/landingData";
 import { useModal } from "./Modalcontext";
@@ -28,7 +28,7 @@ export default function LandingNavbar() {
 
           {/* Logo left */}
           <div className="flex-shrink-0 mr-10 md:mr-12">
-            <img src={logo1} alt="Binary Realty" className="h-10 md:h-[52px] w-auto" />
+            <img src={logo1} alt="Binary Ventures" className="h-10 md:h-[52px] w-auto" />
           </div>
 
           {/* Nav links — desktop only */}
@@ -55,7 +55,7 @@ export default function LandingNavbar() {
 
           {/* Enquire Now — desktop (opens modal) */}
           <button
-            onClick={openModal}
+            onClick={() => openModal("Enquire Now")}
             className="hidden md:flex items-center px-6 h-[38px] bg-luxury-gold text-luxury-green-dark text-[10px] font-sans font-semibold uppercase tracking-[0.2em] no-underline flex-shrink-0 mr-6 hover:bg-bright-gold transition-colors duration-200 border-0 cursor-pointer"
           >
             Enquire Now
@@ -64,7 +64,7 @@ export default function LandingNavbar() {
           {/* Codename badge right — desktop */}
           <div className="hidden md:flex flex-col items-center justify-center h-[68px] px-5 relative flex-shrink-0">
             <span className="absolute left-0 top-3 bottom-3 w-px bg-luxury-gold/30" />
-            <img src={logo2} alt=" Project4 Codename Project 4" className="h-20 w-auto" />
+            <img src={logo2} alt="Codename Project 4" className="h-20 w-auto" />
           </div>
 
           {/* ── Mobile right ── */}
@@ -111,7 +111,7 @@ export default function LandingNavbar() {
       >
         <div className="flex items-center justify-between px-5 h-[64px] border-b border-luxury-gold/15">
           <div className="flex items-center gap-3">
-            <img src={logo1} alt="Binary Realty" className="h-8 w-auto" />
+            <img src={logo1} alt="Binary Ventures" className="h-8 w-auto" />
             <span className="w-px h-6 bg-luxury-gold/25" />
             <img src={logo2} alt="Codename Project 4" className="h-9 w-auto" />
           </div>
@@ -144,7 +144,7 @@ export default function LandingNavbar() {
             </a>
           ))}
           <button
-            onClick={() => { setOpen(false); openModal(); }}
+            onClick={() => { setOpen(false); openModal("Enquire Now"); }}
             className="mt-5 flex items-center justify-center bg-luxury-gold text-luxury-green-dark py-3.5 text-[10px] font-sans font-semibold uppercase tracking-[0.2em] no-underline border-0 cursor-pointer"
           >
             Enquire Now

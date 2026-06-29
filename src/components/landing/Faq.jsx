@@ -69,7 +69,7 @@ export default function Faq() {
       {/* footer link → opens modal */}
       <div className="text-center mt-10 md:mt-12">
         <button
-          onClick={openModal}
+          onClick={() => openModal("Have More Questions?")}
           className="lp-underline inline-block bg-transparent border-0 cursor-pointer text-luxury-green-dark text-[13px] tracking-[0.05em] font-semibold uppercase pb-1 hover:text-luxury-gold transition-colors"
         >
           Have more questions? Talk to us

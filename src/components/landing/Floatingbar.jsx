@@ -35,7 +35,7 @@ export default function Floatingbar() {
           <Phone size={17} strokeWidth={1.8} />
         </a>
         <button
-          onClick={openModal}
+          onClick={() => openModal("Enquire Now")}
           style={{ border: "none", cursor: "pointer", padding: "0 18px", height: "40px", borderRadius: "8px", background: "linear-gradient(135deg,#E8BA30,#D7B975)", color: "#062319", fontSize: "11px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase" }}
         >
           Enquire

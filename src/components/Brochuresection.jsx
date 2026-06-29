@@ -15,7 +15,7 @@ export default function BrochureSection() {
           <p className="font-sans text-sm sm:text-base md:text-lg text-cream-text/80 leading-relaxed mb-7 md:mb-9 lg:mb-11 max-w-3xl mx-auto">
             Discover every detail of your dream home. Download our comprehensive
             brochure to explore floor plans, amenities, location advantages, and
-            everything that makes Project 4 extraordinary.
+            everything that makes Codename Project 4 extraordinary.
           </p>
 
           <a

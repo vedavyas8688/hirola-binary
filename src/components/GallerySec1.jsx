@@ -39,7 +39,7 @@ const GallerySec1 = () => {
                 A multi-level retreat of recreation and lifestyle — from
                 terrace barbecues and a games lounge to the gym's energy,
                 indoor courts and yoga decks. Our clubhouse is the true pulse
-                of Project 4.
+                of Codename Project 4.
               </p>
             </div>
           </Reveal>

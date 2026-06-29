@@ -6,7 +6,7 @@ import { ModalProvider } from "./Modalcontext";
 const sections = [
   {
     title: "1. Acceptance of Terms",
-    body: `By accessing or using this website, you agree to be bound by these Terms of Use. If you do not agree with any part of these terms, please discontinue use of this website. These terms apply to all visitors, prospective buyers, and users of the Binary Ventures website regarding Project 4 on Sarjapur Road, Bengaluru.`,
+    body: `By accessing or using this website, you agree to be bound by these Terms of Use. If you do not agree with any part of these terms, please discontinue use of this website. These terms apply to all visitors, prospective buyers, and users of the Binary Ventures website regarding Codename Project 4 on Sarjapur Road, Bengaluru.`,
   },
   {
     title: "2. Informational Purpose Only",
@@ -34,7 +34,7 @@ const sections = [
   },
   {
     title: "8. RERA Compliance",
-    body: `Project 4 is registered under the Real Estate (Regulation and Development) Act, and all transactions are subject to applicable RERA guidelines. Buyers are encouraged to verify the RERA registration number and project details independently before making any purchase decision.`,
+    body: `Codename Project 4 is registered under the Real Estate (Regulation and Development) Act, and all transactions are subject to applicable RERA guidelines. Buyers are encouraged to verify the RERA registration number and project details independently before making any purchase decision.`,
   },
   {
     title: "9. Limitation of Liability",

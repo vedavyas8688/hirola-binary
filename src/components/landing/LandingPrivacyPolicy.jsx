@@ -6,7 +6,7 @@ import { ModalProvider } from "./Modalcontext";
 const sections = [
   {
     title: "1. Introduction",
-    body: `Binary Ventures ("we", "us", "our") is committed to protecting the privacy of visitors to our website and prospective customers of Project 4 on Sarjapur Road, Bengaluru. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or interact with us regarding our residential project.`,
+    body: `Binary Ventures ("we", "us", "our") is committed to protecting the privacy of visitors to our website and prospective customers of Codename Project 4 on Sarjapur Road, Bengaluru. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or interact with us regarding our residential project.`,
   },
   {
     title: "2. Information We Collect",
@@ -14,7 +14,7 @@ const sections = [
   },
   {
     title: "3. How We Use Your Information",
-    body: `We use the information collected to respond to your enquiries, share project details, floor plans, pricing, and brochures, schedule site visits or callbacks, send updates about Project 4 (with your consent where required), and improve our website and services. We do not use your personal information for any purpose beyond what is reasonably necessary to serve you as a prospective or existing customer.`,
+    body: `We use the information collected to respond to your enquiries, share project details, floor plans, pricing, and brochures, schedule site visits or callbacks, send updates about Codename Project 4 (with your consent where required), and improve our website and services. We do not use your personal information for any purpose beyond what is reasonably necessary to serve you as a prospective or existing customer.`,
   },
   {
     title: "4. Sharing of Information",

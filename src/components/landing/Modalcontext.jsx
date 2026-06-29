@@ -4,9 +4,17 @@ const ModalContext = createContext(null);
 
 export function ModalProvider({ children }) {
   const [open, setOpen] = useState(false);
+  const [title, setTitle] = useState("Enquire Now");
+
+  // openModal("Section Title") — the title shows at the top of the form.
+  const openModal = (sectionTitle) => {
+    if (typeof sectionTitle === "string") setTitle(sectionTitle);
+    setOpen(true);
+  };
+
   return (
     <ModalContext.Provider
-      value={{ open, openModal: () => setOpen(true), closeModal: () => setOpen(false) }}
+      value={{ open, title, openModal, closeModal: () => setOpen(false) }}
     >
       {children}
     </ModalContext.Provider>

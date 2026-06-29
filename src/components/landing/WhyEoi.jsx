@@ -241,7 +241,7 @@ export default function EOISection() {
               <div className="pt-2">
                 <button
                   className="eoi-cta-btn inline-flex items-center gap-3 rounded-lg border-none cursor-pointer w-full sm:w-auto justify-center sm:justify-start"
-                  onClick={openModal}
+                  onClick={() => openModal("Get EOI Pre-Booking Offer")}
                   style={{
                     background: "#0B412F",
                     color: "#FAF6EB",
