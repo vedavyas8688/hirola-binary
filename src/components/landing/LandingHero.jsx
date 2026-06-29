@@ -1,5 +1,6 @@
 import { lpHero, lpConfig } from "../../data/landingData";
 import { useModal } from "./Modalcontext";
+import { MapPin } from "lucide-react";
 import landingbanner from "../../assets/images/landingbanner.jpg"
 
 const STYLES = `
@@ -98,7 +99,7 @@ export default function LandingHero() {
             fontWeight: 700, letterSpacing: "0.04em", textTransform: "uppercase",
             color: "var(--clr-gold-bright)", lineHeight: 1.0, margin: "0 0 10px",
           }}>
-             Project4
+             Codename Project 4
           </h1>
 
           <p className="lh-2" style={{
@@ -106,7 +107,7 @@ export default function LandingHero() {
             letterSpacing: "0.3em", textTransform: "uppercase",
             color: "var(--clr-cream-text)", opacity: 0.5, margin: 0,
           }}>
-             Binary Realty
+             Binary Ventures
           </p>
 
           <div className="lh-rule lh-3" />
@@ -146,12 +147,12 @@ export default function LandingHero() {
             display: "flex", alignItems: "center", gap: "9px",
             marginBottom: "28px", marginTop: "14px",
           }}>
-            <svg width="11" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                stroke="var(--clr-gold-bright)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                stroke="var(--clr-gold-bright)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <MapPin
+              size={14}
+              strokeWidth={2}
+              style={{ color: "var(--clr-gold-bright)", flexShrink: 0 }}
+              aria-hidden="true"
+            />
             <span style={{
               fontFamily: "var(--font-sans)", fontSize: "11px", fontWeight: 300,
               color: "var(--clr-cream-text)", opacity: 0.62, letterSpacing: "0.06em",
@@ -172,7 +173,7 @@ export default function LandingHero() {
         <div className="lh-right" style={{ flex: 1, position: "relative", overflow: "hidden" }}>
           <img
             src={landingbanner}
-            alt="Project4 — Sarjapura Road, Bengaluru"
+            alt="Codename Project 4 — Chambenahalli, Sarjapur Road, Bengaluru"
             style={{
               position: "absolute", inset: 0, width: "100%", height: "100%",
               objectFit: "cover", objectPosition: "center",

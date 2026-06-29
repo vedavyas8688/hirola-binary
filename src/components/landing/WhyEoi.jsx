@@ -1,23 +1,28 @@
 import { useEffect, useRef } from "react";
-import { Tag, Building2, ShieldCheck, ArrowRight } from "lucide-react";
+import { Wallet, Home, Star, Trees, ArrowRight } from "lucide-react";
 import { useModal } from "./Modalcontext";
 import landingimage4 from "../../assets/images/landingimage4.jpg"
 
 const BENEFITS = [
   {
-    Icon: Tag,
-    title: "Special Launch Pricing",
-    desc: "Exclusive offer for the first 50 units at ₹8,499/sq.ft. Lock in early-bird rates that appreciate significantly upon public project launch.",
+    Icon: Wallet,
+    title: "Pre-Launch Price",
+    desc: "Lock in exclusive pre-launch pricing at ₹8,499/sq.ft before public-launch rates apply.",
   },
   {
-    Icon: Building2,
-    title: "Preferred Unit Selection",
-    desc: "Get the first pick of premium corner units, high-floor apartments with panoramic views, and coveted East & North facing configurations.",
+    Icon: Home,
+    title: "Priority Unit Selection",
+    desc: "Get the first pick of premium corner units, high-floor apartments and coveted East & North facing configurations.",
   },
   {
-    Icon: ShieldCheck,
-    title: "Refundable EOI",
-    desc: "100% fully refundable deposit ensuring a completely risk-free commitment. Secure your spot at Project4 without hesitation.",
+    Icon: Star,
+    title: "First 50 Homes",
+    desc: "A special launch advantage reserved exclusively for the first 50 homebuyers.",
+  },
+  {
+    Icon: Trees,
+    title: "Low Density Living",
+    desc: "Only 6 homes per floor with 80% open space — privacy, light and space by design.",
   },
 ];
 
@@ -93,7 +98,7 @@ export default function EOISection() {
                 <div className="aspect-square w-full rounded-full overflow-hidden shadow-2xl">
                   <img
                     src={IMAGE_URL}
-                    alt="Aerial view of Project4 — 80% open landscape"
+                    alt="Aerial view of Codename Project 4 — 80% open landscape"
                     className="w-full h-full object-cover rounded-full"
                   />
                 </div>
@@ -172,7 +177,7 @@ export default function EOISection() {
                   }}
                 >
                   The EOI window offers discerning investors a unique opportunity
-                  to secure their future at Project4 before public launch — at
+                  to secure their future at Codename Project 4 before public launch — at
                   ₹8,499/sq.ft with a 100% refundable deposit.
                 </p>
               </div>
