@@ -119,7 +119,7 @@ export default function EOISection() {
                   <span
                     className="leading-none mb-1 block"
                     style={{
-                      fontFamily: "'Montserrat', sans-serif",
+                      fontFamily: "var(--font-base)",
                       fontSize: "clamp(36px, 3.8vw, 50px)",
                       fontWeight: 700,
                       color: "#FAF6EB",
@@ -130,7 +130,7 @@ export default function EOISection() {
                   <span
                     className="text-center block"
                     style={{
-                      fontFamily: "'Montserrat', sans-serif",
+                      fontFamily: "var(--font-base)",
                       fontSize: "9px",
                       fontWeight: 600,
                       letterSpacing: "0.22em",
@@ -155,7 +155,7 @@ export default function EOISection() {
                 <h2
                   className="m-0 leading-tight"
                   style={{
-                    fontFamily: "'Playfair Display', serif",
+                    fontFamily: "var(--font-serif)",
                     fontSize: "clamp(30px, 3.2vw, 50px)",
                     fontWeight: 600,
                     color: "#082B1F",
@@ -171,7 +171,7 @@ export default function EOISection() {
                 <p
                   className="m-0 leading-relaxed max-w-[480px]"
                   style={{
-                    fontFamily: "'Poppins', sans-serif",
+                    fontFamily: "var(--font-sans)",
                     fontSize: "15px",
                     color: "#478570",
                   }}
@@ -214,7 +214,7 @@ export default function EOISection() {
                       <h3
                         className="m-0 leading-snug"
                         style={{
-                          fontFamily: "'Playfair Display', serif",
+                          fontFamily: "var(--font-serif)",
                           fontSize: "18px",
                           fontWeight: 500,
                           color: "#082B1F",
@@ -225,7 +225,7 @@ export default function EOISection() {
                       <p
                         className="m-0 leading-relaxed"
                         style={{
-                          fontFamily: "'Poppins', sans-serif",
+                          fontFamily: "var(--font-sans)",
                           fontSize: "13.5px",
                           color: "#478570",
                         }}
@@ -241,12 +241,12 @@ export default function EOISection() {
               <div className="pt-2">
                 <button
                   className="eoi-cta-btn inline-flex items-center gap-3 rounded-lg border-none cursor-pointer w-full sm:w-auto justify-center sm:justify-start"
-                  onClick={() => openModal("Get EOI Pre-Booking Offer")}
+                  onClick={() => openModal("Why Enter at the EOI Stage?")}
                   style={{
                     background: "#0B412F",
                     color: "#FAF6EB",
                     padding: "18px 40px",
-                    fontFamily: "'Montserrat', sans-serif",
+                    fontFamily: "var(--font-base)",
                     fontSize: "11px",
                     fontWeight: 600,
                     letterSpacing: "0.18em",

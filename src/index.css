@@ -1,3 +1,5 @@
+/* ── Fonts — single source for the whole app (Playfair Display, Poppins, Montserrat) ── */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 /* ============================================================

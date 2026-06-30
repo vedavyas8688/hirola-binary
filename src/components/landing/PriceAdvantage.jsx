@@ -4,8 +4,8 @@ import { useModal } from "./Modalcontext";
 import LeadForm from "./LeadForm";
 
 const CONFIGS = {
-  "2bhk": { label: "2 BHK Ultra Luxury", size: 1117, eoiRate: 8499, marketRate: 9500, tag: "Best Value" },
-  "3bhk": { label: "3 BHK Ultra Luxury", size: 1624, eoiRate: 8499, marketRate: 9500, tag: "Most Popular" },
+  "2bhk": { label: "2 BHK Ultra Luxury", size: 1117, eoiRate: 11000, marketLow: 11000, marketHigh: 13000, tag: "Best Value" },
+  "3bhk": { label: "3 BHK Ultra Luxury", size: 1624, eoiRate: 11000, marketLow: 11000, marketHigh: 13000, tag: "Most Popular" },
 };
 
 const TRUST = [
@@ -44,22 +44,23 @@ export default function PriceAdvantage() {
   const cfg = CONFIGS[active];
 
   const eoiTotal = cfg.eoiRate * cfg.size;
-  const marketTotal = cfg.marketRate * cfg.size;
-  const saving = marketTotal - eoiTotal;
-  const savingPct = Math.round((saving / marketTotal) * 100);
+  const marketLowTotal = cfg.marketLow * cfg.size;
+  const marketHighTotal = cfg.marketHigh * cfg.size;
+  const saving = marketHighTotal - eoiTotal;
+  const savingPct = Math.round((saving / marketHighTotal) * 100);
 
   return (
     <>
       <style>{`
-        .pa-section { background: #FAF7F0; padding: 100px 80px; font-family: 'Montserrat', sans-serif; }
+        .pa-section { background: #FAF7F0; padding: 100px 80px; font-family: var(--font-base); }
         .pa-inner { max-width: 1280px; margin: 0 auto; }
-        .pa-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: #D7B975; display: block; margin-bottom: 12px; font-family: 'Montserrat', sans-serif; }
-        .pa-heading { font-family: 'Playfair Display', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 600; line-height: 1.15; color: #082B1F; margin: 0 0 16px; }
+        .pa-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: #D7B975; display: block; margin-bottom: 12px; font-family: var(--font-base); }
+        .pa-heading { font-family: var(--font-serif); font-size: clamp(32px, 4vw, 52px); font-weight: 600; line-height: 1.15; color: #082B1F; margin: 0 0 16px; }
         .pa-heading em { color: #D7B975; font-style: italic; }
         .pa-sub { font-size: 16px; line-height: 1.7; color: #478570; max-width: 600px; margin: 0 auto 60px; }
 
         .pa-toggle { display: inline-flex; border: 1px solid rgba(119,90,25,0.2); border-radius: 6px; overflow: hidden; margin-bottom: 48px; }
-        .pa-toggle button { padding: 12px 32px; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; border: none; cursor: pointer; transition: background 0.25s, color 0.25s; }
+        .pa-toggle button { padding: 12px 32px; font-family: var(--font-base); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; border: none; cursor: pointer; transition: background 0.25s, color 0.25s; }
         .pa-toggle button.active { background: #0B412F; color: #FAF6EB; }
         .pa-toggle button:not(.active) { background: transparent; color: #478570; }
         .pa-toggle button:not(.active):hover { background: rgba(11,65,47,0.06); }
@@ -86,13 +87,13 @@ export default function PriceAdvantage() {
           display: flex; align-items: center; justify-content: center; color: #E8BA30;
         }
         .pa-lock-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #E8BA30; display: block; }
-        .pa-lock-title { font-family: 'Playfair Display', serif; font-size: 23px; font-weight: 600; color: #D7B975; margin: 9px 0 20px; line-height: 1.2; }
+        .pa-lock-title { font-family: var(--font-serif); font-size: 23px; font-weight: 600; color: #D7B975; margin: 9px 0 20px; line-height: 1.2; }
 
         .pa-lock-form { display: flex; flex-direction: column; gap: 11px; }
         .pa-lock-form input {
           width: 100%; height: 48px; border-radius: 11px; padding: 0 16px;
           background: rgba(255,255,255,0.06); border: 1px solid rgba(215,185,117,0.28);
-          color: #FAF6EB; font-size: 14px; font-family: 'Montserrat', sans-serif; outline: none;
+          color: #FAF6EB; font-size: 14px; font-family: var(--font-base); outline: none;
           transition: border-color .2s, background .2s; box-sizing: border-box;
         }
         .pa-lock-form input::placeholder { color: rgba(250,246,235,0.45); }
@@ -108,7 +109,7 @@ export default function PriceAdvantage() {
           margin-top: 5px; width: 100%; height: 50px; border: none; cursor: pointer; border-radius: 11px;
           background: linear-gradient(135deg, #E8BA30 0%, #D7B975 100%); color: #062319;
           font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
-          font-family: 'Montserrat', sans-serif; transition: opacity .2s, transform .2s;
+          font-family: var(--font-base); transition: opacity .2s, transform .2s;
         }
         .pa-lock-btn:hover { opacity: .92; transform: translateY(-1px); }
         .pa-lock-note { font-size: 10.5px; color: rgba(215,185,117,0.6); margin: 14px 0 0; letter-spacing: 0.02em; }
@@ -116,14 +117,14 @@ export default function PriceAdvantage() {
         .pa-card { display: grid; grid-template-columns: 1fr 420px; border: 1px solid rgba(119,90,25,0.12); border-radius: 4px; overflow: hidden; background: #fff; box-shadow: 0 40px 80px rgba(8,43,31,0.06); }
         .pa-left { padding: 56px 60px; display: flex; flex-direction: column; gap: 40px; }
         .pa-config-label { font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: #D7B975; margin-bottom: 6px; }
-        .pa-config-value { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 600; color: #082B1F; }
+        .pa-config-value { font-family: var(--font-serif); font-size: 26px; font-weight: 600; color: #082B1F; }
         .pa-config-size { font-size: 13px; color: #478570; margin-top: 2px; font-weight: 500; }
 
         .pa-prices { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
         .pa-price-block { padding: 28px 0; }
         .pa-price-block + .pa-price-block { padding-left: 40px; border-left: 1px solid rgba(215,185,117,0.2); margin-left: 40px; }
         .pa-price-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #478570; margin-bottom: 10px; }
-        .pa-price-num { font-family: 'Montserrat', sans-serif; font-size: clamp(32px, 3.5vw, 44px); font-weight: 700; color: #082B1F; line-height: 1; }
+        .pa-price-num { font-family: var(--font-base); font-size: clamp(32px, 3.5vw, 44px); font-weight: 700; color: #082B1F; line-height: 1; }
         .pa-price-num.market { color: #B0BAB7; text-decoration: line-through; text-decoration-color: rgba(119,90,25,0.3); font-size: clamp(24px, 2.5vw, 32px); }
         .pa-price-unit { font-size: 12px; color: #478570; margin-top: 4px; font-weight: 500; }
         .pa-price-total { font-size: 12px; color: #D7B975; margin-top: 6px; font-weight: 600; letter-spacing: 0.04em; }
@@ -135,11 +136,11 @@ export default function PriceAdvantage() {
         .pa-right::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 140px; height: 140px; border-radius: 50%; border: 1px solid rgba(215,185,117,0.06); pointer-events: none; }
         .pa-badge { display: inline-block; padding: 5px 14px; border: 1px solid rgba(215,185,117,0.3); font-size: 9px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: #D7B975; margin-bottom: 28px; position: relative; z-index: 1; }
         .pa-saving-label { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(215,185,117,0.6); margin-bottom: 10px; position: relative; z-index: 1; }
-        .pa-saving-num { font-family: 'Montserrat', sans-serif; font-size: clamp(40px, 5vw, 62px); font-weight: 700; color: #FAF6EB; line-height: 1; position: relative; z-index: 1; transition: opacity 0.3s; }
+        .pa-saving-num { font-family: var(--font-base); font-size: clamp(40px, 5vw, 62px); font-weight: 700; color: #FAF6EB; line-height: 1; position: relative; z-index: 1; transition: opacity 0.3s; }
         .pa-saving-pct { margin-top: 16px; display: flex; align-items: center; gap: 10px; padding: 12px 0; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); position: relative; z-index: 1; }
-        .pa-saving-pct-val { font-family: 'Montserrat', sans-serif; font-size: 22px; font-weight: 700; color: #D7B975; }
+        .pa-saving-pct-val { font-family: var(--font-base); font-size: 22px; font-weight: 700; color: #D7B975; }
         .pa-saving-pct-label { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(215,185,117,0.6); }
-        .pa-cta { width: 100%; background: #D7B975; color: #082B1F; border: none; cursor: pointer; padding: 18px 24px; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; display: flex; align-items: center; justify-content: space-between; transition: background 0.3s, color 0.3s; position: relative; z-index: 1; border-radius: 2px; }
+        .pa-cta { width: 100%; background: #D7B975; color: #082B1F; border: none; cursor: pointer; padding: 18px 24px; font-family: var(--font-base); font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; display: flex; align-items: center; justify-content: space-between; transition: background 0.3s, color 0.3s; position: relative; z-index: 1; border-radius: 2px; }
         .pa-cta:hover { background: #E8BA30; }
 
         /* ── Premium trust cards ── */
@@ -242,15 +243,15 @@ export default function PriceAdvantage() {
                     <div className="pa-underline" />
                   </div>
                   <div className="pa-price-block">
-                    <div className="pa-price-tag">Current Market Avg.</div>
-                    <div className="pa-price-num market">₹{cfg.marketRate.toLocaleString("en-IN")}</div>
+                    <div className="pa-price-tag">Current Market Range</div>
+                    <div className="pa-price-num market">₹{cfg.marketLow.toLocaleString("en-IN")} – ₹{cfg.marketHigh.toLocaleString("en-IN")}</div>
                     <div className="pa-price-unit">/sq.ft</div>
-                    <div className="pa-price-total" style={{ color: "#B0BAB7" }}>Total: {fmt(marketTotal)}</div>
+                    <div className="pa-price-total" style={{ color: "#B0BAB7" }}>Total: {fmt(marketLowTotal)} – {fmt(marketHighTotal)}</div>
                   </div>
                 </div>
 
                 <div className="pa-disclaimer">
-                  * Prices exclusive of statutory charges, GST and floor-rise premiums. Market rate is an indicative average for the Sarjapura Road micro-market.
+                  * Prices exclusive of statutory charges, GST and floor-rise premiums. Market range is indicative for the Sarjapura Road micro-market.
                 </div>
               </div>
 
@@ -265,7 +266,7 @@ export default function PriceAdvantage() {
                       <TrendingUp size={18} strokeWidth={2} color="#D7B975" />
                     </div>
                     <div>
-                      <div className="pa-saving-pct-val">{savingPct}% Below Market</div>
+                      <div className="pa-saving-pct-val">Up to {savingPct}% Below Market</div>
                       <div className="pa-saving-pct-label">Immediate Price Advantage</div>
                     </div>
                   </div>
@@ -274,7 +275,7 @@ export default function PriceAdvantage() {
                     <div style={{ fontSize: "10px", fontWeight: 600, letterSpacing: "0.16em", textTransform: "uppercase", color: "rgba(215,185,117,0.5)", marginBottom: "8px" }}>
                       EOI Deposit
                     </div>
-                    <div style={{ fontFamily: "'Playfair Display', serif", fontSize: "22px", fontWeight: 600, color: "#FAF6EB" }}>
+                    <div style={{ fontFamily: "var(--font-serif)", fontSize: "22px", fontWeight: 600, color: "#FAF6EB" }}>
                       Fully Refundable
                     </div>
                     <div style={{ fontSize: "11px", color: "rgba(215,185,117,0.5)", marginTop: "4px" }}>

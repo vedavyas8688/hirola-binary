@@ -94,7 +94,7 @@ export default function LeadForm({
             <input
               name="email"
               type="email"
-              placeholder="Email (optional)"
+              placeholder="Email"
               autoComplete="email"
               className="lf-input"
             />
@@ -119,7 +119,7 @@ export default function LeadForm({
 }
 
 const STYLES = `
-  .lf { font-family: var(--font-sans, 'Poppins', sans-serif); }
+  .lf { font-family: var(--font-sans); }
 
   .lf-eyebrow {
     display: block; margin: 0 0 12px;
@@ -127,7 +127,7 @@ const STYLES = `
     text-transform: uppercase;
   }
   .lf-title {
-    font-family: var(--font-serif, 'Playfair Display', serif);
+    font-family: var(--font-serif);
     font-size: 26px; font-weight: 600; line-height: 1.18; margin: 0 0 10px;
     letter-spacing: 0.005em;
   }
@@ -177,7 +177,7 @@ const STYLES = `
     display: flex; align-items: center; justify-content: center;
   }
   .lf-thanks-title {
-    font-family: var(--font-serif, 'Playfair Display', serif);
+    font-family: var(--font-serif);
     font-size: 26px; font-weight: 600; margin: 0;
   }
   .lf-thanks-sub { font-size: 13px; margin: 0; }

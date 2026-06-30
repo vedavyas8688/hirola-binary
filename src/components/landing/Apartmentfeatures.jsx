@@ -1,4 +1,3 @@
-
 import { Wind, Trees, LayoutGrid, CheckCircle2 } from "lucide-react";
 
 const FEATURES = [
@@ -38,14 +37,13 @@ export default function ApartmentFeatures() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600&display=swap');
 
         .af * { box-sizing: border-box; }
 
         .af {
           background: #0B412F;
           padding: 96px 80px;
-          font-family: 'Poppins', sans-serif;
+          font-family: var(--font-sans);
           position: relative;
           overflow: hidden;
         }
@@ -94,7 +92,7 @@ export default function ApartmentFeatures() {
           color: #D7B975;
         }
         .af-heading {
-          font-family: 'Playfair Display', serif;
+          font-family: var(--font-serif);
           font-size: clamp(34px, 4vw, 52px);
           font-weight: 600; line-height: 1.18;
           color: #FAF6EB; margin: 0 0 18px;
@@ -180,7 +178,7 @@ export default function ApartmentFeatures() {
 
         /* Title */
         .af-card-title {
-          font-family: 'Playfair Display', serif;
+          font-family: var(--font-serif);
           font-size: 24px; font-weight: 600;
           color: #FAF6EB; line-height: 1.2;
           margin: 0 0 16px;
@@ -217,7 +215,7 @@ export default function ApartmentFeatures() {
           letter-spacing: 0.04em;
           color: rgba(215,185,117,0.85);
           text-transform: uppercase;
-          font-family: 'Poppins', sans-serif;
+          font-family: var(--font-sans);
         }
 
         /* Bottom rule */

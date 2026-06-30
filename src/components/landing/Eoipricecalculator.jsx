@@ -125,14 +125,14 @@ function SavingsGauge({ targetPct, targetSavings }) {
         <span style={{
           fontSize: 9, letterSpacing: "0.14em",
           textTransform: "uppercase", color: "#478570",
-          marginBottom: 3, fontFamily: "'Poppins', sans-serif",
+          marginBottom: 3, fontFamily: "var(--font-sans)",
         }}>
           Savings
         </span>
         <span ref={savingsRef} style={{
           fontSize: 19, fontWeight: 700, lineHeight: 1,
           color: "#0B412F",
-          fontFamily: "'Poppins', sans-serif",
+          fontFamily: "var(--font-sans)",
         }}>
           ₹{targetSavings.toFixed(1)} L
         </span>
@@ -158,11 +158,10 @@ export default function EOIPriceCalculator() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap');
 
         .eoi * { box-sizing: border-box; }
         .eoi {
-          font-family: 'Poppins', sans-serif;
+          font-family: var(--font-sans);
           background: linear-gradient(145deg, #FAF7F0 0%, #F3EACE 100%);
           border: 1px solid #E0D8C7;
           border-radius: 28px;
@@ -172,7 +171,7 @@ export default function EOIPriceCalculator() {
         @media (max-width: 640px) { .eoi { padding: 28px 20px 24px; border-radius: 20px; } }
 
         .eoi-h {
-          font-family: 'Playfair Display', serif;
+          font-family: var(--font-serif);
           font-size: 30px; font-weight: 700;
           color: #082B1F; line-height: 1.25; margin: 0 0 10px;
         }
@@ -195,7 +194,7 @@ export default function EOIPriceCalculator() {
         .eoi-sel {
           width: 100%; padding: 13px 40px 13px 15px; border-radius: 12px;
           border: 1.5px solid #E0D8C7; background: #fff;
-          font-family: 'Poppins', sans-serif;
+          font-family: var(--font-sans);
           font-size: 14px; color: #082B1F;
           outline: none; cursor: pointer;
           appearance: none; -webkit-appearance: none;
@@ -224,7 +223,7 @@ export default function EOIPriceCalculator() {
         .eoi-card-eoi .eoi-card-lbl { color: rgba(215,185,117,0.65); }
         .eoi-card-mkt .eoi-card-lbl { color: #478570; }
         .eoi-card-val {
-          font-family: 'Poppins', sans-serif;
+          font-family: var(--font-sans);
           font-size: 28px; font-weight: 700; line-height: 1;
         }
         /* ── both card numbers green ── */
@@ -282,7 +281,7 @@ export default function EOIPriceCalculator() {
           display: block; margin-bottom: 10px;
         }
         .eoi-savings-val {
-          font-family: 'Poppins', sans-serif;
+          font-family: var(--font-sans);
           font-size: 36px; font-weight: 700;
           color: #D7B975; line-height: 1;
           letter-spacing: -0.01em;
@@ -314,7 +313,7 @@ export default function EOIPriceCalculator() {
         .eoi-cta {
           background: linear-gradient(135deg, #E8BA30, #D7B975);
           color: #082B1F;
-          font-family: 'Poppins', sans-serif;
+          font-family: var(--font-sans);
           font-size: 12px; font-weight: 700; letter-spacing: 0.16em;
           text-transform: uppercase; border: none; cursor: pointer;
           padding: 17px 52px; border-radius: 12px;

@@ -30,7 +30,7 @@ export default function FloatingActions() {
           display: flex; align-items: center; gap: 10px;
           height: 52px; padding: 0 20px;
           border-radius: 999px; border: none; cursor: pointer; text-decoration: none;
-          font-family: var(--font-sans, 'Poppins', sans-serif);
+          font-family: var(--font-sans);
           font-size: 12px; font-weight: 700;
           letter-spacing: 0.08em; text-transform: uppercase;
           box-shadow: 0 12px 30px rgba(0,0,0,0.22);
@@ -72,7 +72,7 @@ export default function FloatingActions() {
           border: none; cursor: pointer;
           background: var(--grad-gold, linear-gradient(135deg, #E8BA30, #D7B975));
           color: var(--clr-fg-green, #062319);
-          font-family: var(--font-sans, 'Poppins', sans-serif);
+          font-family: var(--font-sans);
           font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
           box-shadow: 0 4px 14px rgba(215,185,117,0.35);
           transition: opacity .2s, transform .15s;

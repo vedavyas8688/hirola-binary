@@ -66,7 +66,7 @@ export default function HeritageSection() {
         @media (max-width: 480px) { .heritage-header { margin-bottom: 48px; } }
 
         .heritage-heading {
-          font-family: "Playfair Display", serif;
+          font-family: var(--font-serif);
           font-size: clamp(30px, 4.4vw, 56px);
           font-weight: 700; line-height: 1.1; letter-spacing: -0.02em;
           color: #082B1F; max-width: 100%; margin: 0;
@@ -76,7 +76,7 @@ export default function HeritageSection() {
         .heritage-heading em { color: #D7B975; font-style: normal; }
 
         .heritage-subtext {
-          font-family: "Poppins", sans-serif;
+          font-family: var(--font-sans);
           font-size: clamp(15px, 2vw, 18px);
           line-height: 1.7; letter-spacing: 0.01em; font-weight: 400;
           color: #478570; max-width: 920px; margin: 24px auto 0;
@@ -108,12 +108,12 @@ export default function HeritageSection() {
         .heritage-card:hover .bottom-line { width: 100%; }
 
         .heritage-card-title {
-          font-family: "Playfair Display", serif;
+          font-family: var(--font-serif);
           font-size: clamp(22px, 3vw, 32px); line-height: 1.3; font-weight: 500;
           color: #082B1F; margin: 0 0 16px;
         }
         .heritage-card-desc {
-          font-family: "Montserrat", sans-serif; font-size: 12px; font-weight: 600;
+          font-family: var(--font-base); font-size: 12px; font-weight: 600;
           letter-spacing: 0.1em; text-transform: uppercase; color: #478570;
           line-height: 1.6; margin: 0;
         }
@@ -122,7 +122,7 @@ export default function HeritageSection() {
       <section id="heritage" className="heritage-section">
         <div className="heritage-header">
           <h2 className="heritage-heading">
-            The Legacy of <em>Project 4</em>
+            The Legacy of <em>Codename Project 4</em>
           </h2>
 
           <p className="heritage-subtext">

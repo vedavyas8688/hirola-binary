@@ -81,7 +81,7 @@ const STYLES = `
     padding: 40px 32px 28px;
     box-shadow: 0 40px 100px rgba(0,0,0,0.6);
     animation: bttPop .38s cubic-bezier(.22,.61,.36,1) both;
-    font-family: var(--font-sans, 'Poppins', sans-serif);
+    font-family: var(--font-sans);
   }
   .btt-modal-close {
     position: absolute; top: 16px; right: 16px;

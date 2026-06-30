@@ -86,7 +86,7 @@ export default function ContactSection() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Binary Ventures Project 4 Location"
+                title="Binary Ventures Codename Project 4 Location"
                 className="w-full"
                 style={{ border: 0 }}
               />
