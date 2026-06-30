@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { X, Phone } from "lucide-react";
 import { useModal } from "./Modalcontext";
-import LeadForm from "./LeadForm";
+import LeadForm from "./Leadform";
 import { lpConfig } from "../../data/landingData";
 
 /**

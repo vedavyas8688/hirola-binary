@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ShieldCheck, Star, MapPin, TrendingUp, Lock, ArrowRight } from "lucide-react";
 import { useModal } from "./Modalcontext";
-import LeadForm from "./LeadForm";
+import LeadForm from "./Leadform";
 
 const CONFIGS = {
   "2bhk": { label: "2 BHK Ultra Luxury", size: 1117, eoiRate: 11000, marketLow: 11000, marketHigh: 13000, tag: "Best Value" },
