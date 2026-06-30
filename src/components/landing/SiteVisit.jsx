@@ -1,6 +1,6 @@
 import { Phone, Clock, MapPin } from "lucide-react";
 import { lpSiteVisit, lpConfig } from "../../data/landingData";
-import LeadForm from "../landing/LeadForm";
+import LeadForm from "./LeadForm";
 
 export default function SiteVisit() {
   return (
