@@ -94,7 +94,7 @@ export default function LeadForm({
             <input
               name="email"
               type="email"
-              placeholder="Email (optional)"
+              placeholder="Email"
               autoComplete="email"
               className="lf-input"
             />
