@@ -202,16 +202,24 @@ function FooterCol({ title, links }) {
         {title}
       </h4>
       <ul className="space-y-3.5">
-        {links.map((l) => (
-          <li key={l.label}>
-            <a
-              href={l.href}
-              className="lp-underline text-cream-text/70 text-[14px] hover:text-luxury-gold transition-colors"
-            >
-              {l.label}
-            </a>
-          </li>
-        ))}
+        {links.map((l) => {
+          // Section anchors (e.g. "#heritage") need to route to the landing
+          // page first, since this footer is now shared across every page.
+          // Absolute/external links pass through untouched.
+          const isHashLink = l.href.startsWith("#");
+          const to = isHashLink ? `/${l.href}` : l.href;
+
+          return (
+            <li key={l.label}>
+              <Link
+                to={to}
+                className="lp-underline text-cream-text/70 text-[14px] hover:text-luxury-gold transition-colors"
+              >
+                {l.label}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

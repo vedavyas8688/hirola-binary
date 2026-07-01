@@ -39,14 +39,14 @@ export default function LandingNavbar() {
           {/* Nav links — desktop only */}
           <nav className="hidden md:flex items-center gap-8 flex-1">
             {lpNav.map((l) => (
-              <a
+              <Link
                 key={l.href}
-                href={l.href}
+                to={l.href.startsWith("#") ? `/${l.href}` : l.href}
                 className="relative text-cream-text/70 hover:text-luxury-gold text-[13px] font-sans font-normal uppercase tracking-[0.2em] no-underline transition-colors duration-250
                   after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:h-px after:bg-luxury-gold after:transition-all after:duration-300 hover:after:w-full"
               >
                 {l.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -149,14 +149,14 @@ export default function LandingNavbar() {
 
         <div className="flex flex-col px-5 pt-2 pb-8">
           {lpNav.map((l) => (
-            <a
+            <Link
               key={l.href}
-              href={l.href}
+              to={l.href.startsWith("#") ? `/${l.href}` : l.href}
               onClick={() => setOpen(false)}
               className="text-cream-text/75 text-[10px] uppercase tracking-[0.2em] font-sans font-light py-4 border-b border-luxury-gold/10 no-underline hover:text-luxury-gold transition-colors"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
           <button
             onClick={() => { setOpen(false); openModal("Enquire Now"); }}

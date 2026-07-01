@@ -29,7 +29,7 @@ export const lpConfig = {
 };
 
 export const lpNav = [
-  { href: "#heritage", label: "Legacy" },
+  { href: "#features", label: "Features" },
   { href: "#advantage", label: "EOI Advantage" },
   { href: "#amenities", label: "Amenities" },
   { href: "#masterplan", label: "Master Plan" },
@@ -216,7 +216,7 @@ export const lpFooter = {
   colCuration: {
     title: "The Project",
     links: [
-      { label: "Legacy", href: "#heritage" },
+      { label: "Features", href: "#features" },
       { label: "EOI Advantage", href: "#advantage" },
       { label: "Amenities", href: "#amenities" },
       { label: "Master Plan", href: "#masterplan" },

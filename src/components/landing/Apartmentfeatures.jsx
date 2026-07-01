@@ -245,7 +245,7 @@ export default function ApartmentFeatures() {
         }
       `}</style>
 
-      <section className="af">
+      <section className="af" id="features">
         <div className="af-inner">
 
           <div className="af-header">
@@ -258,7 +258,7 @@ export default function ApartmentFeatures() {
               Designed for Those Who <em>Expect More</em>
             </h2>
             <p className="af-sub">
-              Every detail at Codename Project4 is intentional — where privacy,
+              Every detail at Codename New Dimension is intentional — where privacy,
               natural light, and rare architectural choices come together as one.
             </p>
           </div>
