@@ -133,6 +133,7 @@ function SavingsGauge({ targetPct, targetSavings }) {
           fontSize: 19, fontWeight: 700, lineHeight: 1,
           color: "#0B412F",
           fontFamily: "var(--font-sans)",
+          whiteSpace: "nowrap",
         }}>
           ₹{targetSavings.toFixed(1)} L
         </span>
@@ -213,7 +214,7 @@ export default function EOIPriceCalculator() {
         .eoi-rate-val { font-size: 12.5px; font-weight: 600; color: #082B1F; }
 
         .eoi-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-        .eoi-card { border-radius: 16px; padding: 20px 18px; }
+        .eoi-card { border-radius: 16px; padding: 20px 18px; min-height: 108px; box-sizing: border-box; }
         .eoi-card-eoi { background: #0B412F; border: 1px solid rgba(215,185,117,0.2); }
         .eoi-card-mkt { background: #fff; border: 1.5px solid #E0D8C7; }
         .eoi-card-lbl {
@@ -225,11 +226,12 @@ export default function EOIPriceCalculator() {
         .eoi-card-val {
           font-family: var(--font-sans);
           font-size: 28px; font-weight: 700; line-height: 1;
+          white-space: nowrap;
         }
         /* ── both card numbers green ── */
         .eoi-card-eoi .eoi-card-val { color: #D7B975; }
         .eoi-card-mkt .eoi-card-val { color: #0B412F; }
-        @media (max-width: 400px) { .eoi-card-val { font-size: 22px; } }
+        @media (max-width: 400px) { .eoi-card-val { font-size: 20px; } }
 
         .eoi-gauge-row {
           margin-top: 14px;
@@ -237,14 +239,20 @@ export default function EOIPriceCalculator() {
           border: 1px solid #E0D8C7;
           border-radius: 18px; padding: 18px 20px;
           display: flex; align-items: center; gap: 20px;
+          min-height: 206px; box-sizing: border-box;
         }
-        .eoi-legend { display: flex; flex-direction: column; gap: 10px; flex: 1; }
-        .eoi-legend-row { display: flex; align-items: center; gap: 9px; font-size: 12px; color: #478570; font-weight: 500; }
+        @media (max-width: 480px) {
+          .eoi-gauge-row { flex-direction: column; text-align: center; min-height: 0; }
+        }
+        .eoi-legend { display: flex; flex-direction: column; gap: 10px; flex: 1; min-width: 0; }
+        .eoi-legend-row { display: flex; align-items: center; gap: 9px; font-size: 12px; color: #478570; font-weight: 500; white-space: nowrap; }
+        @media (max-width: 480px) { .eoi-legend-row { justify-content: center; } }
         .eoi-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
         .eoi-legend-pct {
           margin-top: 8px; padding-top: 10px;
           border-top: 1px solid #E0D8C7;
           font-size: 11px; font-weight: 600; color: #082B1F;
+          white-space: nowrap;
         }
 
         .eoi-savings {
@@ -253,9 +261,8 @@ export default function EOIPriceCalculator() {
           border-radius: 20px; padding: 32px 26px;
           display: flex; flex-direction: column; align-items: center; justify-content: center;
           min-height: 210px; position: relative; overflow: hidden;
-          text-align: center; gap: 0;
+          text-align: center; gap: 0; box-sizing: border-box;
         }
-        @media (max-width: 1024px) { .eoi-savings { min-height: auto; } }
         .eoi-savings::before {
           content: ''; position: absolute; top: -40px; right: -40px;
           width: 160px; height: 160px; border-radius: 50%;
@@ -273,7 +280,7 @@ export default function EOIPriceCalculator() {
           border: 1px solid rgba(215,185,117,0.3);
           background: rgba(215,185,117,0.08);
           display: flex; align-items: center; justify-content: center;
-          margin-bottom: 18px;
+          margin-bottom: 18px; flex-shrink: 0;
         }
         .eoi-savings-eye {
           font-size: 9px; font-weight: 600; letter-spacing: 0.22em;
@@ -285,12 +292,14 @@ export default function EOIPriceCalculator() {
           font-size: 36px; font-weight: 700;
           color: #D7B975; line-height: 1;
           letter-spacing: -0.01em;
+          white-space: nowrap;
         }
         @media (max-width: 640px) { .eoi-savings-val { font-size: 28px; } }
         .eoi-savings-divider {
           width: 32px; height: 1px;
           background: rgba(215,185,117,0.25);
           margin: 14px auto;
+          flex-shrink: 0;
         }
         .eoi-savings-sub {
           font-size: 11.5px; color: rgba(250,246,235,0.4);
@@ -303,10 +312,12 @@ export default function EOIPriceCalculator() {
           border: 1px solid rgba(215,185,117,0.25);
           border-radius: 999px;
           background: rgba(215,185,117,0.07);
+          flex-shrink: 0;
         }
         .eoi-savings-badge-text {
           font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
           text-transform: uppercase; color: rgba(215,185,117,0.75);
+          white-space: nowrap;
         }
 
         .eoi-cta-wrap { margin-top: 30px; display: flex; justify-content: center; }
