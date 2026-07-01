@@ -50,20 +50,20 @@ export default function LandingPrivacyPolicy() {
   return (
     <ModalProvider>
       <LandingNavbar />
-      <div className="min-h-screen bg-luxury-green-dark">
+      <div className="min-h-screen bg-bg-cream">
         <div className="mx-auto w-full max-w-[900px] px-4 md:px-8 pt-28 md:pt-36 pb-20 md:pb-28">
           <Link
             to="/landingpage"
-            className="inline-flex items-center gap-2 text-luxury-gold/70 hover:text-luxury-gold text-sm font-sans mb-8 transition-colors"
+            className="inline-flex items-center gap-2 text-luxury-green-dark/60 hover:text-luxury-gold text-sm font-sans mb-8 transition-colors"
           >
             <ArrowLeft size={15} />
             Back to Home
           </Link>
 
-          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl text-cream-text uppercase mb-3">
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl text-luxury-green-dark uppercase mb-3">
             Privacy <span className="text-luxury-gold">Policy</span>
           </h1>
-          <p className="font-sans text-xs text-cream-text/40 mb-10 md:mb-14">
+          <p className="font-sans text-xs text-foreground-green/45 mb-10 md:mb-14">
             Last updated: June 2026
           </p>
 
@@ -73,7 +73,7 @@ export default function LandingPrivacyPolicy() {
                 <h2 className="font-serif text-lg md:text-xl text-luxury-gold mb-3">
                   {title}
                 </h2>
-                <p className="font-sans text-sm md:text-base text-cream-text/70 leading-relaxed">
+                <p className="font-sans text-sm md:text-base text-foreground-green/75 leading-relaxed">
                   {body}
                 </p>
               </div>

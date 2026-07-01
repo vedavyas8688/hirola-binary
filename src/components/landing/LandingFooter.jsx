@@ -14,6 +14,10 @@ const SOCIALS = [
 ];
 
 export default function LandingFooter() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <footer className="bg-luxury-green-dark text-cream-text">
       {/* gold top rule */}
@@ -29,7 +33,12 @@ export default function LandingFooter() {
         <div className="grid gap-12 md:gap-10 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           {/* brand + logos + ethos */}
           <div>
-            <div className="flex items-center gap-4">
+            <button
+              type="button"
+              onClick={scrollToTop}
+              aria-label="Back to top of the page"
+              className="flex items-center gap-4 cursor-pointer bg-transparent border-none p-0"
+            >
               <img
                 src={logoRealty}
                 alt="Binary Ventures"
@@ -41,7 +50,7 @@ export default function LandingFooter() {
                 alt="Codename Project 4"
                 className="h-12 w-auto"
               />
-            </div>
+            </button>
             <p className="mt-3 text-luxury-gold text-[11px] font-semibold uppercase tracking-[0.22em]">
                 Codename Project 4
             </p>

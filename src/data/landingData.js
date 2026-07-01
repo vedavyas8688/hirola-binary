@@ -227,7 +227,7 @@ export const lpFooter = {
     links: [
       { label: "Location", href: "#location" },
       { label: "Schedule a Visit", href: "#enquire" },
-      { label: "Privacy Policy", href: "/privacy-policy" },
+      { label: "Privacy Policy", href: "/privacypolicy" },
       { label: "Terms & Conditions", href: "/terms-and-conditions" },
     ],
   },
