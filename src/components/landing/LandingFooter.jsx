@@ -13,6 +13,16 @@ const SOCIALS = [
   { Icon: FaLinkedin, href: lpConfig.social.linkedin, label: "LinkedIn" },
 ];
 
+const NAV_LINKS = [
+  { label: "About", href: "/about" },
+  { label: "Amenities", href: "/amenities" },
+  { label: "Unit Plans", href: "/unit-plans" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Blog", href: "/blogpage" },
+  { label: "Location", href: "/location" },
+  { label: "Contact Us", href: "/contact" },
+];
+
 export default function LandingFooter() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -142,8 +152,24 @@ export default function LandingFooter() {
           </div>
         </div>
 
+        {/* divider */}
+        <div className="mt-8 pt-5 border-t border-luxury-gold/15" />
+
+        {/* single-line row: all home page nav links */}
+        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 max-w-[70%] mx-auto">
+          {NAV_LINKS.map((l) => (
+            <Link
+              key={l.href}
+              to={l.href}
+              className="lp-underline text-cream-text/55 text-[10px] font-sans uppercase tracking-[0.08em] hover:text-luxury-gold transition-colors"
+            >
+              {l.label}
+            </Link>
+          ))}
+        </div>
+
         {/* bottom bar */}
-        <div className="mt-14 pt-7 border-t border-luxury-gold/15 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="mt-6 pt-5 border-t border-luxury-gold/15 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-cream-text/45 text-[12px] text-center md:text-left">
             © {new Date().getFullYear()} {lpConfig.developer}. All rights
             reserved.

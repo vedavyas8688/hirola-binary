@@ -1,4 +1,4 @@
- import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import LandingNavbar from "./LandingNavbar";
 import { ModalProvider } from "./Modalcontext";
@@ -61,7 +61,7 @@ export default function LandingTermsAndConditions() {
       <div className="min-h-screen bg-bg-cream">
         <div className="mx-auto w-full max-w-[900px] px-4 md:px-8 pt-28 md:pt-36 pb-20 md:pb-28">
           <Link
-            to="/landingpage"
+            to="/"
             className="inline-flex items-center gap-2 text-luxury-green-dark/60 hover:text-luxury-gold text-sm font-sans mb-8 transition-colors"
           >
             <ArrowLeft size={15} />

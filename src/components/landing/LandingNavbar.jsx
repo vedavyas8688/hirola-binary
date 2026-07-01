@@ -32,7 +32,7 @@ export default function LandingNavbar() {
         <div className="relative z-10 flex items-center px-6 md:px-10 h-[80px]">
 
           {/* Logo left */}
-          <Link to="/landingpage" onClick={scrollToTop} className="flex-shrink-0 mr-10 md:mr-12" aria-label="Go to landing page">
+          <Link to="/" onClick={scrollToTop} className="flex-shrink-0 mr-10 md:mr-12" aria-label="Go to landing page">
             <img src={logo1} alt="Binary Ventures" className="h-10 md:h-[52px] w-auto" />
           </Link>
 
@@ -68,7 +68,7 @@ export default function LandingNavbar() {
 
           {/* Codename badge right — desktop */}
           <Link
-            to="/landingpage"
+            to="/"
             onClick={scrollToTop}
             className="hidden md:flex flex-col items-center justify-center h-[68px] px-5 relative flex-shrink-0"
             aria-label="Go to landing page"
@@ -86,7 +86,7 @@ export default function LandingNavbar() {
               </span>
             </div>
 
-            <Link to="/landingpage" onClick={scrollToTop} className="relative flex items-center pl-3" aria-label="Go to landing page">
+            <Link to="/" onClick={scrollToTop} className="relative flex items-center pl-3" aria-label="Go to landing page">
               <span className="absolute left-0 top-1 bottom-1 w-px bg-luxury-gold/30" />
               <img src={logo2} alt="Codename Project 4" className="h-9 w-auto" />
             </Link>
@@ -121,7 +121,7 @@ export default function LandingNavbar() {
       >
         <div className="flex items-center justify-between px-5 h-[64px] border-b border-luxury-gold/15">
           <Link
-            to="/landingpage"
+            to="/"
             className="flex items-center gap-3"
             onClick={() => { setOpen(false); scrollToTop(); }}
             aria-label="Go to landing page"

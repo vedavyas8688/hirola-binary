@@ -21,7 +21,8 @@ function App() {
     <>
       <ScrollToTop />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<LandingPage />} />
+        {/* <Route path="/home" element={<Home />} /> */}
         <Route path="/about" element={<About />} />
         <Route path="/amenities" element={<Amenities />} />
         <Route path="/unit-plans" element={<UnitPlans />} />
@@ -33,7 +34,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-use" element={<TermsOfUse />} />
-        <Route path="/landingpage" element={<LandingPage />} />
+        {/* <Route path="/landingpage" element={<LandingPage />} /> */}
         <Route path="/terms-and-conditions" element={<LandingTermsAndConditions />} />
         <Route path="/privacypolicy" element={<LandingPrivacyPolicy />} />
 

@@ -4,8 +4,8 @@ import { useModal } from "./Modalcontext";
 import LeadForm from "./LeadForm";
 
 const CONFIGS = {
-  "2bhk": { label: "2 BHK Ultra Luxury", size: 1117, eoiRate: 11000, marketLow: 11000, marketHigh: 13000, tag: "Best Value" },
-  "3bhk": { label: "3 BHK Ultra Luxury", size: 1624, eoiRate: 11000, marketLow: 11000, marketHigh: 13000, tag: "Most Popular" },
+  "2bhk": { label: "2 BHK Ultra Luxury", size: 1117, eoiRate: 8499, marketLow: 11000, marketHigh: 13000, tag: "Best Value" },
+  "3bhk": { label: "3 BHK Ultra Luxury", size: 1624, eoiRate: 8499, marketLow: 11000, marketHigh: 13000, tag: "Most Popular" },
 };
 
 const TRUST = [
@@ -22,7 +22,7 @@ const TRUST = [
   {
     icon: <MapPin size={22} strokeWidth={1.5} color="#D7B975" />,
     title: "Prime Location",
-    sub: "Sarjapura Road",
+    sub: "Sarjapur Road",
   },
   {
     icon: <TrendingUp size={22} strokeWidth={1.5} color="#D7B975" />,
@@ -204,10 +204,10 @@ export default function PriceAdvantage() {
             <h2 className="pa-heading">
               EOI Price Advantage — <em>See Your Value Appreciation</em>
             </h2>
-            <p className="pa-sub">
-              Compare our exclusive EOI pricing with prevailing market rates on Sarjapura Road.
+            {/* <p className="pa-sub">
+              Compare our exclusive EOI pricing with prevailing market rates on Sarjapur Road.
               Secure your home at a significant entry-point advantage before public launch.
-            </p>
+            </p> */}
           </div>
 
           {/* Config toggle */}
@@ -230,7 +230,7 @@ export default function PriceAdvantage() {
                   <div className="pa-config-label">Selected Configuration</div>
                   <div className="pa-config-value">{cfg.label}</div>
                   <div className="pa-config-size">
-                    {cfg.size.toLocaleString("en-IN")} Sq.Ft · Ultra Luxury · Sompura Gate, Sarjapura Road
+                    {cfg.size.toLocaleString("en-IN")} Sq.Ft · Ultra Luxury · Chambenahalli, Sarjapur Road, Bengaluru
                   </div>
                 </div>
 
@@ -251,7 +251,7 @@ export default function PriceAdvantage() {
                 </div>
 
                 <div className="pa-disclaimer">
-                  * Prices exclusive of statutory charges, GST and floor-rise premiums. Market range is indicative for the Sarjapura Road micro-market.
+                  * Prices exclusive of statutory charges, GST and floor-rise premiums. Market range is indicative for the Sarjapur Road micro-market.
                 </div>
               </div>
 

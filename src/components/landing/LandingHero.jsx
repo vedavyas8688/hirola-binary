@@ -4,6 +4,8 @@ import { MapPin } from "lucide-react";
 import landingbanner from "../../assets/images/landingbanner.jpg"
 
 const STYLES = `
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&display=swap');
+
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -52,6 +54,15 @@ const STYLES = `
   .lh-cta:hover span { color: var(--clr-fg-green); }
   .lh-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(0,0,0,0.3); }
 
+  /* ── Brand heading font — matches the logo (thin, wide-tracked geometric sans) ──
+     Using Montserrat (free) as a close visual match since Jules is an unlicensed
+     paid Monotype font. Swap the font-family here if a licensed font is added later. */
+  .lh-brand-heading {
+    font-family: 'Montserrat', var(--font-serif);
+    font-weight: 300;
+    letter-spacing: 0.1em;
+  }
+
   @media (max-width: 767px) {
     /* Mobile only: image on top, text below */
     .lh-section { flex-direction: column-reverse !important; height: auto !important; min-height: 100svh; }
@@ -94,10 +105,10 @@ export default function LandingHero() {
             {lpHero.eyebrow}
           </p>
 
-          <h1 className="lh-2" style={{
-            fontFamily: "var(--font-serif)", fontSize: "clamp(36px, 4.6vw, 60px)",
-            fontWeight: 700, letterSpacing: "0.04em", textTransform: "uppercase",
-            color: "var(--clr-gold-bright)", lineHeight: 1.0, margin: "0 0 10px",
+          <h1 className="lh-2 lh-brand-heading" style={{
+            fontSize: "clamp(32px, 4.2vw, 54px)",
+            fontWeight: 300, letterSpacing: "0.1em", textTransform: "uppercase",
+            color: "var(--clr-gold-bright)", lineHeight: 1.15, margin: "0 0 10px",
           }}>
              Codename Project 4
           </h1>

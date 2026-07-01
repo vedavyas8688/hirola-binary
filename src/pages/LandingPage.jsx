@@ -56,7 +56,8 @@ export default function LandingPage() {
          <StatsBar />
 
         {/* 2 — Heritage */}
-        <HeritageSection />
+        <ApartmentFeatures />
+        {/* <HeritageSection /> */}
         <SectionDivider tone="cream" />
 
         {/* 3 — Price Advantage */}
@@ -64,7 +65,7 @@ export default function LandingPage() {
 
         {/* 5 — Master Plan */}
         <MainMasterplansection />
-        <ApartmentFeatures />
+         
          
          <Locations />
         {/* 6 — Clubhouse */}
