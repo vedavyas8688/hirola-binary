@@ -52,14 +52,14 @@ export default function PriceAdvantage() {
   return (
     <>
       <style>{`
-        .pa-section { background: #FAF7F0; padding: 100px 80px; font-family: var(--font-base); }
+        .pa-section { background: #FAF7F0; padding: 64px 80px; font-family: var(--font-base); }
         .pa-inner { max-width: 1280px; margin: 0 auto; }
         .pa-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: #D7B975; display: block; margin-bottom: 12px; font-family: var(--font-base); }
-        .pa-heading { font-family: var(--font-serif); font-size: clamp(32px, 4vw, 52px); font-weight: 600; line-height: 1.15; color: #082B1F; margin: 0 0 16px; }
+        .pa-heading { font-family: var(--font-serif); font-size: clamp(32px, 4vw, 52px); font-weight: 600; line-height: 1.15; color: #082B1F; margin: 0 0 8px; }
         .pa-heading em { color: #D7B975; font-style: italic; }
         .pa-sub { font-size: 16px; line-height: 1.7; color: #478570; max-width: 600px; margin: 0 auto 60px; }
 
-        .pa-toggle { display: inline-flex; border: 1px solid rgba(119,90,25,0.2); border-radius: 6px; overflow: hidden; margin-bottom: 48px; }
+        .pa-toggle { display: inline-flex; border: 1px solid rgba(119,90,25,0.2); border-radius: 6px; overflow: hidden; margin-bottom: 28px; margin-top: 24px; }
         .pa-toggle button { padding: 12px 32px; font-family: var(--font-base); font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; border: none; cursor: pointer; transition: background 0.25s, color 0.25s; }
         .pa-toggle button.active { background: #0B412F; color: #FAF6EB; }
         .pa-toggle button:not(.active) { background: transparent; color: #478570; }
@@ -144,7 +144,7 @@ export default function PriceAdvantage() {
         .pa-cta:hover { background: #E8BA30; }
 
         /* ── Premium trust cards ── */
-        .pa-trust { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
+        .pa-trust { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 28px; }
         .pa-trust-item {
           display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center;
           padding: 32px 20px 28px;
@@ -170,26 +170,28 @@ export default function PriceAdvantage() {
         @media (max-width: 1024px) {
           .pa-card { grid-template-columns: 1fr; }
           .pa-trust { grid-template-columns: repeat(2, 1fr); }
-          .pa-section { padding: 56px 24px; }
-          .pa-left { padding: 36px 32px; gap: 32px; }
-          .pa-right { padding: 36px 32px; }
+          .pa-section { padding: 40px 24px; }
+          .pa-left { padding: 32px 28px; gap: 28px; }
+          .pa-right { padding: 32px 28px; }
+          .pa-toggle { margin-bottom: 20px; margin-top: 16px; }
+          .pa-trust { margin-top: 20px; }
         }
         @media (max-width: 600px) {
-          .pa-section { padding: 36px 16px; }
+          .pa-section { padding: 28px 16px; }
           .pa-sub { margin-bottom: 22px; font-size: 13.5px; }
-          .pa-toggle { margin-bottom: 20px; }
+          .pa-toggle { margin-bottom: 14px; margin-top: 12px; }
           .pa-toggle button { padding: 10px 18px; font-size: 10px; }
-          .pa-left { padding: 22px 18px; gap: 20px; }
-          .pa-right { padding: 22px 18px; }
+          .pa-left { padding: 20px 16px; gap: 18px; }
+          .pa-right { padding: 20px 16px; }
           .pa-config-value { font-size: 22px; }
           .pa-prices { grid-template-columns: 1fr; }
-          .pa-price-block { padding: 16px 0; }
-          .pa-price-block + .pa-price-block { padding-left: 0; border-left: none; margin-left: 0; border-top: 1px solid rgba(215,185,117,0.2); padding-top: 16px; }
+          .pa-price-block { padding: 14px 0; }
+          .pa-price-block + .pa-price-block { padding-left: 0; border-left: none; margin-left: 0; border-top: 1px solid rgba(215,185,117,0.2); padding-top: 14px; }
           .pa-saving-num { font-size: 40px; }
-          .pa-saving-pct { margin-top: 12px; padding: 10px 0; }
+          .pa-saving-pct { margin-top: 10px; padding: 8px 0; }
           .pa-cta { padding: 15px 20px; }
-          .pa-trust { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 24px; }
-          .pa-trust-item { padding: 18px 12px 16px; gap: 8px; }
+          .pa-trust { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 16px; }
+          .pa-trust-item { padding: 16px 12px 14px; gap: 8px; }
           .pa-trust-icon { width: 40px; height: 40px; }
           .pa-lock-card { padding: 24px 18px 20px; }
           .pa-lock-title { font-size: 18px; margin: 8px 0 16px; }

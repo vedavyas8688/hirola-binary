@@ -4,20 +4,20 @@ import LeadForm from "./LeadForm";
 
 export default function SiteVisit() {
   return (
-    <section id="enquire" className="lp-fade bg-bg-cream py-20 md:py-28 lg:py-[120px] px-5 sm:px-8 md:px-12 lg:px-20">
+    <section id="enquire" className="lp-fade bg-bg-cream py-12 md:py-16 lg:py-20 px-5 sm:px-8 md:px-12 lg:px-20">
       <div className="max-w-screen-xl mx-auto">
         <div className="grid lg:grid-cols-2 rounded-[1.75rem] overflow-hidden shadow-[0_40px_90px_rgba(8,43,31,0.12)] border border-luxury-gold/15">
           {/* left — copy on green */}
-          <div className="relative p-8 md:p-12 lg:p-14" style={{ background: "linear-gradient(160deg, #0B412F 0%, #062319 100%)" }}>
+          <div className="relative p-6 md:p-10 lg:p-12" style={{ background: "linear-gradient(160deg, #0B412F 0%, #062319 100%)" }}>
             <div aria-hidden="true" className="pointer-events-none absolute -top-16 -right-16 h-52 w-52 rounded-full border border-luxury-gold/10" />
             <div className="relative">
               <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.3em] text-luxury-gold">Book Your Visit</span>
-              <h2 className="mt-4 font-serif text-[30px] leading-[36px] md:text-[44px] md:leading-[50px] font-semibold text-luxury-gold">
+              <h2 className="mt-3 font-serif text-[30px] leading-[36px] md:text-[44px] md:leading-[50px] font-semibold text-luxury-gold">
                 Experience Codename Project 4 <br /><span className="italic"> </span>
               </h2>
-              <p className="mt-5 text-[15px] leading-relaxed text-cream-text/82 max-w-md">{lpSiteVisit.intro}</p>
+              <p className="mt-4 text-[15px] leading-relaxed text-cream-text/82 max-w-md">{lpSiteVisit.intro}</p>
 
-              <div className="mt-9 space-y-5">
+              <div className="mt-6 space-y-4">
                 <div className="flex items-start gap-3.5">
                   <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-luxury-gold/30 text-luxury-gold"><MapPin size={17} strokeWidth={1.6} /></span>
                   <div>
@@ -45,7 +45,7 @@ export default function SiteVisit() {
 
           {/* right — shared form on a premium cream panel */}
           <div
-            className="relative overflow-hidden p-8 md:p-12 lg:p-14 flex flex-col justify-center"
+            className="relative overflow-hidden p-6 md:p-10 lg:p-12 flex flex-col justify-center"
             style={{ background: "linear-gradient(180deg, #ffffff 0%, #FAF7F0 100%)" }}
           >
             {/* thin gold top accent */}

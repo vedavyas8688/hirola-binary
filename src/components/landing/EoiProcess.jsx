@@ -19,9 +19,9 @@ export default function EoiProcess() {
   const { openModal } = useModal();
 
   return (
-    <section className="lp-fade bg-bg-cream py-[120px]">
+    <section className="lp-fade bg-bg-cream py-12 md:py-16 lg:py-20">
       <div className="px-5 md:px-20 max-w-screen-xl mx-auto">
-        <div className="relative overflow-hidden rounded-[1.75rem] px-6 py-10 md:px-12 md:py-14" style={{ background: PANEL }}>
+        <div className="relative overflow-hidden rounded-[1.75rem] px-6 py-8 md:px-12 md:py-10" style={{ background: PANEL }}>
           <div aria-hidden="true" className="pointer-events-none absolute -left-32 -top-40 h-96 w-96 rounded-full opacity-[0.18] blur-3xl" style={{ background: GLOW }} />
           <div aria-hidden="true" className="pointer-events-none absolute -bottom-44 right-0 h-96 w-96 rounded-full opacity-[0.12] blur-3xl" style={{ background: GLOW }} />
           <div
@@ -53,7 +53,7 @@ export default function EoiProcess() {
           </div>
 
           {/* Glass step cards */}
-          <div className="relative mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="relative mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {lpProcess.map((s) => (
               <div
                 key={s.n}
@@ -89,7 +89,7 @@ export default function EoiProcess() {
 
           {/* Bottom glass pill bar */}
           <div
-            className="relative mt-6 flex flex-col items-start gap-4 rounded-2xl px-5 py-4 sm:flex-row sm:items-center sm:justify-between"
+            className="relative mt-5 flex flex-col items-start gap-4 rounded-2xl px-5 py-4 sm:flex-row sm:items-center sm:justify-between"
             style={{
               background: GLASS,
               border: `1px solid ${GLASS_BORDER}`,

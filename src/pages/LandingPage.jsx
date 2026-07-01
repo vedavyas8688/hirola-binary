@@ -76,7 +76,7 @@ export default function LandingPage() {
         <Features />
         <EoiProcess />
         <SectionDivider tone="cream" />
-        <SectionDivider tone="cream" />
+         
         <SiteVisit />
 
         {/* ── Last three ── */}

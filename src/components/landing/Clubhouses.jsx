@@ -10,7 +10,7 @@ const ICONS = {
 
 export default function Clubhouses() {
   return (
-    <section id="amenities" className="lp-fade relative py-20 md:py-28 lg:py-[120px] overflow-hidden bg-luxury-green-dark text-cream-text">
+    <section id="amenities" className="lp-fade relative py-12 md:py-16 lg:py-20 overflow-hidden bg-luxury-green-dark text-cream-text">
       {/* immersive background image + gradient veil */}
       <div className="absolute inset-0 z-0">
         <div
@@ -30,7 +30,7 @@ export default function Clubhouses() {
       <div className="relative z-10 px-5 sm:px-8 md:px-12 lg:px-20 max-w-screen-2xl mx-auto">
         {/* header */}
         <div className="text-center max-w-3xl mx-auto">
-          <div className="flex items-center justify-center gap-3 mb-5 md:mb-6">
+          <div className="flex items-center justify-center gap-3 mb-4 md:mb-5">
             <span className="h-px w-8 md:w-10 bg-luxury-gold" />
             <span className="font-sans text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.3em] md:tracking-[0.35em] text-luxury-gold">The Lifestyle</span>
             <span className="h-px w-8 md:w-10 bg-luxury-gold" />
@@ -40,15 +40,15 @@ export default function Clubhouses() {
             The Grand <span className="italic">Clubhouse</span>
           </h2>
 
-          <p className="mt-5 md:mt-6 text-[16px] leading-[24px] md:text-[18px] md:leading-[28px] font-serif text-cream-text/90">
+          <p className="mt-4 md:mt-5 text-[16px] leading-[24px] md:text-[18px] md:leading-[28px] font-serif text-cream-text/90">
             <span className="text-luxury-gold font-semibold">8,000+ sq.ft</span> of luxurious amenities, with <span className="text-luxury-gold font-semibold">60+</span> curated experiences to indulge in.
           </p>
 
-          <p className="mt-4 md:mt-5 text-[14px] leading-[23px] md:text-[16px] md:leading-[26px] font-light text-white/75">{lpClubhouse.intro}</p>
+          <p className="mt-3 md:mt-4 text-[14px] leading-[23px] md:text-[16px] md:leading-[26px] font-light text-white/75">{lpClubhouse.intro}</p>
         </div>
 
         {/* cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6 mt-12 md:mt-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6 mt-8 md:mt-10">
           {lpClubhouse.cards.map((c) => {
             const Ic = ICONS[c.icon] || Sparkles;
             return (

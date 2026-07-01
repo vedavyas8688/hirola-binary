@@ -9,11 +9,11 @@ export default function Locations() {
   return (
     <section
       id="location"
-      className="lp-fade bg-bg-cream py-20 md:py-28 lg:py-[120px]"
+      className="lp-fade bg-bg-cream py-12 md:py-16 lg:py-20"
     >
       <div className="px-5 sm:px-8 md:px-12 lg:px-20 max-w-screen-2xl mx-auto">
         {/* header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-10">
           <div className="flex items-center justify-center gap-3 mb-5">
             <span className="h-px w-8 md:w-10 bg-luxury-gold" />
             <span className="font-sans text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.3em] md:tracking-[0.35em] text-luxury-gold">
@@ -34,7 +34,7 @@ export default function Locations() {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
           {/* left: tabs + list */}
           <div className="flex flex-col">
-            <div className="flex flex-wrap gap-2 mb-7">
+            <div className="flex flex-wrap gap-2 mb-5">
               {lpLocation.groups.map((g, i) => (
                 <button
                   key={g.tab}
@@ -89,7 +89,7 @@ export default function Locations() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="strict-origin-when-cross-origin"
-                title="Codename New Dimension Location"
+                title="Codename Project4 Location"
               />
             </div>
           </div>

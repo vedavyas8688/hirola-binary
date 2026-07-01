@@ -8,7 +8,7 @@ const CONFIGS = {
     eoi: 1.17,
     market: 1.49,
     savings: 31.5,
-    eoiRate: "₹8,499 – ₹10,250 / sq.ft",
+    eoiRate: "₹8,499 / sq.ft",
     marketRate: "₹11,000 – ₹13,500 / sq.ft",
   },
   "3bhk": {
@@ -16,7 +16,7 @@ const CONFIGS = {
     eoi: 1.65,
     market: 1.98,
     savings: 33.0,
-    eoiRate: "₹10,250 – ₹10,500 / sq.ft",
+    eoiRate: "₹8,499 / sq.ft",
     marketRate: "₹11,500 – ₹14,000 / sq.ft",
   },
 };
@@ -341,8 +341,8 @@ export default function EOIPriceCalculator() {
           EOI Price Advantage — <em>Discover Your Savings</em>
         </h2>
         <p className="eoi-sub">
-          Market price in the Whitefield–Sarjapur corridor: ₹11,000–₹13,500/sq.ft.
-          Enter early with Codename New Dimension at ₹9,950–₹10,250/sq.ft — all inclusive.
+          Market price at Chambenahalli, Sarjapur Road, Bengaluru: ₹11,000–₹13,500/sq.ft.
+          Enter early with Codename Project 4 at ₹8,499/sq.ft — all inclusive.
         </p>
 
         <div className="eoi-grid">
