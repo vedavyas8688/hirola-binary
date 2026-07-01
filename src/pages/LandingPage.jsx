@@ -43,7 +43,7 @@ export default function LandingPage() {
   return (
     <ModalProvider>
       <div className="bg-bg-cream text-foreground-green font-sans overflow-x-hidden">
-        {/* Lead capture popup — appears after 5s */}
+        {/* Lead capture popup   */}
         <LeadPopup />
         {/* Shared quick-enquire modal — opened by every CTA button */}
         <EnquiryModal />

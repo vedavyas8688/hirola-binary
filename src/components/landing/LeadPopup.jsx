@@ -51,10 +51,10 @@ export default function LeadPopup() {
           <p className="lpop-codename">· by  binaryventures</p>
           <span className="lpop-rule" />
           <ul className="lpop-list">
-            <li><span className="lpop-tick"><Check size={13} strokeWidth={3} /></span> 2 &amp; 3 BHK from ₹95 L</li>
-            <li><span className="lpop-tick"><Check size={13} strokeWidth={3} /></span> EOI rate ₹8,499/sq.ft</li>
-            <li><span className="lpop-tick"><Check size={13} strokeWidth={3} /></span> 100% refundable deposit</li>
-            <li><span className="lpop-tick"><Check size={13} strokeWidth={3} /></span> Only 6 homes per floor</li>
+            <li><span className="lpop-tick"><Check size={13} strokeWidth={3} /></span> Premium Corner Homes</li>
+            <li><span className="lpop-tick"><Check size={13} strokeWidth={3} /></span> 180° Ventilation</li>
+            <li><span className="lpop-tick"><Check size={13} strokeWidth={3} /></span> 80%+ Open Space</li>
+            <li><span className="lpop-tick"><Check size={13} strokeWidth={3} /></span>  Private Garden Homes</li>
           </ul>
         </div>
 

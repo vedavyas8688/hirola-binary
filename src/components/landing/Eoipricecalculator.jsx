@@ -8,7 +8,7 @@ const CONFIGS = {
     eoi: 1.17,
     market: 1.49,
     savings: 31.5,
-    eoiRate: "₹9,950 – ₹10,250 / sq.ft",
+    eoiRate: "₹8,499 – ₹10,250 / sq.ft",
     marketRate: "₹11,000 – ₹13,500 / sq.ft",
   },
   "3bhk": {

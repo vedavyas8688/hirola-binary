@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Phone, Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 import { lpNav, lpConfig } from "../../data/landingData";
 import { useModal } from "./Modalcontext";
 import logo1 from "../../assets/images/logo-right.png";
@@ -8,6 +9,10 @@ import logo2 from "../../assets/images/logo-left3.png";
 export default function LandingNavbar() {
   const [open, setOpen] = useState(false);
   const { openModal } = useModal();
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <>
@@ -27,9 +32,9 @@ export default function LandingNavbar() {
         <div className="relative z-10 flex items-center px-6 md:px-10 h-[80px]">
 
           {/* Logo left */}
-          <div className="flex-shrink-0 mr-10 md:mr-12">
+          <Link to="/landingpage" onClick={scrollToTop} className="flex-shrink-0 mr-10 md:mr-12" aria-label="Go to landing page">
             <img src={logo1} alt="Binary Ventures" className="h-10 md:h-[52px] w-auto" />
-          </div>
+          </Link>
 
           {/* Nav links — desktop only */}
           <nav className="hidden md:flex items-center gap-8 flex-1">
@@ -62,10 +67,15 @@ export default function LandingNavbar() {
           </button>
 
           {/* Codename badge right — desktop */}
-          <div className="hidden md:flex flex-col items-center justify-center h-[68px] px-5 relative flex-shrink-0">
+          <Link
+            to="/landingpage"
+            onClick={scrollToTop}
+            className="hidden md:flex flex-col items-center justify-center h-[68px] px-5 relative flex-shrink-0"
+            aria-label="Go to landing page"
+          >
             <span className="absolute left-0 top-3 bottom-3 w-px bg-luxury-gold/30" />
             <img src={logo2} alt="Codename Project 4" className="h-20 w-auto" />
-          </div>
+          </Link>
 
           {/* ── Mobile right ── */}
           <div className="ml-auto md:hidden flex items-center gap-3">
@@ -76,10 +86,10 @@ export default function LandingNavbar() {
               </span>
             </div>
 
-            <div className="relative flex items-center pl-3">
+            <Link to="/landingpage" onClick={scrollToTop} className="relative flex items-center pl-3" aria-label="Go to landing page">
               <span className="absolute left-0 top-1 bottom-1 w-px bg-luxury-gold/30" />
               <img src={logo2} alt="Codename Project 4" className="h-9 w-auto" />
-            </div>
+            </Link>
 
             <button
               onClick={() => setOpen(true)}
@@ -110,11 +120,16 @@ export default function LandingNavbar() {
         style={{ background: "var(--clr-green-dark)" }}
       >
         <div className="flex items-center justify-between px-5 h-[64px] border-b border-luxury-gold/15">
-          <div className="flex items-center gap-3">
+          <Link
+            to="/landingpage"
+            className="flex items-center gap-3"
+            onClick={() => { setOpen(false); scrollToTop(); }}
+            aria-label="Go to landing page"
+          >
             <img src={logo1} alt="Binary Ventures" className="h-8 w-auto" />
             <span className="w-px h-6 bg-luxury-gold/25" />
             <img src={logo2} alt="Codename Project 4" className="h-9 w-auto" />
-          </div>
+          </Link>
           <button
             onClick={() => setOpen(false)}
             className="text-luxury-gold"

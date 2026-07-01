@@ -4,7 +4,7 @@ const FEATURES = [
   {
     icon: <Wind size={32} strokeWidth={1.2} color="#FFFFFF" />,
     tag: "Air & Light",
-    title: "360° Ventilation",
+    title: "180° Ventilation",
     desc: "Every residence is architecturally designed to receive natural cross-ventilation from all four sides — ensuring cool, fresh air flows through your home year-round, with no stuffy corners.",
     checks: [],
     accent: false,
@@ -258,7 +258,7 @@ export default function ApartmentFeatures() {
               Designed for Those Who <em>Expect More</em>
             </h2>
             <p className="af-sub">
-              Every detail at Codename New Dimension is intentional — where privacy,
+              Every detail at Codename Project4 is intentional — where privacy,
               natural light, and rare architectural choices come together as one.
             </p>
           </div>
