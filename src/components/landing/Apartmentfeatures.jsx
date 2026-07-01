@@ -2,7 +2,7 @@ import { Wind, Trees, LayoutGrid, CheckCircle2 } from "lucide-react";
 
 const FEATURES = [
   {
-    icon: <Wind size={32} strokeWidth={1.2} color="#D7B975" />,
+    icon: <Wind size={32} strokeWidth={1.2} color="#FFFFFF" />,
     tag: "Air & Light",
     title: "360° Ventilation",
     desc: "Every residence is architecturally designed to receive natural cross-ventilation from all four sides — ensuring cool, fresh air flows through your home year-round, with no stuffy corners.",
@@ -10,7 +10,7 @@ const FEATURES = [
     accent: false,
   },
   {
-    icon: <Trees size={32} strokeWidth={1.2} color="#D7B975" />,
+    icon: <Trees size={32} strokeWidth={1.2} color="#FFFFFF" />,
     tag: "Exclusive Outdoors",
     title: "Private Gardens",
     desc: "Select residences come with dedicated private garden spaces — a rare luxury in the city. Step out into your own green sanctuary, away from shared courtyards and common areas.",
@@ -18,7 +18,7 @@ const FEATURES = [
     accent: false,
   },
   {
-    icon: <LayoutGrid size={32} strokeWidth={1.2} color="#D7B975" />,
+    icon: <LayoutGrid size={32} strokeWidth={1.2} color="#FFFFFF" />,
     tag: "Signature Design",
     title: "Premium Corner Flats",
     desc: "Every apartment is a premium corner unit — three open sides, no shared walls, abundant natural light, and panoramic outlooks. There are no compromise homes here.",
@@ -41,7 +41,7 @@ export default function ApartmentFeatures() {
         .af * { box-sizing: border-box; }
 
         .af {
-          background: #0B412F;
+          background: #FAF7F0;
           padding: 96px 80px;
           font-family: var(--font-sans);
           position: relative;
@@ -53,7 +53,7 @@ export default function ApartmentFeatures() {
           top: -120px; right: -120px;
           width: 480px; height: 480px;
           border-radius: 50%;
-          background: radial-gradient(circle, rgba(215,185,117,0.06) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(215,185,117,0.10) 0%, transparent 70%);
           pointer-events: none;
         }
         .af::after {
@@ -62,7 +62,7 @@ export default function ApartmentFeatures() {
           bottom: -80px; left: -80px;
           width: 320px; height: 320px;
           border-radius: 50%;
-          background: radial-gradient(circle, rgba(215,185,117,0.04) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(215,185,117,0.08) 0%, transparent 70%);
           pointer-events: none;
         }
 
@@ -89,20 +89,20 @@ export default function ApartmentFeatures() {
         .af-eyebrow-text {
           font-size: 10px; font-weight: 600;
           letter-spacing: 0.28em; text-transform: uppercase;
-          color: #D7B975;
+          color: #B9903F;
         }
         .af-heading {
           font-family: var(--font-serif);
           font-size: clamp(34px, 4vw, 52px);
           font-weight: 600; line-height: 1.18;
-          color: #FAF6EB; margin: 0 0 18px;
+          color: #082B1F; margin: 0 0 18px;
         }
         .af-heading em {
-          font-style: italic; color: #D7B975;
+          font-style: italic; color: #B9903F;
         }
         .af-sub {
           font-size: 14.5px; line-height: 1.8;
-          color: rgba(250,246,235,0.5);
+          color: rgba(8,43,31,0.55);
           max-width: 520px; margin: 0 auto;
           font-weight: 300;
         }
@@ -117,62 +117,64 @@ export default function ApartmentFeatures() {
 
         /* Card */
         .af-card {
-          background: rgba(250,247,240,0.04);
-          border: 1px solid rgba(215,185,117,0.16);
+          background: #FFFFFF;
+          border: 1px solid rgba(215,185,117,0.28);
           border-radius: 2px;
           padding: 44px 36px 40px;
           display: flex; flex-direction: column;
           gap: 0;
           position: relative;
           overflow: hidden;
-          transition: border-color 0.35s, background 0.35s, transform 0.3s;
+          transition: border-color 0.35s, background 0.35s, transform 0.3s, box-shadow 0.35s;
           cursor: default;
+          box-shadow: 0 4px 20px rgba(8,43,31,0.04);
         }
         .af-card::before {
           content: '';
           position: absolute;
           top: 0; left: 20%; right: 20%; height: 1px;
-          background: linear-gradient(90deg, transparent, rgba(215,185,117,0.6), transparent);
+          background: linear-gradient(90deg, transparent, rgba(215,185,117,0.7), transparent);
           opacity: 0;
           transition: opacity 0.3s;
         }
         .af-card:hover {
-          background: rgba(250,247,240,0.07);
-          border-color: rgba(215,185,117,0.35);
+          background: #FFFFFF;
+          border-color: rgba(215,185,117,0.5);
           transform: translateY(-5px);
+          box-shadow: 0 14px 34px rgba(8,43,31,0.08);
         }
         .af-card:hover::before { opacity: 1; }
 
         /* Accent card */
         .af-card-accent {
-          background: rgba(215,185,117,0.07);
-          border-color: rgba(215,185,117,0.35);
+          background: rgba(215,185,117,0.10);
+          border-color: rgba(215,185,117,0.45);
         }
         .af-card-accent::before { opacity: 1; }
         .af-card-accent:hover {
-          background: rgba(215,185,117,0.10);
-          border-color: rgba(215,185,117,0.55);
+          background: rgba(215,185,117,0.14);
+          border-color: rgba(215,185,117,0.65);
         }
 
         /* Corner label */
         .af-card-tag {
           font-size: 9px; font-weight: 600;
           letter-spacing: 0.22em; text-transform: uppercase;
-          color: rgba(215,185,117,0.5);
+          color: rgba(185,144,63,0.75);
           margin-bottom: 28px;
           display: block;
         }
         .af-card-accent .af-card-tag {
-          color: rgba(215,185,117,0.75);
+          color: rgba(185,144,63,0.95);
         }
 
         /* Icon */
         .af-icon-wrap {
           width: 64px; height: 64px;
-          border: 1px solid rgba(215,185,117,0.25);
+          border: 1px solid #0B412F;
           display: flex; align-items: center; justify-content: center;
           margin-bottom: 28px;
-          background: rgba(215,185,117,0.05);
+          background: #0B412F;
           flex-shrink: 0;
         }
 
@@ -180,14 +182,14 @@ export default function ApartmentFeatures() {
         .af-card-title {
           font-family: var(--font-serif);
           font-size: 24px; font-weight: 600;
-          color: #FAF6EB; line-height: 1.2;
+          color: #082B1F; line-height: 1.2;
           margin: 0 0 16px;
         }
 
         /* Desc */
         .af-card-desc {
           font-size: 13.5px; line-height: 1.8;
-          color: rgba(250,246,235,0.5);
+          color: rgba(8,43,31,0.78);
           margin: 0;
           font-weight: 300;
           flex: 1;
@@ -198,7 +200,7 @@ export default function ApartmentFeatures() {
           width: 40px; height: 1px;
           background: linear-gradient(90deg, #D7B975, transparent);
           margin: 28px 0;
-          opacity: 0.4;
+          opacity: 0.6;
         }
 
         /* Checklist */
@@ -213,7 +215,7 @@ export default function ApartmentFeatures() {
         .af-check-label {
           font-size: 11.5px; font-weight: 500;
           letter-spacing: 0.04em;
-          color: rgba(215,185,117,0.85);
+          color: #9C7A34;
           text-transform: uppercase;
           font-family: var(--font-sans);
         }
@@ -222,12 +224,12 @@ export default function ApartmentFeatures() {
         .af-card-foot {
           position: absolute;
           bottom: 0; left: 0; right: 0; height: 2px;
-          background: linear-gradient(90deg, transparent, rgba(215,185,117,0.2), transparent);
+          background: linear-gradient(90deg, transparent, rgba(215,185,117,0.35), transparent);
           opacity: 0;
           transition: opacity 0.35s;
         }
         .af-card:hover .af-card-foot { opacity: 1; }
-        .af-card-accent .af-card-foot { opacity: 0.6; }
+        .af-card-accent .af-card-foot { opacity: 0.7; }
 
         /* Responsive */
         @media (max-width: 1024px) {
@@ -281,7 +283,7 @@ export default function ApartmentFeatures() {
                           <CheckCircle2
                             size={14}
                             strokeWidth={2}
-                            color="#D7B975"
+                            color="#B9903F"
                             style={{ flexShrink: 0 }}
                           />
                           <span className="af-check-label">{c}</span>

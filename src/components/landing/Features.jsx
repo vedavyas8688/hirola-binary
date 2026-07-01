@@ -46,19 +46,30 @@ function FeatureRow({ tag, title, body, cta, image, imageAlt, imageRight, onCta 
 
   const textBlock = (
     <div ref={textRef} style={{ display: "flex", flexDirection: "column", gap: "20px", justifyContent: "center", padding: "8px 0" }}>
-      <span style={{ fontFamily: 'var(--font-base)', fontSize: "10px", fontWeight: 600, letterSpacing: "0.24em", textTransform: "uppercase", color: "#D7B975" }}>
+      <span style={{ fontFamily: 'var(--font-base)', fontSize: "10px", fontWeight: 600, letterSpacing: "0.24em", textTransform: "uppercase", color: "#B9903F" }}>
         {tag}
       </span>
-      <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: "clamp(24px, 2.4vw, 36px)", fontWeight: 600, lineHeight: 1.25, color: "#D7B975", margin: 0 }}>
+      <h3 style={{ fontFamily: 'var(--font-serif)', fontSize: "clamp(24px, 2.4vw, 36px)", fontWeight: 600, lineHeight: 1.25, color: "#082B1F", margin: 0 }}>
         {title}
       </h3>
-      <p style={{ fontFamily: 'var(--font-sans)', fontSize: "14px", lineHeight: 1.75, fontWeight: 400, color: "rgba(250,246,235,0.82)", margin: 0, maxWidth: "420px" }}>
+      <p style={{ fontFamily: 'var(--font-sans)', fontSize: "14px", lineHeight: 1.75, fontWeight: 400, color: "rgba(8,43,31,0.78)", margin: 0, maxWidth: "420px" }}>
         {body}
       </p>
       <button
         className="kf-cta"
         onClick={onCta}
-        style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "none", border: "none", padding: 0, cursor: "pointer", fontFamily: 'var(--font-base)', fontSize: "11px", fontWeight: 600, letterSpacing: "0.18em", textTransform: "uppercase", color: "#D7B975", width: "fit-content", transition: "opacity 0.3s" }}
+        style={{
+          display: "inline-flex", alignItems: "center", gap: "10px",
+          background: "linear-gradient(135deg, #E8BA30, #D7B975)",
+          border: "none", borderRadius: "999px",
+          padding: "14px 28px",
+          cursor: "pointer",
+          fontFamily: 'var(--font-base)', fontSize: "11px", fontWeight: 700,
+          letterSpacing: "0.16em", textTransform: "uppercase",
+          color: "#062319", width: "fit-content",
+          boxShadow: "0 10px 26px rgba(215,185,117,0.32)",
+          transition: "opacity 0.3s, transform 0.3s, box-shadow 0.3s",
+        }}
       >
         {cta}
         <svg className="cta-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transition: "transform 0.3s ease" }}>
@@ -71,7 +82,7 @@ function FeatureRow({ tag, title, body, cta, image, imageAlt, imageRight, onCta 
   const imageBlock = (
     <div
       ref={imgRef}
-      style={{ borderRadius: "16px", overflow: "hidden", aspectRatio: "3 / 2", border: "1px solid rgba(215,185,117,0.15)", flexShrink: 0 }}
+      style={{ borderRadius: "16px", overflow: "hidden", aspectRatio: "3 / 2", border: "1px solid rgba(215,185,117,0.25)", flexShrink: 0 }}
       onMouseEnter={(e) => (e.currentTarget.querySelector("img").style.transform = "scale(1.05)")}
       onMouseLeave={(e) => (e.currentTarget.querySelector("img").style.transform = "scale(1)")}
     >
@@ -101,7 +112,7 @@ export default function KeyFeatures() {
         .reveal-right { transform: translateX(32px); }
         .reveal.is-visible { opacity: 1 !important; transform: none !important; }
 
-        .kf-cta:hover { opacity: 0.8; }
+        .kf-cta:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(215,185,117,0.42); }
         .kf-cta:hover .cta-arrow { transform: translateX(4px); }
 
         @media (prefers-reduced-motion: reduce) {
@@ -124,17 +135,17 @@ export default function KeyFeatures() {
 
       <section
         className="kf-features-section"
-        style={{ background: "linear-gradient(180deg, #0B412F, #082B1F)", padding: "80px 80px" }}
+        style={{ background: "#FAF7F0", padding: "80px 80px" }}
       >
         <div
           className="kf-header"
           style={{ maxWidth: "1440px", margin: "0 auto 56px", display: "flex", flexDirection: "column", alignItems: "center", gap: "12px", textAlign: "center" }}
         >
-          <span style={{ fontFamily: 'var(--font-base)', fontSize: "10px", fontWeight: 600, letterSpacing: "0.28em", textTransform: "uppercase", color: "#D7B975" }}>
+          <span style={{ fontFamily: 'var(--font-base)', fontSize: "10px", fontWeight: 600, letterSpacing: "0.28em", textTransform: "uppercase", color: "#B9903F" }}>
             Key Features
           </span>
-          <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: "clamp(28px, 3vw, 42px)", fontWeight: 600, color: "#D7B975", margin: 0, lineHeight: 1.2 }}>
-            Crafted for the <span style={{ fontStyle: "italic", fontWeight: 500 }}>Discerning Few</span>
+          <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: "clamp(28px, 3vw, 42px)", fontWeight: 600, color: "#082B1F", margin: 0, lineHeight: 1.2 }}>
+            Crafted for the <span style={{ fontStyle: "italic", fontWeight: 500, color: "#B9903F" }}>Discerning Few</span>
           </h2>
         </div>
 

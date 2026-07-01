@@ -9,7 +9,7 @@ export default function Locations() {
   return (
     <section
       id="location"
-      className="lp-fade bg-muted-panel py-20 md:py-28 lg:py-[120px]"
+      className="lp-fade bg-bg-cream py-20 md:py-28 lg:py-[120px]"
     >
       <div className="px-5 sm:px-8 md:px-12 lg:px-20 max-w-screen-2xl mx-auto">
         {/* header */}

@@ -1,5 +1,10 @@
-/* ── Fonts — single source for the whole app (Playfair Display, Poppins, Montserrat) ── */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600;700&display=swap');
+/* ── Fonts — single source for the whole app ──
+   To change the site's font at any time, edit ONLY the two spots marked below:
+   1. The Google Fonts @import URL (swap in the font family/weights you want)
+   2. The --font-primary value inside the @theme block further down
+   Every heading, body element, and component reads from --font-primary,
+   so updating it here changes the font across the entire app at once. ── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 /* ============================================================
@@ -32,10 +37,14 @@
   /* Gold:  linear-gradient(135deg, #E8BA30, #ECC96A) */
   /* Green: linear-gradient(180deg, #0B412F, #082B1F) */
 
-  /* ── Typography ── */
-  --font-serif: "Playfair Display", serif;   /* headings h1–h6 */
-  --font-sans:  "Poppins", sans-serif;       /* body text, p */
-  --font-base:  "Montserrat", sans-serif;    /* base UI / html */
+  /* ── Typography ──
+     SINGLE CONTROL POINT: change --font-primary to switch the font
+     for the entire site (headings, body, buttons, forms — everything). */
+  --font-primary: "Inter", sans-serif;
+
+  --font-serif: var(--font-primary);   /* headings h1–h6 */
+  --font-sans:  var(--font-primary);   /* body text, p */
+  --font-base:  var(--font-primary);   /* base UI / html */
 
   /* ── Legacy aliases kept for backward compat ── */
   --color-luxury-greenDark:  hsl(160 70% 8%);
@@ -70,22 +79,22 @@
 
 /* ── Base styles ── */
 html {
-  font-family: var(--font-base), "Montserrat", sans-serif;
+  font-family: var(--font-base), "Inter", sans-serif;
   background-color: var(--clr-bg-cream);
   color: var(--clr-fg-green);
 }
 
 body {
-  font-family: var(--font-sans), "Poppins", sans-serif;
+  font-family: var(--font-sans), "Inter", sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6,
 .font-serif {
-  font-family: var(--font-serif), "Playfair Display", serif;
+  font-family: var(--font-serif), "Inter", sans-serif;
 }
 
 .font-sans {
-  font-family: var(--font-sans), "Poppins", sans-serif;
+  font-family: var(--font-sans), "Inter", sans-serif;
 }
 /* ── Scroll reveal animations (used by components/Reveal.jsx) ── */
 .reveal {

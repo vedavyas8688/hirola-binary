@@ -107,7 +107,7 @@ const STYLES = `
     border: 1px solid rgba(215,185,117,0.28);
     box-shadow: 0 50px 120px rgba(0,0,0,0.55);
     animation: lpopPop .4s cubic-bezier(.22,.61,.36,1) both;
-    font-family: var(--font-sans, 'Poppins', sans-serif);
+    font-family: var(--font-sans, 'Inter', sans-serif);
   }
   /* premium gold accent across the very top of the card */
   .lpop-card::before {
@@ -151,7 +151,7 @@ const STYLES = `
     font-size: 9px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #E8BA30;
   }
   .lpop-title {
-    font-family: var(--font-serif, 'Playfair Display', serif); font-size: 34px; font-weight: 700;
+    font-family: var(--font-serif, 'Inter', sans-serif); font-size: 34px; font-weight: 700;
     margin: 18px 0 6px; line-height: 1.05; letter-spacing: 0.01em;
     background: linear-gradient(120deg, #D7B975, #F0DDAE 55%, #E8BA30);
     -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: #D7B975;
@@ -168,7 +168,7 @@ const STYLES = `
   }
 
   .lpop-right { padding: 40px 34px; display: flex; flex-direction: column; justify-content: center; background: linear-gradient(180deg, #ffffff, #FAF7F0); }
-  .lpop-form-title { font-family: var(--font-serif, 'Playfair Display', serif); font-size: 23px; font-weight: 600; color: #082B1F; margin: 0 0 6px; }
+  .lpop-form-title { font-family: var(--font-serif, 'Inter', sans-serif); font-size: 23px; font-weight: 600; color: #082B1F; margin: 0 0 6px; }
   .lpop-form-sub { font-size: 13px; color: #478570; margin: 0 0 20px; line-height: 1.5; }
   .lpop-form { display: flex; flex-direction: column; gap: 11px; }
   .lpop-form input {
@@ -193,7 +193,7 @@ const STYLES = `
 
   .lpop-success { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 16px 4px; }
   .lpop-check { width: 60px; height: 60px; border-radius: 50%; background: #0B412F; color: #D7B975; display: flex; align-items: center; justify-content: center; margin-bottom: 6px; }
-  .lpop-success h4 { font-family: var(--font-serif, 'Playfair Display', serif); font-size: 24px; color: #082B1F; margin: 0; }
+  .lpop-success h4 { font-family: var(--font-serif, 'Inter', sans-serif); font-size: 24px; color: #082B1F; margin: 0; }
   .lpop-success p { font-size: 13px; color: #478570; margin: 0; }
 
   @media (max-width: 640px) {
